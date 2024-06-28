@@ -1,0 +1,36 @@
+.mainContent {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 70px 0px;
+    /* background-color: #B0C6B5; */
+
+    background-image: url('../../public/images/IMG_3526.PNG');
+    background-size: 100%;
+    background-repeat: repeat-y;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.menuWrap {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Single column by default */
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 1024px) {
+    .menuWrap {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on wider screens */
+    }
+}
+
+.menuContainer {
+    width: 100%;
+
+    justify-self: center;
+    align-self: center;
+}

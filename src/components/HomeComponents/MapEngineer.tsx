@@ -7,10 +7,10 @@ export default function MapEng() {
     //waiting for solution map
 
     return (
-        <div className="flex flex-col items-center gap-2">
-            <div className="w-[320px] h-[190px] bg-white">
+        <div className="w-full flex flex-col items-center gap-2 px-2">
+            <div className="w-full min-h-[280px] bg-white">
             </div>
-            <p className="text-[10px] text-[#404040]">254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+            <p className="text-[10px] text-center text-[#404040]">254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
         </div>
     )
 }
