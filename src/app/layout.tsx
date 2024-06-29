@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { MenuBottomBar } from "@/components/MenuBar";
+import { MenuBottomBar, MenuTopBar } from "@/components/MenuBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <MenuTopBar></MenuTopBar>
         {children}
+        <MenuBottomBar></MenuBottomBar>
       </body>
     </html>
   );

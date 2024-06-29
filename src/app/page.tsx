@@ -3,8 +3,8 @@ import { useState } from "react";
 
 import homeStyles from './home.module.css';
 
-import { LeaderBoardIcon, ClubCollectIcon, StampbookIcon, GamerIconLeft, GamerIconRight, ArrowRightIcon } from "@/icons/HomeIcon";
-import { Logo } from "@/icons/LogoVishnu22";
+import { LeaderBoardIcon, ClubCollectIcon, StampbookIcon, GamerIconLeft, GamerIconRight, ArrowRightIcon } from "@/assets/icons/HomeIcon";
+import { Logo } from "@/assets/icons/LogoVishnu22";
 
 import ButtonNext from "@/components/HomeComponents/ButtonNextPage";
 import { AccordionHome } from "@/components/HomeComponents/Accordion";
@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className={homeStyles.mainContent}>
 
-      {/* <p>Change language</p>
+      {/* <p>Change language</p>*/}
 
       <div className="grid-cols-1 md:grid-cols-2">
         <Logo />
@@ -31,7 +31,7 @@ export default function Home() {
           <p className="w-full font-[600] text-right">ดูทั้งหมด</p>
           <ArrowRightIcon />
         </div>
-      </div> */}
+      </div> 
 {/* 
       <div className="menuWrap">
 
@@ -68,7 +68,7 @@ export default function Home() {
       {/* <AccordionHome />
       <MapEng /> */}
 
-      <SponsorCarousel />
+      {/* <SponsorCarousel /> */}
     </div>
   );
 }
