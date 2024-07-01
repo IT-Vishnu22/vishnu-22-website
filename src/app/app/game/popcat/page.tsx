@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function PopcatPage() {
@@ -19,7 +20,7 @@ export default function PopcatPage() {
     return (
         <>
             <div className="bg-blue-4 relative h-[91px] flex items-center justify-between">
-                <div className="pl-[35px]">---</div>
+                <div className="pl-[35px]"><Link href="/app/game">---</Link></div>
                 <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
                     Pop Cat
                 </h1>
