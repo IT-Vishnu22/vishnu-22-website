@@ -58,7 +58,7 @@ export default function PopcatPage() {
                 </div>
             </div>
             <div className="font-roboto-condensed rounded-t-[50px] bg-white absolute bottom-[85px] w-full px-[40px] py-[25px]">
-                <ul className="text-[16px]">
+                <ul className="text-[20px]">
                     <li className="flex justify-between">
                         <div>
                             <span  className="inline-block w-[30px]">1<sup>st</sup></span>
