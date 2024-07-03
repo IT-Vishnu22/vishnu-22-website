@@ -1,6 +1,6 @@
 import Podiums from "./Podiums";
 
-export default function BlueBG() {
+export default function PodiumsDisplay() {
   return (
     <div className="absolute top-0 w-full z-0">
       <svg
@@ -81,7 +81,10 @@ export default function BlueBG() {
         {/* insert podiums */}
         <defs>
           <clipPath id="clipPath">
-            <path d="M171.998 463.722C185.922 469.653 201.654 469.696 215.61 463.84L388.666 391.232C409.466 382.504 423 362.149 423 339.593V-103C423 -133.928 397.928 -159 367 -159H24C-6.92795 -159 -32 -133.928 -32 -103V339.811C-32 362.258 -18.5969 382.535 2.05405 391.332L171.998 463.722Z" />
+            <path
+              transform="scale(1.001)"
+              d="M171.998 463.722C185.922 469.653 201.654 469.696 215.61 463.84L388.666 391.232C409.466 382.504 423 362.149 423 339.593V-103C423 -133.928 397.928 -159 367 -159H24C-6.92795 -159 -32 -133.928 -32 -103V339.811C-32 362.258 -18.5969 382.535 2.05405 391.332L171.998 463.722Z"
+            />
           </clipPath>
         </defs>
 
