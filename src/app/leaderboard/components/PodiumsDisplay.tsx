@@ -1,3 +1,6 @@
+// PodiumDisplay : most of this components are svg
+// you can edit data in  "./Podiums"
+
 import Podiums from "./Podiums";
 
 export default function PodiumsDisplay() {
@@ -9,6 +12,7 @@ export default function PodiumsDisplay() {
         fill="none"
         className="w-full min-h-[500px]"
       >
+        {/* blue background */}
         <g filter="url(#filter0_i_2717_2858)" className="overflow-hidden">
           <path
             d="M171.998 463.722C185.922 469.653 201.654 469.696 215.61 463.84L388.666 391.232C409.466 382.504 423 362.149 423 339.593V-103C423 -133.928 397.928 -159 367 -159H24C-6.92795 -159 -32 -133.928 -32 -103V339.811C-32 362.258 -18.5969 382.535 2.05405 391.332L171.998 463.722Z"
@@ -78,7 +82,8 @@ export default function PodiumsDisplay() {
             <stop offset="0.83" stop-color="#3E4C68" />
           </linearGradient>
         </defs>
-        {/* insert podiums */}
+
+        {/* podiums inside svg */}
         <defs>
           <clipPath id="clipPath">
             <path
@@ -95,8 +100,6 @@ export default function PodiumsDisplay() {
             </div>
           </foreignObject>
         </g>
-
-        {/* ---------- */}
       </svg>
     </div>
   );

@@ -1,6 +1,9 @@
+// loading state of podium, since it take a while to compile PodiumDisplay components
+
 export default function LoadingPodium() {
   return (
     <div className="absolute top-0 w-full z-0">
+      {/* loading outliner */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 390 469"
@@ -15,6 +18,8 @@ export default function LoadingPodium() {
           />
         </g>
       </svg>
+
+      {/* loading spinner */}
       <div className="absolute top-[40%] left-[45%]">
         <svg
           aria-hidden="true"

@@ -13,12 +13,16 @@ const PodiumsDisplay = dynamic(() => import("./components/PodiumsDisplay"), {
 export default function Leaderboard() {
   return (
     <section className="flex flex-col pb-5  bg-[#F0E5D7] w-full items-center max-h-full min-h-screen">
+      {/* top-3 podium display */}
       <div className="w-full relative top-0 min-h-[500px]">
         <LoadingPodium />
         <PodiumsDisplay />
       </div>
 
+      {/* back icon & title */}
       <Title />
+
+      {/* other sai score */}
       <ScoreDisplay />
     </section>
   );

@@ -1,3 +1,5 @@
+// Podiums item, edit data in name or point field
+
 export default function Podiums() {
   return (
     <div className="absolute text-blue-1 font-athiti w-full h-full items-center justify-center space-x-3 flex flex-row -bottom-[70px]">
@@ -14,6 +16,7 @@ export default function Podiums() {
   );
 }
 
+// config color
 const colorMap: { [key: string]: { [key: string]: string } } = {
   "0": {
     bg: "#FEEBED",
@@ -27,6 +30,7 @@ const colorMap: { [key: string]: { [key: string]: string } } = {
   },
 };
 
+// Podium item
 const Podium = (props: {
   color: string;
   name: string;
@@ -60,6 +64,7 @@ const Podium = (props: {
   );
 };
 
+// star svg
 const Star = (props: { color: string }) => {
   return (
     <svg

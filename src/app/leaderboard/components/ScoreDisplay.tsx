@@ -1,3 +1,4 @@
+// a score of non top-3, edit data in mockData
 interface mockDataInterface {
   name: string;
   score: number;
@@ -26,6 +27,7 @@ export default function ScoreDisplay() {
   );
 }
 
+// mock data for mocking :)
 const mockData: mockDataInterface[] = [
   {
     name: "สายตลอด",
