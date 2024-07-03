@@ -1,14 +1,14 @@
 export default function Podiums() {
   return (
     <div className="absolute text-blue-1 font-athiti w-full items-center justify-center space-x-3 flex flex-row bottom-0">
-      <div>
-        <Podium color="1" name="สายตลอด" points={40000} />
+      <div className="pt-[100px]">
+        <Podium color="1" name="สายเสมอ" points={25000} place={["2", "nd"]} />
       </div>
-      <div>
-        <Podium color="0" name="สายตลอด" points={40000} />
+      <div className="pt-0">
+        <Podium color="0" name="สายตลอด" points={40000} place={["1", "st"]} />
       </div>
-      <div>
-        <Podium color="1" name="สายตลอด" points={40000} />
+      <div className="pt-[180px]">
+        <Podium color="1" name="สายอีก" points={12300} place={["3", "rd"]} />
       </div>
     </div>
   );
@@ -27,7 +27,12 @@ const colorMap: { [key: string]: { [key: string]: string } } = {
   },
 };
 
-const Podium = (props: { color: string; name: string; points: number }) => {
+const Podium = (props: {
+  color: string;
+  name: string;
+  points: number;
+  place: string[];
+}) => {
   return (
     <div
       className="w-[100px] h-[307px] text-xl rounded-lg justify-start flex flex-col items-center"
@@ -36,21 +41,21 @@ const Podium = (props: { color: string; name: string; points: number }) => {
       <div className="w-full h-auto flex items-center justify-center">
         <Star color={colorMap[props.color].star} />
         <p
-          className="absolute  text-4xl font-bold font-roboto-condensed mt-2 -ml-3"
+          className="absolute  text-4xl font-bold font-roboto-condensed mt-3 -ml-4"
           style={{ color: colorMap[props.color].textStar }}
         >
-          1
+          {props.place[0]}
         </p>
         <p
-          className="absolute text-lg font-bold font-roboto-condensed -mt-2 ml-4"
+          className="absolute text-lg font-bold font-roboto-condensed -mt-1 ml-5"
           style={{ color: colorMap[props.color].textStar }}
         >
-          st
+          {props.place[1]}
         </p>
       </div>
 
       <p>{props.name}</p>
-      <p className="text font-roboto-condensed">{props.points} pt</p>
+      <p className="font-roboto-condensed font-semibold">{props.points} pt</p>
     </div>
   );
 };
