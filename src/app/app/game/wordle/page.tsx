@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import wordList from './wordList.json'
+import { BackIcon } from "@/components/BackIcon";
 
 export default function WordlePage() {
 
@@ -52,7 +53,7 @@ export default function WordlePage() {
         <div>
 
             <div className="bg-blue-4 relative h-[91px] flex items-center justify-between">
-                <div className="pl-[35px]"><Link href="/app/game">---</Link></div>
+                <div className="pl-[35px]"><Link href="/app/game"><BackIcon/></Link></div>
                 <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
                     Wordle
                 </h1>

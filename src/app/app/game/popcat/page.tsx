@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ScoreDisplay from "@/components/ScoreDisplay";
+import { BackIcon } from "@/components/BackIcon";
 
 export default function PopcatPage() {
     const [ picUrl, setPicUrl ] = useState('/pic1.jpg');
@@ -36,14 +37,14 @@ export default function PopcatPage() {
     }
 
     return (
-        <>
-            <div className="bg-blue-4 relative h-[91px] flex items-center justify-between">
-                <div className="pl-[35px]"><Link href="/app/game">---</Link></div>
+        <div className="flex flex-col h-full">
+            <div className="flex-none bg-blue-4 relative h-[91px] flex items-center justify-between">
+                <div className="pl-[35px]"><Link href="/app/game"><BackIcon/></Link></div>
                 <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
                     Pop Cat
                 </h1>
             </div>
-            <div className="relative w-full h-[60%]"
+            <div className="relative w-full grow"
                 onTouchStart={touchStart} onTouchEnd={touchEnd}
                 onMouseDown={touchStart} onMouseUp={touchEnd}>
                 <h1 className="absolute right-16 left-16 pt-5 text-center font-bold font-roboto-condensed text-[60px]">
@@ -59,7 +60,7 @@ export default function PopcatPage() {
                         alt="pop element" />
                 </div>
             </div>
-            <ScrollArea className="flex items-stretch font-roboto-condensed rounded-t-[50px] bg-white absolute bottom-[90px] w-full px-[20px] py-[20px] h-[200px]">
+            <ScrollArea className="flex-none items-stretch font-roboto-condensed rounded-t-[50px] bg-white sticky bottom-[85px] w-full px-[15px] pt-[20px] h-[200px]">
                 <ScoreDisplay start={1}/>
             </ScrollArea>
             {/* <div className="font-roboto-condensed rounded-t-[50px] bg-white absolute bottom-[85px] w-full px-[40px] py-[25px]">
@@ -94,6 +95,6 @@ export default function PopcatPage() {
                     </li>
                 </ul>
             </div> */}
-        </>
+        </div>
     )
 }
