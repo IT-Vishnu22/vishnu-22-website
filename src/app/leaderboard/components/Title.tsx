@@ -1,8 +1,13 @@
+import Link from "next/link";
+
 export default function Title() {
   return (
     <>
       <div className="w-full pt-[35px] absolute items-center top-0 flex flex-row justify-start px-[30px]">
-        <BackIcon />
+        <Link href="/">
+          <BackIcon />
+        </Link>
+
         <p className="text-3xl relative text-white self-center flex-1 text-center font-semibold">
           LeaderBoard
         </p>
