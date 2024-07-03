@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import ScoreDisplay from "@/components/ScoreDisplay";
 
 export default function PopcatPage() {
     const [ picUrl, setPicUrl ] = useState('/pic1.jpg');
@@ -57,7 +59,10 @@ export default function PopcatPage() {
                         alt="pop element" />
                 </div>
             </div>
-            <div className="font-roboto-condensed rounded-t-[50px] bg-white absolute bottom-[85px] w-full px-[40px] py-[25px]">
+            <ScrollArea className="flex items-stretch font-roboto-condensed rounded-t-[50px] bg-white absolute bottom-[90px] w-full px-[20px] py-[20px] h-[200px]">
+                <ScoreDisplay start={1}/>
+            </ScrollArea>
+            {/* <div className="font-roboto-condensed rounded-t-[50px] bg-white absolute bottom-[85px] w-full px-[40px] py-[25px]">
                 <ul className="text-[20px]">
                     <li className="flex justify-between">
                         <div>
@@ -88,7 +93,7 @@ export default function PopcatPage() {
                         <div><span>666</span><span> pts</span></div>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </>
     )
 }
