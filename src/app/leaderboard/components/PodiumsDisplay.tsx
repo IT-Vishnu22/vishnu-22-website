@@ -2,7 +2,7 @@ import Podiums from "./Podiums";
 
 export default function PodiumsDisplay() {
   return (
-    <div className="absolute top-0 w-full z-0">
+    <div className="relative top-0 w-full z-0">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 390 469"
