@@ -82,7 +82,7 @@ export default function WordlePage() {
     );
 }
 
-function PopUp({ message, onClick }) {
+function PopUp({ message, onClick }: { message: string, onClick: VoidFunction}) {
 
     const bgColor = (message === 'You won!')
     ? 'bg-green-300'
@@ -106,7 +106,7 @@ function PopUp({ message, onClick }) {
     );
 }
 
-function Guess({ answer, guess, isGuessed }) {
+function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, isGuessed: boolean }) {
     // to do: collect guess for each person so that it does not change even after reload
     return (
 
