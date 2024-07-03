@@ -1,15 +1,22 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
+    backgroundImage: {
+      "login-gradient": "linear-gradient(180deg, #92A697 29.42%, #1F2A4B 100%)",
+    },
+    fontFamily: {
+      "roboto-condensed": ["Roboto Condensed", "sans-serif"],
+      "athiti" : ["Athiti", "sans-serif"]
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -52,6 +59,26 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        cream: "#ECD8C1",
+        pink: {
+          DEFAULT: "#FECCCC",
+          1: "#FECCCC",
+          2: "#FEEBED",
+          3: "#F45868",
+          4: "#BA7494",
+        },
+        green: {
+          DEFAULT: "#B0C6B5",
+          1: "#B0C6B5",
+          2: "#506A53",
+        },
+        blue: {
+          DEFAULT: "#2A334E",
+          1: "#2A334E",
+          2: "#3E4C68",
+          3: "#00557C",
+          4: "#427383",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,6 +102,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
