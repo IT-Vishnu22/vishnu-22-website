@@ -1,6 +1,6 @@
 export default function Podiums() {
   return (
-    <div className="absolute text-blue-1 font-athiti w-full items-center justify-center space-x-3 flex flex-row bottom-0">
+    <div className="absolute text-blue-1 font-athiti w-full h-full items-center justify-center space-x-3 flex flex-row -bottom-[70px]">
       <div className="pt-[100px]">
         <Podium color="1" name="สายเสมอ" points={25000} place={["2", "nd"]} />
       </div>
@@ -22,7 +22,7 @@ const colorMap: { [key: string]: { [key: string]: string } } = {
   },
   "1": {
     bg: "#FFF",
-    star: "#FEEBED",
+    star: "#FECCCC",
     textStar: "#2A334E",
   },
 };
@@ -35,7 +35,7 @@ const Podium = (props: {
 }) => {
   return (
     <div
-      className="w-[100px] h-[307px] text-xl rounded-lg justify-start flex flex-col items-center"
+      className="w-[100px] h-[350px] text-xl rounded-lg justify-start flex flex-col items-center"
       style={{ backgroundColor: colorMap[props.color].bg }}
     >
       <div className="w-full h-auto flex items-center justify-center">
