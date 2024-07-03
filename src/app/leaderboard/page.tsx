@@ -1,12 +1,12 @@
 "use client";
 
-import LoadingPodium from "./components/loadingPodium";
-import ScoreDisplay from "./components/ScoreDisplay";
-import Title from "./components/Title";
+import LoadingPodium from "../../components/loadingPodium";
+import ScoreDisplay from "../../components/ScoreDisplay";
+import Title from "../../components/Title";
 
 import dynamic from "next/dynamic";
 
-const PodiumsDisplay = dynamic(() => import("./components/PodiumsDisplay"), {
+const PodiumsDisplay = dynamic(() => import("../../components/PodiumsDisplay"), {
   ssr: false,
 });
 
@@ -23,7 +23,7 @@ export default function Leaderboard() {
       <Title />
 
       {/* other sai score */}
-      <ScoreDisplay />
+      <ScoreDisplay start={4}/>
     </section>
   );
 }
