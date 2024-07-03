@@ -16,7 +16,6 @@ const config = {
     fontFamily: {
       "roboto-condensed": ["Roboto Condensed", "sans-serif"],
       "athiti" : ["Athiti", "sans-serif"],
-      "roboto-condensef" : ["Roboto Condensed", "sans-serif"]
     },
     container: {
       center: true,
