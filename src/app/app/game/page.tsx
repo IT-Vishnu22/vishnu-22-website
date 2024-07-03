@@ -17,11 +17,11 @@ export default function GamePage() {
               มาเล่นเกมต่างๆ <br/>และแข่งขันกับเพื่อนๆ กัน!</h2>
         </div>
         {/* delete border */}
-        <div className="border-[1px] border-red-500 flex flex-col gap-[5%] grow max-h-[500px]">
+        <div className="flex flex-col gap-[5%] grow max-h-[500px]">
 
           <div className="w-[330px] mx-auto max-[425px]:w-[80%] h-[45%] [@media(max-height:750px)]:h-[40%] flex">
 
-            <div className="max-h-[255px] max-[345px]:max-h-[200px] mx-auto bg-blue-4 rounded-[24px] border-[5px] h-full border-[#2A334E] shadow-[9px_9px_0px_0px_rgba(42,51,78)]">
+            <div className="max-h-[255px] max-[345px]:max-h-[200px] mx-auto bg-blue-4 bg-contain rounded-[24px] border-[5px] h-full border-[#2A334E] shadow-[9px_9px_0px_0px_rgba(42,51,78)]">
 
               <div className=" flex flex-row m-auto gap-2 w-full h-[24px] justify-center">
                 <div className="rounded-full border-[4px] border-[#EDEDED] size-[5px] my-auto"></div>
@@ -82,7 +82,7 @@ export default function GamePage() {
           </div>
         </div>
         {/* delete border */}
-        <div className="border border-blue-700 w-full h-[89px]"></div>
+        <div className="w-full h-[89px]"></div>
     </div>
 
   );

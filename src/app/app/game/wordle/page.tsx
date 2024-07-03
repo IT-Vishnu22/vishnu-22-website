@@ -49,8 +49,12 @@ export default function WordlePage() {
         setPopUpMessage('');
     }
 
+    function handleRulePopUpClick() {
+
+    }
+
     return (
-        <div>
+        <div className="font-roboto-condensed">
 
             <div className="bg-blue-4 relative h-[91px] flex items-center justify-between">
                 <div className="pl-[35px]"><Link href="/app/game"><BackIcon/></Link></div>
@@ -65,13 +69,18 @@ export default function WordlePage() {
                     message={popUpMessage}
                     onClick={handlePopUpClick}
                 />}
+
+                <div className="flex">
+                    <Button type="button" className="w-20 h-10 font-bold border-4 border-blue-1 bg-blue-4 hover:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]" onClick={handleRulePopUpClick}>Rules</Button>
+                </div>
+
                 <Guess
                     answer={"hello"}
                     guess={guess.toLowerCase()}
                     isGuessed={isGuessed}
                 />
                 <Button
-                    className="w-32 h-16 font-bold border-4 border-blue-1 bg-blue-4 hover:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
+                    className="w-32 h-16 font-bold border-4 text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
                     type="submit"
                     onClick={handleSubmitClick}
                 >
