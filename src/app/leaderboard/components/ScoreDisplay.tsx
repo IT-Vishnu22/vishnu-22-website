@@ -5,13 +5,13 @@ interface mockDataInterface {
 
 export default function ScoreDisplay() {
   return (
-    <div className="w-[90%]">
-      <table className="table-auto flex flex-col items-center font-athiti font-[450] text-2xl text-blue-1 w-[90%]">
-        <tbody>
+    <div className="w-[90%] relative flex flex-col font-athiti font-[450] text-2xl text-blue-1 ">
+      <table className="w-[90%]">
+        <tbody className="w-full">
           {mockData.map((item, index: number) => (
             <tr key={index} className="w-full">
               <td className="w-[20%]">
-                <div className="w-[20px] relative">
+                <div className="w-full relative">
                   <p>{index + 3}</p>
                   <p className="absolute top-0 text-sm left-3">th</p>
                 </div>
