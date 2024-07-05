@@ -8,7 +8,7 @@ export default function GamePage() {
 
         <div className="items-center flex flex-col">
             <h1 className="text-center font-bold font-roboto-condensed text-[32px] text-blue-2 m-auto mt-[22px]">
-              Game
+              Games
             </h1>
 
         </div>
@@ -19,7 +19,7 @@ export default function GamePage() {
         {/* delete border */}
         <div className="flex flex-col gap-[5%] grow max-h-[500px]">
 
-          <div className="w-[330px] mx-auto max-[425px]:w-[80%] h-[45%] [@media(max-height:750px)]:h-[40%] flex">
+          <div className="mx-auto max-[425px]:w-[85%] h-[45%] [@media(max-height:750px)]:h-[40%] flex">
 
             <div className="max-h-[255px] max-[345px]:max-h-[200px] mx-auto bg-blue-4 bg-contain rounded-[24px] border-[5px] h-full border-[#2A334E] shadow-[9px_9px_0px_0px_rgba(42,51,78)]">
 
@@ -29,7 +29,7 @@ export default function GamePage() {
                 <div className="rounded-full border-[4px] border-[#EDEDED] size-[5px] my-auto"></div>
               </div>
 
-              <div className="h-full px-[30px] w-full">
+              <div className="h-full px-[24px] w-full">
                 <div className="h-[60%]">
                 <Link href="/app/game/wordle">
                   <Image src='/wordle_box.svg'
@@ -40,7 +40,7 @@ export default function GamePage() {
                 </div>
 
                 <div className=" h-[30%] [@media(max-height:750px)]:h-[27%] max-[345px]:h-[27%] flex flex-col place-content-center">
-                  <Link href="/app/game/wordle"><Button className="rounded-full w-full font-roboto-condensed font-bold text-[24px] text-blue-2 bg-[#ECD8C1] hover:bg-white hover:drop-shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">Play</Button></Link>
+                  <Link href="/app/game/wordle"><Button className="rounded-full h-[38px] w-full font-roboto-condensed font-bold text-[24px] text-blue-2 bg-[#ECD8C1] hover:bg-white hover:drop-shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">Play</Button></Link>
                 </div>
                 
               </div>
@@ -50,7 +50,7 @@ export default function GamePage() {
 
           </div>
 
-          <div className="w-[330px] mx-auto max-[425px]:w-[80%] h-[45%] [@media(max-height:750px)]:h-[40%] flex">
+          <div className="mx-auto max-[425px]:w-[85%] h-[45%] [@media(max-height:750px)]:h-[40%] flex">
 
             <div className="max-h-[255px] max-[345px]:max-h-[200px] mx-auto bg-blue-4 rounded-[24px] border-[5px] h-full border-[#2A334E] shadow-[9px_9px_0px_0px_rgba(42,51,78)]">
 
@@ -60,7 +60,7 @@ export default function GamePage() {
                 <div className="rounded-full border-[4px] border-[#EDEDED] size-[5px] my-auto"></div>
               </div>
 
-              <div className="h-full px-[30px] w-full">
+              <div className="h-full px-[24px] w-full">
                 <div className="h-[60%]">
                 <Link href="/app/game/popcat">
                   <Image src='/popcat_box_placeholder.svg'
@@ -71,7 +71,7 @@ export default function GamePage() {
                 </div>
 
                 <div className=" h-[30%] [@media(max-height:750px)]:h-[27%] max-[345px]:h-[27%] flex flex-col place-content-center">
-                  <Link href="/app/game/popcat"><Button className="rounded-full w-full font-roboto-condensed font-bold text-[24px] text-blue-2 bg-[#ECD8C1] hover:bg-white hover:drop-shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">Play</Button></Link>
+                  <Link href="/app/game/popcat"><Button className="rounded-full h-[38px] w-full font-roboto-condensed font-bold text-[24px] text-blue-2 bg-[#ECD8C1] hover:bg-white hover:drop-shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">Play</Button></Link>
                 </div>
                 
               </div>
