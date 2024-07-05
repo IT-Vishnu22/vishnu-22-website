@@ -1,0 +1,60 @@
+{
+  "imageSetting": [
+    {
+      "key": 1,
+      "imageRotate": 5.825,
+      "dropShadow": "-14px_20px_0px_#D98487",
+      "width": 201.049,
+      "height": 133.85
+    },
+    {
+      "key": 2,
+      "imageRotate": -8.317,
+      "dropShadow": "-20px_25px_0px_#D98487",
+      "width": 220.423,
+      "height": 154.596
+    },
+    {
+      "key": 3,
+      "imageRotate": 16.406,
+      "dropShadow": "20px_29px_0px_#D98487",
+      "width": 226.876,
+      "height": 177.997
+    },
+    {
+      "key": 4,
+      "imageRotate": -2.36,
+      "dropShadow": "15px_20px_0px_#D98487",
+      "width": 240.854,
+      "height": 137.686
+    },
+    {
+      "key": 5,
+      "imageRotate": -14.762,
+      "dropShadow": "-20px_29px_0px_#D98487",
+      "width": 220.145,
+      "height": 154.596
+    },
+    {
+      "key": 6,
+      "imageRotate": 5.825,
+      "dropShadow": "15px_29px_0px_#D98487",
+      "width": 203.698,
+      "height": 131.198
+    },
+    {
+      "key": 7,
+      "imageRotate": 8.317,
+      "dropShadow": "-10px_29px_0px_#D98487",
+      "width": 271.736,
+      "height": 162.19
+    },
+    {
+      "key": 8,
+      "imageRotate": 1.914,
+      "dropShadow": "20px 25px 0px #D98487",
+      "width": 220.423,
+      "height": 154.596
+    }
+  ]
+}
