@@ -14,7 +14,7 @@ export default function DetailPage({ params }: { params: { detail: string } }) {
   const questionDetails: QuestionData = getQuestionDetail(params.detail);
 
   return (
-    <main className="w-full bg-green-1">
+    <main className="mb-[85px] w-full bg-green-1">
       <header className="grid grid-cols-4 items-center bg-blue-4 p-8 text-[32px] font-semibold text-white">
         <Link href="/app/stampbook" className="text-blue-3">
           <Image
@@ -40,7 +40,7 @@ export default function DetailPage({ params }: { params: { detail: string } }) {
       <p className="px-5 py-9 text-base font-medium text-blue-1">
         {questionDetails.Fact}
       </p>
-      <section className="rounded-t-[50px] bg-[#FFFBF4]">
+      <section className="rounded-t-[50px] bg-[#FFFBF4] p-10">
         <InputForm />
       </section>
     </main>
