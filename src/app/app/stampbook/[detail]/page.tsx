@@ -40,7 +40,7 @@ export default function DetailPage({ params }: { params: { detail: string } }) {
       <p className="px-5 py-9 text-base font-medium text-blue-1">
         {questionDetails.Fact}
       </p>
-      <section className="fixed bottom-[85px] w-full rounded-t-[50px] bg-[#FFFBF4] p-10">
+      <section className="fixed bottom-[85px] w-full rounded-t-[50px] bg-[#FFFBF4] p-10 md:max-w-[390px]">
         <InputForm />
       </section>
     </main>
