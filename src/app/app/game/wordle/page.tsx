@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { BackIcon } from "@/components/BackIcon";
-import { InfoIcon } from "@/components/InfoIcon";
+import { QuestionIcon } from "@/components/QuestionIcon";
 import { CloseIcon } from '@/components/CloseIcon';
 
 export default function WordlePage() {
@@ -22,12 +22,11 @@ export default function WordlePage() {
         return () => {
             window.removeEventListener("keyup", handleKeyUp);
         }
-    }, [guess]);
+    }, [guess, isGuessed]);
 
 
     function handleKeyUp(e: { key: string; }) {
         let key = e.key;
-        // (1) to do: fix bug where user is still able to delete 1 letter before not being able to
         if (isGuessed === true) {
             return 0;
         }
@@ -58,9 +57,6 @@ export default function WordlePage() {
             setPopUpMessage('The answer isn\'t quite your guess. Maybe discuss with your group?')
             setIsGuessed(true);
         }
-
-        // for debugging (1)
-        if (isGuessed){console.log('yes')}
     }
 
     function handlePopUpClick() {
@@ -79,7 +75,7 @@ export default function WordlePage() {
                 <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
                     Wordle
                 </h1>
-                <div className="pr-[35px]"><Link href="" onClick={handleRulePopUpClick}><InfoIcon /></Link></div>
+                <div className="pr-[35px]"><Link href="" onClick={handleRulePopUpClick}><QuestionIcon /></Link></div>
             </div>
 
             {popUpMessage != '' &&
@@ -115,11 +111,11 @@ function PopUp({ message, onClick }: { message: string, onClick: VoidFunction })
         : (message === 'Please enter a 5-letter word.') || (message === 'Please enter a valid word.')
             ? 'bg-yellow-300'
             : 'bg-gray-300'
-
+    
     return (
         <div className="flex justify-center">
-            <div className={` ${bgColor} border-2 border-black rounded-xl p-4 m-4 absolute flex items-start`}>
-                <div className="pt-8">
+            <div className={` ${bgColor} border-2 border-[rgba(0,0,0,0.7)] rounded-xl p-4 m-8 absolute flex items-start`}>
+                <div className="pt-4">
                     {message === 'rules'
                         ? <p><b>Welcome to Wordle!</b> Before playing, here are some rules:<br /><br />1. You can only guess a 5-letter word once.<br />2. Group score is based on how many people correctly guess the word.<br />3. You can discuss within your group what the answer is.<br /><br />Have fun!</p>
                         : <p className="text-center">{message}</p>
@@ -127,7 +123,7 @@ function PopUp({ message, onClick }: { message: string, onClick: VoidFunction })
                 </div>
 
                 <Button
-                    className="bg-transparent hover:bg-[rgba(0,0,0,0.1)] text-black absolute top-0 right-0 m-2"
+                    className="h-5 mt-2 -mr-2 bg-transparent hover:bg-transparent text-black absolute top-0 right-0"
                     onClick={onClick}
                 >
                     <CloseIcon />
