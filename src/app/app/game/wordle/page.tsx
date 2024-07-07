@@ -137,7 +137,7 @@ function PopUp({ message, onClick }: { message: string, onClick: VoidFunction })
 function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, isGuessed: boolean }) {
     return (
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mx-2">
             <div className="grid grid-cols-5 gap-2">
                 {new Array(5).fill(0).map((_, i) => {
                     const bgColor = !isGuessed
