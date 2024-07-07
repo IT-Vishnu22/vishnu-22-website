@@ -23,7 +23,7 @@ const FormSchema = z.object({
   }),
 });
 
-export default function InputForm() {
+export default function InputForm({ question }: { question: String }) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -56,9 +56,7 @@ export default function InputForm() {
               <FormDescription className="mb-4 text-sm">
                 คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้
               </FormDescription>
-              <FormLabel className="text-base">
-                โจทย์โจทย์โจทย์โจทย์โจทย์
-              </FormLabel>
+              <FormLabel className="text-base">{question}</FormLabel>
               <FormControl>
                 <Input
                   className="rounded-none bg-[#E8EDE9]"
