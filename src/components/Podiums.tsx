@@ -1,6 +1,5 @@
 // Podiums item, edit data in name or point field
 
-
 export default function Podiums(props : {type:string}) {
   let colorMap = (props.type === "game" ? gameColorMap : waterColorMap);
 
@@ -82,7 +81,7 @@ const Podium = ({ color, name, points, place, colorMap, type }: PodiumProps) => 
       </div>
 
       <p>{name}</p>
-      <p className="6font-roboto-condensed">{points} pts</p>
+      <p className="font-roboto-condensed">{points}{type==="game" ? " pts" : "%"}</p>
     </div>
   );
 };
