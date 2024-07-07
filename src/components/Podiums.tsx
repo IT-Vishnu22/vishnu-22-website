@@ -7,13 +7,13 @@ export default function Podiums(props : {type:string}) {
   return (
     <div className="absolute text-blue-1 font-athiti w-full h-full items-center justify-center space-x-3 flex flex-row -bottom-[70px]">
       <div className="pt-[100px]">
-        <Podium color="1" name="สายเสมอ" points={25000} place={["2", "nd"]} colorMap={colorMap} />
+        <Podium color="1" name="สายเสมอ" points={25000} place={["2", "nd"]} colorMap={colorMap}  type={props.type} />
       </div>
       <div className="pt-0">
-        <Podium color="0" name="สายตลอด" points={40000} place={["1", "st"]} colorMap={colorMap} />
+        <Podium color="0" name="สายตลอด" points={40000} place={["1", "st"]} colorMap={colorMap} type={props.type}/>
       </div>
       <div className="pt-[180px]">
-        <Podium color="1" name="สายอีก" points={12300} place={["3", "rd"]} colorMap={colorMap} />
+        <Podium color="1" name="สายอีก" points={12300} place={["3", "rd"]} colorMap={colorMap} type={props.type}/>
       </div>
     </div>
   );
@@ -54,17 +54,19 @@ interface PodiumProps{
   name: string;
   points: number;
   place: string[];
-  colorMap : { [key: string]: { [key: string]: string; }; }
+  colorMap : { [key: string]: { [key: string]: string; }; };
+  type : string;
 }
 
-const Podium = ({ color, name, points, place, colorMap }: PodiumProps) => {
+const Podium = ({ color, name, points, place, colorMap, type }: PodiumProps) => {
   return (
     <div
       className="w-[100px] h-[350px] text-xl rounded-lg justify-iconBGt flex flex-col items-center"
       style={{ backgroundColor: colorMap[color].bg }}
     >
       <div className="w-full h-auto flex items-center justify-center">
-        <Star color={colorMap[color].iconBG} />
+        {type==="game" && <Star color={colorMap[color].iconBG} />}
+        {type==="water" && <Water color={colorMap[color].iconBG} />}
         <p
           className="absolute  text-4xl font-bold font-roboto-condensed mt-3 -ml-4"
           style={{ color: colorMap[color].textInIcon }}
@@ -114,7 +116,7 @@ const Water = ({color}: { color: string }) => {
       height="73"
       viewBox="0 0 78 73"
       fill="none"
-      className="mt-[20px]  mb-[15px]"
+      className="mt-[20px]  mb-[15px] ml-[21px]"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="56" height="71" viewBox="0 0 56 71" fill="none">
         <path d="M54 42.5C54 28.1415 28 3.5 28 3.5C28 3.5 2 28.1415 2 42.5C2 49.3956 4.73928 56.0088 9.61522 60.8848C14.4912 65.7607 21.1044 68.5 28 68.5C34.8956 68.5 41.5088 65.7607 46.3848 60.8848C51.2607 56.0088 54 49.3956 54 42.5Z"
