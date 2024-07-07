@@ -39,7 +39,7 @@ export default function Leaderboard() {
       <ScoreDisplay start={4}/>
       
       {/* Toggle Icon */}
-      <div className="absolute top-[35px] right-[20px]" onClick={(e)=>{
+      <div className="absolute top-[38px] right-[20px]" onClick={(e)=>{
         handleToggle()
       }}>
         <ToggleIcon />

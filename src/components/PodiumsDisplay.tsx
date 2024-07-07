@@ -99,7 +99,7 @@ export default function PodiumsDisplay(props : {type : string}) {
         <g clipPath="url(#clipPath)">
           <foreignObject x="0" y="0" width="400" height="500">
             <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
-              <Podiums />
+              <Podiums type={props.type} />
             </div>
           </foreignObject>
         </g>
