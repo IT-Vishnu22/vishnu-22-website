@@ -44,26 +44,45 @@ export default function InputForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full text-[#555]"
+      >
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
+              <FormDescription className="mb-4 text-sm">
+                คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้
               </FormDescription>
+              <FormLabel className="text-base">
+                โจทย์โจทย์โจทย์โจทย์โจทย์
+              </FormLabel>
+              <FormControl>
+                <Input
+                  className="rounded-none bg-[#E8EDE9]"
+                  placeholder="คำตอบ"
+                  {...field}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div className="flex justify-between">
-          <Button type="reset">Cancel</Button>
-          <Button type="submit">Submit</Button>
+        <div className="mt-0 flex justify-between px-16 py-4 text-white">
+          <Button
+            type="reset"
+            className="h-7 w-20 rounded-none bg-pink-3 hover:bg-pink-3/90"
+          >
+            ยกเลิก
+          </Button>
+          <Button
+            type="submit"
+            className="h-7 w-20 rounded-none bg-green-2 hover:bg-green-2/90"
+          >
+            ตกลง
+          </Button>
         </div>
       </form>
     </Form>

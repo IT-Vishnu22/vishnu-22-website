@@ -1,10 +1,34 @@
 import Image from "next/image";
-import LockImage from "./images/lock.svg";
 import Link from "next/link";
+import Config from "./config.json";
+import Question from "./question.json";
+
+type ConfigData = {
+  key: number;
+  imageRotate: number;
+  dropShadow: string;
+  width: number;
+  height: number;
+  posX: number;
+  posY: number;
+  line: {
+    rotate: number;
+    posX: number;
+    posY: number;
+  };
+};
+
+export type QuestionData = {
+  NameTH: string;
+  NameEN: string;
+  Question: String;
+  Answer: string;
+  Fact: string | [string];
+};
 
 export default function StampbookPage() {
   return (
-    <div className="flex flex-col items-center justify-evenly">
+    <div className="flex flex-col items-center justify-evenly overflow-hidden">
       <h1 className="text-[32px] font-bold text-blue-1">Stamp Book</h1>
       <div className="h-[190px] w-[320px] bg-gray-300">
         <img
@@ -13,69 +37,51 @@ export default function StampbookPage() {
           alt="stampbook page"
         />
       </div>
-      <div className="relative w-auto pb-80">
-        <Link
-          href={`/app/stampbook/${"first"}`}
-          className="w-auto drop-shadow-[-14px_20px_0px_#D98487] filter"
-        >
-          <img
-            className="relative rotate-[5.825deg]"
-            src="https://placehold.co/200x100"
-            alt="First image of stampbook page"
-          />
-          {/* <Image
-            className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
-            src={LockImage}
-            alt="This Image Locked"
-          /> */}
-        </Link>
-        <div className="w-auto drop-shadow-[-20px_25px_0px_#D98487] filter">
-          <img
-            className="-rotate-[8.317deg]"
-            src="https://placehold.co/200x100"
-            alt="Second image of stampbook page"
-          />
-          {/* <Image
-            className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
-            src={LockImage}
-            alt="This Image Locked"
-          /> */}
-        </div>
-        <div className="w-auto drop-shadow-[20px_29px_0px_#D98487] filter">
-          <img
-            className="rotate-[16.406deg]"
-            src="https://placehold.co/200x100"
-            alt="Thrid image of stampbook page"
-          />
-        </div>
-        <div className="w-auto drop-shadow-[15px_20px_0px_#D98487] filter">
-          <img
-            className="-rotate-[2.36deg]"
-            src="https://placehold.co/200x100"
-            alt="Fourth image of stampbook page"
-          />
-        </div>
-        <div className="w-auto drop-shadow-[-20px_29px_0px_#D98487] filter">
-          <img
-            className="-rotate-[14.762deg]"
-            src="https://placehold.co/200x100"
-            alt="Fifth image of stampbook page"
-          />
-        </div>
-        <div className="w-auto drop-shadow-[15px_29px_0px_#D98487] filter">
-          <img
-            className="rotate-[5.825deg]"
-            src="https://placehold.co/200x100"
-            alt="Sixth image of stampbook page"
-          />
-        </div>
-        <div className="w-auto drop-shadow-[-10px_29px_0px_#D98487] filter">
-          <img
-            className="-rotate-[8.317deg]"
-            src="https://placehold.co/200x100"
-            alt="Seventh image of stampbook page"
-          />
-        </div>
+      <div className="flex w-auto flex-col pb-96 pt-16">
+        {Question.QuestFirstDate.Locations.map((item, index) => {
+          const questionDetails: QuestionData = item;
+          const styleConfig: ConfigData = Config.imageSetting[index];
+
+          return (
+            <Link
+              key={questionDetails.NameEN.replace(" ", "-")}
+              href={`/app/stampbook/${questionDetails.NameEN.replaceAll(" ", "-")}`}
+              style={{
+                height: `${styleConfig.height}px`,
+                width: `${styleConfig.width}px`,
+                transform: `translate(${styleConfig.posX}%, ${styleConfig.posY}%)  rotate(${styleConfig.imageRotate}deg)`,
+              }}
+            >
+              <Image
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  filter: `drop-shadow(${styleConfig.dropShadow})`,
+                }}
+                loading="lazy"
+                src={`/stampbookImages/${questionDetails.NameTH}.jpg`}
+                alt={`${questionDetails.NameEN} location image`}
+                fill={true}
+              />
+              <Image
+                className="absolute inset-0 z-20 m-auto h-8 w-8"
+                src="/stampbookImages/lock.svg"
+                alt="lock meaning this image is lock"
+                width={32}
+                height={32}
+              />
+              <div className="absolute inset-0 z-10 bg-black opacity-70"></div>
+              {index < 7 && (
+                <div
+                  style={{
+                    transform: `translate(${styleConfig.line.posX}%, ${styleConfig.line.posY}%) rotate(${styleConfig.line.rotate}deg)`,
+                  }}
+                  className="pointer-events-none absolute bottom-0 -z-10 h-3 w-full bg-[#FF4B4B]"
+                ></div>
+              )}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
