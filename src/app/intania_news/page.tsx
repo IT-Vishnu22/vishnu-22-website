@@ -9,15 +9,15 @@ export default function Home() {
     <div>
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp">
-          <Image className="" src={vectorImage} alt="vector graphic" />
+          {/*<Image className="" src={vectorImage} alt="vector graphic" />*/}
         </a>
-        <div className="font-roboto-condensed text-2xl">intania news</div>
+        <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>
 
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="https://placehold.co/1080x720"
+            src="/intaniastorypics/Vishnu20th.jpg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -58,7 +58,7 @@ export default function Home() {
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="https://placehold.co/1080x720"
+            src="/intaniastorypics/3.1.jpg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -131,15 +131,18 @@ export default function Home() {
           src="https://placehold.co/1080x720"
           alt="Random image"
         ></img>
-        
-        <div className=" absolute inset-0 flex content-center ">
-          <div className="content-center mx-auto">
-          <h2 className="font-bold text-xl my-auto" >
-            รีวิวชีวิตปี 1 วิศวฯจุฬา
-          </h2><div className="flex justify-center">
-          <Button  className="= place-self-center" variant="outline">
-            play
-          </Button></div></div>
+
+        <div className="absolute inset-0 flex content-center">
+          <div className="mx-auto content-center">
+            <h2 className="my-auto text-xl font-bold">
+              รีวิวชีวิตปี 1 วิศวฯจุฬา
+            </h2>
+            <div className="flex justify-center">
+              <Button className="= place-self-center" variant="outline">
+                play
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
