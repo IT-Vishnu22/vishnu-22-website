@@ -37,11 +37,19 @@ export default function DetailPage({ params }: { params: { detail: string } }) {
           fill={true}
         />
       </div>
-      <p className="px-5 py-9 text-base font-medium text-blue-1">
-        {questionDetails.Fact}
-      </p>
+      <div className="space-y-4 px-5 py-9 text-base font-medium text-blue-1">
+        {questionDetails.Fact.map((item) => {
+          return (
+            <pre className="text-wrap">
+              {"    "}
+              {item}
+            </pre>
+          );
+        })}
+      </div>
+
       <section className="fixed bottom-[85px] w-full rounded-t-[50px] bg-[#FFFBF4] p-10 md:max-w-[390px]">
-        <InputForm />
+        <InputForm question={questionDetails.Question} />
       </section>
     </main>
   );
