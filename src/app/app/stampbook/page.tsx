@@ -23,7 +23,7 @@ export type QuestionData = {
   NameEN: string;
   Question: String;
   Answer: string;
-  Fact: string | [string];
+  Fact: string[];
 };
 
 export default function StampbookPage() {
