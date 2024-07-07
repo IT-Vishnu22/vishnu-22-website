@@ -1,0 +1,31 @@
+.bgPage {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 65px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    background-image: url('/images/backgroundsimple.png');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+@media screen and (min-width: 640px) {
+    .bgPage {
+        padding-top: 80px;
+        padding-bottom: 0;
+        gap: 80px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bgPage {
+        padding-top: 90px;
+        gap: 100px;
+    }
+}

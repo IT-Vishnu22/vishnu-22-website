@@ -14,12 +14,12 @@ export function AccordionHome() {
     ];
 
     return (
-        <div className="w-[90%] flex flex-col items-center justify-center space-y-[14px]">
-            <p className="text-lg font-bold">คำถามที่พบบ่อย</p>
+        <div className="w-[90%] flex flex-col items-center justify-center space-y-[14px] m-12">
+            <p className="text-2xl font-semibold">คำถามที่พบบ่อย</p>
             <Accordion type="single" collapsible className="w-full flex flex-col space-y-[14px]">
                 {
                     questionDemo.map((item, index) => (
-                        <AccordionItem key={index} value={`item-${index}`} className="text-md bg-[#ECD8C1] rounded-[14px] px-4">
+                        <AccordionItem key={index} value={`item-${index}`} className="text-base font-medium bg-[#ECD8C1] rounded-[14px] px-4">
                             <AccordionTrigger>{item.question}</AccordionTrigger>
                             <AccordionContent>{item.answer}</AccordionContent>
                         </AccordionItem>

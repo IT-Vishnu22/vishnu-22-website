@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react"
+import Image from "next/image";
 
 export default function MapEng() {
 
@@ -7,10 +8,16 @@ export default function MapEng() {
     //waiting for solution map
 
     return (
-        <div className="w-full flex flex-col items-center gap-2 px-2">
-            <div className="w-full min-h-[280px] bg-white">
-            </div>
-            <p className="text-[10px] text-center text-[#404040]">254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+        <div className="w-full flex flex-col items-center gap-2 p-4 sm:p-6 lg:p-8">
+            <Image
+                alt="Engineering Map"
+                src="/images/engmapnopin.png"
+                width={827}
+                height={431}
+                layout="intrinsic"
+                className="border border-2 border-primary"
+            ></Image>
+            <p className="font-regular text-xs sm:text-md md:text-lg text-center text-primary">254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
         </div>
     )
 }
