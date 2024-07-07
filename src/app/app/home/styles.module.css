@@ -19,13 +19,15 @@
     .bgPage {
         padding-top: 80px;
         padding-bottom: 0;
-        gap: 80px;
+        gap: 60px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .bgPage {
         padding-top: 90px;
-        gap: 100px;
+        gap: 80px;
+
+        background-size: 600px 600px;
     }
 }

@@ -20,8 +20,8 @@ export function SponsorCarousel() {
     { "name": "Shufflebeat", "imagePath": "/images/200x200.png" }];
 
     return (
-        <div className="bottom-0 w-full overflow-hidden py-6 bg-secondary flex flex-col justify-top items-center px-3 border border-t-1 border-r-0 border-l-0 border-b-0 border-black">
-            <p className="mb-6 text-xl sm:text-2xl lg:text-3xl font-medium">Our Supporters!</p>
+        <div className="bottom-0 w-full overflow-hidden sm:mt-6 md:mt-8 lg:mt-10 py-6 bg-secondary flex flex-col justify-top items-center px-3 border border-t-1 border-r-0 border-l-0 border-b-0 border-black">
+            <p className="mb-6 lg:mb-10 lg:mt-2 text-xl sm:text-2xl lg:text-3xl font-medium">Our Supporters!</p>
             <Carousel
                 opts={{
                     align: "start",
