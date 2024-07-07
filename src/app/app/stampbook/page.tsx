@@ -28,9 +28,9 @@ export type QuestionData = {
 
 export default function StampbookPage() {
   return (
-    <div className="flex flex-col items-center justify-evenly overflow-hidden">
+    <div className="mt-8 flex flex-col items-center justify-evenly overflow-hidden">
       <h1 className="text-[32px] font-bold text-blue-1">Stamp Book</h1>
-      <div className="relative h-[190px] w-[320px]">
+      <div className="relative mt-10 h-[190px] w-[320px]">
         <Image
           src="/stampbookimages/engmap.png"
           alt="stampbook page"
@@ -38,6 +38,16 @@ export default function StampbookPage() {
           fill={true}
         />
       </div>
+      <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
+        <Image
+          src="/stampbookImages/rewards.svg"
+          alt="reward Image"
+          width={25}
+          height={25}
+        />
+        <p> 0/8</p>
+      </div>
+      <CompletionBadge />
       <div className="flex w-auto flex-col pb-96 pt-16">
         <StampBookSection></StampBookSection>
       </div>
@@ -90,4 +100,38 @@ const StampBookSection = () => {
       </Link>
     );
   });
+};
+
+const TempImageDay = () => {
+  return (
+    <svg
+      width="80"
+      height="80"
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="40" cy="40" r="40" fill="#404040" />
+    </svg>
+  );
+};
+
+const CompletionBadge = () => {
+  return (
+    <div className="relative mt-12 flex justify-between gap-10">
+      {[1, 2, 3].map((item) => (
+        <div className="relative">
+          <TempImageDay />
+          <Image
+            className="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2"
+            src="/stampbookImages/lock.svg"
+            alt="badge is locked"
+            width={30}
+            height={30}
+          />
+        </div>
+      ))}
+      <div className="pointer-events-none absolute top-1/2 -z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+    </div>
+  );
 };
