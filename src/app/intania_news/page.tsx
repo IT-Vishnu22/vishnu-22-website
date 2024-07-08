@@ -4,7 +4,7 @@ import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function IntaniaNews() {
   return (
     <div className="bg-gradient-to-b from-[#005500] to-[#111111]">
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
@@ -125,7 +125,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative mx-auto mt-5 max-w-[80%] justify-center">
+      <div className="relative mx-auto mb-10 mt-5 max-w-[80%] justify-center">
         <img
           className="h-24 w-full rounded-md object-cover"
           src="/intaniastorypics/IMG_3553.png"
