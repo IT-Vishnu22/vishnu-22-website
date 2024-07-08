@@ -1,5 +1,5 @@
-import vectorImage from "./images/vector.svg";
-import backgroundImage from "./images/background.svg";
+import vectorImage from "../images/vector.svg";
+import backgroundImage from "../images/vector.svg";
 import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp">
-          {/*<Image className="" src={vectorImage} alt="vector graphic" />*/}
+          {<Image className="" src={vectorImage} alt="vector graphic" />}
         </a>
         <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>

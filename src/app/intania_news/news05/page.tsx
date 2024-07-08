@@ -1,5 +1,5 @@
-import vectorImage from "@/ap/images/vector.svg";
-import backgroundImage from "./images/background.svg";
+import vectorImage from "../images/vector.svg";
+import backgroundImage from "../images/vector.svg";
 import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
