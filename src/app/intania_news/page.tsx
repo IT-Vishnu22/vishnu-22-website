@@ -4,12 +4,12 @@ import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function IntaniaNews() {
   return (
     <div>
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp">
-          {/*<Image className="" src={vectorImage} alt="vector graphic" />*/}
+          <Image className="" src={vectorImage} alt="vector graphic" />
         </a>
         <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="/intaniastorypics/IMG_2686.jpg"
+            src="/intaniastorypics/page4.2.jpg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -111,7 +111,7 @@ export default function Home() {
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="/intaniastorypics/IMG_2693.jpeg"
+            src="/intaniastorypics/page5.1.jpeg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -125,7 +125,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative mx-auto mt-5 max-w-[80%] justify-center">
+      <div className="relative mx-auto mb-10 mt-5 max-w-[80%] justify-center">
         <img
           className="h-24 w-full rounded-md object-cover"
           src="/intaniastorypics/IMG_3553.png"
