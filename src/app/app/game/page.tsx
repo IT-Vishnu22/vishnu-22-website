@@ -13,7 +13,7 @@ export default function GamePage() {
 
         </div>
         <div className=" m-auto mt-[0px] w-[276px] mb-[32px]">
-            <h2 className="font-athiti text-center text-[20px] text-blue-2">
+            <h2 className="font-athiti font-medium text-center text-[20px] text-blue-2">
               มาเล่นเกมต่างๆ <br/>และแข่งขันกับเพื่อนๆ กัน!</h2>
         </div>
         {/* delete border */}
