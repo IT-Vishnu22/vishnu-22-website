@@ -15,7 +15,7 @@ export default function Home() {
       </div>
 
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
-        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
             src="/intaniastorypics/Vishnu20th.jpg"
             loading="lazy"
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
+      {/*<div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div>
           <div>
             <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
@@ -53,7 +53,7 @@ export default function Home() {
             SOTUS ตัดทิ้งไป
           </span>
         </div>
-      </div>
+      </div>*/}
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
@@ -80,7 +80,7 @@ export default function Home() {
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-4 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="https://placehold.co/1080x720"
+            src="/intaniastorypics/4.3.jpg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="https://placehold.co/1080x720"
+            src="/intaniastorypics/IMG_2686.jpg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -111,7 +111,7 @@ export default function Home() {
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
-            src="https://placehold.co/1080x720"
+            src="/intaniastorypics/IMG_2693.jpeg"
             loading="lazy"
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -127,16 +127,14 @@ export default function Home() {
 
       <div className="relative mx-auto mt-5 max-w-[80%] justify-center">
         <img
-          className="h-32 w-full rounded-md object-cover"
-          src="https://placehold.co/1080x720"
+          className="h-24 w-full rounded-md object-cover"
+          src="/intaniastorypics/IMG_3553.png"
           alt="Random image"
         ></img>
 
         <div className="absolute inset-0 flex content-center">
           <div className="mx-auto content-center">
-            <h2 className="my-auto text-xl font-bold">
-              รีวิวชีวิตปี 1 วิศวฯจุฬา
-            </h2>
+            <h2 className="my-auto text-xl font-bold">มาฟังเพลงคณะเรากัน!</h2>
             <div className="flex justify-center">
               <Button className="= place-self-center" variant="outline">
                 play
