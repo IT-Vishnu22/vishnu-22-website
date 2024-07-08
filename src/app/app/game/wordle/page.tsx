@@ -25,6 +25,7 @@ export default function WordlePage() {
     }, [guess, isGuessed]);
 
 
+    // for the physical keyboard e.g. of PC (not usable on mobile)
     function handleKeyUp(e: { key: string; }) {
         let key = e.key;
         if (isGuessed === true) {
@@ -38,6 +39,36 @@ export default function WordlePage() {
         }
         else if (key === 'Enter') {
             handleSubmitClick();
+        }
+    }
+
+    //for the in-web keyboard
+    function handleKeyClick(key: string) {
+        if (isGuessed !== true) {
+            if (guess.length < 5) {
+                setGuess(guess + key);
+            }
+            else if (key === 'Backspace') {
+                setGuess(guess.slice(0, guess.length - 1));
+            }
+            else if (key === 'Enter') {
+                handleSubmitClick();
+            } 
+        }
+    }
+
+
+    function handleRulePopUpClick() {
+        setPopUpMessage('rules');
+    }
+
+    function handlePopUpClick() {
+        setPopUpMessage('');
+    }
+
+    function handleClearClick() {
+        if (!isGuessed) {
+            setGuess('');
         }
     }
 
@@ -59,16 +90,8 @@ export default function WordlePage() {
         }
     }
 
-    function handlePopUpClick() {
-        setPopUpMessage('');
-    }
-
-    function handleRulePopUpClick() {
-        setPopUpMessage('rules');
-    }
-
     return (
-        <div className="font-roboto-condensed">
+        <div className="w-full font-roboto-condensed">
 
             <div className="bg-blue-4 relative h-[91px] flex items-center justify-between">
                 <div className="pl-[35px]"><Link href="/app/game"><BackIcon /></Link></div>
@@ -84,20 +107,32 @@ export default function WordlePage() {
                         onClick={handlePopUpClick}
                     />}
 
-            <div className="flex flex-col items-center pt-32 space-y-8">
+            <div className="flex flex-col items-center pt-32 space-y-8 mx-4"> {/* should or should not use mx-4?? */}
             
                 <Guess
                     answer={"hello"}
                     guess={guess.toLowerCase()}
                     isGuessed={isGuessed}
                 />
-                <Button
-                    className="w-32 h-16 font-bold border-2 text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
-                    type="submit"
-                    onClick={handleSubmitClick}
-                >
-                    Submit
-                </Button>
+                <Keyboard 
+                    onClick={handleKeyClick}
+                    />
+                <div className="flex gap-2">
+                    <Button
+                        className="w-32 h-16 font-bold border-2 text-[20px] text-black hover:text-white border-gray-700 bg-gray-300 hover:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
+                        type="submit"
+                        onClick={handleClearClick}
+                    >
+                        Clear
+                    </Button>
+                    <Button
+                        className="w-32 h-16 font-bold border-2 text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
+                        type="submit"
+                        onClick={handleSubmitClick}
+                    >
+                        Submit
+                    </Button>
+                </div>
             </div>
 
         </div>
@@ -166,5 +201,28 @@ function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, is
             </div>
         </div>
 
+    );
+}
+
+function Keyboard({ onClick }: { onClick: VoidFunction }){
+
+    const qwerty = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+
+    return (
+        <div className="max-w-screen">
+            {qwerty.map((row) => (
+                <div className="flex justify-center">
+                    {row.split('').map((key: string) => (
+                        <Button
+                            id={key}
+                            className={`flex h-10 w-10 m-px bg-gray-300 items-center justify-center text-center border-2 border-gray-700 rounded-xl text-black hover:text-white font-bold uppercase`}
+                            onClick={(e) => onClick(e.target.id)}
+                        >
+                            {key}
+                        </Button>
+                    ))}
+                </div>
+            ))}
+        </div>
     );
 }
