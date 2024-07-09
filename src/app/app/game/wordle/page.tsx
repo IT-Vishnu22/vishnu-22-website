@@ -118,14 +118,14 @@ export default function WordlePage() {
                 />
                 <div className="flex gap-2 w-full mx-4 justify-center">
                     <Button
-                        className="w-32 h-16 font-bold border-2 text-[20px] text-black hover:text-white focus:text-white border-gray-700 bg-gray-300 hover:bg-gray-700 focus:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
+                        className="w-32 h-16 font-bold border-2 font-athiti text-[20px] text-black hover:text-white focus:text-white border-gray-700 bg-gray-300 hover:bg-gray-700 focus:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
                         type="submit"
                         onClick={handleClearClick}
                     >
                         ล้าง
                     </Button>
                     <Button
-                        className="w-32 h-16 font-bold border-2 text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 focus:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
+                        className="w-32 h-16 font-bold border-2 font-athiti text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 focus:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
                         type="submit"
                         onClick={handleSubmitClick}
                     >
@@ -149,7 +149,7 @@ function PopUp({ message, onClick }: { message: string, onClick: VoidFunction })
     return (
         <div className="flex justify-center">
             <div className={` ${bgColor} border-2 border-[rgba(0,0,0,0.7)] rounded-xl p-4 m-4 absolute flex items-start`}>
-                <div className="pt-4">
+                <div className="pt-4 font-athiti">
                     {message === 'rules'
                         ? <p><b>ยินดีต้อนรับสู่ Wordle!</b> ก่อนจะเริ่มเล่น ขอให้อ่านกติกากันซักหน่อย:<br /><br />1. คุณสามารถทายคำภาษาอังกฤษยาว 5 ตัวอักษรได้เพียงครั้งเดียวเท่านั้น<br />2. หากทายคำถูก หน่วยของคุณจะได้แต้ม โดยคะแนนของแต่ละหน่วยขึ้นอยู่กับจำนวนสมาชิกที่ทายคำถูก<br />3. คุณสามารถปรึกษากับเพื่อนได้ว่าคำตอบคืออะไร<br /><br />ขอให้โชคดีนะ!</p>
                         : <p className="text-center">{message}</p>
