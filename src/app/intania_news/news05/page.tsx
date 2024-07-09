@@ -99,6 +99,7 @@ export default function Home() {
 
 
         </div>
+        
         <div>
             <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black italic">
                 <span>“...ท่านอาจารย์คุณพระเจริญวิศวกรรม ท่านเป็นผู้รักวิชาวิศวกรรมศาสตร์เป็นที่สุด ท่านถือว่าวิชานี้เป็นยอดของวิชาชีพ</span><br/>
