@@ -3,11 +3,12 @@ import backgroundImage from "./images/background.svg";
 import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function IntaniaNews() {
   return (
-    <div className="bg-gradient-to-b from-[#005500] to-[#111111]">
-      <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
+    <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
+      <div className="mr-[10%] mt-5e flex place-items-center justify-center space-x-[13%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp">
           <Image className="" src={vectorImage} alt="vector graphic" />
         </a>
@@ -31,29 +32,7 @@ export default function IntaniaNews() {
         </div>
       </div>
 
-      {/*<div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
-        <div>
-          <div>
-            <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-            </h2>
-          </div>
-        </div>
-        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="https://placehold.co/1080x720"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
 
-          <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
-
-          <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
-            SOTUS ตัดทิ้งไป
-          </span>
-        </div>
-      </div>*/}
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
@@ -134,10 +113,10 @@ export default function IntaniaNews() {
 
         <div className="absolute inset-0 flex content-center">
           <div className="mx-auto content-center">
-            <h2 className="my-auto text-xl font-bold">มาฟังเพลงคณะเรากัน!</h2>
+            <h2 className="my-auto text-l font-bold">มาฟังเพลงคณะเรากัน!</h2>
             <div className="flex justify-center">
-              <Button className="= place-self-center" variant="outline">
-                play
+              <Button asChild className="= place-self-center" variant="outline">
+                 <Link href="https://www.w3schools.com/">play</Link>
               </Button>
             </div>
           </div>

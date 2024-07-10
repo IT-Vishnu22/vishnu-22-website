@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function AnthemPage() {
   return (
-    <div>
+    <div className="h-screen bg-rose-500">
       <div className="mr-[5%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <a
           href="https://www.w3schools.com/tags/att_a_href.asp"
