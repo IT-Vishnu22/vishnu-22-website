@@ -24,7 +24,9 @@ export default function ClubPage() {
         <PriceIcon />
         <p className="font-bold text-2xl">{clubCollect > 3 ? 3 : clubCollect}/3</p>
       </div>
-      <div className="flex flex-col justify-center items-center gap-[20px]">
+      <div className="flex flex-col justify-center items-center gap-[20px] pb-12">
+        <ClubCard />
+        <ClubCard />
         <ClubCard />
       </div>
     </div>
