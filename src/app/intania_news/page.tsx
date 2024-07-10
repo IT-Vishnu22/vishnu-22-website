@@ -1,3 +1,4 @@
+import Link from "next/link";
 import vectorImage from "./images/vector.svg";
 import backgroundImage from "./images/background.svg";
 import Image from "next/image";
@@ -8,9 +9,9 @@ export default function IntaniaNews() {
   return (
     <div className="bg-gradient-to-b from-[#005500] to-[#111111]">
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
-        <a href="https://www.w3schools.com/tags/att_a_href.asp">
-          <Image className="" src={vectorImage} alt="vector graphic" />
-        </a>
+        <Link href="/" className="flex-shrink-0">
+          <Image className="ml-[-10%]" src={vectorImage} alt="vector graphic" />
+        </Link>
         <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>
 
@@ -134,11 +135,24 @@ export default function IntaniaNews() {
 
         <div className="absolute inset-0 flex content-center">
           <div className="mx-auto content-center">
-            <h2 className="my-auto text-xl font-bold">มาฟังเพลงคณะเรากัน!</h2>
+            <h2 className="my-auto text-[16px] font-bold">Intania Playlist!</h2>
             <div className="flex justify-center">
-              <Button className="= place-self-center" variant="outline">
-                play
-              </Button>
+              <Link href="/intania_news/anthem">
+                <Button
+                  className="place-self-center"
+                  style={{
+                    backgroundColor: "#eb5850",
+                    color: "#FFFFFF",
+                    height: "30px",
+                    borderRadius: "10px",
+                    padding: "0 30px",
+                    fontSize: "11px",
+                  }}
+                  variant="outline"
+                >
+                  play
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

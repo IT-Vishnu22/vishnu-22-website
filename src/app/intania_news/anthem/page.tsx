@@ -1,20 +1,75 @@
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import vectorImage from "../images/vector.svg";
-import backgroundImage from "../images/background.svg";
 import Image from "next/image";
-import next from "next";
-import { Button } from "@/components/ui/button";
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function AnthemPage() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleAudioLoaded = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = parseFloat(event.target.value);
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      const handleEnded = () => setIsPlaying(false);
+      audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
+      audioRef.current.addEventListener("loadedmetadata", handleAudioLoaded);
+      audioRef.current.addEventListener("ended", handleEnded);
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+          audioRef.current.removeEventListener(
+            "loadedmetadata",
+            handleAudioLoaded,
+          );
+          audioRef.current.removeEventListener("ended", handleEnded);
+        }
+      };
+    }
+  }, []);
+
   return (
     <div>
-      <div className="mr-[5%] mt-10 flex place-items-center justify-center space-x-[13%]">
-        <a
-          href="https://www.w3schools.com/tags/att_a_href.asp"
-          className="ml-[-13%]"
-        >
-          <Image className="" src={vectorImage} alt="vector graphic" />
-        </a>
-        <h1 className="text-[26px] font-bold text-blue-1">ปราสาทสีแดง</h1>
+      <div className="mr-[23%] mt-10 flex place-items-center justify-center space-x-[13%]">
+        <Link href="/intania_news">
+          <Image className="ml-[-10%]" src={vectorImage} alt="vector graphic" />
+        </Link>
+        <h1 className="text-center text-[26px] font-bold text-blue-1">
+          ปราสาทสีแดง
+        </h1>
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
         <h2 className="text-[14px] text-blue-1">ประพันธ์คำร้องโดย ธาตรี</h2>
@@ -61,26 +116,49 @@ export default function AnthemPage() {
           ด้วยตัวเขาจิตใจผูกพัน มิคลายรักมั่นจุฬา
         </p>
       </div>
+
+      <div className="mt-5 flex flex-col items-center">
+        <input
+          type="range"
+          min="0"
+          max={duration}
+          value={currentTime}
+          onChange={handleSliderChange}
+          className="mt-10 h-1 w-64 cursor-pointer rounded-lg bg-gray-700 accent-gray-700"
+        />
+        <div className="mt-3 flex items-center justify-center space-x-12">
+          <button
+            className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
+            onClick={() => {}}
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            className="inline-flex items-center rounded-full bg-gray-700 px-4 py-2 font-bold text-white"
+            style={{
+              height: "47px",
+              borderRadius: "50px",
+            }}
+            onClick={togglePlayPause}
+          >
+            {isPlaying ? (
+              <FaPause style={{ fontSize: "14px" }} />
+            ) : (
+              <FaPlay style={{ fontSize: "14px" }} />
+            )}
+          </button>
+          <button
+            className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
+            onClick={() => {}}
+          >
+            <FaChevronRight />
+          </button>
+        </div>
+
+        <audio ref={audioRef}>
+          <source src="/music/wantmeback.mp3" type="audio/mp3" />
+        </audio>
+      </div>
     </div>
   );
 }
-
-/*
-<div className="relative max-w-[40%] mx-auto mt-10">
-  <img
-    className="h-64 w-full object-cover rounded-md"
-    src="https://images.unsplash.com/photo-1680725779155-456faadefa26"
-    alt="Random image"
-  ></img>
-  <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
-  <div className="absolute inset-0 flex place-content-end">
-    <div className="content-end">
-      <h2 className="text-white text-3xl font-bold">
-        รีวิวชีวิตปี 1 วิศวฯจุฬา
-      </h2>
-      <h2 className="text-white text-3xl font-bold">placeholder2?</h2>
-    </div>
-  </div>
-</div>
-</div>
-*/
