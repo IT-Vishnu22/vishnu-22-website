@@ -16,30 +16,34 @@ export default function ClubCard({ text }: { text?: string }) {
 
     const handleClick = () => {
         const dialog = document.getElementById("DialogQuestion");
+        if (correctAnswer) {
+            return;
+        }
         if (!popUpOpen) {
             dialog?.classList.remove('hidden');
+            document.body.style.overflowY = 'hidden';
         }
         else {
             dialog?.classList.add('hidden');
+            document.body.style.overflowY = 'auto';
         }
         setPopUpOpen(!popUpOpen);
     }
+
     const handleConfirm = () => {
         handleClick();
         if (answer === "answer") {
             setCorrectAnswer(true);
             setCanEditAnswer(false);
         }
+        document.body.style.overflowY = 'auto';
     }
     return (
         <>
             <div className="cursor-pointer w-[300px] min-h-[300px] bg-secondary rounded-3xl flex flex-col justify-top items-center gap-y-4 p-6" onClick={handleClick}>
-                <div className="w-[130px] h-[130px] rounded-2xl">
-                    <div className="">
-                        <Image alt="Approve Icon" src="/src/assets/images/approveIcon.png" width={130} height={130} className={`${correctAnswer ? "block" : "hidden"}`} />
-
-                        <Image alt="club image" src={"/src/assets/images/taekwandoIntania.jpeg"} width={130} height={130} />
-                    </div>
+                <div className="w-[130px] h-[130px] rounded-2xl relative ">
+                    <Image alt="club image" src={"/images/taekwandoIntania.jpeg"} width={130} height={130} className="absolute top-0 left-0 w-full h-full" />
+                    <Image alt="Approve Icon" src="/images/approveIcon.png" width={130} height={130} className={`${correctAnswer ? "absolute top-0 left-0 w-full h-full" : "hidden"}`} />
                 </div>
                 <p className="font-regular text-sm">
                     {text ? text :
@@ -56,8 +60,7 @@ export default function ClubCard({ text }: { text?: string }) {
             {
                 canEditAnswer ?
 
-                    <div id="DialogQuestion" className="z-90 hidden fixed top-0 left-0 w-full h-screen flex justify-center items-center backdrop-blur">
-
+                    <div id="DialogQuestion" className="hidden z-[60] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[310px] min-h-[310px] flex flex-col justify-center items-center backdrop-blur">
                         <div className="relative w-[310px] min-h-[310px] flex flex-col justify-center items-center ">
                             <div className="absolute inset-0 w-full h-full bg-[#F45868] -rotate-6 mx-auto drop-shadow-md"></div>
                             <div className="relative inset-0 w-full bg-secondary flex flex-col justify-center items-center p-8 gap-6 drop-shadow-md">
@@ -75,7 +78,8 @@ export default function ClubCard({ text }: { text?: string }) {
                                 </div>
                             </div>
                         </div>
-                    </div> : null
+                    </div> 
+                    : null
             }
 
 
