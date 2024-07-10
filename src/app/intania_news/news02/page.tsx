@@ -1,4 +1,5 @@
 import vectorImage from "../images/vector.svg";
+import backgroundImage from "../images/vector.svg";
 import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,7 @@ export default function Home() {
         <a href="https://www.w3schools.com/tags/att_a_href.asp">
         </a>
         <h1 className="text-[20px] font-bold text-blue-1">
-          <span>วิศวฯกับการเรียน</span>
+            <span>วิศวฯกับการเรียน</span>
         </h1>
       </div>
 
@@ -26,24 +27,21 @@ export default function Home() {
           <span>“ตอนเรียนยากไหมครับ"</span><br/>
           <span>“คงยาก แต่เราไม่ค่อยเรียน ก็เลยไม่ค่อยยาก”</span>
         </h2>
-      </div>
+        </div>
 
-      <div>
-        <h2
-          className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
-          style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
-        >
-          - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่ 20 กันยายน
-          2555)
-        </h2>
-      </div>
+        <div>
+            <h2 className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black" style={{ marginLeft: 'auto', display: 'block', textAlign: 'right' }}>
+            - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี 
+            กำธน สินธวานนท์ (วันที่ 20 กันยายน 2555) 
+            </h2>
+        </div>
 
         <div>
           <h2 className="text-[15px] relative  ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs font-bold text-blue-1">
           <span>บทสัมภาษณ์พี่ปี 2 สุดหล่อคนหนึ่ง</span><br/>
           <span>เรียนปี 1 ยากไหม?</span>
-        </h2>
-      </div>
+          </h2>
+        </div>
 
         <div>
           <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black text-center">
@@ -56,8 +54,9 @@ export default function Home() {
             src="/intaniastorypics/3.1.jpg"
             loading="lazy"
             alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center "
           />
+
         </div>
 
         <div className="relative w-1/2 h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
@@ -93,14 +92,13 @@ export default function Home() {
             </h2>
         </div>
 
-      <div>
-        <h2
-          className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
-          style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
-        >
-          - ถอดเทปตำนานวิศวจุฬาฯ คุณปริต คุณพงษ์ศักดิ์ (วันที่ 15 มิถุนายน 2555)
-        </h2>
-      </div>
+        <div>
+            <h2 className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black" style={{ marginLeft: 'auto', display: 'block', textAlign: 'right' }}>
+            - ถอดเทปตำนานวิศวจุฬาฯ  คุณปริต คุณพงษ์ศักดิ์ (วันที่ 15 มิถุนายน 2555) 
+            </h2>
+        </div>
+
+
     </div>
   );
 }

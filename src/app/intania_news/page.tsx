@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import vectorImage from "./images/vector.svg";
 import backgroundImage from "./images/background.svg";
 import Image from "next/image";
