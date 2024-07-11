@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import vectorImage from "../images/vector.svg";
+import vectorImage from "../../images/vector.svg";
 import Image from "next/image";
 import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -64,7 +64,7 @@ export default function AnthemPage() {
   return (
     <div>
       <div className="mr-[23%] mt-10 flex place-items-center justify-center space-x-[13%]">
-        <Link href="/intania_news">
+        <Link href="/intania_news/intania_playlist">
           <Image className="ml-[-10%]" src={vectorImage} alt="vector graphic" />
         </Link>
         <h1 className="text-center text-[26px] font-bold text-blue-1">

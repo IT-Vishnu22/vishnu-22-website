@@ -1,4 +1,3 @@
-
 import vectorImage from "./images/vector.svg";
 import backgroundImage from "./images/background.svg";
 import Image from "next/image";
@@ -9,10 +8,10 @@ import Link from "next/link";
 export default function IntaniaNews() {
   return (
     <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
-      <div className="mr-[10%] mt-5e flex place-items-center justify-center space-x-[13%]">
-        <a href="https://www.w3schools.com/tags/att_a_href.asp">
+      <div className="mt-5e mr-[10%] flex place-items-center justify-center space-x-[13%]">
+        <Link href="https://www.w3schools.com/tags/att_a_href.asp">
           <Image className="" src={vectorImage} alt="vector graphic" />
-        </a>
+        </Link>
         <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>
 
@@ -32,8 +31,6 @@ export default function IntaniaNews() {
           </span>
         </div>
       </div>
-
-
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
@@ -105,7 +102,7 @@ export default function IntaniaNews() {
         </div>
       </div>
 
-      <div className="relative mx-auto mb-10 mt-5 max-w-[80%] justify-center">
+      <div className="relative mx-auto mb-5 mt-5 max-w-[80%] justify-center">
         <img
           className="h-24 w-full rounded-md object-cover"
           src="/intaniastorypics/IMG_3553.png"
@@ -114,10 +111,23 @@ export default function IntaniaNews() {
 
         <div className="absolute inset-0 flex content-center">
           <div className="mx-auto content-center">
-            <h2 className="my-auto text-l font-bold">มาฟังเพลงคณะเรากัน!</h2>
+            <h2 className="text-l my-auto font-bold">Intania Playlist!</h2>
             <div className="flex justify-center">
-              <Button asChild className="= place-self-center" variant="outline">
-                 <Link href="https://www.w3schools.com/">play</Link>
+              <Button
+                asChild
+                className="place-self-center"
+                style={{
+                  backgroundColor: "#eb5850",
+                  color: "#FFFFFF",
+                  height: "30px",
+                  borderRadius: "20px",
+                  width: "70px", // Set the width of the button
+                  fontSize: "10px", // Decrease the font size
+                  textAlign: "center", // Ensure the text is centered
+                }}
+                variant="outline"
+              >
+                <Link href="/intania_news/intania_playlist">play</Link>
               </Button>
             </div>
           </div>
