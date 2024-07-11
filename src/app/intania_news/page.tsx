@@ -9,98 +9,109 @@ export default function IntaniaNews() {
   return (
     <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
       <div className="mt-5e mr-[10%] flex place-items-center justify-center space-x-[13%]">
-        <Link href="https://www.w3schools.com/tags/att_a_href.asp">
+        <Link href="/intania_news">
           <Image className="" src={vectorImage} alt="vector graphic" />
         </Link>
         <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>
 
-      <div className="mx-auto mt-5 max-w-[80%] gap-6">
-        <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/Vishnu20th.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
+      <Link href="/intania_news/news01">
+        <div className="mx-auto mt-5 max-w-[80%] gap-6">
+          <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+            <img
+              src="/intaniastorypics/Vishnu20th.jpg"
+              loading="lazy"
+              alt="Photo by Magicle"
+              className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
 
-          <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
+            <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-          <span className="relative mb-3 ml-4 ml-5 inline-block text-xs text-white">
-            รีวิวชีวิตปี 1 วิศวฯจุฬา
-          </span>
+            <span className="relative mb-3 ml-4 ml-5 inline-block text-xs text-white">
+              รีวิวชีวิตปี 1 วิศวฯจุฬา
+            </span>
+          </div>
         </div>
-      </div>
+      </Link>
 
-      <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
-        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/3.1.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
+      <Link href="/intania_news/news02">
+        <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
+          <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+            <img
+              src="/intaniastorypics/3.1.jpg"
+              loading="lazy"
+              alt="Photo by Magicle"
+              className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
 
-          <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
+            <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-          <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
-            วิศวฯกับการเรียน
-          </span>
+            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+              วิศวฯกับการเรียน
+            </span>
+          </div>
+          <div>
+            <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi,
+            </h2>
+          </div>
         </div>
-        <div>
-          <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi,
-          </h2>
-        </div>
-      </div>
+      </Link>
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-4 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/4.3.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
+          <Link href="/intania_news/news03">
+            <img
+              src="/intaniastorypics/4.3.jpg"
+              loading="lazy"
+              alt="Photo by Magicle"
+              className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
 
-          <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
+            <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-          <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
-            ฟุตบอลประเพณี
-          </span>
+            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+              ฟุตบอลประเพณี
+            </span>
+          </Link>
         </div>
+
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/page4.2.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
+          <Link href="/intania_news/news04">
+            <img
+              src="/intaniastorypics/page4.2.jpg"
+              loading="lazy"
+              alt="Photo by Magicle"
+              className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
 
-          <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
+            <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-          <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
-            ไอเทมวิศวฯ
-          </span>
+            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+              ไอเทมวิศวฯ
+            </span>
+          </Link>
         </div>
       </div>
 
-      <div className="mx-auto mt-5 max-w-[80%] gap-6">
-        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/page5.1.jpeg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-          />
+      <Link href="/intania_news/news05">
+        <div className="mx-auto mt-5 max-w-[80%] gap-6">
+          <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+            <img
+              src="/intaniastorypics/page5.1.jpeg"
+              loading="lazy"
+              alt="Photo by Magicle"
+              className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
 
-          <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
+            <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-          <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
-            บิดาแห่งคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
-          </span>
+            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+              บิดาแห่งคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+            </span>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <div className="relative mx-auto mb-5 mt-5 max-w-[80%] justify-center">
         <img

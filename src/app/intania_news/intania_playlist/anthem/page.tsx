@@ -62,7 +62,7 @@ export default function AnthemPage() {
   }, []);
 
   return (
-    <div>
+    <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
       <div className="mr-[23%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <Link href="/intania_news/intania_playlist">
           <Image className="ml-[-10%]" src={vectorImage} alt="vector graphic" />
@@ -126,10 +126,13 @@ export default function AnthemPage() {
           onChange={handleSliderChange}
           className="mt-10 h-1 w-64 cursor-pointer rounded-lg bg-gray-700 accent-gray-700"
         />
-        <div className="mt-3 flex items-center justify-center space-x-12">
+        <div className="mb-5 mt-3 flex items-center justify-center space-x-12">
           <button
             className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
             onClick={() => {}}
+            style={{
+              color: "#f0b4ad",
+            }}
           >
             <FaChevronLeft />
           </button>
@@ -138,6 +141,7 @@ export default function AnthemPage() {
             style={{
               height: "47px",
               borderRadius: "50px",
+              color: "#f0b4ad",
             }}
             onClick={togglePlayPause}
           >
@@ -150,6 +154,9 @@ export default function AnthemPage() {
           <button
             className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
             onClick={() => {}}
+            style={{
+              color: "#f0b4ad",
+            }}
           >
             <FaChevronRight />
           </button>

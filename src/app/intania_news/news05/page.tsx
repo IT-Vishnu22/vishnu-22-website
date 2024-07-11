@@ -2,8 +2,9 @@ import vectorImage from "../images/vector.svg";
 import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-export default function Home() {
+export default function News05() {
   return (
     <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
       {/*<img 
@@ -13,9 +14,9 @@ export default function Home() {
             className="absolute inset-0 h-full w-full object-cover object-center fill-blue-500"
           />*/}
       <div className="mr-[10%] flex place-items-center justify-center space-x-[13%]">
-        <a href="https://www.w3schools.com/tags/att_a_href.asp">
-          <Image className="" src={vectorImage} alt="vector graphic" />
-        </a>
+        <Link href="/intania_news">
+          {<Image className="" src={vectorImage} alt="vector graphic" />}
+        </Link>
         <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
       </div>
 

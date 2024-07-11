@@ -72,6 +72,28 @@ export default function IntaniaPlaylist() {
           <FaPlay style={{ fontSize: "11px" }} />
         </button>
       </div>
+
+      <hr className="mb-3 mt-3 border-t-2 border-gray-600" />
+
+      <div className="mb-80 flex items-center space-x-4">
+        <div className="w-10">
+          <h1 className="text-center text-[22px] font-bold text-blue-1">3</h1>
+        </div>
+        <h1 className="text-center text-[18px] font-bold text-blue-1">
+          ปราสาทสีแดง
+        </h1>
+        <button
+          className="inline-flex items-center justify-center rounded-full bg-white p-2"
+          style={{
+            height: "30px",
+            width: "30px",
+            borderRadius: "50px",
+            color: "red",
+          }}
+        >
+          <FaPlay style={{ fontSize: "11px" }} />
+        </button>
+      </div>
     </div>
   );
 }
