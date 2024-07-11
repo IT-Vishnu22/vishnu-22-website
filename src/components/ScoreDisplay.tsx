@@ -6,7 +6,7 @@ interface mockDataInterface {
 
 export default function ScoreDisplay({ start }:{ start: number }) {
   return (
-    <div className="w-[90%] relative flex flex-col font-athiti items-center font-[450] text-xl text-blue-1 mx-auto">
+    <div className="w-[90%] relative flex flex-col font-athiti items-center font-[450] text-base sm:text-xl text-blue-1 mx-auto">
       <table className="w-[90%] max-w-[350px]">
         <tbody>
           {mockData.slice(start-1).map((item, index: number) => (
