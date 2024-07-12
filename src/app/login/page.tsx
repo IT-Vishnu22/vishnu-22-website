@@ -78,7 +78,7 @@ const LoginSection = () => {
           });
           localStorage.setItem(
             "studentInformation",
-            JSON.stringify(response.data),
+            JSON.stringify(response.data.data),
           );
           setAlreadyLogin(true);
           setLoading(false);
