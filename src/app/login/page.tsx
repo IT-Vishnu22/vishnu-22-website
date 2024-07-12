@@ -111,6 +111,7 @@ const LoginSection = () => {
           onClick={() => {
             localStorage.removeItem("studentInformation");
             setAlreadyLogin(false);
+            router.replace("/app/login");
           }}
         >
           Logout
