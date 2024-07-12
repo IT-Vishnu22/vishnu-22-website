@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,71 +25,22 @@ import loginImage from "./images/login_image.png";
 import dotGraphic from "./images/dot_graphic.svg";
 
 export default function Login() {
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const handleLogin = async () => {
-      const token = searchParams.get("token");
-
-      if (!token && localStorage.getItem("studentInformation")) {
-        router.replace(
-          "https://accounts.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login",
-        );
-      } else {
-        try {
-          const response = await axios.post("/login/api/auth", {
-            token,
-          });
-
-          // Store user data in localStorage
-          localStorage.setItem(
-            "studentInformation",
-            JSON.stringify(response.data),
-          );
-
-          // Redirect to the desired page
-          router.replace("/app/home");
-        } catch (error) {
-          console.error("Error during authentication:", error);
-          // Optionally, you can handle the error by redirecting to an error page or showing a message
-        }
-      }
-    };
-
-    handleLogin();
-  }, [router, searchParams]);
-
   return (
     <>
-      <style>{`  .login-page {
+      <style>
+        {`  .login-page {
     --primary: 0 0% 100%;
     --primary-foreground: 224 30% 23%;
-  }`}</style>
-      <section className="flex max-h-full min-h-screen w-full flex-col justify-evenly bg-login-gradient">
-        <div className="flex w-full justify-center pt-6">
-          <LogoVishnu className="w-[33.84%] min-w-[132.6px]" />
-        </div>
-        <div className="relative aspect-square w-full">
-          <TriangleBackground className="left-0 right-0" />
-          <Image
-            className="absolute -bottom-2 left-[1.28%] z-10 w-[61.5%]"
-            src={loginImage}
-            alt="login image"
-          />
-          <Image
-            className="absolute -bottom-[1rem] left-0 w-[60%]"
-            src={loginImageLayer}
-            alt="login image shadow"
-          />
-          <h1 className="absolute right-10 top-1/2 flex -translate-y-[50%] flex-col font-roboto-condensed text-[96px] font-bold text-[#2A334E]">
-            Log
-            <span className="-mt-12">In</span>
-          </h1>
-        </div>
+      }`}
+      </style>
+      <section className="flex max-h-full min-h-screen w-full flex-col bg-login-gradient">
+        {/* Login Header */}
+        <LoginHeader />
+        {/* login logo */}
+        <LoginLogo />
         <div className="relative mt-9 flex justify-center">
-          <InputForm />
+          {/* <InputForm /> */}
+          <LoginSection />
         </div>
       </section>
       <Image
@@ -100,6 +51,124 @@ export default function Login() {
     </>
   );
 }
+
+const LoginSection = () => {
+  const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [alreadyLogin, setAlreadyLogin] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const handleLogin = async () => {
+      const token = searchParams.get("token");
+
+      if (!token) {
+        if (localStorage.getItem("studentInformation")) {
+          setAlreadyLogin(true);
+          setLoading(false);
+        } else {
+          setAlreadyLogin(false);
+          setLoading(false);
+        }
+      } else {
+        try {
+          const response = await axios.post("/login/api/auth", {
+            token,
+          });
+          localStorage.setItem(
+            "studentInformation",
+            JSON.stringify(response.data),
+          );
+          setAlreadyLogin(true);
+          setLoading(false);
+        } catch (error) {
+          // nothing
+        }
+      }
+    };
+
+    handleLogin();
+  }, [router, searchParams]);
+
+  const Load = () => {
+    return <h2 className="text-4xl font-bold text-white">Loading...</h2>;
+  };
+
+  const Login = () => {
+    return (
+      <>
+        <Button
+          className="w-[190px] rounded-xl py-7 text-center font-roboto-condensed text-2xl font-medium text-white"
+          onClick={() => {
+            router.replace("/app/home");
+          }}
+        >
+          Continue
+        </Button>
+        <Button
+          className="login-page w-[190px] rounded-xl py-7 text-center font-roboto-condensed text-2xl font-medium hover:bg-white/90"
+          onClick={() => {
+            localStorage.removeItem("studentInformation");
+            setAlreadyLogin(false);
+          }}
+        >
+          Logout
+        </Button>
+      </>
+    );
+  };
+  const NotLogin = () => {
+    return (
+      <Button
+        className="login-page rounded-xl px-14 py-7 font-roboto-condensed text-2xl font-medium hover:bg-white/90"
+        onClick={() => {
+          router.replace(
+            "https://accounts.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login",
+          );
+        }}
+      >
+        Log In
+      </Button>
+    );
+  };
+
+  return (
+    <div className="z-20 flex h-40 w-full flex-col items-center justify-center gap-4">
+      {loading ? <Load /> : alreadyLogin ? <Login /> : <NotLogin />}
+    </div>
+  );
+};
+
+const LoginHeader = () => {
+  return (
+    <div className="flex w-full justify-center pt-6">
+      <LogoVishnu className="w-[33.84%] min-w-[132.6px]" />
+    </div>
+  );
+};
+
+const LoginLogo = () => {
+  return (
+    <div className="relative aspect-square w-full">
+      <TriangleBackground className="left-0 right-0" />
+      <Image
+        className="absolute -bottom-2 left-[1.28%] z-10 w-[61.5%]"
+        src={loginImage}
+        alt="login image"
+      />
+      <Image
+        className="absolute -bottom-[1rem] left-0 w-[60%]"
+        src={loginImageLayer}
+        alt="login image shadow"
+      />
+      <h1 className="absolute right-10 top-1/2 flex -translate-y-[50%] flex-col font-roboto-condensed text-[96px] font-bold text-[#2A334E]">
+        Log
+        <span className="-mt-12">In</span>
+      </h1>
+    </div>
+  );
+};
 
 const LogoVishnu = ({ className = "" }) => {
   return (
@@ -320,14 +389,14 @@ const InputForm = () => {
           )}
         />
         <div className="flex w-full justify-center">
-          <a
+          {/* <a
             href={
               "https://accounts.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login"
             }
             className="font-bold text-white"
           >
             test Login
-          </a>
+          </a> */}
           <Button
             className="login-page rounded-xl px-9 py-3 font-roboto-condensed text-xl font-medium hover:bg-white/90"
             type="submit"
