@@ -114,7 +114,7 @@ const LoginSection = () => {
             router.replace("/app/login");
           }}
         >
-          Logout
+          Log out
         </Button>
       </>
     );
