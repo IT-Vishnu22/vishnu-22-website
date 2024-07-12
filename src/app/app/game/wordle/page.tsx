@@ -1,3 +1,5 @@
+// wordle/pages.tsx ให้ตายก้อย่าหาย
+
 'use client';
 
 import wordList from './wordList.json'
@@ -104,7 +106,7 @@ export default function WordlePage() {
             {popUpMessage != '' &&
                     <PopUp
                         message={popUpMessage}
-                        onClick={handlePopUpClick}
+                        handleClick={handlePopUpClick}
                     />}
 
             <div className="flex flex-col items-center pt-32 space-y-4 mx-4">
@@ -114,7 +116,7 @@ export default function WordlePage() {
                     isGuessed={isGuessed}
                 />
                 <Keyboard
-                    onClick={handleKeyClick}
+                    handleClick={handleKeyClick}
                 />
                 <div className="flex gap-2 w-full mx-4 justify-center">
                     <Button
@@ -138,34 +140,56 @@ export default function WordlePage() {
     );
 }
 
-function PopUp({ message, onClick }: { message: string, onClick: VoidFunction }) {
+function PopUp({ message, handleClick }: { message: string, handleClick: VoidFunction }) {
 
     const bgColor = (message === 'เก่งมาก คุณทายถูก!')
         ? 'bg-green-300'
         : (message === 'กรุณากรอกคำที่มี 5 ตัวอักษร') || (message === 'กรุณากรอกคำที่มีอยู่จริง')
             ? 'bg-yellow-300'
             : 'bg-gray-300'
-
-    return (
-        <div className="flex justify-center">
-            <div className={` ${bgColor} border-2 border-[rgba(0,0,0,0.7)] rounded-xl p-4 m-4 absolute flex items-start`}>
-                <div className="pt-4 font-athiti">
-                    {message === 'rules'
-                        ? <p><b>ยินดีต้อนรับสู่ Wordle!</b> ก่อนจะเริ่มเล่น ขอให้อ่านกติกากันซักหน่อย:<br /><br />1. คุณสามารถทายคำภาษาอังกฤษยาว 5 ตัวอักษรได้เพียงครั้งเดียวเท่านั้น<br />2. หากทายคำถูก หน่วยของคุณจะได้แต้ม โดยคะแนนของแต่ละหน่วยขึ้นอยู่กับจำนวนสมาชิกที่ทายคำถูก<br />3. คุณสามารถปรึกษากับเพื่อนได้ว่าคำตอบคืออะไร<br /><br />ขอให้โชคดีนะ!</p>
-                        : <p className="text-center">{message}</p>
-                    }
+    
+    if (message === 'rules') {
+        return (
+            <div id="DialogQuestion" className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[310px] min-h-[310px] flex flex-col justify-center items-center">
+                <div className="relative w-[310px] min-h-[310px] flex flex-col justify-center items-center">
+                    <div className="absolute inset-0 w-full h-full bg-green-2 -rotate-6 mx-auto drop-shadow-md"></div>
+                    <div className="relative inset-0 w-full bg-secondary flex flex-col justify-center items-center p-8 gap-6 drop-shadow-md">
+                        <div className="flex flex-col gap-2">
+                            <p className="text-center font-bold font-athiti text-3xl text-green-2">เล่นยังไงนะ?</p>
+                            <li className="font-athiti">
+                                <ul>ตัวอักษรที่ถูกต้องแล้วอยู่ในตำแหน่งที่ถูกต้องจะแสดงเป็น<b className="text-green-600">สีเขียว</b></ul>
+                                <li>ตัวอักษรที่ถูกต้องแต่อยู่ในตำแหน่งที่ผิดจะ แสดงเป็น<b className="text-yellow-600">สีเหลือง</b></li>
+                                <li>ตัวอักษรที่ไม่อยู่ในคำปริศนาจะแสดงเป็น<b className="text-gray-400">สีเทา</b></li>
+                            </li>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-row justify-center items-center gap-10">
+                                <button className="font-medium font-athiti text-green-2 border border-1 border-green-2 rounded-full bg-green-1 px-6 py-1" onClick={handleClick}>เดาคำปริศนาเลย!!!</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div> 
+        )
+    } else {
+        return (
+            <div className="flex justify-center">
+                <div className={` ${bgColor} border-2 border-[rgba(0,0,0,0.7)] rounded-xl p-4 m-4 absolute flex items-start`}>
+                    <div className="pt-4 font-athiti">
+                        <p className="text-center">{message}</p>
+                    </div>
 
-                <Button
-                    className="h-5 mt-2 -mr-2 bg-transparent hover:bg-transparent text-black absolute top-0 right-0"
-                    onClick={onClick}
-                >
-                    <CloseIcon />
-                </Button>
+                    <Button
+                        className="h-5 mt-2 -mr-2 bg-transparent hover:bg-transparent text-black absolute top-0 right-0"
+                        onClick={handleClick}
+                    >
+                        <CloseIcon />
+                    </Button>
 
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, isGuessed: boolean }) {
@@ -203,7 +227,7 @@ function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, is
     );
 }
 
-function Keyboard({ onClick }: { onClick: VoidFunction }) {
+function Keyboard({ handleClick }: { handleClick: VoidFunction }) {
 
     const qwerty = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
@@ -215,7 +239,7 @@ function Keyboard({ onClick }: { onClick: VoidFunction }) {
                         <Button
                             id={key}
                             className={`px-[17%] flex h-10 w-1 m-px bg-gray-300 items-center justify-center text-center border-2 border-gray-700 rounded-lg md:rounded-xl text-black hover:text-white font-bold uppercase`}
-                            onClick={(e) => onClick(e.target.id)}
+                            onClick={(e) => handleClick(e.target.id)}
                         >
                             {key}
                         </Button>
