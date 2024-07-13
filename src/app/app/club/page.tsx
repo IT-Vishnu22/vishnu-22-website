@@ -25,9 +25,9 @@ export default function ClubPage() {
         <p className="font-bold text-2xl">{clubCollect > 3 ? 3 : clubCollect}/3</p>
       </div>
       <div className="flex flex-col justify-center items-center gap-[20px] pb-12">
-        <ClubCard />
-        <ClubCard />
-        <ClubCard />
+        <ClubCard ClubName="AAAA" ClubDetails="aaaa"/>
+        {/* <ClubCard ClubName="BBBB" ClubDetails="bbbb"/>
+        <ClubCard ClubName="CCCC" ClubDetails=""/> */}
       </div>
     </div>
   )
