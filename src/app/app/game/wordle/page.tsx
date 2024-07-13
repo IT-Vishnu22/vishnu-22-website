@@ -150,7 +150,7 @@ function PopUp({ message, handleClick }: { message: string, handleClick: VoidFun
     
     if (message === 'rules') {
         return (
-            <div id="DialogQuestion" className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[310px] min-h-[310px] flex flex-col justify-center items-center">
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[310px] min-h-[310px] flex flex-col justify-center items-center">
                 <div className="relative w-[310px] min-h-[310px] flex flex-col justify-center items-center">
                     <div className="absolute inset-0 w-full h-full bg-green-2 -rotate-6 mx-auto drop-shadow-md"></div>
                     <div className="relative inset-0 w-full bg-secondary flex flex-col justify-center items-center p-8 gap-6 drop-shadow-md">
@@ -164,7 +164,7 @@ function PopUp({ message, handleClick }: { message: string, handleClick: VoidFun
                         </div>
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-row justify-center items-center gap-10">
-                                <button className="font-medium font-athiti text-green-2 border border-1 border-green-2 rounded-full bg-green-1 px-6 py-1" onClick={handleClick}>เดาคำปริศนาเลย!!!</button>
+                                <button className="font-medium font-athiti text-green-2 hover:text-white px-6 py-1 border border-1 border-green-2 rounded-full bg-green-1 hover:bg-green-2 transition" onClick={handleClick}>เดาคำปริศนาเลย!!!</button>
                             </div>
                         </div>
                     </div>
