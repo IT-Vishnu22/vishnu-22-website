@@ -32,7 +32,7 @@ export default function News02() {
 
       <div>
         <h2
-          className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่ 20 กันยายน
@@ -49,8 +49,8 @@ export default function News02() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words text-center font-roboto-condensed text-xs text-black">
-          ถ้าพูดกันตรง ๆ ก็คือยากมากครับ โดยเฉพาะปี 1
+        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+          &emsp; &emsp; ถ้าพูดกันตรง ๆ ก็คือยากมากครับ โดยเฉพาะปี 1
           ที่เราอาจจะยังปรับตัวกับการเรียนในมหาลัยไม่ได้ดีขนาดนั้น
           เกรดม.ปลายนี่เอามาเทียบกับมหาลัยไม่ได้เลยนะ ม.ปลายได้ 4.00
           มามหาลัยจัดไป 2.50 นี่ก็เห็นได้ทั่วไป หลาย ๆ
@@ -91,8 +91,8 @@ export default function News02() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words text-center font-roboto-condensed text-xs text-black">
-          นอกจากนี้ก็จะมีเรื่องกิจกรรมด้วย ตอนปี 1 นี่มันจะมีกิจกรรมหลาย ๆ
+        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+          &emsp; &emsp; นอกจากนี้ก็จะมีเรื่องกิจกรรมด้วย ตอนปี 1 นี่มันจะมีกิจกรรมหลาย ๆ
           อย่างให้เราทำหรือเข้าร่วมเยอะมากเลยนะ
           พอไปทำอะไรแบบนี้มันก็จะได้ประสบการณ์และได้เพื่อนเยอะดี
           แต่มันก็แลกมากับการมีเวลาอ่านหนังสือน้อยลง
@@ -106,7 +106,7 @@ export default function News02() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words text-center font-roboto-condensed text-xs italic text-black">
+        <h2 className="relative mb-3 inline-block max-w-full break-words text-center font-roboto-condensed text-xs italic text-black">
           <span>“ปีผมเฟรชชี่อย่างเดียว 150”</span>
           <br />
           <span>“ของผมไม่ถึง 100”</span>
@@ -127,7 +127,7 @@ export default function News02() {
 
       <div>
         <h2
-          className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬาฯ คุณปริต คุณพงษ์ศักดิ์ (วันที่ 15 มิถุนายน 2555)

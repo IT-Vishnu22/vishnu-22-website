@@ -41,8 +41,8 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          ฟุตบอลประเพณีจุฬา-ธรรมศาสตร์จริงๆ
+        <h2 className="relative mt-5 mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+          &emsp; &emsp;ฟุตบอลประเพณีจุฬา-ธรรมศาสตร์จริงๆ
           แล้วมีต้นกำเนิดมาจากการแข่งขันเรือประเพณีระหว่างมหาวิทยาลัยออกซฟอร์ดและมหาวิทยาลัยเคมบริดจ์ในสหราชอาณาจักร
           โดยมีจุดประสงค์เพื่อจะสานสัมพันธ์อันดีระหว่างนิสิตจุฬาและนิสิตธรรมศาสตร์
           จัดงานที่สนามศุภชลาศัย กรีฑาสถานแห่งชาติ ถนนพระรามที่ 1 แขวงวังใหม่
@@ -53,7 +53,7 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 ml-5 mt-1 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black">
+        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black text-center">
           “ เดี๋ยวนี้ฟุตบอลประเพณีเป็นอย่างไรไม่รู้
           สมัยก่อนรุ่นผมเป็นน้องใหม่ธรรมศาสตร์ เป็นเจ้าภาพ หรือจุฬาฯ เป็นเจ้าภาพ
           ถ้าธรรมศาสตร์เป็นเจ้าภาพเวลาเสร็จสิ้นการกีฬาแล้ว
@@ -64,8 +64,8 @@ export default function News03() {
         </h2>
       </div>
 
-      <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-4 gap-4 gap-6">
-        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+      <div className="flex items-center justify-center space-x-4">
+        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
             src="/intaniastorypics/4.3.jpg"
             loading="lazy"
@@ -74,7 +74,7 @@ export default function News03() {
           />
         </div>
 
-        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
             src="/intaniastorypics/4.4.jpg"
             loading="lazy"
@@ -85,15 +85,15 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          นอกจากแข่งกีฬาแล้วยังมีการแข่งกิจกรรมเชื่อมสัมพันธ์ระหว่างนิสิตจุฬาฯ
+        <h2 className="relative mt-5 mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+          &emsp; &emsp;นอกจากแข่งกีฬาแล้วยังมีการแข่งกิจกรรมเชื่อมสัมพันธ์ระหว่างนิสิตจุฬาฯ
           กับนักศึกษามหาวิทยาลัยธรรมศาสตร์ เช่น การเดินพาเหรด การเชียร์
           การแปรอักษร{" "}
         </h2>
       </div>
 
-      <div>
-        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black">
+      <div className="flex justify-center">
+        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black text-center">
           <span>“ คืนนั้นมีการละเล่น” </span>
           <br />
           <span>
@@ -108,8 +108,10 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          ถอดเทปตำนานวิศวจุฬา 2504-2507 (วันที่ 10 สิงหาคม 2555)
+        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+            style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
+        >
+          - ถอดเทปตำนานวิศวจุฬา 2504-2507 (วันที่ 10 สิงหาคม 2555)
         </h2>
       </div>
     </div>

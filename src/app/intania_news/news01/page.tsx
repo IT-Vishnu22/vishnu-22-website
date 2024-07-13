@@ -23,7 +23,7 @@ export default function News01() {
       </div>
 
       <div className="paragraph-container">
-        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs italic text-black">
+        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs italic text-black text-center">
           <span>
             “พอชีวิตช่วงดีที่สุดจนตราบเท่าทุกวันนี้ คือ ถ้าถามว่าผมในช่วงอายุ 68
             ปี
@@ -35,14 +35,14 @@ export default function News01() {
         </h2>
 
         <h2
-          className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - พี่ศิษย์เก่าไม่ประสงค์ออกนาม 2504
         </h2>
 
         <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          ตลอด 1 ปีของการเป็นนิสิตวิศวฯ จุฬา พูดได้คำเดียวเลยว่า “เหนื่อย”
+          &emsp; &emsp;ตลอด 1 ปีของการเป็นนิสิตวิศวฯ จุฬา พูดได้คำเดียวเลยว่า “เหนื่อย”
           แต่มันเป็นความเหนื่อยที่คุ้มค่า เรียนเหนื่อย เล่นเหนื่อย เที่ยวเหนื่อย
           แต่สนุกมั้ย มันสนุกนะ พอจบปี 1
           แล้วมองย้อยกลับไปดูแรงกายแรงใจที่ตัวเองทุ่มลงไป มันคุ้มค่าว่ะ ชีวิตปี
@@ -55,7 +55,7 @@ export default function News01() {
         </h2>
       </div>
 
-      <div className="mt-5 flex items-center justify-center space-x-4">
+      <div className="mt-3 flex items-center justify-center space-x-4">
         <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
             src="/intaniastorypics/Vishnu3rd.jpg"
@@ -77,24 +77,26 @@ export default function News01() {
 
       <div className="paragraph-container">
         <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          ยังจำวันแรกที่เข้าค่ายวิษณุได้อยู่เลยด้วยซ้ำ ขนาดเรามาเล่น
+          &emsp; &emsp;ยังจำวันแรกที่เข้าค่ายวิษณุได้อยู่เลยด้วยซ้ำ ขนาดเรามาเล่น
           มาทำกิจกรรมทุกอย่างยังอดเสียดายไม่ได้เลยว่าทำไมไม่ไปทักทาย
           ทำไมไม่ไปคุยกับเพื่อนๆ พี่ๆ ให้ได้มากกว่านี้ เคยมีคนบอกเอาไว้ว่า “ปี 1
           คือปีของการรับ ส่วนปี 2 คือปีของการให้” ถ้ายังอยู่ปี 1
           ก็รับเสียให้เต็มที่ เก็บเกี่ยวความทรงจำแสนล้ำค่าพวกนี้ไว้
           เพราะช่วงชีวิตการได้เป็น freshy มันมีครั้งเดียวจริงๆ
         </h2>
-
-        <h2 className="relative mb-3 ml-5 mt-1 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black">
+      </div>
+      <div>
+        <h2 className="relative mb-3 mt-1 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black text-center">
           “เข้ามาเรียนมหาวิทยาลัยได้สักพักปิดเทอม
           ตอนนั้นมันมีความรู้สึกว่ามันอบอุ่น ก็มีความเคารพในเรื่อง Seniority
           ที่ว่าลูกน้องต้องเคารพผู้ใหญ่เป็นธรรมเนียมไทย แม้แต่ภารโรง กวาดพื้น
           ถูห้อง แม่ค้าขายกล้วยแขก เราเรียกลุง เรียกป้า เหมือนเป็นญาติกันหมด
           ไม่ได้ดูถูกผู้ใหญ่ เป็นลุง จะมีแต่ป้าทำไมกล้วยแขกมันบางลง”
         </h2>
-
+      </div>
+      <div>
         <h2
-          className="relative mr-10 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black "
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่ 20 กันยายน
