@@ -6,6 +6,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
+import ImageMock from '@/assets/images/200x200.png';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from "next/image";
 
@@ -39,7 +40,7 @@ export function SponsorCarousel() {
                             mockData.map((item, index: number) => {
                                 return (
                                     <CarouselItem key={index} className={`basis-1/3 sm:basis-1/4 lg:basis-1/5 xl:basis-1/6`}>
-                                        <Image alt="sponser image" src={item.imagePath} width={200} height={200}/>
+                                        <Image alt="sponser image" src={ImageMock} width={200} height={200}/>
                                         {/* {item.name} */}
                                     </CarouselItem>
                                 );
