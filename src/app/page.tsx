@@ -7,7 +7,7 @@ export default function Home() {
     <div>
       <h1>Hello :P</h1>
       <Link href="/leaderboard">
-        <button className="bg-blue-2 py-3 px-5 rounded-md hover:bg-blue-1 text-white">
+        <button className="rounded-md bg-blue-2 px-5 py-3 text-white hover:bg-blue-1">
           to leaderboard
         </button>
       </Link>

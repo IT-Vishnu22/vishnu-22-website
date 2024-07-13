@@ -23,6 +23,8 @@ import axios from "axios";
 import loginImageLayer from "./images/login_image_layer.png";
 import loginImage from "./images/login_image.png";
 import dotGraphic from "./images/dot_graphic.svg";
+import { auth } from "@/lib/firebase";
+import { signInWithCustomToken, signOut } from "firebase/auth";
 
 export default function Login() {
   return (
@@ -63,7 +65,7 @@ const LoginSection = () => {
     const handleLogin = async () => {
       const token = searchParams.get("token");
 
-      if (!token) {
+      if (!token || alreadyLogin) {
         if (localStorage.getItem("studentInformation")) {
           setAlreadyLogin(true);
           setLoading(false);
@@ -76,14 +78,23 @@ const LoginSection = () => {
           const response = await axios.post("/login/api/auth", {
             token,
           });
-          localStorage.setItem(
-            "studentInformation",
-            JSON.stringify(response.data.data),
-          );
-          setAlreadyLogin(true);
-          setLoading(false);
+          // Check if response is successful
+          console.log(response.data);
+          if (response.status === 200) {
+            localStorage.setItem(
+              "studentInformation",
+              JSON.stringify(response.data.data),
+            );
+            await signInWithCustomToken(auth, response.data.authToken);
+            setAlreadyLogin(true);
+            setLoading(false);
+          } else {
+            // redirect to /login
+            router.replace("/login");
+          }
         } catch (error) {
-          // nothing
+          // redirect to /login
+          router.replace("/login");
         }
       }
     };
@@ -111,7 +122,8 @@ const LoginSection = () => {
           onClick={() => {
             localStorage.removeItem("studentInformation");
             setAlreadyLogin(false);
-            router.replace("/app/login");
+            signOut(auth);
+            router.replace("/login");
           }}
         >
           Log out
@@ -315,7 +327,7 @@ const TriangleBackground = ({ className = "" }) => {
       <path
         d="M-23 143L460.5 0L416 395L-23 272V143Z"
         fill="url(#paint0_linear_2383_1793)"
-        fill-opacity="0.2"
+        fillOpacity="0.2"
       />
       <defs>
         <linearGradient
@@ -326,8 +338,8 @@ const TriangleBackground = ({ className = "" }) => {
           y2="198"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.21" stop-color="#00557C" />
-          <stop offset="0.9" stop-color="white" />
+          <stop offset="0.21" stopColor="#00557C" />
+          <stop offset="0.9" stopColor="white" />
         </linearGradient>
       </defs>
     </svg>
