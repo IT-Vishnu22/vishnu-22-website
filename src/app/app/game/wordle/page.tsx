@@ -150,6 +150,7 @@ export default function WordlePage() {
                 <div className="flex gap-2 w-full mx-4 justify-center">
                 {
                     user ?
+                    !group? <p>This is only for 108: If you are 108, please contact IT.</p> :
                     played ? <p>คุณได้เล่นไปแล้ว</p> :
                     <>
                         <Button
