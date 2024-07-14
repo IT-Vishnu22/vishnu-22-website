@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="z-10 w-full h-full grid grid-cols-1 md:grid-cols-2 justify-items-center items-center space-y-[100px]">
+      <div className="z-10 w-full grid grid-cols-1 md:grid-cols-2 justify-items-center items-center space-y-[100px]">
         <div className="col-span-1 flex justify-center items-center">
           <button className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-125">
             <StampbookIcon />
