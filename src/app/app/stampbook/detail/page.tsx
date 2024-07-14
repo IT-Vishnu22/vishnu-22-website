@@ -1,3 +1,3 @@
-export default function StampbookPage() {
-  return <h2>hi stampbook page</h2>;
+export default function StampbookDetailPage() {
+  return <h2>hi stampbook detail page</h2>;
 }
