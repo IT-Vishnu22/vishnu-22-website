@@ -134,7 +134,7 @@ export default function WordlePage() {
 
             <div className="flex flex-col items-center pt-32 space-y-4 mx-4">
                 <Guess
-                    answer={"hello"}
+                    answer={answer}
                     guess={guess.toLowerCase()}
                     isGuessed={isGuessed}
                 />
