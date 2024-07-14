@@ -20,7 +20,7 @@ import Acadex from "@/assets/images/sponsorImages/acadex.png";
 
 export function SponsorCarousel() {
     return (
-        <div className="bottom-0 w-full overflow-hidden sm:mt-6 md:mt-8 lg:mt-10 py-6 bg-white flex flex-col justify-top items-center px-4 border border-t-1 border-r-0 border-l-0 border-b-0 border-black">
+        <div className="bottom-0 w-full overflow-hidden mt-[40px] sm:mt-[50px] md:mt-[60px] lg:mt-[70px] py-4 bg-white flex flex-col justify-top items-center px-4 border border-t-1 border-r-0 border-l-0 border-b-0 border-black">
             <p className="mb-6 lg:mb-10 lg:mt-2 text-xl sm:text-2xl lg:text-3xl font-medium">Our Supporters!</p>
             <Carousel
                 opts={{

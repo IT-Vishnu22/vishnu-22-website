@@ -4,7 +4,7 @@ import MapImage from "@/assets/images/engmapnopin.png"
 
 export default function MapEng() {
     return (
-        <div className="max-w-[1000px] my-4 flex flex-col items-center gap-2 p-4 sm:p-6 lg:p-8">
+        <div className="max-w-[1000px] mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex flex-col items-center gap-2 p-4 sm:p-6 lg:p-8">
             <Image
                 alt="Engineering Map"
                 src={MapImage}

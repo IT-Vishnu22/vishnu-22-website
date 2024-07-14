@@ -31,7 +31,7 @@ const MenuItem = ({ text, linkRef }: { text: string, linkRef: string }) => {
 export function MenuBottomBar() {
     const pathname: string = usePathname();
     return (
-        <NavigationMenu className="fixed z-50 w-full bottom-0 sm:hidden block h-[65px] bg-white border-t-[4px] border-black flex flex-row items-center justify-center">
+        <NavigationMenu className="fixed z-50 w-full max-w-[100vw] bottom-0 sm:hidden block h-[65px] bg-white border-t-[4px] border-black flex flex-row items-center justify-center">
             {/* <div className="w-full group list-none flex flex-row items-center justify-evenly"> */}
             <NavigationMenuList>
                 <NavigationMenuItem className="w-1/4 flex items-center">
@@ -85,7 +85,7 @@ export function MenuTopBar() {
 
     return (
         <>
-            <div className="z-50 hidden w-full h-[65px] top-0 left-0 right-0 fixed bg-[#FEEBED] sm:flex justify-between items-center px-4">
+            <div className="z-50 hidden w-full max-w-[100vw] h-[65px] top-0 left-0 right-0 fixed bg-[#FEEBED] sm:flex justify-between items-center px-4">
                 <div className="flex flex-row justify-center items-center gap-x-8">
                     <Logo scale={0.7} />
                     <div className="hidden lg:flex flex-row justify-center items-center gap-x-10">
@@ -160,13 +160,13 @@ export function MenuTopBar() {
                     }
                 </div>
             </div>
-            <div className="w-full h-[65px] top-0 left-0 right-0 z-50 fixed flex justify-end items-center px-8 sm:hidden">
+            <div className="w-full max-w-[100vw] h-[65px] top-0 left-0 right-0 z-50 fixed flex justify-end items-center px-8 sm:hidden">
                 {
                     token ?
-                        <Link href={"/"} className="z-50 rounded-3xl px-5 py-1 bg-[#ECD8C1]">
+                        <Link href={"/"} className="z-50 rounded-3xl px-5 py-1 bg-[#ECD8C1] shadow shadow-lg">
                             <p className="text-lg font-medium text-primary">Hello, {mockData}</p>
                         </Link> :
-                        <Link href={"/"} className="z-50 rounded-3xl px-5 py-1 bg-[#ECD8C1]">
+                        <Link href={"/"} className="z-50 rounded-3xl px-5 py-1 bg-[#ECD8C1] shadow shadow-lg">
                             <p className="text-lg font-medium text-primary">Login</p>
                         </Link>
                 }
