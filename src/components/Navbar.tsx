@@ -47,7 +47,7 @@ export default function Navbar() {
 }
 
 const HomePageIcon = () => {
-  const color: string = isUrl("home") ? "#2A334E" : "#CFCFCF";
+  const color: string = useIsUrl("home") ? "#2A334E" : "#CFCFCF";
   return (
     <svg
       width="38"
@@ -69,7 +69,7 @@ const HomePageIcon = () => {
 };
 
 const StampbookPageIcon = () => {
-  const color: string = isUrl("stampbook") ? "#2A334E" : "#CFCFCF";
+  const color: string = useIsUrl("stampbook") ? "#2A334E" : "#CFCFCF";
   return (
     <svg
       width="41"
@@ -107,7 +107,7 @@ const StampbookPageIcon = () => {
 };
 
 const ClubPageIcon = () => {
-  const color: string = isUrl("club") ? "#2A334E" : "#CFCFCF";
+  const color: string = useIsUrl("club") ? "#2A334E" : "#CFCFCF";
   return (
     <svg
       width="36"
@@ -128,7 +128,7 @@ const ClubPageIcon = () => {
   );
 };
 const GamePageIcon = () => {
-  const color: string = isUrl("game") ? "#2A334E" : "#CFCFCF";
+  const color: string = useIsUrl("game") ? "#2A334E" : "#CFCFCF";
   return (
     <svg
       width="37"
@@ -156,7 +156,7 @@ const GamePageIcon = () => {
   );
 };
 
-const isUrl = (name: string) => {
-  const pathname: string = usePathname();
-  return pathname.includes(name);
-};
+function useIsUrl(pathSegment: string): boolean {
+  const pathname = usePathname();
+  return pathname.includes(pathSegment);
+}
