@@ -16,3 +16,5 @@ export const BackIcon = () => {
       </svg>
     );
   };
+
+export default BackIcon;
