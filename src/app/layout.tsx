@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={robotoCondensed.className}>
         <MenuTopBar />
-        <main className="pt-0 pb-[60px] sm:pt-[60px] sm:pb-0">
+        <main className="pt-0 pb-[65px] sm:pt-[65px] sm:pb-0">
           {children}
         </main>
         <MenuBottomBar />

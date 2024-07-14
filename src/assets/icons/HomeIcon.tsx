@@ -56,7 +56,7 @@ export const StampbookIcon = () => {
             <svg width="125" height="154" viewBox="0 0 125 154" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="-1.71143" y="16.2306" width="106.427" height="141.671" rx="17.75" transform="rotate(-9.70544 -1.71143 16.2306)" fill="#D9D9D9" />
                 <rect x="-1.71143" y="16.2306" width="106.427" height="141.671" rx="17.75" transform="rotate(-9.70544 -1.71143 16.2306)" fill="#FECCCC" />
-                <rect x="-1.71143" y="16.2306" width="106.427" height="141.671" rx="17.75" transform="rotate(-9.70544 -1.71143 16.2306)" stroke="black" stroke-width="0.5" />
+                <rect x="-1.71143" y="16.2306" width="106.427" height="141.671" rx="17.75" transform="rotate(-9.70544 -1.71143 16.2306)" stroke="black" strokeWidth="0.5" />
             </svg>
             <Image src={StampPath} alt='' width={90} height={90} className='absolute top-6 left-5' />
         </div>

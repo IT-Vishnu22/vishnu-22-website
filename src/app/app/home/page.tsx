@@ -9,6 +9,7 @@ import MapEng from "@/components/HomeComponents/MapEngineer";
 import { SponsorCarousel } from "@/components/HomeComponents/Sponsor";
 import Link from "next/link";
 import style from "./styles.module.css";
+import News from "@/assets/images/intanianews.png"
 
 export default function Home() {
 
@@ -19,7 +20,7 @@ export default function Home() {
       </div>
 
       <div className="w-full px-6">
-        <div className="w-full h-[30vh] sm:h-[50vh] lg:h-[70vh] xl:h-[80vh] bg-white flex justify-end items-end p-4 sm:p-6 lg:p-8">
+        <div className="w-full h-[30vh] sm:h-[50vh] lg:h-[70vh] xl:h-[80vh] flex justify-end items-end p-4 sm:p-6 lg:p-8">
           <p className="font-semibold text-3xl sm:text-4xl lg:text-5xl">พาดหัวข่าว</p>
         </div>
         <div className="flex flex-row justify-end items-center gap-x-2 pt-3">

@@ -8,10 +8,9 @@ export default function MapEng() {
             <Image
                 alt="Engineering Map"
                 src={MapImage}
-                width={827}
-                height={431}
-                layout="responsive"
-                className="border-2 border-primary"
+                width={0}
+                height={0}
+                className="border border-1 border-primary sm:max-w-[550px] md:max-w-[650px] lg:max-w-[750px] xl:max-w-[850px]"
             />
             <p className="font-regular text-xs sm:text-md md:text-lg text-center text-primary">
                 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330
