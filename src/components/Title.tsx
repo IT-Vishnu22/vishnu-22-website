@@ -10,7 +10,7 @@ export default function Title() {
         </Link>
 
         <p className="text-lg sm:text-3xl relative text-white self-center flex-1 text-center font-semibold">
-          LeaderBoard
+          Leaderboard
         </p>
       </div>
     </>
