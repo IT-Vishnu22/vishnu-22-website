@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BackIcon from "./BackIcon";
+import { BackIcon } from "./BackIcon";
 
 export default function Title() {
   return (
