@@ -16,7 +16,7 @@ import {
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 
@@ -40,10 +40,12 @@ export default function Login() {
         <LoginHeader />
         {/* login logo */}
         <LoginLogo />
-        <div className="relative mt-9 flex justify-center">
-          {/* <InputForm /> */}
-          <LoginSection />
-        </div>
+        <Suspense>
+          <div className="relative mt-9 flex justify-center">
+            {/* <InputForm /> */}
+            <LoginSection />
+          </div>
+        </Suspense>
       </section>
       <Image
         className="absolute bottom-0 z-10 w-full md:max-w-[390px]"
