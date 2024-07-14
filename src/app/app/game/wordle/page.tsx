@@ -40,21 +40,43 @@ export default function WordlePage() {
         
 
     useEffect(() => {
-        window.addEventListener("keyup", handleKeyUp);
+        const handleKeyDown = (event: KeyboardEvent) => {
+            // Regular expression to check for alphanumeric characters
+            handleKeyClick(event.key);
+        };
+        // Add the event listener when the component mounts
+        window.addEventListener("keydown", handleKeyDown);
 
+        // Remove the event listener when the component unmounts
         return () => {
-            window.removeEventListener("keyup", handleKeyUp);
-        }
-    }, [guess, isGuessed]);
-
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [guess, isGuessed, handleKeyClick]);
 
     // for the physical keyboard e.g. of PC (not usable on mobile)
-    function handleKeyUp(e: { key: string; }) {
-        let key = e.key;
-        if (isGuessed === true) {
+    // function handleKeyUp(e: { key: string }) {
+    //     let key = e.key;
+    //     if (isGuessed === true) {
+    //         return 0;
+    //     } else if (key.length === 1 && key.match(/[A-z]/) && guess.length < 5) {
+    //         setGuess(guess + key);
+    //     } else if (key === "Backspace") {
+    //         setGuess(guess.slice(0, guess.length - 1));
+    //     } else if (key === "Enter") {
+    //         handleSubmitClick();
+    //     }
+    // }
+
+    //for the in-web keyboard
+    // Function to handle the keydown event
+
+    function handleKeyClick(key: string) {
+        // Regular expression to check for alphanumeric characters
+        const isAlphanumeric = /^[a-z0-9]+$/i;
+        if (isGuessed == true) {
             return 0;
         }
-        else if (key.length === 1 && key.match(/[A-z]/) && guess.length < 5) {
+        if (isAlphanumeric.test(key) && key.length === 1 && guess.length < 5) {
             setGuess(guess + key);
         }
         else if (key === 'Backspace') {
@@ -64,22 +86,6 @@ export default function WordlePage() {
             handleSubmitClick();
         }
     }
-
-    //for the in-web keyboard
-    function handleKeyClick(key: string) {
-        if (isGuessed !== true) {
-            if (guess.length < 5) {
-                setGuess(guess + key);
-            }
-            else if (key === 'Backspace') {
-                setGuess(guess.slice(0, guess.length - 1));
-            }
-            else if (key === 'Enter') {
-                handleSubmitClick();
-            }
-        }
-    }
-
 
     function handleRulePopUpClick() {
         setPopUpMessage('rules');
@@ -235,19 +241,25 @@ function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, is
                         ? 'bg-white'
                         : guess[i] === answer[i]
                             ? 'bg-green-300'
-                            : answer.includes(guess[i])
+                          : answer.includes(guess[i])
                                 ? 'bg-cream'
                                 : 'bg-white'
 
                     if (isGuessed) {
                         return (
-                            <div className={`h-16 ${bgColor} items-center flex justify-center border-2 border-blue-4 rounded-xl font-bold uppercase text-blue-1 shadow-[3px_4px_0px_#427383]`}>
+                            <div
+                                className={`h-16 ${bgColor} flex items-center justify-center rounded-xl border-2 border-blue-4 font-bold uppercase text-blue-1 shadow-[3px_4px_0px_#427383]`}
+                                key={i}
+                            >
                                 {guess[i]}
                             </div>
-                        )
+                        );
                     } else {
                         return (
-                            <div className="h-16 bg-white items-center flex justify-center border-2 border-blue-4 rounded-xl font-bold uppercase text-blue-1 shadow-[3px_4px_0px_#427383]">
+                            <div
+                                className="flex h-16 items-center justify-center rounded-xl border-2 border-blue-4 bg-white font-bold uppercase text-blue-1 shadow-[3px_4px_0px_#427383]"
+                                key={i}
+                            >
                                 {guess[i]}
                             </div>
                         );
@@ -260,19 +272,20 @@ function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, is
     );
 }
 
-function Keyboard({ handleClick }: { handleClick: VoidFunction }) {
+function Keyboard({ handleClick }: { handleClick: (key: string) => void }) {
 
     const qwerty = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
     return (
         <div className="w-[25%] mx-2">
             {qwerty.map((row) => (
-                <div className="flex justify-center">
-                    {row.split('').map((key: string) => (
+                <div className="flex justify-center" key={row}>
+                    {row.split("").map((key: string) => (
                         <Button
                             id={key}
-                            className={`px-[17%] flex h-10 w-1 m-px bg-gray-300 items-center justify-center text-center border-2 border-gray-700 rounded-lg md:rounded-xl text-black hover:text-white font-bold uppercase`}
-                            onClick={(e) => handleClick(e.target.id)}
+                            className={`m-px flex h-10 w-1 items-center justify-center rounded-lg border-2 border-gray-700 bg-gray-300 px-[17%] text-center font-bold uppercase text-black hover:text-white md:rounded-xl`}
+                            onClick={() => handleClick(key)}
+                            key={key}
                         >
                             {key}
                         </Button>
