@@ -1,12 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
-import loginImage from "./images/login_image.png";
-import loginImageLayer from "./images/login_image_layer.png";
-import dotGraphic from "./images/dot_graphic.svg";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -17,50 +13,165 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
+import { useSearchParams, useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
-// import { toast } from "@/components/ui/use-toast";
+import axios from "axios";
+
+import loginImageLayer from "./images/login_image_layer.png";
+import loginImage from "./images/login_image.png";
+import dotGraphic from "./images/dot_graphic.svg";
 
 export default function Login() {
   return (
     <>
-      <style>{`  .login-page {
+      <style>
+        {`  .login-page {
     --primary: 0 0% 100%;
     --primary-foreground: 224 30% 23%;
-  }`}</style>
-      <section className="flex flex-col justify-evenly bg-login-gradient w-full max-h-full min-h-screen">
-        <div className="flex w-full pt-6 justify-center">
-          <LogoVishnu className="min-w-[132.6px] w-[33.84%]" />
-        </div>
-        <div className="relative w-full aspect-square">
-          <TriangleBackground className="left-0 right-0" />
-          <Image
-            className="absolute left-[1.28%] -bottom-2 z-10 w-[61.5%] "
-            src={loginImage}
-            alt="login image"
-          />
-          <Image
-            className="absolute left-0 -bottom-[1rem] w-[60%] "
-            src={loginImageLayer}
-            alt="login image shadow"
-          />
-          <h1 className="flex flex-col absolute font-bold font-roboto-condensed text-[96px] text-[#2A334E] top-1/2 -translate-y-[50%] right-10">
-            Log
-            <span className="-mt-12">In</span>
-          </h1>
-        </div>
-        <div className="relative flex justify-center mt-9 ">
-          <InputForm />
-        </div>
+      }`}
+      </style>
+      <section className="flex max-h-full min-h-screen w-full flex-col bg-login-gradient">
+        {/* Login Header */}
+        <LoginHeader />
+        {/* login logo */}
+        <LoginLogo />
+        <Suspense>
+          <div className="relative mt-9 flex justify-center">
+            {/* <InputForm /> */}
+            <LoginSection />
+          </div>
+        </Suspense>
       </section>
       <Image
-        className="absolute w-full md:max-w-[390px] bottom-0 z-10"
+        className="absolute bottom-0 z-10 w-full md:max-w-[390px]"
         src={dotGraphic}
         alt="dot graphic"
       />
     </>
   );
 }
+
+const LoginSection = () => {
+  const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [alreadyLogin, setAlreadyLogin] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const handleLogin = async () => {
+      const token = searchParams.get("token");
+
+      if (!token) {
+        if (localStorage.getItem("studentInformation")) {
+          setAlreadyLogin(true);
+          setLoading(false);
+        } else {
+          setAlreadyLogin(false);
+          setLoading(false);
+        }
+      } else {
+        try {
+          const response = await axios.post("/login/api/auth", {
+            token,
+          });
+          localStorage.setItem(
+            "studentInformation",
+            JSON.stringify(response.data.data),
+          );
+          setAlreadyLogin(true);
+          setLoading(false);
+        } catch (error) {
+          // nothing
+        }
+      }
+    };
+
+    handleLogin();
+  }, [router, searchParams]);
+
+  const Load = () => {
+    return <h2 className="text-4xl font-bold text-white">Loading...</h2>;
+  };
+
+  const Login = () => {
+    return (
+      <>
+        <Button
+          className="w-[190px] rounded-xl py-7 text-center font-roboto-condensed text-2xl font-medium text-white"
+          onClick={() => {
+            router.replace("/app/home");
+          }}
+        >
+          Continue
+        </Button>
+        <Button
+          className="login-page w-[190px] rounded-xl py-7 text-center font-roboto-condensed text-2xl font-medium hover:bg-white/90"
+          onClick={() => {
+            localStorage.removeItem("studentInformation");
+            setAlreadyLogin(false);
+            router.replace("/app/login");
+          }}
+        >
+          Log out
+        </Button>
+      </>
+    );
+  };
+  const NotLogin = () => {
+    return (
+      <Button
+        className="login-page rounded-xl px-14 py-7 font-roboto-condensed text-2xl font-medium hover:bg-white/90"
+        onClick={() => {
+          router.replace(
+            "https://accounts.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login",
+          );
+        }}
+      >
+        Log In
+      </Button>
+    );
+  };
+
+  return (
+    <div className="z-20 flex h-40 w-full flex-col items-center justify-center gap-4">
+      {loading ? <Load /> : alreadyLogin ? <Login /> : <NotLogin />}
+    </div>
+  );
+};
+
+const LoginHeader = () => {
+  return (
+    <div className="flex w-full justify-center pt-6">
+      <LogoVishnu className="w-[33.84%] min-w-[132.6px]" />
+    </div>
+  );
+};
+
+const LoginLogo = () => {
+  return (
+    <div className="relative aspect-square w-full">
+      <TriangleBackground className="left-0 right-0" />
+      <Image
+        className="absolute -bottom-2 left-[1.28%] z-10 w-[61.5%]"
+        src={loginImage}
+        alt="login image"
+      />
+      <Image
+        className="absolute -bottom-[1rem] left-0 w-[60%]"
+        src={loginImageLayer}
+        alt="login image shadow"
+      />
+      <h1 className="absolute right-10 top-1/2 flex -translate-y-[50%] flex-col font-roboto-condensed text-[96px] font-bold text-[#2A334E]">
+        Log
+        <span className="-mt-12">In</span>
+      </h1>
+    </div>
+  );
+};
 
 const LogoVishnu = ({ className = "" }) => {
   return (
@@ -104,7 +215,7 @@ const LogoVishnu = ({ className = "" }) => {
         d="M68.7512 28.3966C68.1417 28.3966 67.5339 28.3991 66.9244 28.3966C66.4673 28.3942 66.2971 28.2262 66.417 27.8803C66.5743 27.4236 66.785 27.0193 67.3296 26.7169C68.0315 26.3262 68.6783 25.8733 69.3088 25.4154C69.4969 25.2786 69.5828 25.0384 69.6427 24.8319C69.6557 24.7871 69.3283 24.6067 69.2132 24.6328C68.9846 24.685 68.7172 24.802 68.6021 24.9538C68.2633 25.4005 67.7446 25.179 67.3183 25.1616C67.2146 25.1579 67.0362 24.756 67.0735 24.5569C67.1335 24.2334 67.3053 23.9124 67.5031 23.6187C67.5922 23.4868 67.8516 23.3512 68.0396 23.345C68.9085 23.3164 69.7789 23.335 70.6477 23.3301C71.0692 23.3276 71.2264 23.498 71.2232 23.8004C71.2183 24.2682 71.2556 24.7373 71.2053 25.2014C71.1843 25.3918 71.0238 25.6033 70.8455 25.7464C70.4856 26.0338 70.0545 26.269 69.6849 26.5502C69.5682 26.6385 69.4871 26.8127 69.5131 26.9322C69.5277 27.0031 69.7789 27.0553 69.9329 27.0927C70.0318 27.1163 70.1485 27.0976 70.2571 27.0989C71.16 27.1026 71.5036 27.4572 71.1729 28.1092C71.1065 28.2411 70.7904 28.363 70.578 28.3755C69.9734 28.4116 69.3623 28.3879 68.7528 28.3879V28.3979L68.7512 28.3966Z"
         fill="white"
       />
-      <path d="M83.5504 0L83.5504 49.0162" stroke="white" stroke-width="4" />
+      <path d="M83.5504 0L83.5504 49.0162" stroke="white" strokeWidth="4" />
       <path
         d="M108.717 44.8061C108.717 43.8252 108.706 42.8454 108.719 41.8644C108.73 40.9334 108.989 40.6677 109.858 40.6653C111.351 40.6604 112.844 40.6604 114.337 40.6653C115.168 40.6689 115.43 40.9078 115.439 41.7949C115.46 43.8373 115.46 45.8797 115.436 47.9221C115.425 48.7715 115.152 49.025 114.354 49.0299C112.846 49.0396 111.337 49.0384 109.829 49.0299C108.994 49.025 108.733 48.7471 108.72 47.8429C108.706 46.8303 108.717 45.8164 108.717 44.8037V44.8061ZM111.009 44.8488C111.009 45.7298 111.016 46.6097 111.006 47.4908C111.002 47.8003 111.101 47.938 111.405 47.927C111.865 47.9112 112.327 47.9148 112.787 47.9258C113.056 47.9319 113.183 47.8234 113.183 47.5285C113.18 45.7347 113.18 43.9409 113.183 42.1471C113.183 41.8839 113.083 41.7645 112.824 41.7718C112.364 41.7852 111.901 41.7974 111.442 41.7681C111.08 41.745 110.999 41.9107 111.004 42.2568C111.021 43.1208 111.01 43.986 111.01 44.85L111.009 44.8488Z"
         fill="white"
@@ -197,7 +308,7 @@ const LogoVishnu = ({ className = "" }) => {
 const TriangleBackground = ({ className = "" }) => {
   return (
     <svg
-      className={className + " w-full aspect-square"}
+      className={className + " aspect-square w-full"}
       viewBox="0 0 390 395"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -254,7 +365,7 @@ const InputForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-2/3 space-y-6 z-30 pb-16"
+        className="z-30 w-2/3 space-y-6 pb-16"
       >
         <FormField
           control={form.control}
@@ -262,7 +373,7 @@ const InputForm = () => {
           render={({ field }) => (
             <FormItem className="space-y-3">
               <div className="space-y-0.5">
-                <FormLabel className="font-roboto-condensed font-medium text-white text-xl">
+                <FormLabel className="font-roboto-condensed text-xl font-medium text-white">
                   Username
                 </FormLabel>
                 <FormControl>
@@ -270,7 +381,7 @@ const InputForm = () => {
                 </FormControl>
               </div>
               <div className="space-y-0.5">
-                <FormLabel className="font-roboto-condensed font-medium text-white text-xl">
+                <FormLabel className="font-roboto-condensed text-xl font-medium text-white">
                   Password
                 </FormLabel>
                 <FormControl>
@@ -281,8 +392,16 @@ const InputForm = () => {
           )}
         />
         <div className="flex w-full justify-center">
+          {/* <a
+            href={
+              "https://accounts.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login"
+            }
+            className="font-bold text-white"
+          >
+            test Login
+          </a> */}
           <Button
-            className="login-page hover:bg-white/90 rounded-xl px-9 py-3 text-xl font-roboto-condensed font-medium"
+            className="login-page rounded-xl px-9 py-3 font-roboto-condensed text-xl font-medium hover:bg-white/90"
             type="submit"
           >
             Log In
