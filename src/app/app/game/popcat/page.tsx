@@ -13,28 +13,28 @@ import {
   } from "@/components/ui/resizable"
 
 export default function PopcatPage() {
-    const [ picUrl, setPicUrl ] = useState('/pic1.jpg');
+    const [ picUrl, setPicUrl ] = useState('/popgear_1.png');
     const [ count, setCount ] = useState(0);
-    const [ imageSize, setImageSize ] = useState('65%');
+    const [ imageSize, setImageSize ] = useState('75%');
 
     function touchStart() {
-        setPicUrl('/pic2.jpg');
+        setPicUrl('/popgear_2.png');
         setCount(count+1);
-        setImageSize('80%');
+        setImageSize('90%');
     }
 
     function touchEnd(e: { preventDefault: () => void; }) {
-        setPicUrl('/pic1.jpg');
+        setPicUrl('/popgear_1.png');
         e.preventDefault()
-        setImageSize('77%');
+        setImageSize('87%');
         setTimeout(() => {
-            setImageSize('74%');
+            setImageSize('84%');
             setTimeout(() => {
-                setImageSize('71%');
+                setImageSize('81%');
                 setTimeout(() => {
-                    setImageSize('68%');
+                    setImageSize('78%');
                     setTimeout(() => {
-                        setImageSize('65%');
+                        setImageSize('75%');
                     }, 25);
                 }, 25);
             }, 25);
@@ -46,7 +46,7 @@ export default function PopcatPage() {
             <div className="flex-none bg-blue-4 relative h-[91px] flex items-center justify-between z-[3]">
                 <div className="pl-[35px]"><Link href="/app/game"><BackIcon/></Link></div>
                 <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
-                    Pop Cat
+                    Pop Gear
                 </h1>
             </div>
             <div className="relative w-full grow">
@@ -58,20 +58,24 @@ export default function PopcatPage() {
                     <Image id="popEle" 
                         width={0} 
                         height={0} 
-                        style={{ width: `${imageSize}`, height: 'auto', marginInline: 'auto', marginTop: '50%' }}
-                        src='/vercel.svg' 
-                        alt="pop element" />
+                        style={{ width: `${imageSize}`, height: 'auto', margin: 'auto'}}
+                        src={picUrl} 
+                        alt="pop element"
+                        quality={100}
+                        unoptimized= {true} />
                 </div>
             </div>
+            <div className="h-[90px]"></div>
             <ResizablePanelGroup 
                 className="absolute bottom-[85px]"
                 direction="vertical">
                 <ResizablePanel
+                    defaultSize={75}
                     className=" p-[81px]"
                     onTouchStart={touchStart} onTouchEnd={touchEnd}
                     onMouseDown={touchStart} onMouseUp={touchEnd}/>
                 <ResizableHandle className="bg-transparent p-[15px] mb-[-20px] z-[3]"/>
-                <ResizablePanel>
+                <ResizablePanel defaultSize={25}>
                     <ScrollArea className="flex items-stretch font-roboto-condensed rounded-t-[50px] bg-white w-full px-[10px] pt-[20px] h-full">
                         <ScoreDisplay start={1}/>
                     </ScrollArea>
