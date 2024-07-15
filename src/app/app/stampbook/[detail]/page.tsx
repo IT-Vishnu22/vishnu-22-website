@@ -32,15 +32,15 @@ export default function DetailPage({ params }: { params: { detail: string } }) {
             objectFit: "cover",
             objectPosition: "center",
           }}
-          src={`/stampbookImages/${questionDetails.NameTH}.jpg`}
+          src={`/stampbookImages/${questionDetails.NameTH.replace(" ", "")}.jpg`}
           alt={`${questionDetails.NameEN} location image`}
           fill={true}
         />
       </div>
       <div className="space-y-4 px-5 py-9 text-base font-medium text-blue-1">
-        {questionDetails.Fact.map((item) => {
+        {questionDetails.Fact.map((item, index) => {
           return (
-            <pre className="text-wrap">
+            <pre key={index} className="text-wrap">
               {"    "}
               {item}
             </pre>

@@ -93,8 +93,8 @@ const ScoreSection = () => {
 const CompletionBadgeSection = () => {
   return (
     <div className="relative mt-12 flex justify-between gap-10">
-      {[1, 2, 3].map((item) => (
-        <div className="relative">
+      {[123, 123122, 134123123].map((item, index) => (
+        <div key={item} className="relative">
           <TempImageDay />
           <Image
             className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
