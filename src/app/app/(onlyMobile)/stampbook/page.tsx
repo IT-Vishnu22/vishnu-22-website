@@ -48,7 +48,7 @@ const MapImageSection = () => {
     return (
         <div className="relative mt-10 h-[190px] w-[320px] border border-black">
             <Image
-                src="/stampbookimages/engmap.png"
+                src="/stampbookImages/engmap.png"
                 alt="stampbook page"
                 objectFit="cover"
                 fill={true}
