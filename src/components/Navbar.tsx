@@ -11,8 +11,8 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname: string = usePathname();
   return (
-    <NavigationMenu className="fixed bottom-0 w-full h-[85px] bg-white border-t-[4px] border-black">
-      <div className="list-none flex w-full justify-evenly">
+    <NavigationMenu className="fixed bottom-0 h-[85px] w-full border-t-[4px] border-black bg-white">
+      <div className="flex w-full list-none justify-evenly">
         <NavigationMenuItem>
           <Link href="/app/home" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
