@@ -129,7 +129,7 @@ const StampBookSection = () => {
                     }}
                     className="transition-transform duration-300 hover:scale-105"
                     loading="lazy"
-                    src={`/stampbookImages/${questionDetails.NameTH}.jpg`}
+                    src={`/stampbookImages/${questionDetails.NameTH.replace(" ", "")}.jpg`}
                     alt={`${questionDetails.NameEN} location image`}
                     fill={true}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
