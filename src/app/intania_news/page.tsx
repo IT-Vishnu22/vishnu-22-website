@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function IntaniaNews() {
   return (
     <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
-      <div className="mt-5e mr-[10%] flex place-items-center justify-center space-x-[13%]">
+      <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <Link href="/intania_news">
           <Image className="" src={vectorImage} alt="vector graphic" />
         </Link>

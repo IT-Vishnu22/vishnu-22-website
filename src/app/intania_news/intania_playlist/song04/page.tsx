@@ -62,12 +62,17 @@ export default function Song01() {
   }, []);
 
   return (
-    <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
-      <div className="mr-[23%] mt-5 flex place-items-center justify-center space-x-[20%]">
+    <div className="relative h-full w-full bg-[linear-gradient(to_top,rgba(163,64,64,0.5),rgba(240,225,219,0.5)),url('/')] px-5 py-5">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[130px] w-full bg-[url('/intaniastorypics/dot_graphic.svg')] bg-contain bg-repeat-x"></div>
+      <div className="relative mt-5 flex items-center justify-center">
         <Link href="/intania_news/intania_playlist">
-          <Image className="ml-[-10%]" src={vectorImage} alt="vector graphic" />
+          <Image
+            className="absolute left-6 top-1/2 -translate-y-1/2 transform"
+            src={vectorImage}
+            alt="vector graphic"
+          />
         </Link>
-        <h1 className="ml-4 text-center text-[26px] font-bold text-blue-1">
+        <h1 className="text-center text-[26px] font-bold text-blue-1">
           บูมวิศวฯ
         </h1>
       </div>
@@ -94,7 +99,7 @@ export default function Song01() {
         </p>
       </div>
 
-      <div className="mt-5 flex flex-col items-center">
+      <div className="relative z-[10] mt-6 flex flex-col items-center">
         <input
           type="range"
           min="0"
@@ -104,15 +109,17 @@ export default function Song01() {
           className="mt-10 h-1 w-64 cursor-pointer rounded-lg bg-gray-700 accent-gray-700"
         />
         <div className="mb-5 mt-3 flex items-center justify-center space-x-12">
-          <button
-            className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
-            onClick={() => {}}
-            style={{
-              color: "#f0b4ad",
-            }}
-          >
-            <FaChevronLeft />
-          </button>
+          <Link href="/intania_news/intania_playlist/song03">
+            <button
+              className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
+              onClick={() => {}}
+              style={{
+                color: "#f0b4ad",
+              }}
+            >
+              <FaChevronLeft />
+            </button>
+          </Link>
           <button
             className="inline-flex items-center rounded-full bg-gray-700 px-4 py-2 font-bold text-white"
             style={{
@@ -128,15 +135,17 @@ export default function Song01() {
               <FaPlay style={{ fontSize: "14px" }} />
             )}
           </button>
-          <button
-            className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
-            onClick={() => {}}
-            style={{
-              color: "#f0b4ad",
-            }}
-          >
-            <FaChevronRight />
-          </button>
+          <Link href="/intania_news/intania_playlist/song05">
+            <button
+              className="rounded-full bg-gray-700 px-3 py-3 font-bold text-white hover:bg-gray-900"
+              onClick={() => {}}
+              style={{
+                color: "#f0b4ad",
+              }}
+            >
+              <FaChevronRight />
+            </button>
+          </Link>
         </div>
 
         <audio ref={audioRef}>

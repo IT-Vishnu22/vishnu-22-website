@@ -13,7 +13,7 @@ export default function News05() {
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center fill-blue-500"
           />*/}
-      <div className="mr-[10%] flex place-items-center justify-center space-x-[13%]">
+      <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
         <Link href="/intania_news">
           {<Image className="" src={vectorImage} alt="vector graphic" />}
         </Link>
@@ -22,7 +22,7 @@ export default function News05() {
 
       <div className="mr-[5%] mt-5 flex place-items-center justify-center space-x-[5%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp"></a>
-        <h1 className="text-[20px] font-bold text-blue-1 text-center">
+        <h1 className="text-center text-[20px] font-bold text-blue-1">
           <span>บิดาแห่งคณะวิศวกรรมศาสตร์</span>
           <span>จุฬาลงกรณ์มหาวิทยาลัย (พระเจริญวิศวกรรม)</span>
         </h1>
@@ -63,7 +63,8 @@ export default function News05() {
 
       <div>
         <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp;ทางด้านอาจาย์ผู้สอน พระเจริญวิศวกรรมได้ติดต่ออาจารย์ชาวต่างประเทศ 2
+          &emsp; &emsp;ทางด้านอาจาย์ผู้สอน
+          พระเจริญวิศวกรรมได้ติดต่ออาจารย์ชาวต่างประเทศ 2
           ท่านให้มาสอนที่คณะวิศวฯ คือ ศาสตราจารย์ ดร.ชาร์ล เอมสัน เกเวอร์ต
           (Professor Dr.Charles Ernfrid M.Son Gewertz) เป็นชาวสวีเดน
           จบการศึกษาปริญญาเอกทางวิศวกรรมไฟฟ้าจาก MIT ส่วนอีกท่านคือ
@@ -84,7 +85,6 @@ export default function News05() {
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-
         </div>
 
         <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
@@ -94,7 +94,6 @@ export default function News05() {
             alt="Photo by Magicle"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-
         </div>
       </div>
 
@@ -108,7 +107,7 @@ export default function News05() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black tect-center italic">
+        <h2 className="tect-center relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black">
           <span>
             “...ท่านอาจารย์คุณพระเจริญวิศวกรรม
             ท่านเป็นผู้รักวิชาวิศวกรรมศาสตร์เป็นที่สุด
