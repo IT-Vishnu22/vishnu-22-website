@@ -157,13 +157,13 @@ function PopUp({ message, handleClick }: { message: string, handleClick: VoidFun
     if (message === 'rules') {
         return (
             <div className="w-1/2">
-                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-[310px] max-w-[310px] h-3/4 flex flex-col justify-center items-center">
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-[310px] max-w-[310px] h-3/4 w-3/4 flex flex-col justify-center items-center">
                     <div className="relative min-h-[310px] flex flex-col justify-center items-center">
                         <div className="absolute inset-0 w-full h-full bg-green-2 -rotate-6 mx-auto drop-shadow-md"></div>
                         <div className="relative inset-0 w-full bg-secondary flex flex-col justify-center items-center p-8 gap-6 drop-shadow-md">
                             <div className="flex flex-col gap-2">
-                                <p className="text-center font-bold font-athiti min-[330px]:text-3xl min-[270px]:text-base text-green-2">เล่นยังไงนะ?</p>
-                                <ul className="font-athiti min-[330px]:text-base min-[270px]:text-sm list-disc list-outside px-2">
+                                <p className="text-center font-bold font-athiti min-[330px]:text-3xl max-[330px]:text-base text-green-2">เล่นยังไงนะ?</p>
+                                <ul className="font-athiti min-[330px]:text-base max-[330px]:text-sm list-disc list-outside px-2">
                                     <li>ตัวอักษรที่ถูกต้องแล้วอยู่ในตำแหน่งที่ถูกต้องจะแสดงเป็น<b className="text-green-600">สีเขียว</b></li>
                                     <li>ตัวอักษรที่ถูกต้องแต่อยู่ในตำแหน่งที่ผิดจะแสดงเป็น<b className="text-yellow-600">สีเหลือง</b></li>
                                     <li>ตัวอักษรที่ไม่อยู่ในคำปริศนาจะแสดงเป็น<b className="text-gray-400">สีเทา</b></li>
@@ -171,7 +171,7 @@ function PopUp({ message, handleClick }: { message: string, handleClick: VoidFun
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row justify-center items-center gap-10">
-                                    <button className="font-bold font-athiti min-[330px]:text-base min-[270px]:text-xs text-green-2 hover:text-white px-6 py-1 border border-1 border-green-2 rounded-full bg-green-1 hover:bg-green-2 transition" onClick={handleClick}>เดาคำปริศนาเลย!!!</button>
+                                    <button className="font-bold font-athiti min-[330px]:text-base max-[330px]:text-xs text-green-2 hover:text-white px-6 py-1 border border-1 border-green-2 rounded-full bg-green-1 hover:bg-green-2 transition" onClick={handleClick}>เดาคำปริศนาเลย!!!</button>
                                 </div>
                             </div>
                         </div>
