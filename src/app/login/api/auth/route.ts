@@ -45,12 +45,12 @@ export const POST = async (req: NextRequest) => {
         displayName: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
       });
 
-      // await adminFirestore
-      //   .collection("users")
-      //   .doc(validatedResponse.studentId)
-      //   .set({
-      //     username: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
-      //   });
+      await adminFirestore
+        .collection("users")
+        .doc(validatedResponse.studentId)
+        .set({
+          username: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
+        }, { merge: true });
     }
 
     const authToken = await adminAuth.createCustomToken(
