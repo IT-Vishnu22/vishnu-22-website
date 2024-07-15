@@ -1,10 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
+import Home from "./app/home/page";
 
-export default function Home() {
+export default function Base() {
   return (
-    <div className="w-full">
-      <h1>Hello :P</h1>
-    </div>
+    <Home />
   );
 }
