@@ -1,7 +1,5 @@
-import Home from "./app/home/page";
+import Home from "./app/(supportPc)/home/page";
 
 export default function Base() {
-  return (
-    <Home />
-  );
+    return <Home />;
 }
