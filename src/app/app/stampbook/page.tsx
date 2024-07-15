@@ -57,6 +57,7 @@ const MapImageSection = () => {
         alt="stampbook page"
         objectFit="cover"
         fill={true}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
   );
@@ -136,6 +137,7 @@ const StampBookSection = () => {
           src={`/stampbookImages/${questionDetails.NameTH}.jpg`}
           alt={`${questionDetails.NameEN} location image`}
           fill={true}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <Image
           className="absolute inset-0 z-20 m-auto h-8 w-8"
