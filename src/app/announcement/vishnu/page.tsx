@@ -5,6 +5,7 @@ import back from "../images/back.svg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import MapCarousel from "@/components/MapCarousel";
+import { group } from "console";
 
 export default function VishnuAnnouncement() {
   return (
@@ -179,13 +180,14 @@ const HeaderSection = () => {
 };
 
 const AnnouncementSection = () => {
+  const group = "F";
   return (
     <div className="flex flex-col items-center">
       <div className="mx-11 mt-20 flex h-auto min-h-[393px] w-auto min-w-[302px] flex-col items-center space-y-3 bg-white p-3 font-athiti">
         <div className="relative h-[480px] w-[280px]">
           <Image
             className="max-w-[280px]"
-            src="/announcement/vishnu/E.png"
+            src={`/announcement/vishnu/${group}.png`}
             alt="Chula Engineering Map"
             fill={true}
           />
@@ -200,11 +202,13 @@ const AnnouncementSection = () => {
 };
 
 const AnnouncementDetail = () => {
+  const groupName = "บ้านสายคอสแทน";
+  const meetingPoint = "จุดลงทะเบียนใต้ตึก 4";
   return (
     <>
       <div className="my-4 text-center font-athiti text-white">
-        <h1 className="text-[32px] font-bold leading-[52px]">บ้านสาย...</h1>
-        <p className="text-base font-medium">จุดลงทะเบียนใต้ตึก 4</p>
+        <h1 className="text-[32px] font-bold leading-[52px]">{groupName}</h1>
+        <p className="text-base font-medium">{meetingPoint}</p>
       </div>
       <MapCarousel />
     </>
