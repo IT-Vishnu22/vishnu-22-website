@@ -28,15 +28,24 @@ export type QuestionData = {
 
 export default function StampbookPage() {
   return (
-    <div className="mt-8 flex flex-col items-center justify-evenly overflow-hidden">
-      <h1 className="text-[32px] font-bold text-blue-1">Stamp Book</h1>
-      <MapImageSection />
-      <ScoreSection />
-      <CompletionBadgeSection />
-      <div className="flex w-auto flex-col pb-96 pt-16">
-        <StampBookSection></StampBookSection>
+    <>
+      <div className="flex flex-col items-center justify-evenly overflow-hidden bg-[url('/stampbookImages/bg_1.png')] pt-8">
+        <h1 className="text-[32px] font-bold text-blue-1">Stamp Book</h1>
+        <MapImageSection />
+        <ScoreSection />
+        <CompletionBadgeSection />
+        <div className="flex w-auto flex-col pb-96 pt-16">
+          <StampBookSection></StampBookSection>
+        </div>
       </div>
-    </div>
+      {/* <div className="relative -z-10">
+        <Image
+          src="/stampbookImages/bg_1.png"
+          alt="background image"
+          fill={true}
+        />
+      </div> */}
+    </>
   );
 }
 
@@ -88,7 +97,7 @@ const CompletionBadgeSection = () => {
         <div className="relative">
           <TempImageDay />
           <Image
-            className="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2"
+            className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
             src="/stampbookImages/lock.svg"
             alt="badge is locked"
             width={30}
@@ -96,7 +105,7 @@ const CompletionBadgeSection = () => {
           />
         </div>
       ))}
-      <div className="pointer-events-none absolute top-1/2 -z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+      <div className="pointer-events-none absolute top-1/2 z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
     </div>
   );
 };
@@ -122,6 +131,7 @@ const StampBookSection = () => {
             objectPosition: "center",
             filter: `drop-shadow(${styleConfig.dropShadow})`,
           }}
+          className="transition-transform duration-300 hover:scale-105"
           loading="lazy"
           src={`/stampbookImages/${questionDetails.NameTH}.jpg`}
           alt={`${questionDetails.NameEN} location image`}
