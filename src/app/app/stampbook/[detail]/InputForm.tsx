@@ -16,6 +16,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
+import {ReadDataSQ} from "@/lib/stampbook/readData";
+import CheckAnswer from "@/lib/stampbook/checkAnswer";
+import { useContext, useState } from "react";
+import { UserContext } from "@/lib/context";
+
+const studentId:string = '6638206121'
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -23,7 +30,9 @@ const FormSchema = z.object({
   }),
 });
 
-export default function InputForm({ question }: { question: String }) {
+export default function InputForm({ question, docId }: { question: String, docId:string }) {
+  
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -31,7 +40,8 @@ export default function InputForm({ question }: { question: String }) {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    const result = await CheckAnswer(docId, data.username, studentId)
     toast({
       title: "You submitted the following values:",
       description: (
@@ -40,6 +50,14 @@ export default function InputForm({ question }: { question: String }) {
         </pre>
       ),
     });
+
+    if(result){
+      router.refresh()
+      router.push("/app/stampbook/")
+    }
+    else{
+      console.log('incorrect!!')
+    }
   }
 
   return (

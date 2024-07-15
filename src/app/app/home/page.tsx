@@ -1,3 +1,8 @@
+import { firestore } from "@/lib/firebase";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+
 export default function HomePage() {
-  return <h2>hi home page</h2>;
+  return (
+      <p>Hi homepage</p>
+  );
 }

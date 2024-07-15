@@ -1,0 +1,99 @@
+/*   // get studentId from login
+  const { user } = useContext(UserContext);
+  const [studentId, setStudentId] = useState('')
+  if(user){
+    setStudentId(user.uid)
+  }
+  // setScore
+  const [score, setScore] = useState<number>(0)
+  
+  useEffect(()=>{
+    const getScore = async() => {
+      setScore(await CountAchieved(studentId))
+    }
+    getScore() 
+  }, [])
+   */
+
+
+/* // get studentId from login
+const { user } = useContext(UserContext);
+const [studentId, setStudentId] = useState('')
+if(user){
+  setStudentId(user.uid)
+}
+
+// set details of location and data of studentId
+const [details, setDetails] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
+const [data, setData] = useState< DocumentData | undefined>(undefined)
+useEffect(()=>{
+  const getDetails = async()=>{
+    setDetails(await GetQuerySnapshot())
+  }
+  const getData = async()=>{
+    setData((await Default(studentId)).data())
+  }
+  getDetails()
+  getData()
+},[]) */
+
+
+
+
+
+
+
+
+/* const StampBookSection = ({userId}:{userId:string|undefined}) => {
+
+  // set details of location & data of studentId
+  const [details, setDetails] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([])
+  const [data, setData] = useState< DocumentData | undefined>(undefined)
+  
+  // add initail db for new user
+  Update(userId)
+  
+  useEffect(()=>{
+    const getDetails = async()=>{
+      const getQuerySnapshot = await GetQuerySnapshot()
+      setDetails(getQuerySnapshot)
+    }
+    const getData = async()=>{
+      const data = await ReadDataSP(userId)
+      setData(data)      
+    getDetails()
+    getData()
+    }
+  })
+
+
+ 
+  return details.map((snap, index) => {
+    const styleConfig: ConfigData = Config.imageSetting[index];
+    const docId_SP:string = snap.id //SP => Stamp-progress db
+    const docId_SQ:string = snap.id.replace("-", "_") //SQ => StampQuest
+    // เราพลาดตอนใส่ชื่อ ต่างกันเเค่ _ กับ -
+
+    return (
+      <Link
+        key={snap.data().NameEN.replace(" ", "-")}
+        href={`/app/stampbook/${docId_SP}`}
+        style={{
+          height: `${styleConfig.height}px`,
+          width: `${styleConfig.width}px`,
+          transform: `translate(${styleConfig.posX}%, ${styleConfig.posY}%)  rotate(${styleConfig.imageRotate}deg)`,
+        }}
+      >
+        <Image
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            filter: `drop-shadow(${styleConfig.dropShadow})`,
+          }}
+          loading="lazy"
+          src={`/stampbookImages/${snap.data().NameTH}.jpg`}
+          alt={`${snap.data().NameEN} location image`}
+          fill={true}
+        />
+         {/* lock pic */
+     
