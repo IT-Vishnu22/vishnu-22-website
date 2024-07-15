@@ -31,10 +31,14 @@ type ConfigData = {
 
 
 export default function StampbookPage() {
-  // get studentId from login
+  //get studentId from login
   const { user } = useContext(UserContext);
   const studentId = user?.uid
-
+  if(!user){
+    return (
+      <h1>Please log in first</h1>
+    )
+  }
 
   return (
     <div className="mt-8 flex flex-col items-center justify-evenly overflow-hidden">

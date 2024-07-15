@@ -1,9 +1,12 @@
-
 import {  Update } from "@/lib/stampbook/progress";
-import { ReadDataSP, GetQuerySnapshot } from "@/lib/stampbook/readData";
+import { ReadDataSP, GetDetailsArray } from "@/lib/stampbook/readData";
 import Config from "./config.json";
 import Link from "next/link";
 import Image from "next/image";
+import { SetStateAction, useEffect, useState } from "react";
+import { DocumentData, QuerySnapshot } from "firebase-admin/firestore";
+import { firestore } from "@/lib/firebase";
+import { collection, doc, getDoc, getDocs, orderBy, query } from "firebase/firestore";
 
 type ConfigData = {
   key: number;
@@ -23,13 +26,13 @@ type ConfigData = {
 export const StampBookSection = async({userId}:{userId:string|undefined}) => {
 
   Update(userId)
-  const details = await GetQuerySnapshot()
+  const details = await GetDetailsArray()
   const data = await ReadDataSP(userId)
 
-  return details.map((snap, index) => {
+  return details?.map((snap, index) => {
     const styleConfig: ConfigData = Config.imageSetting[index];
     const docId_SP:string = snap.id //SP => Stamp-progress db
-    const docId_SQ:string = snap.id.replace("-", "_") //SQ => StampQuest db
+    const docId_SQ:string = snap.id.replaceAll("-", "_") //SQ => StampQuest db
 
     return (
       <Link

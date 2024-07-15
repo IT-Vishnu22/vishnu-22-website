@@ -22,7 +22,6 @@ import CheckAnswer from "@/lib/stampbook/checkAnswer";
 import { useContext, useState } from "react";
 import { UserContext } from "@/lib/context";
 
-const studentId:string = '6638206121'
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -31,7 +30,8 @@ const FormSchema = z.object({
 });
 
 export default function InputForm({ question, docId }: { question: String, docId:string }) {
-  
+  const { user, group} = useContext(UserContext);
+  const studentId = user?.uid 
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -41,7 +41,7 @@ export default function InputForm({ question, docId }: { question: String, docId
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    const result = await CheckAnswer(docId, data.username, studentId)
+    const result = await CheckAnswer(docId, data.username, studentId, group)
     toast({
       title: "You submitted the following values:",
       description: (
