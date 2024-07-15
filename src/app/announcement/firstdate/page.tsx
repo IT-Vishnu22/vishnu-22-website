@@ -7,13 +7,7 @@ import Link from "next/link";
 export default function FirstDateAnnouncement() {
   return (
     <>
-      <section
-        style={{
-          background:
-            "linear-gradient(180deg, #FECCCC 0%, #3E4C68 50%, #2A334E 100%)",
-        }}
-        className="relative max-h-full min-h-screen w-full pt-7"
-      >
+      <section className="relative max-h-full min-h-screen w-full pt-7">
         {/* Header */}
         <HeaderSection />
         {/* Content */}
@@ -21,9 +15,16 @@ export default function FirstDateAnnouncement() {
 
         {/* background style  */}
         <Image
-          className="absolute bottom-0 z-10 w-full md:max-w-[390px]"
+          className="absolute bottom-0 -z-10 w-full md:max-w-[390px]"
           src={dotGraphic}
           alt="dot graphic"
+        />
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, #FECCCC 0%, #3E4C68 50%, #2A334E 100%)",
+          }}
+          className="absolute inset-0 -z-20"
         />
       </section>
     </>
@@ -72,7 +73,7 @@ const LogoVishnuImage = ({ className = "" }) => {
         d="M49.0714 20.2682C48.6364 20.2682 48.2025 20.27 47.7675 20.2682C47.4412 20.2664 47.3197 20.1465 47.4054 19.8996C47.5176 19.5737 47.668 19.2851 48.0567 19.0693C48.5577 18.7904 49.0193 18.4672 49.4694 18.1403C49.6036 18.0427 49.6649 17.8713 49.7077 17.7238C49.717 17.6919 49.4833 17.5631 49.4011 17.5817C49.238 17.619 49.0471 17.7025 48.9649 17.8109C48.7231 18.1297 48.3529 17.9716 48.0486 17.9592C47.9746 17.9565 47.8473 17.6697 47.8739 17.5276C47.9167 17.2967 48.0394 17.0675 48.1805 16.858C48.2441 16.7638 48.4293 16.667 48.5635 16.6626C49.1836 16.6421 49.8049 16.6555 50.425 16.6519C50.7258 16.6501 50.8381 16.7718 50.8357 16.9876C50.8323 17.3215 50.8589 17.6563 50.823 17.9876C50.808 18.1235 50.6934 18.2744 50.5662 18.3766C50.3093 18.5817 50.0016 18.7496 49.7378 18.9503C49.6545 19.0133 49.5966 19.1377 49.6151 19.2229C49.6256 19.2735 49.8049 19.3108 49.9148 19.3375C49.9854 19.3544 50.0687 19.341 50.1462 19.3419C50.7906 19.3446 51.0359 19.5977 50.7999 20.0631C50.7524 20.1572 50.5268 20.2442 50.3753 20.2531C49.9437 20.2789 49.5075 20.262 49.0725 20.262V20.2691L49.0714 20.2682Z"
         fill="#3E4C68"
       />
-      <path d="M59.6344 0L59.6344 34.9855" stroke="#3E4C68" stroke-width="4" />
+      <path d="M59.6344 0L59.6344 34.9855" stroke="#3E4C68" strokeWidth="4" />
       <path
         d="M77.5967 31.9806C77.5967 31.2804 77.5893 30.5811 77.5984 29.8809C77.6065 29.2164 77.7909 29.0268 78.4112 29.0251C79.4772 29.0216 80.5424 29.0216 81.6084 29.0251C82.2016 29.0277 82.3885 29.1982 82.395 29.8314C82.4098 31.2891 82.4098 32.7469 82.3925 34.2047C82.3852 34.8109 82.1902 34.9918 81.6207 34.9953C80.544 35.0023 79.4674 35.0014 78.3907 34.9953C77.795 34.9918 77.6082 34.7935 77.5992 34.1481C77.5893 33.4253 77.5967 32.7017 77.5967 31.9789V31.9806ZM79.233 32.0111C79.233 32.6399 79.2379 33.2679 79.2306 33.8968C79.2281 34.1177 79.2986 34.216 79.5157 34.2082C79.8443 34.1969 80.1737 34.1995 80.5022 34.2073C80.694 34.2116 80.7849 34.1342 80.7849 33.9237C80.7825 32.6434 80.7825 31.3631 80.7849 30.0827C80.7849 29.8949 80.7136 29.8096 80.5285 29.8148C80.1999 29.8244 79.8697 29.8331 79.5419 29.8122C79.2838 29.7957 79.2256 29.914 79.2297 30.161C79.2412 30.7777 79.2338 31.3953 79.2338 32.0119L79.233 32.0111Z"
         fill="#3E4C68"
@@ -177,15 +178,13 @@ const HeaderSection = () => {
 };
 
 const AnnouncementSection = () => {
+  const group = "กลุ่ม 1";
+  const meetingPoint = "จุดลงทะเบียนใต้ตึก 4";
   return (
-    <div className="min-w-[302px]bg-white font-athiti mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center text-pink-3">
-      <Image
-        className="max-w-[280px]"
-        src={engMap}
-        alt="Chula Engineering Map"
-      />
-      <h1 className="text-[32px] font-bold leading-[52px]">กลุ่ม 1</h1>
-      <p className="text-base font-medium">จุดลงทะเบียนใต้ตึก 4</p>
+    <div className="min-w-[302px]bg-white mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center font-athiti text-pink-3">
+      <Image className="w-full" src={engMap} alt="Chula Engineering Map" />
+      <h1 className="text-[32px] font-bold leading-[52px]">{group}</h1>
+      <p className="text-base font-medium">{meetingPoint}</p>
     </div>
   );
 };
