@@ -53,10 +53,7 @@ export default function InputForm({ question }: { question: String }) {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormDescription className="mb-4 text-sm">
-                คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้คำใบ้
-              </FormDescription>
-              <FormLabel className="text-base">{question}</FormLabel>
+              <FormLabel className="text-base">Q: {question}</FormLabel>
               <FormControl>
                 <Input
                   className="rounded-none bg-[#E8EDE9]"
