@@ -19,7 +19,7 @@ export default function WordlePage() {
     const answer: string = useWord();
     const { user, username, group} = useContext(UserContext);
     const studentId = user?.uid 
-
+    
     const [isGuessed, setIsGuessed] = useState<boolean>(false);
     const [guess, setGuess] = useState<string>('');
     const [popUpMessage, setPopUpMessage] = useState<string>('rules');
@@ -32,11 +32,11 @@ export default function WordlePage() {
                 const isPlayed = await didPlay(studentId, group);
                 setPlayed(isPlayed);
             }
-            if (played) {
+            if (played || !answer) {
                 setIsGuessed(true);
             }
             updatePlayed();
-        }, [played])
+        }, [played, answer])
         
 
     useEffect(() => {
@@ -149,7 +149,8 @@ export default function WordlePage() {
                 />
                 <div className="flex gap-2 w-full mx-4 justify-center">
                 {
-                    user ?
+                    answer ?
+                    !user ? <p>No user: Please login first.</p> :
                     !group? <p>This is only for 108: If you are 108, please contact IT.</p> :
                     played ? <p>คุณได้เล่นไปแล้ว</p> :
                     <>
@@ -169,9 +170,8 @@ export default function WordlePage() {
                         </Button>
                     </>
                     :
-                    <p>No user: Please login first.</p>
+                    <p>Closed. Game open: 13.00 - 20.00</p>
                 }
-                    
                 </div>
             </div>
 
