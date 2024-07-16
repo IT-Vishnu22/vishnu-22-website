@@ -1,5 +1,5 @@
 "use client";
-import { Liff } from "@line/liff/exports";
+import { Liff } from "@line/liff";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type LineProfile = Awaited<ReturnType<Liff["getProfile"]>> | null;
