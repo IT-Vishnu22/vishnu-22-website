@@ -9,11 +9,11 @@ type Props = {
 };
 
 export default function AuthProvider({ children }: Props) {
-    const userData = useUserData();
+    const userStore = useUserData();
     
     return (
         <LiffProvider>
-            <UserContext.Provider value={userData}>
+            <UserContext.Provider value={userStore}>
                 {children}
             </UserContext.Provider>
         </LiffProvider>

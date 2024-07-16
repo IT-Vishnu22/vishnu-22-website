@@ -1,8 +1,8 @@
 import { User } from "firebase/auth";
 import { createContext } from "react";
+import { UserData } from "@/lib/types";
+import { useUserData } from "@/lib/hooks";
 
-export const UserContext = createContext<{
-  user: User | null | undefined;
-  username: null | string;
-  group: null | string;
-}>({ user: null, username: null, group: null });
+export const UserContext = createContext<ReturnType<typeof useUserData>>({
+    firebaseUser: null,
+});

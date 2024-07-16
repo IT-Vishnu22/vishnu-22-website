@@ -1,13 +1,13 @@
 import { doc, onSnapshot } from "firebase/firestore";
-import { auth, firestore } from "../lib/firebase";
+import { auth, firestore } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { UserData, validateUserData } from "@/lib/types";
 
 // Custom hook to read  auth record and user profile doc
 export function useUserData() {
     const [user] = useAuthState(auth);
-    const [username, setUsername] = useState<null | string>(null);
-    const [group, setGroup] = useState<null | string>(null);
+    const [userData, setUserData] = useState<UserData | undefined>(undefined);
 
     useEffect(() => {
         // turn off realtime subscription
@@ -25,18 +25,16 @@ export function useUserData() {
                 doc(firestore, "users", user.uid),
                 (doc) => {
                     if (doc.exists()) {
-                        setUsername(doc.data()?.username);
-                        setGroup(doc.data()?.group);
+                        setUserData(validateUserData.parse(doc.data()));
                     }
                 },
             );
         } else {
-            setUsername(null);
-            setGroup(null);
+            setUserData(undefined)
         }
 
         return unsubscribe;
     }, [user]);
 
-    return { user, username, group };
+    return { firebaseUser: user, ...userData };
 }

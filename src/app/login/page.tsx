@@ -68,7 +68,7 @@ const LoginSection = () => {
         setLoading(true);
         const handleLogin = async () => {
             const token = searchParams.get("token");
-            if (!token || alreadyLogin) {
+            if (!token) {
                 if (localStorage.getItem("studentInformation")) {
                     setAlreadyLogin(true);
                     setLoading(false);
@@ -76,7 +76,7 @@ const LoginSection = () => {
                     setAlreadyLogin(false);
                     setLoading(false);
                 }
-            } else if (liff.profile && router) {
+            } else if (liff.profile) {
                 try {
                     
                     const response = await axios.post("/login/api/auth", {
@@ -84,16 +84,18 @@ const LoginSection = () => {
                         lineId: liff.profile?.userId,
                     });
                     // Check if response is successful
-                    console.log(response.data);
+                    // console.log(response.data);
                     if (response.status === 200) {
                         localStorage.setItem(
                             "studentInformation",
                             JSON.stringify(response.data.data),
                         );
+                        // console.log("Successfully logged in");
                         await signInWithCustomToken(
                             auth,
                             response.data.authToken,
                         );
+                        // console.log("Custom Token Logged in");
                         setAlreadyLogin(true);
                         setLoading(false);
                     } else {
