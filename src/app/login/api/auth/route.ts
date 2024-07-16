@@ -51,6 +51,7 @@ export const POST = async (req: NextRequest) => {
         .doc(validatedResponse.studentId)
         .set({
           username: `${validatedResponse.name.th.firstName} ${validatedResponse.name.th.lastName}`,
+          studentId: validatedResponse.studentId,
           lineId: body.lineId,
         }, { merge: true });
     }

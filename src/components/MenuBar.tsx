@@ -23,7 +23,7 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { useLiff } from "@/lib/contexts/liff";
-import { useUserData } from "@/lib/hooks";
+import { useUserStore } from "@/lib/hooks";
 
 const MenuItem = ({ text, linkRef }: { text: string; linkRef: string }) => {
     return (
@@ -86,8 +86,8 @@ export function MenuBottomBar() {
 export function MenuTopBar() {
     // const token = true;
     // const username = "Vishnu22";
-    const userData = useUserData();
-    const username = userData.username?.split(" ")[0];
+    const userStore = useUserStore();
+    const username = userStore.userData?.username?.split(" ")[0];
     const [showMenu, setShowMenu] = useState(false);
 
     const handleMenu = () => {
@@ -166,7 +166,7 @@ export function MenuTopBar() {
                     </div>
                 ) : (
                     <div className="hidden lg:block">
-                        <MenuItem text="Login" linkRef="/"></MenuItem>
+                        <MenuItem text="Login" linkRef="/login"></MenuItem>
                     </div>
                 )}
                 <div className="lg:hidden">
@@ -276,7 +276,7 @@ export function MenuTopBar() {
                     </Link>
                 ) : (
                     <Link
-                        href={"/"}
+                        href={"/login"}
                         className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1"
                     >
                         <p className="text-lg font-medium text-primary">
