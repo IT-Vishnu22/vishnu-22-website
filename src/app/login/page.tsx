@@ -84,7 +84,7 @@ const LoginSection = () => {
                         lineId: liff.profile?.userId,
                     });
                     // Check if response is successful
-                    console.log(response.data);
+                    // console.log(response.data);
                     if (response.status === 200) {
                         localStorage.setItem(
                             "studentInformation",

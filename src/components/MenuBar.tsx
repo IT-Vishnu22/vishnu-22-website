@@ -22,8 +22,7 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { useLiff } from "@/lib/contexts/liff";
-import { useUserStore } from "@/lib/hooks";
+import { useUserData } from "@/lib/hooks";
 
 const MenuItem = ({ text, linkRef }: { text: string; linkRef: string }) => {
     return (
@@ -86,8 +85,8 @@ export function MenuBottomBar() {
 export function MenuTopBar() {
     // const token = true;
     // const username = "Vishnu22";
-    const userStore = useUserStore();
-    const username = userStore.userData?.username?.split(" ")[0];
+    const userData = useUserData();
+    const username = userData.username?.split(" ")[0];
     const [showMenu, setShowMenu] = useState(false);
 
     const handleMenu = () => {

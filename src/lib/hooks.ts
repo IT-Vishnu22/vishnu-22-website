@@ -5,9 +5,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { UserData, validateUserData } from "@/lib/types";
 
 // Custom hook to read  auth record and user profile doc
-export function useUserStore() {
+export function useUserData() {
     const [user] = useAuthState(auth);
-    const [userData, setUserData] = useState<UserData | undefined>({faculty: undefined, group: undefined, prefix: undefined, username: "", studentId: "", lineId: ""});
+    const [userData, setUserData] = useState<UserData | undefined>(undefined);
 
     useEffect(() => {
         // turn off realtime subscription
@@ -36,5 +36,5 @@ export function useUserStore() {
         return unsubscribe;
     }, [user]);
 
-    return { firebaseUser: user, userData };
+    return { firebaseUser: user, ...userData };
 }
