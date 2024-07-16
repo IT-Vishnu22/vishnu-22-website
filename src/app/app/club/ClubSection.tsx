@@ -5,7 +5,6 @@ import Image from "next/image";
 import club from "./club.json"
 import { useContext, useEffect, useState } from "react";
 import Progress from "@/lib/club/progress";
-import { useRouter } from "next/navigation";
 import { GetCompletedClub } from "@/lib/club/getData";
 import { UserContext } from "@/lib/context";
 import { falseArray, trueArray } from "@/lib/club/array";
@@ -19,7 +18,6 @@ type clubInfo = {
   Answer?: string;
 }
 
-const router = useRouter()
 export const ClubSection = () => {
   //studentId and group from login
   const { user, group} = useContext(UserContext);
@@ -105,7 +103,6 @@ export const ClubSection = () => {
     }
     dialog?.classList.add('hidden');
     document.body.style.overflowY = 'auto';
-    router.refresh()
   }
 
   return club.ClubDetails.map((item, index) => {
