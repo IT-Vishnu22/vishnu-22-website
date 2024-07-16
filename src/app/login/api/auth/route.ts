@@ -21,7 +21,7 @@ export const POST = async (req: NextRequest) => {
   const body = await req.json();
 
   try {
-    console.log(body.lineId)
+    // console.log(body.lineId)
     const response = await axios.post(
       "https://account.intania.org/api/v1/auth/app/validate",
       {
@@ -51,6 +51,7 @@ export const POST = async (req: NextRequest) => {
         .doc(validatedResponse.studentId)
         .set({
           username: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
+          lineId: body.lineId,
         }, { merge: true });
     }
 
