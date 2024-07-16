@@ -1,11 +1,5 @@
-import Image from "next/image";
+import Home from "./app/(supportPc)/home/page";
 
-export default function Home() {
-  return (
-    <div>
-      <h1>
-        Hello :P
-      </h1>
-    </div>
-  );
+export default function Base() {
+    return <Home />;
 }
