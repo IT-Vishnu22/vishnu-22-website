@@ -3,6 +3,9 @@ import dotGraphic from "../images/firstdate_dot_graphic.svg";
 import engMap from "../images/engmap.png";
 import back from "../images/back.svg";
 import Link from "next/link";
+import { useContext } from "react";
+import { UserContext } from "@/lib/context";
+import useFirstdateInfo from "@/lib/announcement/useFirstdateInfo";
 
 export default function FirstDateAnnouncement() {
   return (
@@ -178,13 +181,14 @@ const HeaderSection = () => {
 };
 
 const AnnouncementSection = () => {
-  const group = "กลุ่ม 1";
-  const meetingPoint = "จุดลงทะเบียนใต้ตึก 4";
+  const { group } = useContext(UserContext);
+  const data = useFirstdateInfo(group);
+  const { registeration_place , table } = data;
   return (
     <div className="min-w-[302px]bg-white mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center font-athiti text-pink-3">
       <Image className="w-full" src={engMap} alt="Chula Engineering Map" />
-      <h1 className="text-[32px] font-bold leading-[52px]">{group}</h1>
-      <p className="text-base font-medium">{meetingPoint}</p>
+      <h1 className="text-[32px] font-bold leading-[52px]">{registeration_place}</h1>
+      <p className="text-base font-medium">{table}</p>
     </div>
   );
 };
