@@ -197,9 +197,11 @@ const AnnouncementSection = () => {
             fill={true}
           />
         </div>
-        <Button className="rounded-[10px] bg-cream px-[67px] py-3 font-roboto-condensed text-lg font-medium text-blue-3">
-          เข้ากลุ่ม Line
-        </Button>
+        <Link href={line || "/"}>
+          <Button className="rounded-[10px] bg-cream px-[67px] py-3 font-roboto-condensed text-lg font-medium text-blue-3">
+            เข้ากลุ่ม Line
+          </Button>
+        </Link>
       </div>
       <AnnouncementDetail houseName={houseName} registeration_place={registeration_place}/>
     </div>
