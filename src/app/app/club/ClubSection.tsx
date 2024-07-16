@@ -33,6 +33,11 @@ export const ClubSection = () => {
   useEffect(() => {
     const setArray = async() => {
       const data: string[] = await GetCompletedClub(studentId)
+      
+      if(!data){
+        return;
+      }
+      
       if(data.length === 0){
         return;
       }
