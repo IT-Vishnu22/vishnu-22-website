@@ -50,7 +50,7 @@ export const POST = async (req: NextRequest) => {
         .doc(validatedResponse.studentId)
         .set({
           username: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
-        });
+        }, { merge: true });
     }
 
     const authToken = await adminAuth.createCustomToken(
