@@ -43,14 +43,14 @@ export const POST = async (req: NextRequest) => {
       console.log("User does not exist, creating user...");
       await adminAuth.createUser({
         uid: validatedResponse.studentId,
-        displayName: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
+        displayName: `${validatedResponse.name.th.firstName} ${validatedResponse.name.th.lastName}`,
       });
 
       await adminFirestore
         .collection("users")
         .doc(validatedResponse.studentId)
         .set({
-          username: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
+          username: `${validatedResponse.name.th.firstName} ${validatedResponse.name.th.lastName}`,
           lineId: body.lineId,
         }, { merge: true });
     }
