@@ -4,8 +4,6 @@ import Link from "next/link";
 import Config from "./config.json";
 import { 
   CountAchieved, 
-  Default, 
-  Update
 } from "@/lib/stampbook/progress";
       
 import { UserContext } from '@/lib/context';
@@ -38,31 +36,37 @@ export default function StampbookPage() {
     return (
       <h1>Please log in first</h1>
     )
-  }
+  } 
+
 
   return (
-    <div className="mt-8 flex flex-col items-center justify-evenly overflow-hidden">
-      <h1 className="text-[32px] font-bold text-blue-1">Stamp Book</h1>
-      <MapImageSection />
-      <ScoreSection userId={studentId}/>
-      <CompletionBadgeSection />
-      <div className="flex w-auto flex-col pb-96 pt-16">
-        <StampBookSection userId={studentId}></StampBookSection>
+    <>
+      <div className="flex flex-col items-center justify-evenly overflow-hidden bg-[url('/stampbookImages/bg_1.png')] bg-cover pt-8">
+          <h1 className="text-[32px] font-bold text-blue-1">
+              Stamp Book
+          </h1>
+          <MapImageSection />
+          <ScoreSection userId={studentId} />
+          <CompletionBadgeSection />
+          <div className="flex w-auto flex-col pb-96 pt-16">
+              <StampBookSection userId={studentId}></StampBookSection>
+          </div>
       </div>
-    </div>
+    </>
   );
 }
 
 const MapImageSection = () => {
   return (
-    <div className="relative mt-10 h-[190px] w-[320px]">
-      <Image
-        src="/stampbookimages/engmap.png"
-        alt="stampbook page"
-        objectFit="cover"
-        fill={true}
-      />
-    </div>
+      <div className="relative mt-10 h-[190px] w-[320px] border border-black">
+          <Image
+              src="/stampbookImages/engmap.png"
+              alt="stampbook page"
+              objectFit="cover"
+              fill={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+      </div>
   );
 };
 
@@ -110,20 +114,20 @@ const ScoreSection = ({userId}:{userId:string|undefined}) => {
 
 const CompletionBadgeSection = () => {
   return (
-    <div className="relative mt-12 flex justify-between gap-10">
-      {[1, 2, 3].map((item) => (
-        <div className="relative">
-          <TempImageDay />
-          <Image
-            className="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2"
-            src="/stampbookImages/lock.svg"
-            alt="badge is locked"
-            width={30}
-            height={30}
-          />
-        </div>
-      ))}
-      <div className="pointer-events-none absolute top-1/2 -z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
-    </div>
+      <div className="relative mt-12 flex justify-between gap-10">
+          {[123, 123122, 134123123].map((item, index) => (
+              <div key={item} className="relative">
+                  <TempImageDay />
+                  <Image
+                      className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
+                      src="/stampbookImages/lock.svg"
+                      alt="badge is locked"
+                      width={30}
+                      height={30}
+                  />
+              </div>
+          ))}
+          <div className="pointer-events-none absolute top-1/2 z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+      </div>
   );
 };

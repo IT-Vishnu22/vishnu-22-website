@@ -30,10 +30,10 @@ const FormSchema = z.object({
 });
 
 export default function InputForm({ question, docId }: { question: String, docId:string }) {
-  //const { user, group} = useContext(UserContext);
-  //const studentId = user?.uid 
-  const studentId = '6638206121'
-  const group = 'L'
+  //get studentId and group from login
+  const { user, group} = useContext(UserContext);
+  const studentId = user?.uid 
+
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),

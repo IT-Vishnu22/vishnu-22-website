@@ -3,10 +3,7 @@ import { ReadDataSP, GetDetailsArray } from "@/lib/stampbook/readData";
 import Config from "./config.json";
 import Link from "next/link";
 import Image from "next/image";
-import { SetStateAction, useEffect, useState } from "react";
-import { DocumentData, QuerySnapshot } from "firebase-admin/firestore";
-import { firestore } from "@/lib/firebase";
-import { collection, doc, getDoc, getDocs, orderBy, query } from "firebase/firestore";
+
 
 type ConfigData = {
   key: number;
@@ -51,9 +48,10 @@ export const StampBookSection = async({userId}:{userId:string|undefined}) => {
             filter: `drop-shadow(${styleConfig.dropShadow})`,
           }}
           loading="lazy"
-          src={`/stampbookImages/${snap.data().NameTH}.jpg`}
+          src={`/stampbookImages/${snap.data().NameTH.replaceAll(" ","")}.jpg`}
           alt={`${snap.data().NameEN} location image`}
           fill={true}
+          
         />
          {/* lock pic */}
          {!(data?.[docId_SQ]) && 
