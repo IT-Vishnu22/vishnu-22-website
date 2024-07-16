@@ -29,9 +29,6 @@ export const ClubSection = () => {
   const [canEditAnswer, setCanEditAnswer] = useState<boolean[]>(trueArray);
   const [currentIdex, setCurrentIndex] = useState<number>(0)
   
-  if(!user){
-    return <h1>Please log in first</h1>
-  }
 
   useEffect(() => {
     const setArray = async() => {
