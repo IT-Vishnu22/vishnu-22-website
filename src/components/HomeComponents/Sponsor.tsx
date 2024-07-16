@@ -5,9 +5,9 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import useEmblaCarousel from 'embla-carousel-react';
-import ImageMock from '@/assets/images/200x200.png';
-import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from "embla-carousel-react";
+import ImageMock from "@/assets/images/200x200.png";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
 import TOA from "@/assets/images/sponsorImages/toa.png";
@@ -32,7 +32,8 @@ export function SponsorCarousel() {
                         delay: 2000,
                     }),
                 ]}
-                className="">
+                className=""
+            >
                 <CarouselContent>
                     <CarouselItem className={`px-2 basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6`}>
                         <div className={`w-full h-full bg-white flex justify-center items-center p-2`}>
@@ -69,5 +70,5 @@ export function SponsorCarousel() {
                 <CarouselNext />
             </Carousel>
         </div>
-    )
+    );
 }
