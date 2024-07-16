@@ -22,15 +22,16 @@ export const ClubSection = () => {
   //studentId and group from login
   const { user, group} = useContext(UserContext);
   const studentId = user?.uid 
-  if(!user){
-    return <h1>Please log in first</h1>
-  }
 
   const [popUpOpen, setPopUpOpen] = useState<boolean[]>(falseArray);
   const [answer, setAnswer] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState<boolean[]>(falseArray);
   const [canEditAnswer, setCanEditAnswer] = useState<boolean[]>(trueArray);
   const [currentIdex, setCurrentIndex] = useState<number>(0)
+  
+  if(!user){
+    return <h1>Please log in first</h1>
+  }
 
   useEffect(() => {
     const setArray = async() => {
