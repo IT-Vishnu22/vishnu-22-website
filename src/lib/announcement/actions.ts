@@ -25,7 +25,7 @@ export async function fetchFirstdateInfo(group: string | null) {
     if (!group) {
         return;
     }
-    const docRef = doc(firestore, "group-info", group);
+    const docRef = doc(firestore, "firstdate-info", group);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data();
 
