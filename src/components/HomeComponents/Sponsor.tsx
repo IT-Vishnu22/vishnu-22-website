@@ -5,9 +5,9 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import useEmblaCarousel from 'embla-carousel-react';
-import ImageMock from '@/assets/images/200x200.png';
-import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from "embla-carousel-react";
+import ImageMock from "@/assets/images/200x200.png";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
 import TOA from "@/assets/images/sponsorImages/toa.png";
@@ -68,5 +68,5 @@ export function SponsorCarousel() {
                 <CarouselNext />
             </Carousel>
         </div>
-    )
+    );
 }
