@@ -1,13 +1,17 @@
-'use client';
-import { Liff } from '@line/liff/exports';
-import { createContext, useContext, useEffect, useState } from 'react';
+"use client";
+import { Liff } from "@line/liff/exports";
+import { createContext, useContext, useEffect, useState } from "react";
+
+type LineProfile = Awaited<ReturnType<Liff["getProfile"]>> | null;
 
 interface LiffContextProps {
     liff: Liff | null;
+    profile: LineProfile | null;
 }
 
 export const LiffContext = createContext<LiffContextProps>({
     liff: null,
+    profile: null,
 });
 
 export default function LiffProvider({
@@ -17,22 +21,30 @@ export default function LiffProvider({
 }) {
     const [liffObject, setLiffObject] = useState<Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
+    const [profile, setProfile] = useState<LineProfile | null>(null);
 
     useEffect(() => {
-        import('@line/liff')
+        import("@line/liff")
             .then((liff) => liff.default)
             .then((liff) => {
-                console.log('LIFF init...');
-                liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID!, withLoginOnExternalBrowser: true })
+                console.log("LIFF init...");
+                liff.init({
+                    liffId: process.env.NEXT_PUBLIC_LIFF_ID!,
+                    withLoginOnExternalBrowser: true,
+                })
                     .then(() => {
-                        console.log('LIFF init succeeded.');
+                        console.log("LIFF init succeeded.");
                         setLiffObject(liff);
                         if (!liff.isLoggedIn()) {
                             liff.login();
+                        } else {
+                            liff.getProfile().then((profile) => {
+                                setProfile(profile);
+                            });
                         }
                     })
                     .catch((error: Error) => {
-                        console.log('LIFF init failed.');
+                        console.log("LIFF init failed.");
                         setLiffError(error.toString());
                     });
             });
@@ -40,7 +52,7 @@ export default function LiffProvider({
 
     if (liffError) {
         return (
-            <div className="grid place-content-center h-screen w-full text-center bg-white">
+            <div className="grid h-screen w-full place-content-center bg-white text-center">
                 <p className="text-4xl font-bold text-neutral-900">
                     เอ้อะ?! อย่าบอกนะ..
                 </p>
@@ -56,6 +68,7 @@ export default function LiffProvider({
         <LiffContext.Provider
             value={{
                 liff: liffObject,
+                profile,
             }}
         >
             {children}
@@ -66,7 +79,7 @@ export default function LiffProvider({
 export const useLiff = () => {
     const context = useContext(LiffContext);
     if (context === undefined) {
-        throw new Error('useLiff must be used within a LiffProvider');
+        throw new Error("useLiff must be used within a LiffProvider");
     }
-    return context.liff;
+    return context;
 };

@@ -25,6 +25,7 @@ import loginImage from "./images/login_image.png";
 import dotGraphic from "./images/dot_graphic.svg";
 import { auth } from "@/lib/firebase";
 import { signInWithCustomToken, signOut } from "firebase/auth";
+import { useLiff } from "@/lib/contexts/liff";
 
 export default function Login() {
   return (
@@ -61,6 +62,7 @@ const LoginSection = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [alreadyLogin, setAlreadyLogin] = useState(false);
+  const liff = useLiff();
 
   useEffect(() => {
     setLoading(true);
@@ -77,8 +79,10 @@ const LoginSection = () => {
         }
       } else {
         try {
+          
           const response = await axios.post("/login/api/auth", {
             token,
+            lineId: liff.profile?.userId
           });
           // Check if response is successful
           console.log(response.data);
@@ -139,7 +143,7 @@ const LoginSection = () => {
         className="login-page rounded-xl px-14 py-7 font-roboto-condensed text-2xl font-medium hover:bg-white/90"
         onClick={() => {
           router.replace(
-            "https://accounts.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login",
+            "https://account.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login",
           );
         }}
       >

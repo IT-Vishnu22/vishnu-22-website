@@ -21,8 +21,9 @@ export const POST = async (req: NextRequest) => {
   const body = await req.json();
 
   try {
+    console.log(body.lineId)
     const response = await axios.post(
-      "https://accounts.intania.org/api/v1/auth/app/validate",
+      "https://account.intania.org/api/v1/auth/app/validate",
       {
         token: body.token,
       },
