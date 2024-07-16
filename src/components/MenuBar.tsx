@@ -38,7 +38,7 @@ const MenuItem = ({ text, linkRef }: { text: string; linkRef: string }) => {
 export function MenuBottomBar() {
     const pathname: string = usePathname();
     return (
-        <NavigationMenu className="fixed bottom-0 z-50 block flex h-[85px] w-full flex-row items-center justify-center border-t-[4px] border-black bg-white sm:hidden">
+        <NavigationMenu className="fixed max-w-[100vw] bottom-0 z-50 block flex h-[85px] w-full flex-row items-center justify-center border-t-[4px] border-black bg-white sm:hidden">
             {/* <div className="w-full group list-none flex flex-row items-center justify-evenly"> */}
             <NavigationMenuList>
                 <NavigationMenuItem className="flex h-[81px] w-1/4 items-center">
@@ -101,7 +101,7 @@ export function MenuTopBar() {
 
     return (
         <>
-            <div className="fixed left-0 right-0 top-0 z-50 hidden h-[65px] w-full items-center justify-between bg-[#FEEBED] px-4 sm:flex">
+            <div className="fixed left-0 right-0 top-0 z-50 hidden h-[65px] w-full max-w-[100vw] items-center justify-between bg-[#FEEBED] px-4 sm:flex">
                 <div className="flex flex-row items-center justify-center gap-x-8">
                     <Logo scale={0.7} />
                     <div className="hidden flex-row items-center justify-center gap-x-10 lg:flex">
@@ -264,11 +264,11 @@ export function MenuTopBar() {
                     ) : null}
                 </div>
             </div>
-            <div className="fixed left-0 right-0 top-0 z-50 flex h-[65px] w-full items-center justify-end px-8 sm:hidden">
+            <div className="fixed left-0 right-0 top-0 z-50 flex h-[65px] w-full items-center justify-end px-8 sm:hidden max-w-[100vw]">
                 {username ? (
                     <Link
                         href={"/"}
-                        className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1"
+                        className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1 shadow-md"
                     >
                         <p className="text-lg font-medium text-primary">
                             Hello, {username}
@@ -277,7 +277,7 @@ export function MenuTopBar() {
                 ) : (
                     <Link
                         href={"/"}
-                        className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1"
+                        className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1 shadow-md"
                     >
                         <p className="text-lg font-medium text-primary">
                             Login
