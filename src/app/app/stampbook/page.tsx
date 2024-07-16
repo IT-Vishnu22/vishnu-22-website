@@ -29,16 +29,17 @@ type ConfigData = {
   };
 };
 
+const studentId = '6638206121'
 
 export default function StampbookPage() {
-  //get studentId from login
-  const { user } = useContext(UserContext);
-  const studentId = user?.uid
-  if(!user){
-    return (
-      <h1>Please log in first</h1>
-    )
-  }
+  ////get studentId from login
+  //const { user } = useContext(UserContext);
+  //const studentId = user?.uid
+  //if(!user){
+  //  return (
+  //    <h1>Please log in first</h1>
+  //  )
+  //}
 
   return (
     <div className="mt-8 flex flex-col items-center justify-evenly overflow-hidden">
@@ -111,8 +112,10 @@ const ScoreSection = ({userId}:{userId:string|undefined}) => {
 const CompletionBadgeSection = () => {
   return (
     <div className="relative mt-12 flex justify-between gap-10">
-      {[1, 2, 3].map((item) => (
-        <div className="relative">
+      {[1, 2, 3].map((item, index:number) => (
+        <div
+          key={index} 
+          className="relative">
           <TempImageDay />
           <Image
             className="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2"
