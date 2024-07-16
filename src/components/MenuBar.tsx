@@ -22,6 +22,8 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { useLiff } from "@/lib/contexts/liff";
+import { useUserData } from "@/lib/hooks";
 
 const MenuItem = ({ text, linkRef }: { text: string; linkRef: string }) => {
     return (
@@ -82,8 +84,10 @@ export function MenuBottomBar() {
 }
 
 export function MenuTopBar() {
-    const token = true;
-    const mockData = "Vishnu22";
+    // const token = true;
+    // const username = "Vishnu22";
+    const userData = useUserData();
+    const username = userData.username?.split(" ")[0];
     const [showMenu, setShowMenu] = useState(false);
 
     const handleMenu = () => {
@@ -147,14 +151,14 @@ export function MenuTopBar() {
                         </Link>
                     </div>
                 </div>
-                {token ? (
+                {username ? (
                     <div className="hidden flex-row items-center justify-evenly gap-x-2 lg:flex">
                         <p className="px-1 py-2 text-lg font-medium text-primary">
-                            Hello, {mockData}
+                            Hello, {username}
                         </p>
                         <p className="text-lg font-medium text-primary">|</p>
                         <Link
-                            href="/"
+                            href="/login"
                             className="cursor-pointer px-1 py-2 text-center text-lg font-medium text-primary"
                         >
                             Logout
@@ -167,9 +171,9 @@ export function MenuTopBar() {
                 )}
                 <div className="lg:hidden">
                     <div className="flex flex-row items-center justify-center gap-x-4">
-                        {token ? (
+                        {username ? (
                             <p className="text-lg font-medium text-primary">
-                                <span>Hello, {mockData}</span>
+                                <span>Hello, {username}</span>
                             </p>
                         ) : null}
                         <div
@@ -230,10 +234,10 @@ export function MenuTopBar() {
                                 </p>
                             </Link>
                             <li className="flex flex-row items-center justify-center py-3">
-                                {token ? (
+                                {username ? (
                                     <Link
                                         className="group flex inline-flex h-full w-[100%] cursor-pointer flex-row items-center justify-center space-x-1 transition-colors focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                        href="/logout"
+                                        href="/login"
                                         onClick={handleMenu}
                                     >
                                         <p
@@ -261,13 +265,13 @@ export function MenuTopBar() {
                 </div>
             </div>
             <div className="fixed left-0 right-0 top-0 z-50 flex h-[65px] w-full items-center justify-end px-8 sm:hidden">
-                {token ? (
+                {username ? (
                     <Link
                         href={"/"}
                         className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1"
                     >
                         <p className="text-lg font-medium text-primary">
-                            Hello, {mockData}
+                            Hello, {username}
                         </p>
                     </Link>
                 ) : (
