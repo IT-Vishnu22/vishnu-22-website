@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import dotGraphic from "../images/vishnu_dot_graphic.svg";
 import engMap from "../images/engmap.png";
@@ -5,7 +7,9 @@ import back from "../images/back.svg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import MapCarousel from "@/components/MapCarousel";
-import { group } from "console";
+import { useContext } from "react";
+import { UserContext } from "@/lib/context";
+import useGroupInfo from "@/lib/announcement/useGroupInfo";
 
 export default function VishnuAnnouncement() {
   return (
@@ -180,7 +184,8 @@ const HeaderSection = () => {
 };
 
 const AnnouncementSection = () => {
-  const group = "F";
+  const { group } = useContext(UserContext);
+  const { houseName, registeration_place, line } = useGroupInfo(group);
   return (
     <div className="flex flex-col items-center">
       <div className="mx-11 mt-20 flex h-auto min-h-[393px] w-auto min-w-[302px] flex-col items-center space-y-3 bg-white p-3 font-athiti">
@@ -196,14 +201,14 @@ const AnnouncementSection = () => {
           เข้ากลุ่ม Line
         </Button>
       </div>
-      <AnnouncementDetail />
+      <AnnouncementDetail houseName={houseName} registeration_place={registeration_place}/>
     </div>
   );
 };
 
-const AnnouncementDetail = () => {
-  const groupName = "บ้านสายคอสแทน";
-  const meetingPoint = "จุดลงทะเบียนใต้ตึก 4";
+const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, registeration_place }) => {
+  const groupName = houseName;
+  const meetingPoint = registeration_place;
   return (
     <>
       <div className="my-4 text-center font-athiti text-white">
@@ -214,3 +219,7 @@ const AnnouncementDetail = () => {
     </>
   );
 };
+interface AnnouncementDetailProps {
+  houseName: string | null;
+  registeration_place: string | null;
+}
