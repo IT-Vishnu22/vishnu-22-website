@@ -86,7 +86,7 @@ export function MenuTopBar() {
     // const token = true;
     // const username = "Vishnu22";
     const userData = useUserData();
-    const username = userData.username?.split(" ")[0];
+    const username = userData.data?.username?.split(" ")[0];
     const [showMenu, setShowMenu] = useState(false);
 
     const handleMenu = () => {
