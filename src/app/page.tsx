@@ -1,23 +1,32 @@
 "use client"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-
 
 export default function Base() {
   const router = useRouter();
   const pathName = usePathname();
+  const [error, setError] = useState<string>("");
+
+  const validPaths = ["/app/home", "/app/club", "/app/stampbook", "/app/leaderboard", "/app/game", "/app/news", "/login"];
 
   useEffect(() => {
-    if (pathName !== "/app/home" &&
-      pathName !== "/app/club" &&
-      pathName !== "/app/stampbook" &&
-      pathName !== "/app/leaderboard" &&
-      pathName !== "/app/game" &&
-      pathName !== "/app/news" &&
-      pathName !== "/login") {
-      router.push("/app/home");
-    }
+    const handleNavigation = async () => {
+      if (!validPaths.includes(pathName)) {
+        try {
+          await router.push("/app/home");
+        } catch (err) {
+          setError("Navigation failed. Please try again.");
+          console.error("Navigation error:", err);
+        }
+      }
+    };
+
+    handleNavigation();
   }, [router, pathName]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return null;
 }
