@@ -31,7 +31,9 @@ export default function MapCarousel() {
   }, [api]);
 
   const handleDotClick = (index: number) => {
-    api.scrollTo(index);
+    if (api) {
+      api.scrollTo(index);
+    }
   };
 
   return (
