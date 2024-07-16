@@ -1,6 +1,9 @@
 // loading state of podium, since it take a while to compile PodiumDisplay components
 
-export default function LoadingPodium() {
+
+export default function LoadingPodium(props : {type : string}) {
+  const color =  (props.type === "game" ? "#3E4C68" : "#506A53")
+
   return (
     <div className="absolute top-0 w-full z-0">
       {/* loading outliner */}
@@ -14,7 +17,7 @@ export default function LoadingPodium() {
         <g filter="url(#filter0_i_2717_2858)" className="overflow-hidden">
           <path
             d="M171.998 463.722C185.922 469.653 201.654 469.696 215.61 463.84L388.666 391.232C409.466 382.504 423 362.149 423 339.593V-103C423 -133.928 397.928 -159 367 -159H24C-6.92795 -159 -32 -133.928 -32 -103V339.811C-32 362.258 -18.5969 382.535 2.05405 391.332L171.998 463.722Z"
-            fill="#3E4C68"
+            fill={color}
           />
         </g>
       </svg>
