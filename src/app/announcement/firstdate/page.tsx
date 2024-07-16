@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import dotGraphic from "../images/firstdate_dot_graphic.svg";
 import engMap from "../images/engmap.png";
