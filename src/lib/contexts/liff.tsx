@@ -30,7 +30,7 @@ export default function LiffProvider({
                 console.log("LIFF init...");
                 liff.init({
                     liffId: process.env.NEXT_PUBLIC_LIFF_ID!,
-                    withLoginOnExternalBrowser: true,
+                    // withLoginOnExternalBrowser: true,
                 })
                     .then(() => {
                         console.log("LIFF init succeeded.");
