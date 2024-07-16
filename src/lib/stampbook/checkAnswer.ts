@@ -13,7 +13,7 @@ export default async function CheckAnswer(docId: string, input:string, userId:st
 
   if (input === answer) {
     if(!checkComplete){
-      AddScore('L','auto_added', 2) // group
+      AddScore(group,'auto_added', 2) // group
       Update(userId, docId, true )
       return true;
     }

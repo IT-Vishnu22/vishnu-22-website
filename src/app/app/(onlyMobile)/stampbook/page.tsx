@@ -27,16 +27,16 @@ type ConfigData = {
   };
 };
 
-
+// const studentId = 'test1' 
 export default function StampbookPage() {
-  //get studentId from login
+   //get studentId from login
   const { user } = useContext(UserContext);
   const studentId = user?.uid
   if(!user){
     return (
       <h1>Please log in first</h1>
     )
-  } 
+  }  
 
 
   return (

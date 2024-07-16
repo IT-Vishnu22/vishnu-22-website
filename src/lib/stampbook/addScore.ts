@@ -3,6 +3,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 
 export default async function AddScore(group: string | undefined, type: 'auto_added'|'manual_added', score: number){
+  
   if (!group) {
     console.error("DNE");
     return;
