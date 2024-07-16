@@ -44,25 +44,25 @@ export default function LiffProvider({
                         }
                     })
                     .catch((error: Error) => {
-                        console.log("LIFF init failed.");
+                        console.log("LIFF init failed.", error.toString());
                         setLiffError(error.toString());
                     });
             });
     }, []);
 
-    if (liffError) {
-        return (
-            <div className="grid h-screen w-full place-content-center bg-white text-center">
-                <p className="text-4xl font-bold text-neutral-900">
-                    เอ้อะ?! อย่าบอกนะ..
-                </p>
-                <p className="text-xs text-neutral-500">
-                    ถ้าเจอหน้านี้ไปหาและบอกไอคนที่ชื่อว่าตะวันว่าเว็บล่มด้วยนะ
-                </p>
-                <p className="text-xs text-neutral-500">{liffError}</p>
-            </div>
-        );
-    }
+    // if (liffError) {
+    //     return (
+    //         <div className="grid h-screen w-full place-content-center bg-white text-center">
+    //             <p className="text-4xl font-bold text-neutral-900">
+    //                 เอ้อะ?! อย่าบอกนะ..
+    //             </p>
+    //             <p className="text-xs text-neutral-500">
+    //                 ถ้าเจอหน้านี้ไปหาและบอกไอคนที่ชื่อว่าตะวันว่าเว็บล่มด้วยนะ
+    //             </p>
+    //             <p className="text-xs text-neutral-500">{liffError}</p>
+    //         </div>
+    //     );
+    // }
 
     return (
         <LiffContext.Provider
