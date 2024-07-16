@@ -30,6 +30,7 @@
         "next": "14.2.4",
         "react": "^18",
         "react-dom": "^18",
+        "react-firebase-hooks": "^5.1.1",
         "react-hook-form": "^7.52.0",
         "react-resizable-panels": "^2.0.20",
         "tailwind-merge": "^2.3.0",
