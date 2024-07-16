@@ -10,10 +10,6 @@ import { GetCompletedClub } from "@/lib/club/getData";
 import { UserContext } from "@/lib/context";
 import { falseArray, trueArray } from "@/lib/club/array";
 
-
-
-
-
 type clubInfo = {
   Name: string;
   Type: string;
@@ -23,9 +19,7 @@ type clubInfo = {
   Answer?: string;
 }
 
-
-
-
+const router = useRouter()
 export const ClubSection = () => {
   //studentId and group from login
   const { user, group} = useContext(UserContext);
@@ -33,8 +27,6 @@ export const ClubSection = () => {
   if(!user){
     return <h1>Please log in first</h1>
   }
-
-  const router = useRouter()
 
   const [popUpOpen, setPopUpOpen] = useState<boolean[]>(falseArray);
   const [answer, setAnswer] = useState("");
