@@ -1,33 +1,41 @@
 'use client'
-import ClubCard from "../../../components/ClubComponents/ClubCard";
 import Style from "./styles.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { PriceIcon } from "@/assets/icon/ClubIcon";
+import { ClubSection } from "./ClubSection";
+import { addUser } from "@/lib/club/progress";
+import { GetProgress } from "@/lib/club/getData";
+import { UserContext } from "@/lib/context";
+
+
 
 export default function ClubPage() {
+
+  const { user } = useContext(UserContext);
+  const studentId = user?.uid 
+
+  addUser(studentId)
   const [clubCollect, setClubCollect] = useState<number>(0);
 
   useEffect(() => {
-    // const getClubCollections = async () => {
-    //   const res = await fetch("https://api.example.com/club");
-    //   const data = await res.json();
-    //   setClubCollect(data.[count]);
-    // }
-    setClubCollect(2);
+    const getClubCollections = async () => {
+      const count = await GetProgress(studentId)
+      setClubCollect(count);
+    }
+    getClubCollections()
   }, []);
 
   return (
     <div className={Style.bgPage}>
       <p className="font-bold text-4xl">Club</p>
-      <p className="font-medium text-xl">เยี่ยมชมทุก Club และดูว่า<br />Club ไหนดีที่สุดสำหรับคุณ!</p>
+      <p className="font-medium text-xl">เยี่ยมชมทุกชมรม และดูกันว่า<br />ชมรม ไหนดีที่สุดสำหรับคุณ!</p>
       <div className="flex flex-row justify-center items-center gap-2">
         <PriceIcon />
         <p className="font-bold text-2xl">{clubCollect > 3 ? 3 : clubCollect}/3</p>
       </div>
       <div className="flex flex-col justify-center items-center gap-[20px] pb-12">
-        <ClubCard />
-        <ClubCard />
-        <ClubCard />
+        {!user ??<h1>Please log in first</h1>}
+        <ClubSection/>
       </div>
     </div>
   )
