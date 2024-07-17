@@ -12,18 +12,29 @@ export default function News01() {
         <Link href="/intania_news">
           {<Image className="" src={vectorImage} alt="vector graphic" />}
         </Link>
-        <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
+        <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
+          INTANIA NEWS
+        </h1>
+      </div>
+
+      <div className="relative ml-4 mr-4 mt-5 h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <img
+          src="/intaniastorypics/Vishnu3rd.jpg"
+          loading="lazy"
+          alt="Photo by Magicle"
+          className="absolute inset-0 h-full w-full scale-125 transform object-cover object-center"
+        />
       </div>
 
       <div className="mt-5 flex items-center justify-center space-x-4">
         <a href="https://www.w3schools.com/tags/att_a_href.asp"></a>
-        <h1 className="text-[20px] font-bold text-blue-1">
+        <h1 className="font-athiti text-[24px] font-bold text-blue-1">
           <span>รีวิวชีวิตปี 1 วิศวฯจุฬา</span>
         </h1>
       </div>
 
       <div className="paragraph-container">
-        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs italic text-black text-center">
+        <h2 className="font-athiti relative mb-3 ml-5 mt-2 inline-block max-w-full break-words text-center text-xs italic text-black">
           <span>
             “พอชีวิตช่วงดีที่สุดจนตราบเท่าทุกวันนี้ คือ ถ้าถามว่าผมในช่วงอายุ 68
             ปี
@@ -35,16 +46,16 @@ export default function News01() {
         </h2>
 
         <h2
-          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="font-athiti relative inline-block max-w-full break-words text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - พี่ศิษย์เก่าไม่ประสงค์ออกนาม 2504
         </h2>
 
-        <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp;ตลอด 1 ปีของการเป็นนิสิตวิศวฯ จุฬา พูดได้คำเดียวเลยว่า “เหนื่อย”
-          แต่มันเป็นความเหนื่อยที่คุ้มค่า เรียนเหนื่อย เล่นเหนื่อย เที่ยวเหนื่อย
-          แต่สนุกมั้ย มันสนุกนะ พอจบปี 1
+        <h2 className="font-athiti relative mb-3 mt-5 inline-block max-w-full break-words text-xs font-medium text-black">
+          &emsp; &emsp;ตลอด 1 ปีของการเป็นนิสิตวิศวฯ จุฬา พูดได้คำเดียวเลยว่า
+          “เหนื่อย” แต่มันเป็นความเหนื่อยที่คุ้มค่า เรียนเหนื่อย เล่นเหนื่อย
+          เที่ยวเหนื่อย แต่สนุกมั้ย มันสนุกนะ พอจบปี 1
           แล้วมองย้อยกลับไปดูแรงกายแรงใจที่ตัวเองทุ่มลงไป มันคุ้มค่าว่ะ ชีวิตปี
           1 มันคือช่วงที่ใครๆ ก็บอกว่าเป็นช่วงเวลาที่สนุกที่สุดในชีวิต
           ตอนเข้ามาครั้งแรกมันก็ยังไม่เข้าใจหรอกว่าสนุกตรงไหน เรียนก็แสนจะยาก
@@ -55,29 +66,19 @@ export default function News01() {
         </h2>
       </div>
 
-      <div className="mt-3 flex items-center justify-center space-x-4">
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/Vishnu3rd.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full scale-110 transform object-cover object-center"
-          />
-        </div>
-
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/Vishnu20th.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-        </div>
+      <div className="relative ml-4 mr-4 mt-3 h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <img
+          src="/intaniastorypics/Vishnu20th.jpg"
+          loading="lazy"
+          alt="Photo by Magicle"
+          className="absolute inset-0 h-full w-full scale-125 object-cover object-center"
+        />
       </div>
 
       <div className="paragraph-container">
-        <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp;ยังจำวันแรกที่เข้าค่ายวิษณุได้อยู่เลยด้วยซ้ำ ขนาดเรามาเล่น
+        <h2 className="font-athiti relative mb-3 mt-5 inline-block max-w-full break-words text-xs font-medium text-black">
+          &emsp; &emsp;ยังจำวันแรกที่เข้าค่ายวิษณุได้อยู่เลยด้วยซ้ำ
+          ขนาดเรามาเล่น
           มาทำกิจกรรมทุกอย่างยังอดเสียดายไม่ได้เลยว่าทำไมไม่ไปทักทาย
           ทำไมไม่ไปคุยกับเพื่อนๆ พี่ๆ ให้ได้มากกว่านี้ เคยมีคนบอกเอาไว้ว่า “ปี 1
           คือปีของการรับ ส่วนปี 2 คือปีของการให้” ถ้ายังอยู่ปี 1
@@ -86,7 +87,7 @@ export default function News01() {
         </h2>
       </div>
       <div>
-        <h2 className="relative mb-3 mt-1 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black text-center">
+        <h2 className="font-athiti relative mb-3 mt-1 inline-block max-w-full break-words text-center text-xs italic text-black">
           “เข้ามาเรียนมหาวิทยาลัยได้สักพักปิดเทอม
           ตอนนั้นมันมีความรู้สึกว่ามันอบอุ่น ก็มีความเคารพในเรื่อง Seniority
           ที่ว่าลูกน้องต้องเคารพผู้ใหญ่เป็นธรรมเนียมไทย แม้แต่ภารโรง กวาดพื้น
@@ -96,7 +97,7 @@ export default function News01() {
       </div>
       <div>
         <h2
-          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black "
+          className="font-athiti relative inline-block max-w-full break-words text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่ 20 กันยายน

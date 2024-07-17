@@ -12,18 +12,28 @@ export default function News02() {
         <Link href="/intania_news">
           {<Image className="" src={vectorImage} alt="vector graphic" />}
         </Link>
-        <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
+        <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
+          INTANIA NEWS
+        </h1>
       </div>
 
+      <div className="relative ml-4 mr-4 mt-5 h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <img
+          src="/intaniastorypics/3.1.jpg"
+          loading="lazy"
+          alt="Photo by Magicle"
+          className="absolute inset-0 h-full w-full scale-125 object-cover object-center"
+        />
+      </div>
       <div className="mt-5 flex items-center justify-center space-x-4">
         <a href="https://www.w3schools.com/tags/att_a_href.asp"></a>
-        <h1 className="text-[20px] font-bold text-blue-1">
+        <h1 className="font-athiti text-[24px] font-bold text-blue-1">
           <span>วิศวฯกับการเรียน</span>
         </h1>
       </div>
 
       <div className="flex justify-center">
-        <h2 className="relative mb-3 ml-5 mt-5 inline-block max-w-full break-words text-center font-roboto-condensed text-[15px] text-xs italic text-black">
+        <h2 className="font-athiti relative mb-3 ml-5 mt-1 inline-block max-w-full break-words text-center text-xs italic text-black">
           <span>“ตอนเรียนยากไหมครับ"</span>
           <br />
           <span>“คงยาก แต่เราไม่ค่อยเรียน ก็เลยไม่ค่อยยาก”</span>
@@ -32,7 +42,7 @@ export default function News02() {
 
       <div>
         <h2
-          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="font-athiti relative inline-block max-w-full break-words text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่ 20 กันยายน
@@ -41,7 +51,7 @@ export default function News02() {
       </div>
 
       <div>
-        <h2 className="relative ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold text-blue-1">
+        <h2 className="font-athiti relative ml-2 mt-5 inline-block max-w-full break-words text-xs font-bold text-blue-1">
           <span>บทสัมภาษณ์พี่ปี 2 สุดหล่อคนหนึ่ง</span>
           <br />
           <span>เรียนปี 1 ยากไหม?</span>
@@ -49,7 +59,7 @@ export default function News02() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+        <h2 className="font-athiti relative mb-3 mt-2 inline-block max-w-full break-words text-xs font-medium text-black">
           &emsp; &emsp; ถ้าพูดกันตรง ๆ ก็คือยากมากครับ โดยเฉพาะปี 1
           ที่เราอาจจะยังปรับตัวกับการเรียนในมหาลัยไม่ได้ดีขนาดนั้น
           เกรดม.ปลายนี่เอามาเทียบกับมหาลัยไม่ได้เลยนะ ม.ปลายได้ 4.00
@@ -63,37 +73,26 @@ export default function News02() {
         </h2>
       </div>
 
-      <div className="flex items-center justify-center space-x-4">
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/3.1.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-        </div>
-
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/3.2.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-        </div>
+      <div className="relative ml-4 mr-4 h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <img
+          src="/intaniastorypics/3.2.jpg"
+          loading="lazy"
+          alt="Photo by Magicle"
+          className="absolute inset-0 h-full w-full scale-125 object-cover object-center"
+        />
       </div>
 
       <div>
-        <h2 className="relative ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold text-blue-1">
+        <h2 className="font-athiti relative ml-2 mt-5 inline-block max-w-full break-words text-xs font-bold text-blue-1">
           <span>แล้วแบ่งเวลาทำกิจกรรมยังไง?</span>
           <br />
         </h2>
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp; นอกจากนี้ก็จะมีเรื่องกิจกรรมด้วย ตอนปี 1 นี่มันจะมีกิจกรรมหลาย ๆ
-          อย่างให้เราทำหรือเข้าร่วมเยอะมากเลยนะ
+        <h2 className="font-athiti relative mb-3 mt-2 inline-block max-w-full break-words text-xs font-medium text-black">
+          &emsp; &emsp; นอกจากนี้ก็จะมีเรื่องกิจกรรมด้วย ตอนปี 1
+          นี่มันจะมีกิจกรรมหลาย ๆ อย่างให้เราทำหรือเข้าร่วมเยอะมากเลยนะ
           พอไปทำอะไรแบบนี้มันก็จะได้ประสบการณ์และได้เพื่อนเยอะดี
           แต่มันก็แลกมากับการมีเวลาอ่านหนังสือน้อยลง
           ทำให้คะแนนสอบเราน้อยลงไปด้วย
@@ -106,7 +105,7 @@ export default function News02() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words text-center font-roboto-condensed text-xs italic text-black">
+        <h2 className="font-athiti relative mb-3 inline-block max-w-full break-words text-center text-xs italic text-black">
           <span>“ปีผมเฟรชชี่อย่างเดียว 150”</span>
           <br />
           <span>“ของผมไม่ถึง 100”</span>
@@ -127,7 +126,7 @@ export default function News02() {
 
       <div>
         <h2
-          className="relative inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          className="font-athiti relative inline-block max-w-full break-words text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬาฯ คุณปริต คุณพงษ์ศักดิ์ (วันที่ 15 มิถุนายน 2555)

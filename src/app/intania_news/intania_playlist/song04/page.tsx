@@ -72,19 +72,21 @@ export default function Song01() {
             alt="vector graphic"
           />
         </Link>
-        <h1 className="text-center text-[26px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[26px] font-bold text-blue-1">
           บูมวิศวฯ
         </h1>
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
-        <h2 className="text-[14px] text-blue-1">ประพันธ์คำร้องโดย </h2>
+        <h2 className="font-athiti text-[14px] text-blue-1">
+          ประพันธ์คำร้องโดย{" "}
+        </h2>
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
-        <h2 className="text-[14px] text-blue-1">ทำนองโดย </h2>
+        <h2 className="font-athiti text-[14px] text-blue-1">ทำนองโดย </h2>
       </div>
 
       <div className="mt-10 flex place-items-center justify-center space-x-[13%]">
-        <p className="mx-6 mb-80 text-[20px] font-bold text-blue-1">
+        <p className="mx-6 mb-80 font-roboto-condensed text-[20px] font-bold text-blue-1">
           BAKA BOBO
           <br />
           CHEERKA CHOCHO
@@ -99,7 +101,7 @@ export default function Song01() {
         </p>
       </div>
 
-      <div className="relative z-[10] mt-6 flex flex-col items-center">
+      <div className="relative z-[10] mt-5 flex flex-col items-center">
         <input
           type="range"
           min="0"

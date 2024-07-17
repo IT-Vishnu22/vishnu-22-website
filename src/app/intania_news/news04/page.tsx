@@ -11,26 +11,28 @@ export default function News04() {
         <Link href="/intania_news">
           {<Image className="" src={vectorImage} alt="vector graphic" />}
         </Link>
-        <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
+        <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
+          INTANIA NEWS
+        </h1>
       </div>
 
       <div className="mr-[5%] mt-5 flex place-items-center justify-center space-x-[5%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp"></a>
-        <h1 className="text-[20px] font-bold text-blue-1 ">
+        <h1 className="text-[20px] font-bold text-blue-1">
           <span>ไอเทมวิศวฯ</span>
         </h1>
       </div>
 
       <div>
-        <h2 className="relative ml-5 mt-3 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold text-blue-1 italic">
+        <h2 className="relative ml-5 mt-3 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold italic text-blue-1">
           ผ้ายันต์
         </h2>
       </div>
 
       <div>
         <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp;ผ้ายันต์สำหรับชาววิศวฯ เปรียบเสมือนเครื่องรางให้น้องๆ สอบผ่าน
-          ใช้ชีวิตภายในคณะวิศวฯ โดยสวัสดิภาพราบรื่น แต่จริงๆ
+          &emsp; &emsp;ผ้ายันต์สำหรับชาววิศวฯ เปรียบเสมือนเครื่องรางให้น้องๆ
+          สอบผ่าน ใช้ชีวิตภายในคณะวิศวฯ โดยสวัสดิภาพราบรื่น แต่จริงๆ
           แล้วสมัยก่อนผ้ายันต์ไม่ได้ใช้เป็นเครื่องรางเหมือนอย่างสมัยนี้นะ
           แต่ก่อนพวกรุ่นพี่ก็จะแจกผ้ายันต์เอาไว้ให้น้องๆ
           เขียนชื่อแล้วก็เย็บบนเสื้อช็อปให้รู้ว่าใครเป็นใคร
@@ -66,7 +68,8 @@ export default function News04() {
 
       <div>
         <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp;บางครั้งที่เราเห็นพวกรุ่นพี่ใส่เนคไทหรือติ้งที่มันหน้าตาแปลกๆ
+          &emsp;
+          &emsp;บางครั้งที่เราเห็นพวกรุ่นพี่ใส่เนคไทหรือติ้งที่มันหน้าตาแปลกๆ
           มีแต่โครงอย่างเดียว ไม่ได้เป็นพระเกี้ยวเหมือนอย่างคณะอื่น จริงๆ
           แล้วมันเป็นเอกลักษณ์ของวิศวฯ เรานะ เคยมีอยู่ช่วงหนึ่งที่วิศวฯ
           ตั้งตนเป็น College of Engineering ไม่ใช่แค่ Faculty of Engineering

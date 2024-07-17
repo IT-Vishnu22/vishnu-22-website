@@ -72,19 +72,23 @@ export default function Song01() {
             alt="vector graphic"
           />
         </Link>
-        <h1 className="text-center text-[26px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[26px] font-bold text-blue-1">
           ปราสาทสีแดง
         </h1>
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
-        <h2 className="text-[14px] text-blue-1">ประพันธ์คำร้องโดย ธาตรี</h2>
+        <h2 className="font-athiti text-[14px] text-blue-1">
+          ประพันธ์คำร้องโดย ธาตรี
+        </h2>
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
-        <h2 className="text-[14px] text-blue-1">ทำนองโดย ครูเอื้อ สุนทรสนาม</h2>
+        <h2 className="font-athiti text-[14px] text-blue-1">
+          ทำนองโดย ครูเอื้อ สุนทรสนาม
+        </h2>
       </div>
 
       <div className="mt-10 flex place-items-center justify-center space-x-[13%]">
-        <p className="mx-6 mb-8 text-[16px] text-blue-1">
+        <p className="font-athiti mx-6 mb-8 text-[16px] font-medium text-blue-1">
           ยังมีปราสาทสีแดง ดังศิลาแลง
           <br />
           งดงามเด่นแซงแหล่งเมืองชมพู
@@ -122,7 +126,7 @@ export default function Song01() {
         </p>
       </div>
 
-      <div className="relative z-[10] mb-5 mt-3 flex flex-col items-center">
+      <div className="relative z-[10] mb-5 mt-8 flex flex-col items-center">
         <input
           type="range"
           min="0"

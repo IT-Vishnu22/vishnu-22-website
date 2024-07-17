@@ -12,14 +12,16 @@ export default function IntaniaNews() {
         <Link href="/intania_news">
           <Image className="" src={vectorImage} alt="vector graphic" />
         </Link>
-        <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
+        <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
+          INTANIA NEWS
+        </h1>
       </div>
 
       <Link href="/intania_news/news01">
         <div className="mx-auto mt-5 max-w-[80%] gap-6">
           <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
-              src="/intaniastorypics/Vishnu20th.jpg"
+              src="/intaniastorypics/Vishnu20th2.jpg"
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -27,7 +29,7 @@ export default function IntaniaNews() {
 
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-            <span className="relative mb-3 ml-4 ml-5 inline-block text-xs text-white">
+            <span className="font-athiti relative mb-3 ml-4 ml-5 inline-block text-[16px] font-medium text-white">
               รีวิวชีวิตปี 1 วิศวฯจุฬา
             </span>
           </div>
@@ -46,7 +48,7 @@ export default function IntaniaNews() {
 
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+            <span className="font-athiti relative mb-3 ml-4 ml-5 inline-block text-[16px] font-medium text-white">
               วิศวฯกับการเรียน
             </span>
           </div>
@@ -70,7 +72,7 @@ export default function IntaniaNews() {
 
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+            <span className="font-athiti relative mb-3 ml-3 inline-block text-[16px] font-medium text-white">
               ฟุตบอลประเพณี
             </span>
           </Link>
@@ -87,7 +89,7 @@ export default function IntaniaNews() {
 
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
+            <span className="font-athiti relative mb-3 ml-3 inline-block text-[16px] font-medium text-white">
               ไอเทมวิศวฯ
             </span>
           </Link>
@@ -106,8 +108,9 @@ export default function IntaniaNews() {
 
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
-            <span className="relative mb-3 ml-4 ml-5 inline-block font-roboto-condensed text-xs text-white">
-              บิดาแห่งคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+            <span className="font-athiti relative mb-3 ml-4 ml-5 inline-block text-[16px] font-medium text-white">
+              บิดาแห่งคณะวิศวกรรมศาสตร์ <br />
+              จุฬาลงกรณ์มหาวิทยาลัย
             </span>
           </div>
         </div>
@@ -122,7 +125,9 @@ export default function IntaniaNews() {
 
         <div className="absolute inset-0 flex content-center">
           <div className="mx-auto content-center">
-            <h2 className="text-l my-auto font-bold">Intania Playlist!</h2>
+            <h2 className="my-auto font-roboto-condensed text-[20px] font-bold">
+              Intania Playlist!
+            </h2>
             <div className="flex justify-center">
               <Button
                 asChild

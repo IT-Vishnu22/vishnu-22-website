@@ -18,7 +18,7 @@ export default function IntaniaPlaylist() {
             alt="vector graphic"
           />
         </Link>
-        <h1 className="text-center text-[26px] font-bold text-blue-1">
+        <h1 className="text-center font-roboto-condensed text-[30px] font-bold text-blue-1">
           Intania Playlist
         </h1>
       </div>
@@ -40,7 +40,7 @@ export default function IntaniaPlaylist() {
         <div className="w-10">
           <h1 className="text-center text-[20px] font-bold text-blue-1">1</h1>
         </div>
-        <h1 className="text-center text-[16px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[16px] font-bold text-blue-1">
           ปราสาทแดง
         </h1>
         <Link href="/intania_news/intania_playlist/song01">
@@ -64,7 +64,7 @@ export default function IntaniaPlaylist() {
         <div className="w-10">
           <h1 className="text-center text-[20px] font-bold text-blue-1">2</h1>
         </div>
-        <h1 className="text-center text-[16px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[16px] font-bold text-blue-1">
           แรงเลือดหมู
         </h1>
         <Link href="/intania_news/intania_playlist/song02">
@@ -88,7 +88,7 @@ export default function IntaniaPlaylist() {
         <div className="w-10">
           <h1 className="text-center text-[20px] font-bold text-blue-1">3</h1>
         </div>
-        <h1 className="text-center text-[16px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[16px] font-bold text-blue-1">
           มหาจุฬาลงกรณ์
         </h1>
         <Link href="/intania_news/intania_playlist/song03">
@@ -112,7 +112,7 @@ export default function IntaniaPlaylist() {
         <div className="w-10">
           <h1 className="text-center text-[20px] font-bold text-blue-1">4</h1>
         </div>
-        <h1 className="text-center text-[16px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[16px] font-bold text-blue-1">
           บูมวิศวฯ (บูมบากา)
         </h1>
         <Link href="/intania_news/intania_playlist/song04">
@@ -136,7 +136,7 @@ export default function IntaniaPlaylist() {
         <div className="w-10">
           <h1 className="text-center text-[20px] font-bold text-blue-1">5</h1>
         </div>
-        <h1 className="text-center text-[16px] font-bold text-blue-1">
+        <h1 className="font-athiti text-center text-[16px] font-bold text-blue-1">
           วิศวกรรมเริงรื่น
         </h1>
         <Link href="/intania_news/intania_playlist/song05">

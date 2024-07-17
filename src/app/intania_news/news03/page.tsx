@@ -11,7 +11,9 @@ export default function News03() {
         <Link href="/intania_news">
           {<Image className="" src={vectorImage} alt="vector graphic" />}
         </Link>
-        <h1 className="text-[26px] font-bold text-blue-1">INTANIA NEWS</h1>
+        <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
+          INTANIA NEWS
+        </h1>
       </div>
 
       <div className="mr-[5%] mt-5 flex place-items-center justify-center space-x-[5%]">
@@ -41,7 +43,7 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mt-5 mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+        <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
           &emsp; &emsp;ฟุตบอลประเพณีจุฬา-ธรรมศาสตร์จริงๆ
           แล้วมีต้นกำเนิดมาจากการแข่งขันเรือประเพณีระหว่างมหาวิทยาลัยออกซฟอร์ดและมหาวิทยาลัยเคมบริดจ์ในสหราชอาณาจักร
           โดยมีจุดประสงค์เพื่อจะสานสัมพันธ์อันดีระหว่างนิสิตจุฬาและนิสิตธรรมศาสตร์
@@ -53,7 +55,7 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black text-center">
+        <h2 className="relative mb-3 inline-block max-w-full break-words text-center font-roboto-condensed text-xs italic text-black">
           “ เดี๋ยวนี้ฟุตบอลประเพณีเป็นอย่างไรไม่รู้
           สมัยก่อนรุ่นผมเป็นน้องใหม่ธรรมศาสตร์ เป็นเจ้าภาพ หรือจุฬาฯ เป็นเจ้าภาพ
           ถ้าธรรมศาสตร์เป็นเจ้าภาพเวลาเสร็จสิ้นการกีฬาแล้ว
@@ -85,15 +87,16 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mt-5 mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-          &emsp; &emsp;นอกจากแข่งกีฬาแล้วยังมีการแข่งกิจกรรมเชื่อมสัมพันธ์ระหว่างนิสิตจุฬาฯ
+        <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+          &emsp;
+          &emsp;นอกจากแข่งกีฬาแล้วยังมีการแข่งกิจกรรมเชื่อมสัมพันธ์ระหว่างนิสิตจุฬาฯ
           กับนักศึกษามหาวิทยาลัยธรรมศาสตร์ เช่น การเดินพาเหรด การเชียร์
           การแปรอักษร{" "}
         </h2>
       </div>
 
       <div className="flex justify-center">
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs italic text-black text-center">
+        <h2 className="relative mb-3 inline-block max-w-full break-words text-center font-roboto-condensed text-xs italic text-black">
           <span>“ คืนนั้นมีการละเล่น” </span>
           <br />
           <span>
@@ -108,8 +111,9 @@ export default function News03() {
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
-            style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
+        <h2
+          className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black"
+          style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
           - ถอดเทปตำนานวิศวจุฬา 2504-2507 (วันที่ 10 สิงหาคม 2555)
         </h2>
