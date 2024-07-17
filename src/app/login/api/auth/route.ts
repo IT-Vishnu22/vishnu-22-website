@@ -21,6 +21,7 @@ export const POST = async (req: NextRequest) => {
   const body = await req.json();
 
   try {
+    // console.log(body.lineId)
     const response = await axios.post(
       "https://account.intania.org/api/v1/auth/app/validate",
       {
@@ -42,14 +43,16 @@ export const POST = async (req: NextRequest) => {
       console.log("User does not exist, creating user...");
       await adminAuth.createUser({
         uid: validatedResponse.studentId,
-        displayName: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
+        displayName: `${validatedResponse.name.th.firstName} ${validatedResponse.name.th.lastName}`,
       });
 
       await adminFirestore
         .collection("users")
         .doc(validatedResponse.studentId)
         .set({
-          username: `${validatedResponse.name.en.firstName} ${validatedResponse.name.en.lastName}`,
+          username: `${validatedResponse.name.th.firstName} ${validatedResponse.name.th.lastName}`,
+          studentId: validatedResponse.studentId,
+          lineId: body.lineId,
         }, { merge: true });
     }
 
