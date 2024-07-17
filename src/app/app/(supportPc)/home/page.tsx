@@ -18,7 +18,7 @@ export default function Home() {
                 <Logo />
             </div>
 
-            <div className="w-full sm:max-w-[90vw] lg:max-w-[85vw] xl:max-w-[80vw] aspect-video mx-4 px-6 sm:px-10 lg:px-14 hover:rotate-3 hover:transform hover:transition-transform hover:duration-500">
+            <div className="w-[90vw] max-w-[800px] aspect-video hover:rotate-3 hover:transform hover:transition-transform hover:duration-500">
                 <IntaniaNewsHeader></IntaniaNewsHeader>
                 <div className="flex flex-row justify-end items-center gap-x-2 pt-3 px-2">
                     <Link href="/app/news" className="font-semibold text-base md:text-xl">ดูทั้งหมด </Link>
@@ -26,23 +26,23 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="z-10 w-full px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 md:grid-cols-2 justify-items-center items-center">
+            <div className="z-10 w-[80vw] px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 lg:grid-cols-2 justify-items-center items-center">
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-125">
+                    <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <StampbookIcon />
                         <ButtonNext Topic="กรอก" Topic2="Stamp Book!" TextBtn="collect" />
                     </Link>
                 </div>
 
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-125">
+                    <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"Club!"} TextBtn={"collect"} />
                         <ClubCollectIcon />
                     </Link>
                 </div>
 
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/game'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-125">
+                    <Link href={'/app/game'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <GamerIconRight />
                         <ButtonNext Topic={"มาเล่น"} Topic2={"Game กัน!"} TextBtn={"play now"} />
                         <GamerIconLeft />
@@ -50,7 +50,7 @@ export default function Home() {
                 </div>
 
                 <div className="z-10 mt-12 col-span-1 flex justify-center items-center hover:rotate-6 py-4 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/leaderboard'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-125">
+                    <Link href={'/app/leaderboard'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <LeaderBoardIcon />
                         <ButtonNext Topic={"Leaderboard"} TextBtn={"check record"} />
                     </Link>
