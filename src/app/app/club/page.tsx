@@ -10,9 +10,9 @@ import { UserContext } from "@/lib/context";
 
 
 export default function ClubPage() {
-
-  const { user } = useContext(UserContext);
-  const studentId = user?.uid 
+  const studentId = 'test'
+  /* const { user } = useContext(UserContext);
+  const studentId = user?.uid */ 
 
   addUser(studentId)
   const [clubCollect, setClubCollect] = useState<number>(0);
@@ -34,7 +34,6 @@ export default function ClubPage() {
         <p className="font-bold text-2xl">{clubCollect > 3 ? 3 : clubCollect}/3</p>
       </div>
       <div className="flex flex-col justify-center items-center gap-[20px] pb-12">
-        {!user ??<h1>Please log in first</h1>}
         <ClubSection/>
       </div>
     </div>

@@ -18,10 +18,13 @@ type clubInfo = {
   Answer?: string;
 }
 
+const studentId = 'test'
+const group = 'A'
 export const ClubSection = () => {
-  //studentId and group from login
+ 
+/*   //studentId and group from login
   const { user, group} = useContext(UserContext);
-  const studentId = user?.uid 
+  const studentId = user?.uid */ 
 
   const [popUpOpen, setPopUpOpen] = useState<boolean[]>(falseArray);
   const [answer, setAnswer] = useState("");
@@ -161,7 +164,7 @@ export const ClubSection = () => {
                     {club.ClubDetails[currentIdex].Name}
                   </p>
                   <p className="text-sm">
-                    Contact-@Punwachi
+                    Contact: {club.ClubDetails[currentIdex].Contact}
                   </p>
                 </div>
                   <div className="flex flex-col gap-2">
