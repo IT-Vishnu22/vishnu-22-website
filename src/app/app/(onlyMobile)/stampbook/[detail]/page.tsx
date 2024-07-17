@@ -2,6 +2,7 @@ import Image from "next/image";
 import InputForm from "./InputForm";
 import Link from "next/link";
 import { ReadDataSQ } from "@/lib/stampbook/readData";
+import { Toaster } from "@/components/ui/toaster";
 
 export default async function DetailPage({
     params,
@@ -47,6 +48,7 @@ export default async function DetailPage({
             <section className="fixed bottom-[85px] w-full rounded-t-[50px] bg-[#FFFBF4] p-10 md:max-w-[390px]">
                 <InputForm question={detail?.Question} docId={params.detail} />
             </section>
+            <Toaster />
         </main>
     );
 }
