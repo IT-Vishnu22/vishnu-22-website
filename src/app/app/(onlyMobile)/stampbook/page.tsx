@@ -7,7 +7,7 @@ import {
 } from "@/lib/stampbook/progress";
       
 import { UserContext } from '@/lib/context';
-import { useContext, useEffect, useState } from "react";
+import { Suspense, useContext, useEffect, useState } from "react";
 import { StampBookSection } from "./stampBookSection";
 
 
@@ -26,8 +26,8 @@ type ConfigData = {
     posY: number;
   };
 };
+//const studentId = 'test' 
 
-// const studentId = 'test1' 
 export default function StampbookPage() {
    //get studentId from login
   const { user } = useContext(UserContext);
@@ -49,7 +49,9 @@ export default function StampbookPage() {
           <ScoreSection userId={studentId} />
           <CompletionBadgeSection />
           <div className="flex w-auto flex-col pb-96 pt-16">
-              <StampBookSection userId={studentId}></StampBookSection>
+            <Suspense fallback={<p>Loading stamp...</p>}>
+              <StampBookSection userId={studentId}/>
+            </Suspense>
           </div>
       </div>
     </>
