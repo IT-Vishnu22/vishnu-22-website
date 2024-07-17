@@ -148,7 +148,7 @@ const LoginSection = () => {
                 className="login-page rounded-xl px-14 py-7 font-roboto-condensed text-2xl font-medium hover:bg-white/90"
                 onClick={() => {
                     router.replace(
-                        "https://account.intania.org/?appId=vishnu22nd&callbackUrl=http://localhost:3000/login",
+                        "https://account.intania.org/?appId=vishnu22nd&callbackUrl=https://vishnu-22-website.vercel.app/login",
                     );
                 }}
             >
