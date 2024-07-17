@@ -1,5 +1,5 @@
 'use client'
-import ClubCard from "../../../components/ClubComponents/ClubCard";
+import ClubCard from "@/components/ClubComponents/ClubCard";
 import Style from "./styles.module.css";
 import { useState, useEffect } from "react";
 import { PriceIcon } from "@/assets/icon/ClubIcon";
