@@ -36,5 +36,5 @@ export function useUserData() {
         return unsubscribe;
     }, [user]);
 
-    return { firebaseUser: user, ...userData };
+    return { firebaseUser: user, data: userData };
 }

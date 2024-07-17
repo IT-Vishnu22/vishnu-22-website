@@ -5,6 +5,7 @@ import { useUserData } from "@/lib/hooks";
 
 export const UserContext = createContext<ReturnType<typeof useUserData>>({
     firebaseUser: null,
+    data: undefined,
 });
 
 export default function UserDataProvider({
