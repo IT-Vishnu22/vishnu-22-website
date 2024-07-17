@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { 
   CountAchieved, 
@@ -42,77 +42,76 @@ export default function StampbookPage() {
 }
 
 const MapImageSection = () => {
-  return (
-      <div className="relative mt-10 h-[190px] w-[320px] border border-black">
-          <Image
-              src="/stampbookImages/engmap.png"
-              alt="stampbook page"
-              objectFit="cover"
-              fill={true}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-      </div>
-  );
+    return (
+        <div className="relative mt-10 h-[190px] w-[320px] border border-black">
+            <Image
+                src="/stampbookImages/engmap.png"
+                alt="stampbook page"
+                objectFit="cover"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+        </div>
+    );
 };
 
 const TempImageDay = () => {
-  return (
-    <svg
-      width="80"
-      height="80"
-      viewBox="0 0 80 80"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="40" cy="40" r="40" fill="#404040" />
-    </svg>
-  );
+    return (
+        <svg
+            width="80"
+            height="80"
+            viewBox="0 0 80 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="40" cy="40" r="40" fill="#404040" />
+        </svg>
+    );
 };
 
-const ScoreSection = ({userId}:{userId:string|undefined}) => {
+const ScoreSection = ({ userId }: { userId: string | undefined }) => {
+    // setScore
+    const [score, setScore] = useState<number>(0);
 
-  // setScore
-  const [score, setScore] = useState<number>(0)
-  
-  useEffect(()=>{
-    const getScore = async() => {
-      const s: number|undefined = await CountAchieved(userId)
-      if(s){
-        setScore(s)
-      }
-    }
-    getScore() 
-  })
+    useEffect(() => {
+        const getScore = async () => {
+            const s: number | undefined = await CountAchieved(userId);
+            if (s) {
+                setScore(s);
+            }
+        };
+        getScore();
+    });
 
-  return (
-    <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
-      <Image
-        src="/stampbookImages/rewards.svg"
-        alt="reward Image"
-        width={25}
-        height={25}
-      />
-      <p> {score}/8</p>
-    </div>
-  );
+    return (
+        <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
+            <Image
+                src="/stampbookImages/rewards.svg"
+                alt="reward Image"
+                width={25}
+                height={25}
+            />
+            <p> {score}/8</p>
+        </div>
+    );
 };
 
 const CompletionBadgeSection = () => {
-  return (
-      <div className="relative mt-12 flex justify-between gap-10">
-          {[123, 123122, 134123123].map((item, index) => (
-              <div key={item} className="relative">
-                  <TempImageDay />
-                  <Image
-                      className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
-                      src="/stampbookImages/lock.svg"
-                      alt="badge is locked"
-                      width={30}
-                      height={30}
-                  />
-              </div>
-          ))}
-          <div className="pointer-events-none absolute top-1/2 z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
-      </div>
-  );
+    return (
+        <div className="relative mt-12 flex justify-between gap-10">
+            {[123, 123122, 134123123].map((item, index) => (
+                <div key={item} className="relative">
+                    <TempImageDay />
+                    <Image
+                        className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
+                        src="/stampbookImages/lock.svg"
+                        alt="badge is locked"
+                        width={30}
+                        height={30}
+                    />
+                </div>
+            ))}
+            <div className="pointer-events-none absolute top-1/2 z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+        </div>
+    );
 };

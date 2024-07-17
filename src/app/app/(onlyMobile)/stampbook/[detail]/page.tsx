@@ -11,7 +11,7 @@ export default async function DetailPage({
 }) {
     const detail = await ReadDataSQ(params.detail);
     return (
-        <main className="min-h-screen w-full bg-green-1 pb-[335px]">
+        <main className="relative h-auto min-h-screen w-full bg-green-1 pb-[350px]">
             <header className="sticky top-0 z-10 grid grid-cols-4 items-center bg-blue-4 p-8 text-[32px] font-semibold text-white">
                 <Link href="/app/stampbook" className="text-blue-3">
                     <Image
@@ -45,7 +45,7 @@ export default async function DetailPage({
                 })}
             </div>
 
-            <section className="fixed bottom-[85px] w-full rounded-t-[50px] bg-[#FFFBF4] p-10 md:max-w-[390px]">
+            <section className="absolute bottom-0 w-full rounded-t-[50px] bg-[#FFFBF4] p-10 pb-[100px] md:max-w-[390px]">
                 <InputForm question={detail?.Question} docId={params.detail} />
             </section>
             <Toaster />
