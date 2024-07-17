@@ -12,13 +12,14 @@ import { CloseIcon } from '@/components/CloseIcon';
 
 import { addPlayed, didPlay } from '@/lib/wordle/actions';
 import { useWord } from "@/lib/wordle/useWord";
-import { UserContext } from '@/lib/context';
+import { UserContext } from '@/lib/contexts/user';
 
 export default function WordlePage() {
 
     const answer: string = useWord();
-    const { user, username, group} = useContext(UserContext);
-    const studentId = user?.uid 
+    const { firebaseUser, data } = useContext(UserContext);
+    const studentId = data?.studentId 
+    const group = data?.group || null
     
     const [isGuessed, setIsGuessed] = useState<boolean>(false);
     const [guess, setGuess] = useState<string>('');
@@ -150,7 +151,7 @@ export default function WordlePage() {
                 <div className="flex gap-2 w-full mx-4 justify-center">
                 {
                     answer ?
-                    !user ? <p>No user: Please login first.</p> :
+                    !firebaseUser ? <p>No user: Please login first.</p> :
                     !group? <p>This is only for 108: If you are 108, please contact IT.</p> :
                     played ? <p>คุณได้เล่นไปแล้ว</p> :
                     <>
