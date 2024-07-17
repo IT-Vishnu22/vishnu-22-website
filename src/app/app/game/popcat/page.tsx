@@ -75,12 +75,16 @@ export default function PopcatPage() {
                     onTouchStart={touchStart} onTouchEnd={touchEnd}
                     onMouseDown={touchStart} onMouseUp={touchEnd}/>
                 <ResizableHandle className="bg-transparent p-[15px] mb-[-20px] z-[3]"/>
-                <ResizablePanel defaultSize={25}>
-                    <ScrollArea className="flex items-stretch font-roboto-condensed rounded-t-[50px] bg-white w-full px-[10px] pt-[20px] h-full">
+                <ResizablePanel defaultSize={8} minSize={10} maxSize={95}>
+                <div className="flex flex-col items-stretch font-roboto-condensed rounded-t-[50px] bg-white w-full px-[10px] pt-[20px] h-full">
+                <h1 className="text-center font-bold font-roboto-condensed text-[30px] mb-[10px] text-blue-2">Leaderboard</h1>
+                    <ScrollArea>
                         <ScoreDisplay start={1}/>
                     </ScrollArea>
+                </div>
                 </ResizablePanel>
             </ResizablePanelGroup>
         </div>
+        
     )
 }

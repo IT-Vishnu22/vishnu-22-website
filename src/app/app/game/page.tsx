@@ -7,7 +7,7 @@ export default function GamePage() {
     <div className="bg-[url('/BG_1.png')] bg-repeat-xy bg-contain h-full flex flex-col">
 
       <div className="items-center flex flex-col">
-          <h1 className="text-center font-bold font-roboto-condensed text-[32px] text-blue-2 m-auto mt-[22px]">
+          <h1 className="text-center font-bold font-roboto-condensed text-[32px] text-blue-1 m-auto mt-[22px]">
             Games
           </h1>
       </div>
