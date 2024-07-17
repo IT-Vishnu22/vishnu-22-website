@@ -126,7 +126,7 @@ export default function WordlePage() {
                 />
                 <div className="flex gap-2 w-full mx-4 justify-center">
                     <Button
-                        className="w-32 h-16 font-bold border-2 font-athiti text-[20px] text-black hover:text-white focus:text-white border-gray-700 bg-gray-300 hover:bg-gray-700 focus:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
+                        className="w-32 h-16 font-bold border-2 font-athiti text-[20px] text-black hover:text-white focus:text-white border-gray-700 bg-gray-200 hover:bg-gray-700 focus:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
                         type="submit"
                         onClick={handleClearClick}
                     >
@@ -252,7 +252,7 @@ function Keyboard({ handleClick }: { handleClick: (key: string) => void }) {
                     {row.split("").map((key: string) => (
                         <Button
                             id={key}
-                            className={`m-px flex h-10 w-1 items-center justify-center rounded-lg border-2 border-gray-700 bg-gray-300 px-[17%] text-center font-bold uppercase text-black hover:text-white md:rounded-xl`}
+                            className={`m-px flex h-10 w-1 items-center justify-center rounded-lg border-2 border-gray-700 bg-gray-200 px-[17%] text-center font-bold uppercase text-black hover:text-white md:rounded-xl`}
                             onClick={() => handleClick(key)}
                             key={key}
                         >
