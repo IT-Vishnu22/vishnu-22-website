@@ -1,43 +1,26 @@
 'use client'
 import Image from "next/image";
-import Link from "next/link";
-import Config from "./config.json";
 import { 
   CountAchieved, 
 } from "@/lib/stampbook/progress";
       
-import { UserContext } from '@/lib/context';
+import { UserContext } from '@/lib/contexts/user';
 import { Suspense, useContext, useEffect, useState } from "react";
 import { StampBookSection } from "./stampBookSection";
 
 
-
-type ConfigData = {
-  key: number;
-  imageRotate: number;
-  dropShadow: string;
-  width: number;
-  height: number;
-  posX: number;
-  posY: number;
-  line: {
-    rotate: number;
-    posX: number;
-    posY: number;
-  };
-};
 //const studentId = 'test' 
 
 export default function StampbookPage() {
-   //get studentId from login
-  const { user } = useContext(UserContext);
-  const studentId = user?.uid
-  if(!user){
+  
+  //get studentId from login
+  const { firebaseUser, data } = useContext(UserContext);
+  const studentId = data?.studentId 
+  if(!firebaseUser){
     return (
       <h1>Please log in first</h1>
     )
   }  
-
 
   return (
     <>

@@ -17,10 +17,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { ReadDataSQ } from "@/lib/stampbook/readData";
 import CheckAnswer from "@/lib/stampbook/checkAnswer";
 import { useContext, useState } from "react";
-import { UserContext } from "@/lib/context";
+import { UserContext } from "@/lib/contexts/user";
 
 const FormSchema = z.object({
     username: z.string().min(1, {
@@ -38,9 +37,10 @@ export default function InputForm({
     question: String;
     docId: string;
 }) {
-    //get studentId and group from login
-    const { user, group } = useContext(UserContext);
-    const studentId = user?.uid;
+    //get studentId from login
+    const { firebaseUser, data } = useContext(UserContext);
+    const studentId = data?.studentId
+    const group = data?.group || null
 
     const router = useRouter();
     const form = useForm<z.infer<typeof FormSchema>>({
