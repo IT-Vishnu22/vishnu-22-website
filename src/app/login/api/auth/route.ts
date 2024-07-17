@@ -22,7 +22,7 @@ export const POST = async (req: NextRequest) => {
 
   try {
     const response = await axios.post(
-      "https://accounts.intania.org/api/v1/auth/app/validate",
+      "https://account.intania.org/api/v1/auth/app/validate",
       {
         token: body.token,
       },
