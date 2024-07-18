@@ -6,7 +6,7 @@ import engMap from "../images/engmap.png";
 import back from "../images/back.svg";
 import Link from "next/link";
 import { useContext } from "react";
-import { UserContext } from "@/lib/context";
+import { UserContext } from "@/lib/contexts/user";
 import useFirstdateInfo from "@/lib/announcement/useFirstdateInfo";
 import MapCarousel from "@/components/MapCarousel";
 
@@ -188,9 +188,10 @@ const HeaderSection = () => {
 };
 
 const AnnouncementSection = () => {
-    const { group } = useContext(UserContext);
-    const data = useFirstdateInfo(group);
-    const { registeration_place, table } = data;
+    const { firebaseUser, data } = useContext(UserContext);
+    const group = data?.group || null
+    const info = useFirstdateInfo(group);
+    const { registeration_place, table } = info;
     const img1 = `/announcement/firstdate/first/${registeration_place}.svg`;
     const img2 = `/announcement/firstdate/second/${registeration_place}.svg`;
     return (

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import MapCarousel from "@/components/MapCarousel";
 import { useContext } from "react";
-import { UserContext } from "@/lib/context";
+import { UserContext } from "@/lib/contexts/user";
 import useGroupInfo from "@/lib/announcement/useGroupInfo";
 
 export default function VishnuAnnouncement() {
@@ -184,7 +184,8 @@ const HeaderSection = () => {
 };
 
 const AnnouncementSection = () => {
-  const { group } = useContext(UserContext);
+  const { firebaseUser, data } = useContext(UserContext);
+  const group = data?.group || null
   const { houseName, registeration_place, line } = useGroupInfo(group);
   return (
     <div className="flex flex-col items-center">
