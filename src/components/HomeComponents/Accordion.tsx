@@ -19,7 +19,7 @@ export function AccordionHome() {
     ];
 
     return (
-        <div className="w-[90%] flex flex-col items-center justify-center space-y-[14px] mx-14 sm:my-12 md:my-14 lg:my-16 max-w-[1000px]">
+        <div className="w-[80vw] max-w-[800px] flex flex-col items-center justify-center space-y-[14px] mx-14 sm:my-12 md:my-14 lg:my-16 max-w-[1000px]">
             <p className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-8">คำถามที่พบบ่อย</p>
             <Accordion type="single" collapsible className="w-full flex flex-col space-y-[14px]">
                 {
