@@ -5,6 +5,7 @@ import { CountAchieved } from "@/lib/stampbook/progress";
 import { UserContext } from "@/lib/contexts/user";
 import { Suspense, useContext, useEffect, useState } from "react";
 import { StampBookSection } from "./stampBookSection";
+import { Button } from "@/components/ui/button";
 
 //const studentId = 'test'
 
@@ -12,18 +13,31 @@ export default function StampbookPage() {
     //get studentId from login
     const { firebaseUser, data } = useContext(UserContext);
     const studentId = data?.studentId;
+
+    const [popUpMessage, setPopUpMessage] = useState<string>("rules");
     // if (!firebaseUser) {
     //     return <h1>Please log in first</h1>;
     // }
 
     return (
         <>
+            <PopUp
+                popUpMessage={popUpMessage}
+                setPopUpMessage={setPopUpMessage}
+            ></PopUp>
             <div className="flex flex-col items-center justify-evenly overflow-hidden bg-[url('/stampbookImages/bg_1.png')] bg-cover pt-8">
                 <div className="relative flex w-auto items-center">
                     <h1 className="text-[32px] font-bold text-blue-1">
                         Stamp Book
                     </h1>
-                    <QuestionMark />
+                    <button
+                        className="absolute -right-[45px]"
+                        onClick={() => {
+                            setPopUpMessage("rules");
+                        }}
+                    >
+                        <QuestionMark />
+                    </button>
                 </div>
                 <MapImageSection />
                 <CompletionBadgeSection />
@@ -125,7 +139,6 @@ const CompletionBadgeSection = () => {
 const QuestionMark = () => {
     return (
         <svg
-            className="absolute -right-[45px]"
             width="29"
             height="29"
             viewBox="0 0 29 29"
@@ -146,4 +159,62 @@ const QuestionMark = () => {
             />
         </svg>
     );
+};
+
+const PopUp = ({
+    popUpMessage,
+    setPopUpMessage,
+}: {
+    popUpMessage: string;
+    setPopUpMessage: any;
+}) => {
+    const handlePopUpClick = () => {
+        setPopUpMessage("");
+    };
+    if (popUpMessage !== "") {
+        document.body.style.overflow = "hidden";
+        return (
+            <button
+                onClick={handlePopUpClick}
+                className="absolute inset-0 z-20 cursor-pointer bg-white/60"
+            >
+                <div className="fixed left-1/2 top-1/2 z-50 flex h-3/4 min-h-[310px] w-[310px] max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
+                    <div className="relative flex min-h-[310px] flex-col items-center justify-center">
+                        <div className="absolute inset-0 mx-auto h-full w-full -rotate-6 bg-green-2 drop-shadow-md"></div>
+                        <div className="relative inset-0 flex w-full flex-col items-center justify-center gap-6 bg-secondary p-8 drop-shadow-md">
+                            <div className="flex flex-col gap-2">
+                                <p className="text-center font-athiti font-bold text-green-2 min-[270px]:text-base min-[330px]:text-3xl">
+                                    เล่นยังไงนะ?
+                                </p>
+                                <ul className="list-outside list-disc px-2 text-left font-athiti min-[270px]:text-sm min-[330px]:text-base">
+                                    <li>
+                                        กดบนรูปสถานที่แต่ละแห่งเพื่ออ่านข้อมูลต่างๆ
+                                    </li>
+                                    <li>ค้นหาเบาะแสรอบคณะและตอบคำถาม</li>
+                                    <li>
+                                        คะแนนของคุณจะถูกนับหากคุณหาคำตอบครบทั้ง
+                                        8 สถานที่
+                                    </li>
+                                    <li>หลัง 20:00 จะไม่นับคะแนนนะ!</li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-row items-center justify-center gap-10">
+                                    <button
+                                        className="border-1 rounded-full border border-green-2 bg-green-1 px-6 py-1 font-athiti font-bold text-green-2 transition hover:bg-green-2 hover:text-white min-[270px]:text-xs min-[330px]:text-base"
+                                        onClick={handlePopUpClick}
+                                    >
+                                        เดาคำปริศนาเลย!!!
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        );
+    } else {
+        document.body.style.overflow = "visible";
+        return <></>;
+    }
 };
