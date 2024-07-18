@@ -211,7 +211,7 @@ const AnnouncementSection = () => {
 const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, registeration_place, group }) => {
   const groupName = houseName;
   const meetingPoint = registeration_place;
-  const img1 = `/announcement/vishnu/first/${group}.png`;
+  const img1 = `/announcement/vishnu/first/${meetingPoint}.svg`;
   const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
   return (
     <>
