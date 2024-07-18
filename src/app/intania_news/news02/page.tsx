@@ -34,7 +34,7 @@ export default function News02() {
 
       <div className="flex justify-center">
         <h2 className="font-athiti relative mb-3 ml-5 mt-1 inline-block max-w-full break-words text-center text-xs italic text-black">
-          <span>“ตอนเรียนยากไหมครับ"</span>
+          <span>“ตอนเรียนยากไหมครับ”</span>
           <br />
           <span>“คงยาก แต่เราไม่ค่อยเรียน ก็เลยไม่ค่อยยาก”</span>
         </h2>
