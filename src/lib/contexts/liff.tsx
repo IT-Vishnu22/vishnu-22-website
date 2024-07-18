@@ -36,7 +36,7 @@ export default function LiffProvider({
                         console.log("LIFF init succeeded.");
                         setLiffObject(liff);
                         if (!liff.isLoggedIn()) {
-                            liff.login();
+                            //liff.login();
                         } else {
                             liff.getProfile().then((profile) => {
                                 setProfile(profile);
