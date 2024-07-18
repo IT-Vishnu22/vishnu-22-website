@@ -15,9 +15,9 @@ export default function StampbookPage() {
     const studentId = data?.studentId;
 
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
-    if (!firebaseUser) {
-        return <h1>Please log in first</h1>;
-    }
+    // if (!firebaseUser) {
+    //     return <h1>Please log in first</h1>;
+    // }
 
     return (
         <>
@@ -118,9 +118,18 @@ const CompletionBadgeSection = () => {
                 <span className="font-bold">ค่ายวิษณุกรรมบุตร!</span>
             </p>
             <div className="relative mt-4 flex justify-between gap-10">
-                {[123, 123122, 134123123].map((item, index) => (
+                {["first", "second", "third"].map((item, index) => (
                     <div key={item} className="relative">
                         <TempImageDay />
+                        {/* <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#404040]">
+                            <Image
+                                className="z-10 brightness-0 grayscale filter"
+                                src={`/stampbookImages/${item}.PNG`}
+                                width={[70, 50, 50][index]}
+                                height={[70, 50, 50][index]}
+                                alt="spoiler for vishnu22nd camp"
+                            />
+                        </div> */}
                         <Image
                             className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
                             src="/stampbookImages/lock.svg"
@@ -130,7 +139,7 @@ const CompletionBadgeSection = () => {
                         />
                     </div>
                 ))}
-                <div className="pointer-events-none absolute top-1/2 z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+                <div className="pointer-events-none absolute top-1/2 z-0 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
             </div>
         </div>
     );
