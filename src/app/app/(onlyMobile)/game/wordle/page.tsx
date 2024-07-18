@@ -4,18 +4,41 @@
 
 import wordList from "./wordList.json";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { BackIcon } from "@/components/BackIcon";
 import { QuestionIcon } from "@/components/QuestionIcon";
 import { CloseIcon } from "@/components/CloseIcon";
 
-export default function WordlePage() {
-    const answer: string = "hello";
+import { addPlayed, didPlay } from '@/lib/wordle/actions';
+import { useWord } from "@/lib/wordle/useWord";
+import { UserContext } from '@/lib/contexts/user';
 
+export default function WordlePage() {
+
+    const answer: string = useWord();
+    const { firebaseUser, data } = useContext(UserContext);
+    const studentId = data?.studentId 
+    const group = data?.group || null
+    
     const [isGuessed, setIsGuessed] = useState<boolean>(false);
     const [guess, setGuess] = useState<string>("");
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
+
+        // Added
+        const [played, setPlayed] = useState<boolean>(false);
+
+        useEffect(() => {
+            const updatePlayed = async () => {
+                const isPlayed = await didPlay(studentId, group);
+                setPlayed(isPlayed);
+            }
+            if (played || !answer) {
+                setIsGuessed(true);
+            }
+            updatePlayed();
+        }, [played, answer])
+        
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -81,16 +104,20 @@ export default function WordlePage() {
         if (guess.length === 5 && guess.toLowerCase() === answer) {
             setPopUpMessage("เก่งมาก คุณทายถูก!");
             setIsGuessed(true);
-        } else if (guess.length != 5) {
-            setPopUpMessage("กรุณากรอกคำที่มี 5 ตัวอักษร");
-        } else if (!wordList.includes(guess.toLowerCase())) {
-            setPopUpMessage("กรุณากรอกคำที่มีอยู่จริง");
+            addPlayed(studentId, group, true);
+        }
+        else if (guess.length != 5) {
+            setPopUpMessage('กรุณากรอกคำที่มี 5 ตัวอักษร');
+        }
+        else if (!wordList.includes(guess.toLowerCase())) {
+            setPopUpMessage('กรุณากรอกคำที่มีอยู่จริง');
             // if you want to add a word e.g. chula, add it in wordList.json
         } else {
             setPopUpMessage(
                 "คำตอบของคุณยังไม่ถูกซักทีเดียว ลองปรึกษากับเพื่อนในหน่วยดูดีไหม?",
             );
             setIsGuessed(true);
+            addPlayed(studentId, group, false);
         }
     }
 
@@ -122,22 +149,34 @@ export default function WordlePage() {
                     guess={guess.toLowerCase()}
                     isGuessed={isGuessed}
                 />
-                <Keyboard handleClick={handleKeyClick} />
-                <div className="mx-4 flex w-full justify-center gap-2">
-                    <Button
-                        className="h-16 w-32 rounded-xl border-2 border-gray-700 bg-gray-300 font-athiti text-[20px] font-bold text-black shadow-[3px_4px_0px_#374151] hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white" //shadow gray-700
-                        type="submit"
-                        onClick={handleClearClick}
-                    >
-                        ล้าง
-                    </Button>
-                    <Button
-                        className="h-16 w-32 rounded-xl border-2 border-blue-1 bg-blue-4 font-athiti text-[20px] font-bold shadow-[3px_4px_0px_#2A334E] hover:bg-blue-1 focus:bg-blue-1"
-                        type="submit"
-                        onClick={handleSubmitClick}
-                    >
-                        ส่งคำตอบ
-                    </Button>
+                <Keyboard
+                    handleClick={handleKeyClick}
+                />
+                <div className="flex gap-2 w-full mx-4 justify-center">
+                {
+                    answer ?
+                    !firebaseUser ? <p>No user: Please login first.</p> :
+                    !group? <p>This is only for 108: If you are 108, please contact IT.</p> :
+                    played ? <p>คุณได้เล่นไปแล้ว</p> :
+                    <>
+                        <Button
+                            className="w-32 h-16 font-bold border-2 font-athiti text-[20px] text-black hover:text-white focus:text-white border-gray-700 bg-gray-300 hover:bg-gray-700 focus:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
+                            type="submit"
+                            onClick={handleClearClick}
+                        >
+                            ล้าง
+                        </Button>
+                        <Button
+                            className="w-32 h-16 font-bold border-2 font-athiti text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 focus:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
+                            type="submit"
+                            onClick={handleSubmitClick}
+                        >
+                            ส่งคำตอบ
+                        </Button>
+                    </>
+                    :
+                    <p>Closed. Game open: 13.00 - 20.00</p>
+                }
                 </div>
             </div>
         </div>
