@@ -7,7 +7,7 @@ export default function Base() {
   const pathName = usePathname();
   const [error, setError] = useState<string>("");
 
-  const validPaths = ["/app/home", "/app/club", "/app/stampbook", "/leaderboard", "/app/game", "/app/news", "/login"];
+  const validPaths = ["/app/home", "/app/club", "/app/stampbook", "/leaderboard", "/app/game", "/app/intania_news", "/login"];
 
   useEffect(() => {
     const handleNavigation = async () => {

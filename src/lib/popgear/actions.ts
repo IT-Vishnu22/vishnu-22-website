@@ -12,16 +12,16 @@ export async function addClick(studentId: string | undefined, group: string | un
     clearTimeout(debounceTimer);
 
     debounceTimer = setTimeout(async () => {
-        // if (!studentId || !group) {
-        //     console.error("DNE");
-        //     return;
-        // }
+        if (!studentId || !group) {
+            console.error("DNE");
+            return;
+        }
     
-        // const docRef = doc(firestore, "user", studentId);
+        const docRef = doc(firestore, "user", studentId);
     
-        // updateDoc(docRef, {
-        //     clicks: count
-        // })
+        updateDoc(docRef, {
+            clicks: count
+        })
         console.log(count)
     }, 500);
 
