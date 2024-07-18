@@ -206,13 +206,25 @@ function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, is
         <div className="w-screen max-w-[390px] flex justify-center mx-2">
             <div className="w-full max-w-[390px] grid grid-cols-5 gap-2 mx-4">
                 {new Array(5).fill(0).map((_, i) => {
-                    const bgColor = !isGuessed
+                    let bgColor = !isGuessed
                         ? 'bg-white'
                         : guess[i] === answer[i]
                             ? 'bg-green-300'
                           : answer.includes(guess[i])
                                 ? 'bg-cream'
                                 : 'bg-white'
+                    
+                    if (bgColor=='bg-cream'){
+                        let countAns = 0;
+                        for (let c of answer){
+                            if (c == guess[i]){
+                                countAns++;
+                            }
+                        }
+                        if (countAns<=1){
+                            bgColor = 'bg-white';
+                        }
+                    }
 
                     if (isGuessed) {
                         return (
