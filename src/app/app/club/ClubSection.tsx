@@ -9,6 +9,7 @@ import { GetCompletedClub } from "@/lib/club/getData";
 import { UserContext } from "@/lib/context";
 import { falseArray, trueArray } from "@/lib/club/array";
 
+
 type clubInfo = {
   Name: string;
   Type: string;
@@ -18,20 +19,18 @@ type clubInfo = {
   Answer?: string;
 }
 
-const studentId = 'test'
-const group = 'A'
-export const ClubSection = () => {
- 
-/*   //studentId and group from login
+
+
+export const ClubSection = () => { 
+  //studentId and group from login
   const { user, group} = useContext(UserContext);
-  const studentId = user?.uid */ 
+  const studentId = user?.uid  
 
   const [popUpOpen, setPopUpOpen] = useState<boolean[]>(falseArray);
   const [answer, setAnswer] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState<boolean[]>(falseArray);
   const [canEditAnswer, setCanEditAnswer] = useState<boolean[]>(trueArray);
   const [currentIdex, setCurrentIndex] = useState<number>(0)
-  
 
   useEffect(() => {
     const setArray = async() => {
@@ -80,10 +79,8 @@ export const ClubSection = () => {
     }
     const newPopUpOpen = popUpOpen.map((c, i) => {
       if (i === currentIdex) {
-        // Increment the clicked counter
         return !(popUpOpen[i]);
       } else {
-        // The rest haven't changed
         return c;
       }
     })
@@ -92,20 +89,24 @@ export const ClubSection = () => {
   
   // handleConfirm
   const handleConfirm = async(index:number) => {
+ 
     const dialog = document.getElementById("DialogQuestion");
     if (answer === club.ClubDetails[index].Answer) {
+        
         Progress(club.ClubDetails[index].Name, studentId, group)
         
         const newCanEditAnswer = canEditAnswer.map((c, i) => {
           if (i === currentIdex) {
-            // Increment the clicked counter
             return false;
           } else {
-            // The rest haven't changed
             return c;
           }
         })
         setCanEditAnswer(newCanEditAnswer);
+
+        alert("Your answer is correct!")
+    }else{
+      alert("Your answer is wrong!")
     }
     dialog?.classList.add('hidden');
     document.body.style.overflowY = 'auto';
@@ -206,3 +207,5 @@ export const ClubSection = () => {
     )
   })
 }
+
+
