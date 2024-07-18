@@ -6,8 +6,8 @@ import club from "./club.json"
 import { useContext, useEffect, useState } from "react";
 import Progress from "@/lib/club/progress";
 import { GetCompletedClub } from "@/lib/club/getData";
-import { UserContext } from "@/lib/context";
 import { falseArray, trueArray } from "@/lib/club/array";
+import { UserContext } from "@/lib/contexts/user";
 
 
 type clubInfo = {
@@ -22,9 +22,11 @@ type clubInfo = {
 
 
 export const ClubSection = () => { 
-  //studentId and group from login
-  const { user, group} = useContext(UserContext);
-  const studentId = user?.uid  
+  //get studentId from login
+  const { firebaseUser, data } = useContext(UserContext);
+  const studentId = data?.studentId
+  const group = data?.group || null
+
 
   const [popUpOpen, setPopUpOpen] = useState<boolean[]>(falseArray);
   const [answer, setAnswer] = useState("");

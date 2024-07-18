@@ -5,14 +5,14 @@ import { PriceIcon } from "@/assets/icon/ClubIcon";
 import { ClubSection } from "./ClubSection";
 import { addUser } from "@/lib/club/progress";
 import { GetProgress } from "@/lib/club/getData";
-import { UserContext } from "@/lib/context";
+import { UserContext } from "@/lib/contexts/user";
 
 
 
 export default function ClubPage() {
-  const studentId = 'test'
-  /* const { user } = useContext(UserContext);
-  const studentId = user?.uid */ 
+  //get studentId from login
+  const { firebaseUser, data } = useContext(UserContext);
+  const studentId = data?.studentId
 
   addUser(studentId)
   const [clubCollect, setClubCollect] = useState<number>(0);
