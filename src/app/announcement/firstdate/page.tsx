@@ -191,7 +191,7 @@ const AnnouncementSection = () => {
     const { group } = useContext(UserContext);
     const data = useFirstdateInfo(group);
     const { registeration_place, table } = data;
-    const img1 = `/announcement/firstdate/first/${group}.png`;
+    const img1 = `/announcement/firstdate/first/${registeration_place}.svg`;
     const img2 = `/announcement/firstdate/second/${registeration_place}.png`;
     return (
         <div className="min-w-[302px]bg-white mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center font-athiti text-pink-3">
