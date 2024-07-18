@@ -17,9 +17,9 @@ import { set } from "firebase/database";
 import { Console } from "console";
 
 export default function PopcatPage() {
-    const [picUrl, setPicUrl] = useState("/pic1.jpg");
+    const [picUrl, setPicUrl] = useState("/popgear_1.png");
     const [count, setCount] = useState(0);
-    const [imageSize, setImageSize] = useState("65%");
+    const [imageSize, setImageSize] = useState("75%");
     const user = useContext(UserContext);
  
 
@@ -33,10 +33,10 @@ export default function PopcatPage() {
     }, [user]);
 
     function touchStart() {
-        setPicUrl("/pic2.jpg");
+        setPicUrl('/popgear_2.png');
         setCount(count + 1);
-        setImageSize("80%");
-        addClick("", "", count);
+        setImageSize("90%");
+        //addClick("", "", count);
         
         if (user.data) {
             addClick(user.data.studentId, user.data.group, count);
@@ -45,17 +45,17 @@ export default function PopcatPage() {
     }
 
     function touchEnd(e: { preventDefault: () => void }) {
-        setPicUrl("/pic1.jpg");
+        setPicUrl("/popgear_1.png");
         e.preventDefault();
-        setImageSize("77%");
+        setImageSize("87%");
         setTimeout(() => {
-            setImageSize("74%");
+            setImageSize("84%");
             setTimeout(() => {
-                setImageSize("71%");
+                setImageSize("81%");
                 setTimeout(() => {
-                    setImageSize("68%");
+                    setImageSize("78%");
                     setTimeout(() => {
-                        setImageSize("65%");
+                        setImageSize("75%");
                     }, 25);
                 }, 25);
             }, 25);
@@ -80,19 +80,14 @@ export default function PopcatPage() {
                 </h1>
                 <div className="absolute inset-0 flex flex-col items-center">
                     {/* {picUrl} */}
-                    <Image
-                        id="popEle"
-                        width={0}
-                        height={0}
-                        style={{
-                            width: `${imageSize}`,
-                            height: "auto",
-                            marginInline: "auto",
-                            marginTop: "50%",
-                        }}
-                        src="/vercel.svg"
+                    <Image id="popEle" 
+                        width={0} 
+                        height={0} 
+                        style={{ width: `${imageSize}`, height: 'auto', margin: 'auto'}}
+                        src={picUrl} 
                         alt="pop element"
-                    />
+                        quality={100}
+                        unoptimized= {true} />
                 </div>
             </div>
             <ResizablePanelGroup
