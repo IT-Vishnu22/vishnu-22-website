@@ -15,9 +15,9 @@ export default function StampbookPage() {
     const studentId = data?.studentId;
 
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
-    // if (!firebaseUser) {
-    //     return <h1>Please log in first</h1>;
-    // }
+    if (!firebaseUser) {
+        return <h1>Please log in first</h1>;
+    }
 
     return (
         <>
