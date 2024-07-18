@@ -13,7 +13,7 @@ export default function GamePage() {
       </div>
 
       <div className="m-auto mt-[0px] w-[276px] mb-[32px]">
-          <h2 className="font-athiti font-medium text-center text-[20px] text-blue-2">
+          <h2 className="drop-shadow-[0_4px_4px_rgba(255,255,255,1)] font-athiti font-medium text-center text-[20px] text-blue-2">
             มาเล่นเกมต่างๆ <br/>และแข่งขันกับเพื่อนๆ กัน!</h2>
       </div>
 
@@ -32,9 +32,9 @@ export default function GamePage() {
               <div className="h-[60%]">
               <Link href="/app/game/wordle">
                 <Image src='/wordle_box.svg'
-                  width={0}
-                  height={0}
-                  style={{ width: `100%`, height: '100%', margin: 'auto',}}
+                  width={265}
+                  height={149}
+                  style={{ width: `100%`, height: '100%', margin: 'auto', borderRadius:'16px'}}
                   alt="wordle"/></Link>
               </div>
 
@@ -60,10 +60,10 @@ export default function GamePage() {
             <div className="h-full px-[24px] w-full">
               <div className="h-[60%]">
               <Link href="/app/game/popcat">
-                <Image src='/popcat_box_placeholder.svg'
-                  width={0}
-                  height={0}
-                  style={{ width: `100%`, height: '100%', margin: 'auto',}}
+                <Image src='/popgear_banner.svg'
+                  width={265}
+                  height={149}
+                  style={{ width: `100%`, height: '100%', margin: 'auto', borderRadius:'16px'}}
                   alt="popcatPic"/></Link>
               </div>
 
