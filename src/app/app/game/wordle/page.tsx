@@ -1,14 +1,12 @@
-// wordle/pages.tsx ให้ตายก้อย่าหาย
-
 'use client';
 
-import wordList from './wordList.json'
+import wordList from "./wordList.json";
 import Link from "next/link";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BackIcon } from "@/components/BackIcon";
 import { QuestionIcon } from "@/components/QuestionIcon";
-import { CloseIcon } from '@/components/CloseIcon';
+import { CloseIcon } from "@/components/CloseIcon";
 
 export default function WordlePage() {
 
@@ -18,6 +16,7 @@ export default function WordlePage() {
     const [guess, setGuess] = useState<string>('');
     const [popUpMessage, setPopUpMessage] = useState<string>('rules');
 
+    // for the physical keyboard e.g. of PC (not usable on mobile)
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             // Regular expression to check for alphanumeric characters
@@ -32,23 +31,9 @@ export default function WordlePage() {
         };
     }, [guess, isGuessed, handleKeyClick]);
 
-    // for the physical keyboard e.g. of PC (not usable on mobile)
-    // function handleKeyUp(e: { key: string }) {
-    //     let key = e.key;
-    //     if (isGuessed === true) {
-    //         return 0;
-    //     } else if (key.length === 1 && key.match(/[A-z]/) && guess.length < 5) {
-    //         setGuess(guess + key);
-    //     } else if (key === "Backspace") {
-    //         setGuess(guess.slice(0, guess.length - 1));
-    //     } else if (key === "Enter") {
-    //         handleSubmitClick();
-    //     }
-    // }
 
     //for the in-web keyboard
     // Function to handle the keydown event
-
     function handleKeyClick(key: string) {
         // Regular expression to check for alphanumeric characters
         const isAlphanumeric = /^[a-z0-9]+$/i;
