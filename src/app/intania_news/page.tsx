@@ -55,8 +55,17 @@ export default function IntaniaNews() {
         </div>
 
         <div>
-          <h2 className="font-athiti relative mb-3 ml-3 inline-block max-w-full break-words text-xs font-medium text-black">
-            ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ
+          <h2 className="relative mb-3 mt-1 inline-block max-w-full break-words font-roboto-condensed text-[10px] text-black">
+            civil <br />
+            electrical mechanical automotive industrial environmental
+            metallurgical mining/petroleum chemical <br /> nuclear <br />
+            survey
+            <br />
+            georesources
+            <br /> computer cedt
+            <br />
+            robotics/ai ice adme aero
+            <br /> nano chpe
           </h2>
         </div>
       </div>
