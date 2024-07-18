@@ -115,7 +115,7 @@ const CompletionBadgeSection = () => {
                 className="text-clip text-center font-athiti text-xl font-medium text-blue-1 filter"
             >
                 วงกลมคืออะไรนะ??? <br /> มารอดูกันใน{" "}
-                <span className="font-bold">ค่าย Vishnu!</span>
+                <span className="font-bold">ค่ายวิษณุกรรมบุตร!</span>
             </p>
             <div className="relative mt-4 flex justify-between gap-10">
                 {[123, 123122, 134123123].map((item, index) => (
