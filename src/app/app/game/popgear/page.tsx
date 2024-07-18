@@ -12,7 +12,7 @@ import {
     ResizablePanelGroup,
   } from "@/components/ui/resizable"
 
-export default function PopcatPage() {
+export default function PopgeartPage() {
     const [ picUrl, setPicUrl ] = useState('/popgear_1.png');
     const [ count, setCount ] = useState(0);
     const [ imageSize, setImageSize ] = useState('75%');

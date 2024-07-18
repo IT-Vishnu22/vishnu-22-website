@@ -59,16 +59,16 @@ export default function GamePage() {
 
             <div className="h-full px-[24px] w-full">
               <div className="h-[60%]">
-              <Link href="/app/game/popcat">
+              <Link href="/app/game/popgear">
                 <Image src='/popgear_banner.svg'
                   width={265}
                   height={149}
                   style={{ width: `100%`, height: '100%', margin: 'auto', borderRadius:'16px'}}
-                  alt="popcatPic"/></Link>
+                  alt="popgearPic"/></Link>
               </div>
 
               <div className="h-[30%] [@media(max-height:750px)]:h-[27%] max-[345px]:h-[27%] flex flex-col place-content-center">
-                <Link href="/app/game/popcat"><Button className="rounded-full h-[38px] w-full font-athiti font-bold text-[24px] text-blue-2 bg-[#ECD8C1] hover:bg-white hover:drop-shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">เข้าเล่น</Button></Link>
+                <Link href="/app/game/popgear"><Button className="rounded-full h-[38px] w-full font-athiti font-bold text-[24px] text-blue-2 bg-[#ECD8C1] hover:bg-white hover:drop-shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">เข้าเล่น</Button></Link>
               </div>
             </div>
 
