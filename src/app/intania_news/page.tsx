@@ -9,7 +9,7 @@ export default function IntaniaNews() {
   return (
     <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
-        <Link href="/intania_news">
+        <Link href="/">
           <Image className="" src={vectorImage} alt="vector graphic" />
         </Link>
         <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
