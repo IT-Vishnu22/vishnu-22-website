@@ -18,7 +18,7 @@ export default function Home() {
                 <Logo />
             </div>
 
-            <div className="w-[90vw] max-w-[800px] aspect-video hover:rotate-3 hover:transform hover:transition-transform hover:duration-500">
+            <div className="w-[90vw] max-w-[800px] aspect-video">
                 <IntaniaNewsHeader></IntaniaNewsHeader>
                 <div className="flex flex-row justify-end items-center gap-x-2 pt-3 px-2">
                     <Link href="/app/news" className="font-semibold text-base md:text-xl">ดูทั้งหมด </Link>
