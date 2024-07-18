@@ -33,7 +33,7 @@ export default function WordlePage() {
                 const isPlayed = await didPlay(studentId, group);
                 setPlayed(isPlayed);
             }
-            if (played || !answer) {
+            if (played) {
                 setIsGuessed(true);
             }
             updatePlayed();
