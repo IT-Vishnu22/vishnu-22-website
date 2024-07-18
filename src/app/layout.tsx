@@ -20,11 +20,9 @@ export default function RootLayout({
         <AuthProvider>
             <html lang="en">
                 <body className={robotoCondensed.className}>
-                    <MenuTopBar />
-                    <main className="w-[100vw] pb-[65px] pt-0 sm:pb-0 sm:pt-[65px]">
+                    <main className="w-[100vw] h-screen">
                         {children}
                     </main>
-                    <MenuBottomBar />
                 </body>
             </html>
         </AuthProvider>
