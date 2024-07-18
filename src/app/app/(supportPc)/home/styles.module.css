@@ -1,8 +1,9 @@
 .bgPage {
     width: 100%;
+    max-width: 100vw;
     min-height: 100vh;
-    padding-top: 80px;
-    gap: 50px;
+    padding-top: 100px;
+    gap: 130px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -11,22 +12,18 @@
     background-image: url('/images/backgroundsimple.png');
     background-position: center;
     background-repeat: repeat;
+    background-clip: border-box;
     background-size: contain;
-}
 
-@media screen and (min-width: 640px) {
-    .bgPage {
-        padding-top: 80px;
-        padding-bottom: 0;
-        gap: 60px;
-    }
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 @media screen and (min-width: 768px) {
     .bgPage {
-        padding-top: 90px;
-        gap: 80px;
-
-        background-size: 600px 600px;
+        gap: 150px;
     }
 }
+

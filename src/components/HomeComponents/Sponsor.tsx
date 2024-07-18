@@ -6,27 +6,22 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import ImageMock from "@/assets/images/200x200.png";
 import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+import TOA from "@/assets/images/sponsorImages/toa.png";
+import Shabu from "@/assets/images/sponsorImages/shabu.png";
+import CQK from "@/assets/images/sponsorImages/cqk.png";
+import AutumnScoop from "@/assets/images/sponsorImages/autumnscoop.jpg";
+
 
 export function SponsorCarousel() {
-    const mockData = [
-        { name: "Voomm", imagePath: "/images/200x200.png" },
-        { name: "Brightbean", imagePath: "/images/200x200.png" },
-        { name: "Aivee", imagePath: "/images/200x200.png" },
-        { name: "Rhybox", imagePath: "/images/200x200.png" },
-        { name: "Voomm", imagePath: "/images/200x200.png" },
-        { name: "Divanoodle", imagePath: "/images/200x200.png" },
-        { name: "Brightdog", imagePath: "/images/200x200.png" },
-        { name: "Shufflebeat", imagePath: "/images/200x200.png" },
-    ];
+
+    const sponsor: StaticImageData[] = [TOA, Shabu, AutumnScoop, CQK];
+        
 
     return (
-        <div className="justify-top border-t-1 bottom-0 mb-6 flex w-full flex-col items-center overflow-hidden border border-b-0 border-l-0 border-r-0 border-black bg-secondary px-3 py-6 sm:mt-6 md:mb-0 md:mt-8 lg:mt-10">
-            <p className="mb-6 text-xl font-medium sm:text-2xl lg:mb-10 lg:mt-2 lg:text-3xl">
-                Our Supporters!
-            </p>
+        <div className="overflow-hidden bg-white flex justify-center">
             <Carousel
                 opts={{
                     align: "start",
@@ -37,27 +32,19 @@ export function SponsorCarousel() {
                         delay: 2000,
                     }),
                 ]}
-                className=""
-            >
+                className="p-0 m-0">
                 <CarouselContent>
-                    {mockData
-                        ? mockData.map((item, index: number) => {
-                              return (
-                                  <CarouselItem
-                                      key={index}
-                                      className={`basis-1/3 sm:basis-1/4 lg:basis-1/5 xl:basis-1/6`}
-                                  >
-                                      <Image
-                                          alt="sponser image"
-                                          src={ImageMock}
-                                          width={200}
-                                          height={200}
-                                      />
-                                      {/* {item.name} */}
-                                  </CarouselItem>
-                              );
-                          })
-                        : null}
+                    {
+                        sponsor.map((item: any, index: number) => {
+                            return (
+                                <CarouselItem className={`basis-1/3 md:basis-1/4`} key={index}>
+                                    <div className={`w-full h-full bg-white flex justify-center items-center px-2`}>
+                                        <Image alt="sponser image" src={item} width={0} height={0} className="w-[80%] sm:w-[70%] md:w-[60%] max-w-[250px] h-auto object-contain" />
+                                    </div>
+                                </CarouselItem>
+                            );
+                        })
+                    }
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />

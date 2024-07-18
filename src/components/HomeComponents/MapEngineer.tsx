@@ -4,14 +4,13 @@ import MapImage from "@/assets/images/engmapnopin.png"
 
 export default function MapEng() {
     return (
-        <div className="max-w-[1000px] my-4 flex flex-col items-center gap-2 p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-[800px] mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex flex-col justify-center items-center gap-2 p-4 sm:p-6 lg:p-8">
             <Image
                 alt="Engineering Map"
                 src={MapImage}
-                width={827}
-                height={431}
-                layout="responsive"
-                className="border-2 border-primary"
+                width={0}
+                height={0}
+                className="w-full max-w-[800px] h-auto object-center object-contain border border-1 border-primary"
             />
             <p className="font-regular text-xs sm:text-md md:text-lg text-center text-primary">
                 254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330
