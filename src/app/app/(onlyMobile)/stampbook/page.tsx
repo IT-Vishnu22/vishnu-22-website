@@ -92,7 +92,7 @@ const ScoreSection = ({ userId }: { userId: string | undefined }) => {
             }
         };
         getScore();
-    });
+    }, []);
 
     return (
         <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
