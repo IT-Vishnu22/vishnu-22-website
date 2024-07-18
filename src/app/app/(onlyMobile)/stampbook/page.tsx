@@ -1,47 +1,44 @@
+"use client";
 import Image from "next/image";
-import Link from "next/link";
-import Config from "./config.json";
-import Question from "./question.json";
+import { 
+  CountAchieved, 
+} from "@/lib/stampbook/progress";
+      
+import { UserContext } from '@/lib/contexts/user';
+import { Suspense, useContext, useEffect, useState } from "react";
+import { StampBookSection } from "./stampBookSection";
 
-type ConfigData = {
-    key: number;
-    imageRotate: number;
-    dropShadow: string;
-    width: number;
-    height: number;
-    posX: number;
-    posY: number;
-    line: {
-        rotate: number;
-        posX: number;
-        posY: number;
-    };
-};
 
-export type QuestionData = {
-    NameTH: string;
-    NameEN: string;
-    Question: String;
-    Answer: string;
-    Fact: string[];
-};
+//const studentId = 'test' 
 
 export default function StampbookPage() {
+  
+  //get studentId from login
+  const { firebaseUser, data } = useContext(UserContext);
+  const studentId = data?.studentId 
+  if(!firebaseUser){
     return (
-        <>
-            <div className="flex flex-col items-center justify-evenly overflow-hidden bg-[url('/stampbookImages/bg_1.png')] bg-cover pt-8">
-                <h1 className="text-[32px] font-bold text-blue-1">
-                    Stamp Book
-                </h1>
-                <MapImageSection />
-                <ScoreSection />
-                <CompletionBadgeSection />
-                <div className="flex w-auto flex-col pb-96 pt-16">
-                    <StampBookSection></StampBookSection>
-                </div>
-            </div>
-        </>
-    );
+      <h1>Please log in first</h1>
+    )
+  }  
+
+  return (
+    <>
+      <div className="flex flex-col items-center justify-evenly overflow-hidden bg-[url('/stampbookImages/bg_1.png')] bg-cover pt-8">
+          <h1 className="text-[32px] font-bold text-blue-1">
+              Stamp Book
+          </h1>
+          <MapImageSection />
+          <ScoreSection userId={studentId} />
+          <CompletionBadgeSection />
+          <div className="flex w-auto flex-col pb-96 pt-16">
+            <Suspense fallback={<p>Loading stamp...</p>}>
+              <StampBookSection userId={studentId}/>
+            </Suspense>
+          </div>
+      </div>
+    </>
+  );
 }
 
 const MapImageSection = () => {
@@ -72,7 +69,20 @@ const TempImageDay = () => {
     );
 };
 
-const ScoreSection = () => {
+const ScoreSection = ({ userId }: { userId: string | undefined }) => {
+    // setScore
+    const [score, setScore] = useState<number>(0);
+
+    useEffect(() => {
+        const getScore = async () => {
+            const s: number | undefined = await CountAchieved(userId);
+            if (s) {
+                setScore(s);
+            }
+        };
+        getScore();
+    });
+
     return (
         <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
             <Image
@@ -81,7 +91,7 @@ const ScoreSection = () => {
                 width={25}
                 height={25}
             />
-            <p> 0/8</p>
+            <p> {score}/8</p>
         </div>
     );
 };
@@ -104,53 +114,4 @@ const CompletionBadgeSection = () => {
             <div className="pointer-events-none absolute top-1/2 z-10 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
         </div>
     );
-};
-
-const StampBookSection = () => {
-    return Question.QuestFirstDate.Locations.map((item, index) => {
-        const questionDetails: QuestionData = item;
-        const styleConfig: ConfigData = Config.imageSetting[index];
-
-        return (
-            <Link
-                key={questionDetails.NameEN.replace(" ", "-")}
-                href={`/app/stampbook/${questionDetails.NameEN.replaceAll(" ", "-")}`}
-                style={{
-                    height: `${styleConfig.height}px`,
-                    width: `${styleConfig.width}px`,
-                    transform: `translate(${styleConfig.posX}%, ${styleConfig.posY}%)  rotate(${styleConfig.imageRotate}deg)`,
-                }}
-            >
-                <Image
-                    style={{
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        filter: `drop-shadow(${styleConfig.dropShadow})`,
-                    }}
-                    className="transition-transform duration-300 hover:scale-105"
-                    loading="lazy"
-                    src={`/stampbookImages/${questionDetails.NameTH.replace(" ", "")}.jpg`}
-                    alt={`${questionDetails.NameEN} location image`}
-                    fill={true}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <Image
-                    className="absolute inset-0 z-20 m-auto h-8 w-8"
-                    src="/stampbookImages/lock.svg"
-                    alt="lock meaning this image is lock"
-                    width={32}
-                    height={32}
-                />
-                <div className="absolute inset-0 z-10 bg-black opacity-70"></div>
-                {index < 7 && (
-                    <div
-                        style={{
-                            transform: `translate(${styleConfig.line.posX}%, ${styleConfig.line.posY}%) rotate(${styleConfig.line.rotate}deg)`,
-                        }}
-                        className="pointer-events-none absolute bottom-0 -z-10 h-3 w-full bg-[#FF4B4B]"
-                    ></div>
-                )}
-            </Link>
-        );
-    });
 };
