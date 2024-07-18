@@ -24,13 +24,13 @@ export default function PopcatPage() {
  
 
 
-    // useEffect(() => {
-    //     if (user.data) {
-    //         onLoad(user.data.studentId, user.data.group).then((e) => {
-    //             setCount(e);
-    //         });
-    //     }
-    // }, [user]);
+    useEffect(() => {
+        if (user.data) {
+            onLoad(user.data.studentId, user.data.group).then((e) => {
+                setCount(e);
+            });
+        }
+    }, [user]);
 
     function touchStart() {
         setPicUrl("/pic2.jpg");
@@ -38,10 +38,10 @@ export default function PopcatPage() {
         setImageSize("80%");
         addClick("", "", count);
         
-        // if (user.data) {
-        //     addClick(user.data.studentId, user.data.group, count);
+        if (user.data) {
+            addClick(user.data.studentId, user.data.group, count);
             
-        // }
+        }
     }
 
     function touchEnd(e: { preventDefault: () => void }) {
