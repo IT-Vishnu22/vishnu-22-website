@@ -35,6 +35,8 @@ export default function WordlePage() {
             }
             if (played || !answer) {
                 setIsGuessed(true);
+            } else {
+                setIsGuessed(false)
             }
             updatePlayed();
         }, [played, answer])
