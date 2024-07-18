@@ -40,19 +40,38 @@ export default function MapCarousel() {
     <div className="bg-white py-3 shadow-lg">
       <Carousel setApi={setApi} className="w-full max-w-xs">
         <CarouselContent>
-          {Array.from({ length: 2 }).map((_, index) => (
+          {Array.from({ length: 1 }).map((_, index) => (
+            <>
             <CarouselItem
               key={index}
               className="flex items-center justify-center"
             >
               <div className="rounded-lg bg-white">
                 <Image
-                  src={engMap}
+                  src={"/announcement/vishnu/L.png"}
                   alt="Meeting Location"
                   className="max-w-[280px]"
+                  width={500}
+                  height={500}
                 />
               </div>
             </CarouselItem>
+            <CarouselItem
+            key={index}
+            className="flex items-center justify-center"
+          >
+            <div className="rounded-lg bg-white">
+              <Image
+                src={"/announcement/vishnu/A.png"}
+                alt="Meeting Location"
+                className="max-w-[280px]"
+                width={500}
+                height={500}
+              />
+            </div>
+          </CarouselItem>
+          </>
+        
           ))}
         </CarouselContent>
       </Carousel>
