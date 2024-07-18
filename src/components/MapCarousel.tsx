@@ -54,9 +54,11 @@ export const MapCarousel: React.FC<MapProps> = ({ img1, img2 }) => {
             >
               <div className="rounded-lg bg-white">
                 <Image
-                  src={engMap}
+                  src={img1}
                   alt="Meeting Location"
                   className="max-w-[280px]"
+                  width={500}
+                  height={500}
                 />
               </div>
             </CarouselItem>
@@ -66,10 +68,11 @@ export const MapCarousel: React.FC<MapProps> = ({ img1, img2 }) => {
           >
             <div className="rounded-lg bg-white">
               <Image
-                src={engMap}
+                src={img2}
                 alt="Meeting Location"
                 className="max-w-[280px]"
-
+                width={500}
+                height={500}
               />
             </div>
           </CarouselItem>

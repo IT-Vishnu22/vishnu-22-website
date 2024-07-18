@@ -197,31 +197,34 @@ const AnnouncementSection = () => {
             fill={true}
           />
         </div>
-        <Link href={line || "/"}>
+        <a href={line || "/"}>
           <Button className="rounded-[10px] bg-cream px-[67px] py-3 font-roboto-condensed text-lg font-medium text-blue-3">
             เข้ากลุ่ม Line
           </Button>
-        </Link>
+        </a>
       </div>
-      <AnnouncementDetail houseName={houseName} registeration_place={registeration_place}/>
+      <AnnouncementDetail houseName={houseName} registeration_place={registeration_place} group={group}/>
     </div>
   );
 };
 
-const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, registeration_place }) => {
+const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, registeration_place, group }) => {
   const groupName = houseName;
   const meetingPoint = registeration_place;
+  const img1 = `/announcement/vishnu/first/${group}.png`;
+  const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
   return (
     <>
       <div className="my-4 text-center font-athiti text-white">
         <h1 className="text-[32px] font-bold leading-[52px]">{groupName}</h1>
         <p className="text-base font-medium">{meetingPoint}</p>
       </div>
-      <MapCarousel />
+      <MapCarousel img1={img1} img2={img2}/>
     </>
   );
 };
 interface AnnouncementDetailProps {
   houseName: string | null;
   registeration_place: string | null;
+  group: string | null;
 }
