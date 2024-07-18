@@ -1,0 +1,19 @@
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+// This function can be marked `async` if using `await` inside
+export function middleware(request: NextRequest) {
+    // Extract the query parameters from the request URL
+    const queryParams = request.nextUrl.search;
+
+    // Construct the new URL with the query parameters
+    const newUrl = new URL(`/app/home${queryParams}`, request.url);
+
+    // Redirect to the new URL
+    return NextResponse.redirect(newUrl);
+}
+
+// See "Matching Paths" below to learn more
+export const config = {
+    matcher: "/",
+};

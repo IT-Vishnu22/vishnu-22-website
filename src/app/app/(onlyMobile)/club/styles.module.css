@@ -1,0 +1,17 @@
+.bgPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    
+    background-image: url('../../../../public/images/backgroundColorful.png');
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: contain;
+}
