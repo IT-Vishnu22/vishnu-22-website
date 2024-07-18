@@ -17,8 +17,8 @@ export default function IntaniaNews() {
         </h1>
       </div>
 
-      <Link href="/intania_news/news01">
-        <div className="mx-auto mt-5 max-w-[80%] gap-6">
+      <div className="mx-auto mt-5 max-w-[80%] gap-6">
+        <Link href="/intania_news/news01">
           <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
               src="/intaniastorypics/Vishnu20th2.jpg"
@@ -33,12 +33,12 @@ export default function IntaniaNews() {
               รีวิวชีวิตปี 1 วิศวฯจุฬา
             </span>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
 
-      <Link href="/intania_news/news02">
-        <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
-          <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+      <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
+        <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+          <Link href="/intania_news/news02">
             <img
               src="/intaniastorypics/3.1.jpg"
               loading="lazy"
@@ -51,14 +51,15 @@ export default function IntaniaNews() {
             <span className="font-athiti relative mb-3 ml-4 ml-5 inline-block text-[16px] font-medium text-white">
               วิศวฯกับการเรียน
             </span>
-          </div>
-          <div>
-            <h2 className="relative mb-3 ml-5 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi,
-            </h2>
-          </div>
+          </Link>
         </div>
-      </Link>
+
+        <div>
+          <h2 className="font-athiti relative mb-3 ml-3 inline-block max-w-full break-words text-xs font-medium text-black">
+            ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ ใส่ไรดีวะ
+          </h2>
+        </div>
+      </div>
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-4 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
@@ -96,8 +97,8 @@ export default function IntaniaNews() {
         </div>
       </div>
 
-      <Link href="/intania_news/news05">
-        <div className="mx-auto mt-5 max-w-[80%] gap-6">
+      <div className="mx-auto mt-5 max-w-[80%] gap-6">
+        <Link href="/intania_news/news05">
           <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
               src="/intaniastorypics/page5.1.jpeg"
@@ -113,8 +114,8 @@ export default function IntaniaNews() {
               จุฬาลงกรณ์มหาวิทยาลัย
             </span>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
 
       <div className="relative mx-auto mb-5 mt-5 max-w-[80%] justify-center">
         <img

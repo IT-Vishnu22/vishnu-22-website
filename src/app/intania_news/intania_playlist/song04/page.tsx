@@ -78,11 +78,11 @@ export default function Song01() {
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
         <h2 className="font-athiti text-[14px] text-blue-1">
-          ประพันธ์คำร้องโดย{" "}
+          ประพันธ์คำร้องโดย -{" "}
         </h2>
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
-        <h2 className="font-athiti text-[14px] text-blue-1">ทำนองโดย </h2>
+        <h2 className="font-athiti text-[14px] text-blue-1">ทำนองโดย -</h2>
       </div>
 
       <div className="mt-10 flex place-items-center justify-center space-x-[13%]">

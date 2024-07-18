@@ -105,8 +105,8 @@ export default function News01() {
         </h2>
       </div>
 
-      <div className="mt-5 flex items-center justify-center space-x-4">
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+      <div className="ml-3 mr-3 mt-5 flex items-center justify-center space-x-4">
+        <div className="relative h-32 w-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
             src="/intaniastorypics/vihnuold.jpg"
             loading="lazy"
@@ -115,12 +115,12 @@ export default function News01() {
           />
         </div>
 
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <div className="relative h-32 w-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
           <img
             src="/intaniastorypics/VH20.jpg"
             loading="lazy"
             alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full scale-110 object-cover object-center"
           />
         </div>
       </div>

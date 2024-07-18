@@ -83,7 +83,7 @@ export default function Song01() {
       </div>
       <div className="flex place-items-center justify-center space-x-[13%]">
         <h2 className="font-athiti text-[14px] text-blue-1">
-          ทำนองโดย ครูเอื้อ สุนทรสนาม
+          ทำนองโดย ครูเอื้อ สุนทรสนาน
         </h2>
       </div>
 

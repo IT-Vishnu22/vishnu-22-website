@@ -18,19 +18,29 @@ export default function News04() {
 
       <div className="mr-[5%] mt-5 flex place-items-center justify-center space-x-[5%]">
         <a href="https://www.w3schools.com/tags/att_a_href.asp"></a>
-        <h1 className="text-[20px] font-bold text-blue-1">
+        <h1 className="font-athiti text-[24px] font-bold text-blue-1">
           <span>ไอเทมวิศวฯ</span>
         </h1>
       </div>
 
+      <div className="mt-3 flex justify-center">
+        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+          <img
+            src="/intaniastorypics/page4.1.jpeg"
+            loading="lazy"
+            alt="Photo by Magicle"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+        </div>
+      </div>
       <div>
-        <h2 className="relative ml-5 mt-3 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold italic text-blue-1">
+        <h2 className="font-athiti relative ml-5 mt-3 inline-block max-w-full break-words text-[15px] text-xs font-bold italic text-blue-1">
           ผ้ายันต์
         </h2>
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+        <h2 className="font-athiti relative mb-3 inline-block max-w-full break-words text-xs font-medium text-black">
           &emsp; &emsp;ผ้ายันต์สำหรับชาววิศวฯ เปรียบเสมือนเครื่องรางให้น้องๆ
           สอบผ่าน ใช้ชีวิตภายในคณะวิศวฯ โดยสวัสดิภาพราบรื่น แต่จริงๆ
           แล้วสมัยก่อนผ้ายันต์ไม่ได้ใช้เป็นเครื่องรางเหมือนอย่างสมัยนี้นะ
@@ -40,34 +50,23 @@ export default function News04() {
         </h2>
       </div>
 
-      <div className="flex items-center justify-center space-x-4">
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/page4.1.jpeg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-        </div>
-
-        <div className="relative h-64 w-1/2 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <img
-            src="/intaniastorypics/page4.2.jpg"
-            loading="lazy"
-            alt="Photo by Magicle"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-        </div>
+      <div className="relative ml-4 mr-4 mt-5 h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+        <img
+          src="/intaniastorypics/page4.2.jpg"
+          loading="lazy"
+          alt="Photo by Magicle"
+          className="absolute inset-0 h-full w-full scale-125 transform object-cover object-center"
+        />
       </div>
 
       <div>
-        <h2 className="relative ml-5 mt-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold italic text-blue-1">
+        <h2 className="font-athiti relative ml-5 mt-5 inline-block max-w-full break-words text-[15px] text-xs font-bold italic text-blue-1">
           ติ้งโครง เนคไทโครง
         </h2>
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+        <h2 className="font-athiti relative mb-3 inline-block max-w-full break-words text-xs font-medium text-black">
           &emsp;
           &emsp;บางครั้งที่เราเห็นพวกรุ่นพี่ใส่เนคไทหรือติ้งที่มันหน้าตาแปลกๆ
           มีแต่โครงอย่างเดียว ไม่ได้เป็นพระเกี้ยวเหมือนอย่างคณะอื่น จริงๆ
@@ -90,13 +89,13 @@ export default function News04() {
       </div>
 
       <div>
-        <h2 className="relative ml-5 mt-3 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold italic text-blue-1">
+        <h2 className="font-athiti relative ml-5 mt-3 inline-block max-w-full break-words text-[15px] text-xs font-bold italic text-blue-1">
           สมุดเชียร์
         </h2>
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+        <h2 className="font-athiti relative mb-3 inline-block max-w-full break-words text-xs font-medium text-black">
           &emsp; &emsp;ในวิศวฯ มันจะมีสิ่งที่เรียกว่าเพลงเชียร์อยู่
           เอาไว้เชียร์ไว้ร้องตอนขึ้นแสตนกันหรือแข่งกีฬา
           แต่ก่อนเนี่ยเพลงเชียร์ทุกคนจะต้องร้องได้
@@ -108,13 +107,13 @@ export default function News04() {
       </div>
 
       <div>
-        <h2 className="relative ml-5 inline-block max-w-full break-words font-roboto-condensed text-[15px] text-xs font-bold italic text-blue-1">
+        <h2 className="font-athiti relative ml-5 inline-block max-w-full break-words text-[15px] text-xs font-bold italic text-blue-1">
           เกียร์
         </h2>
       </div>
 
       <div>
-        <h2 className="relative mb-3 inline-block max-w-full break-words font-roboto-condensed text-xs text-black">
+        <h2 className="font-athiti relative mb-3 inline-block max-w-full break-words text-xs font-medium text-black">
           &emsp; &emsp;เกียร์ถูกใช้เป็นตัวแทนของวิศวฯ อยู่เสมอ
           แต่ใครบ้างจะรู้ความหมายที่แท้จริงของมัน เกียร์นั้นเมื่ออยู่เดี่ยวๆ
           ย่อมไม่อาจทำงานสร้างผลผลิตออกไม่ได้
