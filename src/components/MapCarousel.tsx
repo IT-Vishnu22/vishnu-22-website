@@ -7,12 +7,18 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import React from "react";
 
 import { useState, useEffect } from "react";
 import engMap from "../app/announcement/images/engmap.png";
 import Image from "next/image";
 
-export default function MapCarousel() {
+interface MapProps {
+  img1: string;
+  img2: string;
+}
+
+export const MapCarousel: React.FC<MapProps> = ({ img1, img2 }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -48,11 +54,9 @@ export default function MapCarousel() {
             >
               <div className="rounded-lg bg-white">
                 <Image
-                  src={"/announcement/vishnu/L.png"}
+                  src={engMap}
                   alt="Meeting Location"
                   className="max-w-[280px]"
-                  width={500}
-                  height={500}
                 />
               </div>
             </CarouselItem>
@@ -62,11 +66,10 @@ export default function MapCarousel() {
           >
             <div className="rounded-lg bg-white">
               <Image
-                src={"/announcement/vishnu/A.png"}
+                src={engMap}
                 alt="Meeting Location"
                 className="max-w-[280px]"
-                width={500}
-                height={500}
+
               />
             </div>
           </CarouselItem>
@@ -89,3 +92,5 @@ export default function MapCarousel() {
     </div>
   );
 }
+
+export default MapCarousel;
