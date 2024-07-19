@@ -50,7 +50,7 @@ export default function ClubSection() {
       setCorrectAnswer(newCorrectAnswer);
     }
     setArray()
-  }, [])
+  }, [studentId])
 
   // card no question
   const handleClickCardNoQuestion = (index: number) => {

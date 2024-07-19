@@ -51,7 +51,7 @@ export const ClubSectionTemp = () => {
             setCorrectAnswer(newCorrectAnswer);
         }
         setArray()
-    }, [])
+    }, [correctAnswer, studentId])
 
 
     // handleClick

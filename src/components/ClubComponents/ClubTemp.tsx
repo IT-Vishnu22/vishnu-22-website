@@ -19,7 +19,7 @@ export function ClubTemp({ club, completeClub, index }: { club: clubItem, comple
     useEffect(() => {
         if (question === undefined || !correctAnswer === undefined)
             setHaveQuestion(false);
-    }, []);
+    }, [correctAnswer, question]);
 
     const handleClickCard = () => {
         if (haveQuestion) {

@@ -12,16 +12,11 @@ export default function ClubPage() {
   //get studentId from login
   const { firebaseUser, data } = useContext(UserContext);
   const studentId = data?.studentId
-
-  if (!firebaseUser) {
-    return <h1>Please log in first</h1>
-  }
-  
   const [clubCollect, setClubCollect] = useState<number>(0);
-  
+
   addUser(studentId);
 
-    useEffect(() => {
+  useEffect(() => {
     const getClubCollections = async () => {
       const count = await GetProgress(studentId)
       if (count && count >= 0) {
@@ -30,7 +25,11 @@ export default function ClubPage() {
       else { setClubCollect(0); }
     }
     getClubCollections()
-  }, []);
+  }, [studentId]);
+
+  if(!firebaseUser || firebaseUser === undefined){
+    return <h1>Please login</h1>
+  }
 
   return (
     <div className={Style.bgPage}>
