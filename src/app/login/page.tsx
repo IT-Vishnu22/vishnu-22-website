@@ -77,12 +77,11 @@ const LoginSection = () => {
                     setAlreadyLogin(false);
                     setLoading(false);
                 }
-            } else if (liff.profile) {
+            } else {
                 try {
-                    
                     const response = await axios.post("/login/api/auth", {
                         token,
-                        lineId: liff.profile?.userId,
+                        lineId: liff.profile?.userId ?? "",
                     });
                     // Check if response is successful
                     // console.log(response.data);
