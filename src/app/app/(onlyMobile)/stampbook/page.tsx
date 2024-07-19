@@ -42,10 +42,8 @@ export default function StampbookPage() {
                 <MapImageSection />
                 <CompletionBadgeSection />
                 <ScoreSection userId={studentId} />
-                <div className="flex w-auto flex-col pb-96 pt-16">
-                    <Suspense fallback={<p>Loading stamp...</p>}>
-                        <StampBookSection userId={studentId} />
-                    </Suspense>
+                <div className="flex w-auto flex-col pb-96 pt-16"> 
+                    <StampBookSection userId={studentId} />
                 </div>
             </div>
         </>
