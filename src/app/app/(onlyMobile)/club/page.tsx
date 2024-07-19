@@ -16,12 +16,12 @@ export default function ClubPage() {
   if (!firebaseUser) {
     return <h1>Please log in first</h1>
   }
-
-  addUser(studentId)
-
+  
   const [clubCollect, setClubCollect] = useState<number>(0);
+  
+  addUser(studentId);
 
-  useEffect(() => {
+    useEffect(() => {
     const getClubCollections = async () => {
       const count = await GetProgress(studentId)
       if (count && count >= 0) {
