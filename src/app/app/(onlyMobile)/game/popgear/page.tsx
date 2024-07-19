@@ -28,7 +28,7 @@ import { addClick, onLoad } from "@/lib/popgear/actions";
 import { set } from "firebase/database";
 import { Console } from "console";
 
-export default function PopcatPage() {
+export default function PopGearPage() {
     const [picUrl, setPicUrl] = useState("/popgear_1.png");
     const [count, setCount] = useState(0);
     const [buffer, setBuffer] = useState(0);
