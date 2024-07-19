@@ -217,7 +217,7 @@ const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, regi
   return (
     <>
       <div className="my-4 text-center font-athiti text-white">
-        <h1 className="text-[32px] font-bold leading-[52px]">{groupName}</h1>
+        <h1 className="text-[32px] font-bold leading-[52px]">หน่วย{groupName}</h1>
         <p className="text-base font-medium">{meetingPoint}</p>
       </div>
       <MapCarousel img1={img1} img2={img2}/>
