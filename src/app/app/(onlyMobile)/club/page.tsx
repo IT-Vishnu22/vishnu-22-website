@@ -1,14 +1,11 @@
 'use client'
-import { ClubTemp } from "@/components/ClubComponents/ClubTemp";
 import Style from "./styles.module.css";
 import { useState, useEffect, useContext } from "react";
 import { PriceIcon } from "@/assets/icons/ClubIcon";
-import { ClubSection } from "../../../../components/ClubComponents/ClubSection";
 import { addUser } from "@/lib/club/progress";
 import { GetProgress } from "@/lib/club/getData";
 import { UserContext } from "@/lib/contexts/user";
-import clubData from "@/data/club.json";
-import ClubSectionTemp from "@/components/ClubComponents/ClubSectionTemp";
+import ClubSection from "@/components/ClubComponents/ClubSection";
 
 
 export default function ClubPage() {
@@ -16,10 +13,9 @@ export default function ClubPage() {
   const { firebaseUser, data } = useContext(UserContext);
   const studentId = data?.studentId
 
-  // if(!firebaseUser)
-  // {
-  //   return <h1>Please log in first</h1>
-  // }
+  if (!firebaseUser) {
+    return <h1>Please log in first</h1>
+  }
 
   addUser(studentId)
 
@@ -44,9 +40,8 @@ export default function ClubPage() {
         <PriceIcon />
         <p className="font-bold text-2xl text-blue-1">{clubCollect > 3 ? '3' : clubCollect.toString()}/3</p>
       </div>
-      <div className="flex flex-col justify-center items-center gap-[20px] pb-12">
-        {/* <ClubSection /> */}
-        <ClubSectionTemp/>
+      <div className="flex flex-col justify-center items-center gap-12 pb-12">
+        <ClubSection />
       </div>
     </div>
   )

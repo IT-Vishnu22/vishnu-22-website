@@ -102,7 +102,7 @@ export function ClubTemp({ club, completeClub, index }: { club: clubItem, comple
             </div>
 
             {/* Pop UP */}
-            {/* {
+            {
                 canEdit ?
                     <div className="absolute top-0 left-0 z-20 w-[100vw] h-screen backdrop-blur-sm"></div> : null
             }
@@ -126,7 +126,7 @@ export function ClubTemp({ club, completeClub, index }: { club: clubItem, comple
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }
