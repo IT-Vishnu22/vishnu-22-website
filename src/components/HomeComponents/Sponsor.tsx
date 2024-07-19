@@ -13,11 +13,13 @@ import TOA from "@/assets/images/sponsorImages/toa.png";
 import Shabu from "@/assets/images/sponsorImages/shabu.png";
 import CQK from "@/assets/images/sponsorImages/cqk.png";
 import AutumnScoop from "@/assets/images/sponsorImages/autumnscoop.jpg";
+import IRPC from "@/assets/images/sponsorImages/IRPClogo.png";
+import Gulf from "@/assets/images/sponsorImages/GulfLogo.png";
 
 
 export function SponsorCarousel() {
 
-    const sponsor: StaticImageData[] = [TOA, Shabu, AutumnScoop, CQK];
+    const sponsor: StaticImageData[] = [TOA, Shabu, IRPC, AutumnScoop, CQK, Gulf];
         
 
     return (
@@ -37,7 +39,7 @@ export function SponsorCarousel() {
                     {
                         sponsor.map((item: any, index: number) => {
                             return (
-                                <CarouselItem className={`basis-1/3 md:basis-1/4`} key={index}>
+                                <CarouselItem className={`basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6`} key={index}>
                                     <div className={`w-full h-full bg-white flex justify-center items-center px-2`}>
                                         <Image alt="sponser image" src={item} width={0} height={0} className="w-[80%] sm:w-[70%] md:w-[60%] max-w-[250px] h-auto object-contain" />
                                     </div>
