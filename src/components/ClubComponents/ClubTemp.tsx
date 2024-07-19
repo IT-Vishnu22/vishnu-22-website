@@ -1,31 +1,44 @@
 'use client'
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import MockClubImage from "@/assets/clubImage/taekwandoIntania.jpeg"
-import ApproveImage from "@/assets/images/stamp.png"
+import { clubItem } from "@/interfaces/Club";
+import ApproveImage from "@/assets/images/stamp.png";
+import club from "@/data/club.json"
 
-export function ClubTemp({ Title }: { Title: string }) {
+export function ClubTemp({ club, completeClub, index }: { club: clubItem, completeClub: boolean, index: number }) {
+    const correctAnswer = club.Answer;
+    const question = club.Question;
+
     const [expanded, setExpanded] = useState<boolean>(false);
     const [toAsk, setToAsk] = useState<boolean>(false);
-    const [correct, setCorrect] = useState<boolean>(false);
+    const [correct, setCorrect] = useState<boolean>(completeClub);
     const [answer, setAnswer] = useState<string>("");
+    const [canEdit, setCanEdit] = useState<boolean>(true);
+    const [haveQuestion, setHaveQuestion] = useState<boolean>();
+
+    useEffect(() => {
+        if (question === undefined || !correctAnswer === undefined)
+            setHaveQuestion(false);
+    }, []);
 
     const handleClickCard = () => {
-        if (!expanded && !toAsk) {
-            setExpanded(true);
-            setToAsk(false);
-        }
-        else if (expanded && !toAsk) {
-            setExpanded(true);
-            setToAsk(true);
-        }
-        else if(expanded && !toAsk && correct){
-            setExpanded(false);
-            setToAsk(false);
+        if (haveQuestion) {
+            if (!expanded && !toAsk) {
+                setExpanded(true);
+                setToAsk(false);
+            }
+            else if (expanded && !toAsk && canEdit) {
+                setExpanded(true);
+                setToAsk(true);
+            }
+            else {
+                setExpanded(false);
+                setToAsk(false);
+            }
         }
         else {
-            setExpanded(false);
-            setToAsk(false);
+            setExpanded(!expanded);
+            setCanEdit(false);
         }
     }
 
@@ -36,8 +49,9 @@ export function ClubTemp({ Title }: { Title: string }) {
     }
 
     const handleClickDone = () => {
-        if (answer === "answer") {
+        if (answer === correctAnswer) {
             setCorrect(true);
+            setCanEdit(false);
             // window.alert("answer correct");
         }
         else {
@@ -48,49 +62,57 @@ export function ClubTemp({ Title }: { Title: string }) {
     }
 
     useEffect(() => {
-        if (expanded && toAsk && !correct) {
+        if (expanded && toAsk && !correct && canEdit) {
             document.body.style.overflowY = 'hidden';
         }
         else {
             document.body.style.overflowY = 'auto';
         }
-    }, [expanded, toAsk, correct])
+    }, [expanded, toAsk, correct, canEdit]);
 
     return (
         <div>
-            <div id={Title}
-                className={`relative w-[300px] ${expanded ? 'h-auto' : 'h-[300px]'} rounded-2xl bg-white flex flex-col justify-top items-center p-10 gap-4 overflow-hidden transform transition-transform duration-700 ease-in-out`}
+            <div
+                className={`relative w-[300px] ${expanded ? 'h-auto' : 'h-[300px]'} rounded-2xl bg-white flex flex-col justify-top items-center p-10 gap-4 overflow-hidden p-8`}
                 onClick={handleClickCard}
             >
-                <div className="relative flex justify-center items-center">
+                <div className="h-[150px] relative flex justify-center items-center">
 
                     <Image
-                        src={MockClubImage}
-                        alt=""
-                        width={133}
-                        height={133}
-                        className="object-center object-contain rounded-xl"
+                        src={`/club_logo/${club.Name}.png`}
+                        alt={`${club.Name} logo`}
+                        width={140}
+                        height={140}
+                        className="min-w-[140px] aspect-square object-center object-contain rounded-xl"
                     />
-                    <Image alt="Approve Icon" src={ApproveImage} width={133} height={133} className={`${correct ? "absolute z-20 top-0 left-0 " : "hidden"}`} />
+                    <Image alt="Approve Icon" src={ApproveImage} width={133} height={133} className={`${haveQuestion && correct ? "absolute z-20 top-0 left-0 " : "hidden"}`} />
                 </div>
-                <p className="text-sm font-normal">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae suscipit perspiciatis? Error blanditiis veniam repudiandae veritatis rerum impedit quam, labore aut magnam odit sit? Laudantium blanditiis ad tempore vitae!
-                </p>
-                <div className={`${expanded ? 'hidden' : 'block'} absolute bottom-0 w-full h-10 bg-white`}></div>
+
+                <p className="w-full text-lg font-semibold">{club.Name}</p>
+
+                <div className={`${expanded ? 'block' : 'hidden'} w-full`}>
+
+                    {club.Detail.split('\n').map((item, i) => {
+                        return <p className="font-normal" key={i}>{item}</p>
+                    })
+                    }
+                    <br />
+                    <p className="text-sm font-normal">{!haveQuestion ? 'no question' : correct ? 'click to answer' : null}</p>
+                </div>
             </div>
 
             {/* Pop UP */}
-            {
-                expanded && toAsk && !correct ?
+            {/* {
+                canEdit ?
                     <div className="absolute top-0 left-0 z-20 w-[100vw] h-screen backdrop-blur-sm"></div> : null
             }
-            <div className={`${expanded && toAsk && !correct ? 'block' : 'hidden'} z-30 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[310px] min-h-[310px] flex flex-col justify-center items-center`}>
+            <div className={`${canEdit ? 'block' : 'hidden'} z-30 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[310px] min-h-[310px] flex flex-col justify-center items-center`}>
                 <div className="relative w-[310px] min-h-[310px] flex flex-col justify-center items-center ">
                     <div className="absolute inset-0 w-full h-full bg-[#F45868] -rotate-6 mx-auto drop-shadow-md"></div>
                     <div className="relative inset-0 w-full bg-secondary flex flex-col justify-center items-center p-8 gap-6 drop-shadow-md">
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-3xl">{Title}</p>
-                            <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, excepturi eveniet, illo suscipit quaerat atque cumque rem provident quam, itaque harum? Sunt voluptas fugiat eius adipisci ullam ab sed illum?</p>
+                            <p className="font-bold text-3xl">{club.Name}</p>
+                            <p className="text-sm">{club.Question}</p>
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="Question1" className="text-left text-base font-semibold">Question</label>
@@ -104,7 +126,7 @@ export function ClubTemp({ Title }: { Title: string }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
