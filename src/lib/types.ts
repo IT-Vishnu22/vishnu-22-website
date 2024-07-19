@@ -10,3 +10,7 @@ export const validateUserData = z.object({
 });
 
 export type UserData = z.infer<typeof validateUserData>;
+
+export type ScoreboardData = {
+  [group: string]: number
+};
