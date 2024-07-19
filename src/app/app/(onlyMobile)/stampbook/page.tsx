@@ -42,8 +42,11 @@ export default function StampbookPage() {
                 <MapImageSection />
                 <CompletionBadgeSection />
                 <ScoreSection userId={studentId} />
-                <div className="flex w-auto flex-col pb-96 pt-16"> 
+
+                <div className="flex w-auto flex-col pb-96 pt-16">
+
                     <StampBookSection userId={studentId} />
+
                 </div>
             </div>
         </>
