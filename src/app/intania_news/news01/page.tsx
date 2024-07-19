@@ -100,8 +100,7 @@ export default function News01() {
           className="font-athiti relative inline-block max-w-full break-words text-xs text-black"
           style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
         >
-          - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่ 20 กันยายน
-          2555)
+          - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ <p>(วันที่ 20 กันยายน 2555)</p>
         </h2>
       </div>
 
