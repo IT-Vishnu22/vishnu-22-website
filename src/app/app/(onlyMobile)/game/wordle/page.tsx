@@ -1,20 +1,40 @@
-'use client';
+"use client";
 
 import wordList from "./wordList.json";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BackIcon } from "@/components/BackIcon";
 import { QuestionIcon } from "@/components/QuestionIcon";
 import { CloseIcon } from "@/components/CloseIcon";
 
-export default function WordlePage() {
+import { addPlayed, didPlay } from "@/lib/wordle/actions";
+import { useWord } from "@/lib/wordle/useWord";
+import { UserContext } from "@/lib/contexts/user";
 
-    const answer: string = "hello";
+export default function WordlePage() {
+    const answer: string = useWord();
+    const { firebaseUser, data } = useContext(UserContext);
+    const studentId = data?.studentId;
+    const group = data?.group || null;
 
     const [isGuessed, setIsGuessed] = useState<boolean>(false);
-    const [guess, setGuess] = useState<string>('');
-    const [popUpMessage, setPopUpMessage] = useState<string>('rules');
+    const [guess, setGuess] = useState<string>("");
+    const [popUpMessage, setPopUpMessage] = useState<string>("rules");
+
+    // Added
+    const [played, setPlayed] = useState<boolean>(false);
+
+    useEffect(() => {
+        const updatePlayed = async () => {
+            const isPlayed = await didPlay(studentId, group);
+            setPlayed(isPlayed);
+        };
+        if (played || !answer) {
+            setIsGuessed(true);
+        }
+        updatePlayed();
+    }, [played, answer]);
 
     // for the physical keyboard e.g. of PC (not usable on mobile)
     useEffect(() => {
@@ -31,7 +51,6 @@ export default function WordlePage() {
         };
     }, [guess, isGuessed, handleKeyClick]);
 
-
     //for the in-web keyboard
     // Function to handle the keydown event
     function handleKeyClick(key: string) {
@@ -42,172 +61,225 @@ export default function WordlePage() {
         }
         if (isAlphanumeric.test(key) && key.length === 1 && guess.length < 5) {
             setGuess(guess + key);
-        }
-        else if (key === 'Backspace') {
+        } else if (key === "Backspace") {
             setGuess(guess.slice(0, guess.length - 1));
-        }
-        else if (key === 'Enter') {
+        } else if (key === "Enter") {
             handleSubmitClick();
         }
     }
 
     function handleRulePopUpClick() {
-        setPopUpMessage('rules');
+        setPopUpMessage("rules");
     }
 
     function handlePopUpClick() {
-        setPopUpMessage('');
+        setPopUpMessage("");
     }
 
     function handleClearClick() {
         if (!isGuessed) {
-            setGuess('');
+            setGuess("");
         }
     }
 
     function handleSubmitClick() {
         if (guess.length === 5 && guess.toLowerCase() === answer) {
-            setPopUpMessage('เก่งมาก คุณทายถูก!');
+            setPopUpMessage("เก่งมาก คุณทายถูก!");
             setIsGuessed(true);
-        }
-        else if (guess.length != 5) {
-            setPopUpMessage('กรุณากรอกคำที่มี 5 ตัวอักษร');
-        }
-        else if (!wordList.includes(guess.toLowerCase())) {
-            setPopUpMessage('กรุณากรอกคำที่มีอยู่จริง');
+            addPlayed(studentId, group, true);
+        } else if (guess.length != 5) {
+            setPopUpMessage("กรุณากรอกคำที่มี 5 ตัวอักษร");
+        } else if (!wordList.includes(guess.toLowerCase())) {
+            setPopUpMessage("กรุณากรอกคำที่มีอยู่จริง");
             // if you want to add a word e.g. chula, add it in wordList.json
-        }
-        else {
-            setPopUpMessage('คำตอบของคุณยังไม่ถูกซักทีเดียว ลองปรึกษากับเพื่อนในหน่วยดูดีไหม?')
+        } else {
+            setPopUpMessage(
+                "คำตอบของคุณยังไม่ถูกซักทีเดียว ลองปรึกษากับเพื่อนในหน่วยดูดีไหม?",
+            );
             setIsGuessed(true);
+            addPlayed(studentId, group, false);
         }
     }
 
     return (
         <div className="w-full font-roboto-condensed">
-
-            <div className="bg-blue-4 relative h-[91px] flex items-center justify-between">
-                <div className="pl-[35px]"><Link href="/app/game"><BackIcon /></Link></div>
-                <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
+            <div className="relative flex h-[91px] items-center justify-between bg-blue-4">
+                <div className="pl-[35px]">
+                    <Link href="/app/game">
+                        <BackIcon />
+                    </Link>
+                </div>
+                <h1 className="absolute left-16 right-16 text-center font-roboto-condensed text-[32px] font-bold text-white">
                     Wordle
                 </h1>
-                <div className="pr-[35px]"><Link href="" onClick={handleRulePopUpClick}><QuestionIcon /></Link></div>
+                <div className="pr-[35px]">
+                    <Link href="" onClick={handleRulePopUpClick}>
+                        <QuestionIcon />
+                    </Link>
+                </div>
             </div>
 
-            {popUpMessage != '' &&
-                <PopUp
-                    message={popUpMessage}
-                    handleClick={handlePopUpClick}
-                />}
+            {popUpMessage != "" && (
+                <PopUp message={popUpMessage} handleClick={handlePopUpClick} />
+            )}
 
-            <div className="flex flex-col items-center pt-32 space-y-4 mx-4">
+            <div className="mx-4 flex flex-col items-center space-y-4 pt-32">
                 <Guess
                     answer={answer}
                     guess={guess.toLowerCase()}
                     isGuessed={isGuessed}
                 />
-                <Keyboard
-                    handleClick={handleKeyClick}
-                />
-                <div className="flex gap-2 w-full mx-4 justify-center">
-                    <Button
-                        className="w-32 h-16 font-bold border-2 font-athiti text-[20px] text-black hover:text-white focus:text-white border-gray-700 bg-gray-200 hover:bg-gray-700 focus:bg-gray-700 rounded-xl shadow-[3px_4px_0px_#374151]" //shadow gray-700
-                        type="submit"
-                        onClick={handleClearClick}
-                    >
-                        ล้าง
-                    </Button>
-                    <Button
-                        className="w-32 h-16 font-bold border-2 font-athiti text-[20px] border-blue-1 bg-blue-4 hover:bg-blue-1 focus:bg-blue-1 rounded-xl shadow-[3px_4px_0px_#2A334E]"
-                        type="submit"
-                        onClick={handleSubmitClick}
-                    >
-                        ส่งคำตอบ
-                    </Button>
+                <Keyboard handleClick={handleKeyClick} />
+                <div className="mx-4 flex w-full justify-center gap-2">
+                    {answer ? (
+                        !firebaseUser ? (
+                            <p>No user: Please login first.</p>
+                        ) : !group ? (
+                            <p>
+                                This is only for 108: If you are 108, please
+                                contact IT.
+                            </p>
+                        ) : played ? (
+                            <p>คุณได้เล่นไปแล้ว</p>
+                        ) : (
+                            <>
+                                <Button
+                                    className="h-16 w-32 rounded-xl border-2 border-gray-700 bg-gray-200 font-athiti text-[20px] font-bold text-black shadow-[3px_4px_0px_#374151] hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white" //shadow gray-700
+                                    type="submit"
+                                    onClick={handleClearClick}
+                                >
+                                    ล้าง
+                                </Button>
+                                <Button
+                                    className="h-16 w-32 rounded-xl border-2 border-blue-1 bg-blue-4 font-athiti text-[20px] font-bold shadow-[3px_4px_0px_#2A334E] hover:bg-blue-1 focus:bg-blue-1"
+                                    type="submit"
+                                    onClick={handleSubmitClick}
+                                >
+                                    ส่งคำตอบ
+                                </Button>
+                            </>
+                        )
+                    ) : (
+                        <p>Closed. Game open: 13.00 - 20.00</p>
+                    )}
                 </div>
             </div>
-
         </div>
     );
 }
 
-function PopUp({ message, handleClick }: { message: string, handleClick: VoidFunction }) {
+function PopUp({
+    message,
+    handleClick,
+}: {
+    message: string;
+    handleClick: VoidFunction;
+}) {
+    const bgColor =
+        message === "เก่งมาก คุณทายถูก!"
+            ? "bg-green-300"
+            : message === "กรุณากรอกคำที่มี 5 ตัวอักษร" ||
+                message === "กรุณากรอกคำที่มีอยู่จริง"
+              ? "bg-yellow-300"
+              : "bg-gray-200";
 
-    const bgColor = (message === 'เก่งมาก คุณทายถูก!')
-        ? 'bg-green-300'
-        : (message === 'กรุณากรอกคำที่มี 5 ตัวอักษร') || (message === 'กรุณากรอกคำที่มีอยู่จริง')
-            ? 'bg-yellow-300'
-            : 'bg-gray-300'
-
-    if (message === 'rules') {
+    if (message === "rules") {
         return (
             <div className="w-1/2">
-                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-[310px] max-w-[310px] h-3/4 w-3/4 flex flex-col justify-center items-center">
-                    <div className="relative min-h-[310px] flex flex-col justify-center items-center">
-                        <div className="absolute inset-0 w-full h-full bg-green-2 -rotate-6 mx-auto drop-shadow-md"></div>
-                        <div className="relative inset-0 w-full bg-secondary flex flex-col justify-center items-center p-8 gap-6 drop-shadow-md">
+                <div className="fixed left-1/2 top-1/2 flex h-3/4 min-h-[310px] w-3/4 max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
+                    <div className="relative flex min-h-[310px] flex-col items-center justify-center">
+                        <div className="absolute inset-0 mx-auto h-full w-full -rotate-6 bg-green-2 drop-shadow-md"></div>
+                        <div className="relative inset-0 flex w-full flex-col items-center justify-center gap-6 bg-secondary p-8 drop-shadow-md">
                             <div className="flex flex-col gap-2">
-                                <p className="text-center font-bold font-athiti min-[330px]:text-3xl max-[330px]:text-base text-green-2">เล่นยังไงนะ?</p>
-                                <ul className="font-athiti min-[330px]:text-base max-[330px]:text-sm list-disc list-outside px-2">
-                                    <li>ตัวอักษรที่ถูกต้องแล้วอยู่ในตำแหน่งที่ถูกต้องจะแสดงเป็น<b className="text-green-600">สีเขียว</b></li>
-                                    <li>ตัวอักษรที่ถูกต้องแต่อยู่ในตำแหน่งที่ผิดจะแสดงเป็น<b className="text-yellow-600">สีเหลือง</b></li>
-                                    <li>ตัวอักษรที่ไม่อยู่ในคำปริศนาจะแสดงเป็น<b className="text-gray-400">สีเทา</b></li>
+                                <p className="text-center font-athiti font-bold text-green-2 max-[330px]:text-base min-[330px]:text-3xl">
+                                    เล่นยังไงนะ?
+                                </p>
+                                <ul className="list-outside list-disc px-2 font-athiti max-[330px]:text-sm min-[330px]:text-base">
+                                    <li>
+                                        ตัวอักษรที่ถูกต้องแล้วอยู่ในตำแหน่งที่ถูกต้องจะแสดงเป็น
+                                        <b className="text-green-600">
+                                            สีเขียว
+                                        </b>
+                                    </li>
+                                    <li>
+                                        ตัวอักษรที่ถูกต้องแต่อยู่ในตำแหน่งที่ผิดจะแสดงเป็น
+                                        <b className="text-yellow-600">
+                                            สีเหลือง
+                                        </b>
+                                    </li>
+                                    <li>
+                                        ตัวอักษรที่ไม่อยู่ในคำปริศนาจะแสดงเป็น
+                                        <b className="text-gray-400">สีเทา</b>
+                                    </li>
                                 </ul>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <div className="flex flex-row justify-center items-center gap-10">
-                                    <button className="font-bold font-athiti min-[330px]:text-base max-[330px]:text-xs text-green-2 hover:text-white px-6 py-1 border border-1 border-green-2 rounded-full bg-green-1 hover:bg-green-2 transition" onClick={handleClick}>เดาคำปริศนาเลย!!!</button>
+                                <div className="flex flex-row items-center justify-center gap-10">
+                                    <button
+                                        className="border-1 rounded-full border border-green-2 bg-green-1 px-6 py-1 font-athiti font-bold text-green-2 transition hover:bg-green-2 hover:text-white max-[330px]:text-xs min-[330px]:text-base"
+                                        onClick={handleClick}
+                                    >
+                                        เดาคำปริศนาเลย!!!
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        )
+        );
     } else {
         return (
             <div className="flex justify-center">
-                <div className={` ${bgColor} border-2 border-[rgba(0,0,0,0.7)] rounded-xl p-4 m-4 absolute flex items-start`}>
+                <div
+                    className={` ${bgColor} absolute m-4 flex items-start rounded-xl border-2 border-[rgba(0,0,0,0.7)] p-4`}
+                >
                     <div className="pt-4 font-athiti">
                         <p className="text-center">{message}</p>
                     </div>
 
                     <Button
-                        className="h-5 mt-2 -mr-2 bg-transparent hover:bg-transparent text-black absolute top-0 right-0"
+                        className="absolute right-0 top-0 -mr-2 mt-2 h-5 bg-transparent text-black hover:bg-transparent"
                         onClick={handleClick}
                     >
                         <CloseIcon />
                     </Button>
-
                 </div>
             </div>
         );
     }
 }
 
-function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, isGuessed: boolean }) {
+function Guess({
+    answer,
+    guess,
+    isGuessed,
+}: {
+    answer: string;
+    guess: string;
+    isGuessed: boolean;
+}) {
     return (
-
-        <div className="w-screen max-w-[390px] flex justify-center mx-2">
-            <div className="w-full max-w-[390px] grid grid-cols-5 gap-2 mx-4">
+        <div className="mx-2 flex w-screen max-w-[390px] justify-center">
+            <div className="mx-4 grid w-full max-w-[390px] grid-cols-5 gap-2">
                 {new Array(5).fill(0).map((_, i) => {
                     let bgColor = !isGuessed
-                        ? 'bg-white'
+                        ? "bg-white"
                         : guess[i] === answer[i]
-                            ? 'bg-green-300'
+                          ? "bg-green-300"
                           : answer.includes(guess[i])
-                                ? 'bg-cream'
-                                : 'bg-white'
-                    
-                    if (bgColor=='bg-cream'){
+                            ? "bg-cream"
+                            : "bg-white";
+
+                    if (bgColor == "bg-cream") {
                         let countAns = 0;
-                        for (let c of answer){
-                            if (c == guess[i]){
+                        for (let c of answer) {
+                            if (c == guess[i]) {
                                 countAns++;
                             }
                         }
-                        if (countAns<=1){
-                            bgColor = 'bg-white';
+                        if (countAns <= 1) {
+                            bgColor = "bg-white";
                         }
                     }
 
@@ -230,20 +302,17 @@ function Guess({ answer, guess, isGuessed }: { answer: string, guess: string, is
                             </div>
                         );
                     }
-
                 })}
             </div>
         </div>
-
     );
 }
 
 function Keyboard({ handleClick }: { handleClick: (key: string) => void }) {
-
     const qwerty = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
     return (
-        <div className="w-[25%] mx-2">
+        <div className="mx-2 w-[25%]">
             {qwerty.map((row) => (
                 <div className="flex justify-center" key={row}>
                     {row.split("").map((key: string) => (
