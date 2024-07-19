@@ -5,9 +5,10 @@ import { firestore } from "../firebase";
 //import { firebase } from "../firebase"
 import { doc, getDoc, updateDoc, writeBatch, FieldValue, increment, setDoc} from "firebase/firestore"
 
+
 let debounceTimer: NodeJS.Timeout;
 
-export async function addClick(studentId: string | undefined, group: string | undefined, count: number) {
+export async function addClick(studentId: string | undefined, group: string | undefined, count: number, buffer:number,lol:() => void) {
     
     clearTimeout(debounceTimer);
 
@@ -18,14 +19,19 @@ export async function addClick(studentId: string | undefined, group: string | un
         }
     
         const docRef = doc(firestore, "user", studentId);
+        const groupRef = doc(firestore, "popgear", group)
     
         updateDoc(docRef, {
             clicks: count
         })
-        console.log(count)
-    }, 500);
 
-    
+        updateDoc(groupRef, {
+            score:increment(buffer)
+        })
+
+        lol()
+        console.log(count)
+    }, 500);    
 }
 
 

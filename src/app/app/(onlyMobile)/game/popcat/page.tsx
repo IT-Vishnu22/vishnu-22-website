@@ -6,6 +6,8 @@ import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ScoreDisplay from "@/components/ScoreDisplay";
 import { BackIcon } from "@/components/BackIcon";
+import { firestore } from "@/lib/firebase";
+import { doc, collection, getDoc, getDocs, updateDoc, writeBatch, FieldValue, increment, setDoc} from "firebase/firestore"
 import {
     ResizableHandle,
     ResizablePanel,
@@ -19,12 +21,23 @@ import { Console } from "console";
 export default function PopcatPage() {
     const [picUrl, setPicUrl] = useState("/popgear_1.png");
     const [count, setCount] = useState(0);
+    const [buffer, setBuffer] = useState(0);
     const [imageSize, setImageSize] = useState("75%");
     const user = useContext(UserContext);
- 
+    const [gameScoreboardData, setGameScoreboardData] = useState<
+        { name: string; score: number }[]
+    >([]);
 
 
     useEffect(() => {
+
+        const allDocs = getDocs(collection(firestore, "popgear")).then((all) =>{
+            const sortedScore = all.docs
+                    .sort((a, b) => b.data().score - a.data().score)
+                    .map((a) => a.data() as {name:string, score:number});
+                setGameScoreboardData(sortedScore);           
+        })
+
         if (user.data) {
             console.log("Oh no")
             onLoad(user.data.studentId, user.data.group).then((e) => {
@@ -33,15 +46,18 @@ export default function PopcatPage() {
         }
     }, [user]);
 
+    function lol(){
+        setBuffer(0);
+    }
+
     function touchStart() {
         setPicUrl('/popgear_2.png');
         setCount(count + 1);
         setImageSize("90%");
         //addClick("", "", count);
-        
+        setBuffer(buffer + 1)
         if (user.data) {
-            addClick(user.data.studentId, user.data.group, count);
-            
+            addClick(user.data.studentId, user.data.group, count, buffer, lol);           
         }
     }
 
@@ -104,7 +120,7 @@ export default function PopcatPage() {
                 <ResizableHandle className="z-[3] mb-[-20px] bg-transparent p-[15px]" />
                 <ResizablePanel>
                     <ScrollArea className="flex h-full w-full items-stretch rounded-t-[50px] bg-white px-[10px] pt-[20px] font-roboto-condensed">
-                        <ScoreDisplay start={1} />
+                        <ScoreDisplay data={gameScoreboardData}/>
                     </ScrollArea>
                 </ResizablePanel>
             </ResizablePanelGroup>
