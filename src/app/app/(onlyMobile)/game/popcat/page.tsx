@@ -143,6 +143,7 @@ export default function PopcatPage() {
                 <ResizableHandle className="z-[3] mb-[-20px] bg-transparent p-[15px]" />
                 <ResizablePanel>
                     <ScrollArea className="flex h-full w-full items-stretch rounded-t-[50px] bg-white px-[10px] pt-[20px] font-roboto-condensed">
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Reload to update Scoreboard
                         <ScoreDisplay data={gameScoreboardData} />
                     </ScrollArea>
                 </ResizablePanel>
