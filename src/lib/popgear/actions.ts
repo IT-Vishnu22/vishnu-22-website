@@ -18,15 +18,15 @@ export async function addClick(studentId: string | undefined, group: string | un
             return;
         }
     
-        const docRef = doc(firestore, "user", studentId);
+        const docRef = doc(firestore, "users", studentId);
         const groupRef = doc(firestore, "popgear", group)
     
         updateDoc(docRef, {
-            clicks: count
+            clicks: count + 1
         })
 
         updateDoc(groupRef, {
-            score:increment(buffer)
+            score:increment(buffer + 1)
         })
 
         lol()
