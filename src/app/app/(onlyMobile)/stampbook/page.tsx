@@ -3,10 +3,9 @@ import Image from "next/image";
 import { CountAchieved } from "@/lib/stampbook/progress";
 
 import { UserContext } from "@/lib/contexts/user";
-import { Suspense, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StampBookSection } from "./stampBookSection";
-import { Button } from "@/components/ui/button";
-
+import { redirect } from "next/navigation";
 //const studentId = 'test'
 
 export default function StampbookPage() {
@@ -16,7 +15,7 @@ export default function StampbookPage() {
 
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
     if (!firebaseUser) {
-        return <h1>Please log in first</h1>;
+        redirect("/login");
     }
 
     return (
@@ -44,9 +43,7 @@ export default function StampbookPage() {
                 <ScoreSection userId={studentId} />
 
                 <div className="flex w-auto flex-col pb-96 pt-16">
-
                     <StampBookSection userId={studentId} />
-
                 </div>
             </div>
         </>
@@ -94,7 +91,7 @@ const ScoreSection = ({ userId }: { userId: string | undefined }) => {
         };
         console.log("Stampbook test");
         getScore();
-    },[score]);
+    }, [score]);
 
     return (
         <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
