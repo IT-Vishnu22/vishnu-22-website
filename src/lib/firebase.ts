@@ -5,13 +5,14 @@ import { getStorage } from "firebase/storage";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDxBafmK9mn_pVXvBXzGDVZ7KCHzRN4ru0",
-  authDomain: "new-vishnu22.firebaseapp.com",
-  databaseURL: "https://new-vishnu22-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "new-vishnu22",
-  storageBucket: "new-vishnu22.appspot.com",
-  messagingSenderId: "609073056564",
-  appId: "1:609073056564:web:8ce04f779f4ba6ffa13361"
+  apiKey: "AIzaSyBqt-WR-5mIvl0p_W0z0zkzjGlmQfsdRUA",
+  authDomain: "vishnu22-8ba05.firebaseapp.com",
+  databaseURL: "https://vishnu22-8ba05-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "vishnu22-8ba05",
+  storageBucket: "vishnu22-8ba05.appspot.com",
+  messagingSenderId: "206479512882",
+  appId: "1:206479512882:web:b6e43b5adaeb273fe8f32b",
+  measurementId: "G-2BQKRR9YEQ"
 };
 
 export const app = initializeApp(firebaseConfig);
