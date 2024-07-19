@@ -43,9 +43,9 @@ export default function StampbookPage() {
                 <CompletionBadgeSection />
                 <ScoreSection userId={studentId} />
                 <div className="flex w-auto flex-col pb-96 pt-16">
-                    <Suspense fallback={<p>Loading stamp...</p>}>
-                        <StampBookSection userId={studentId} />
-                    </Suspense>
+
+                    <StampBookSection userId={studentId} />
+
                 </div>
             </div>
         </>
