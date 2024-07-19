@@ -27,6 +27,7 @@ export function useUserData() {
                 doc(firestore, "users", user.uid),
                 (doc) => {
                     if (doc.exists()) {
+                        console.log(doc.data())
                         setUserData(validateUserData.parse(doc.data()));
                     }
                 },

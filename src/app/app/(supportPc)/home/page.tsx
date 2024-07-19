@@ -18,10 +18,10 @@ export default function Home() {
                 <Logo />
             </div>
 
-            <div className="w-[90vw] max-w-[800px] aspect-video">
+            <div className="w-[90vw] max-w-[800px] aspect-video mb-10">
                 <IntaniaNewsHeader></IntaniaNewsHeader>
                 <div className="flex flex-row justify-end items-center gap-x-2 pt-3 px-2">
-                    <Link href="/app/news" className="font-semibold text-base md:text-xl">ดูทั้งหมด </Link>
+                    <Link href="/intania_news" className="font-semibold text-base md:text-xl">ดูทั้งหมด </Link>
                     <ArrowRightIcon />
                 </div>
             </div>
