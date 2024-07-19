@@ -3,7 +3,7 @@ import { CheckComplete, Update } from './progress'
 import AddScore from './addScore'
 
 export default async function CheckAnswer(docId: string, input:string, userId:string|undefined, group:string|null) {
-
+  console.log("CheckAnswer");
   if (!userId || !group) {
     console.error("DNE");
     return;

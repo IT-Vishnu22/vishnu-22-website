@@ -2,6 +2,7 @@ import { firestore } from "../firebase";
 import { collection, doc, getDoc, getDocs, orderBy, query, setDoc } from "firebase/firestore";
 
 export async function Default(userId:string | undefined){
+  console.log("Default");
   if (!userId) {
     console.error("DNE");
     return;
@@ -19,6 +20,7 @@ export async function Default(userId:string | undefined){
 
 
 export async function CountAchieved(userId: string | undefined){
+  console.log("stampbook: CountAchieved")
   if (!userId) {
     console.error("DNE");
     return ;
@@ -37,7 +39,7 @@ export async function CountAchieved(userId: string | undefined){
 
 
 export async function Update(userId:string | undefined, docId: string = '', update?:boolean) {
-  
+  console.log("stampbook: Update");
   if (!userId) {
     console.error("DNE");
     return;
@@ -68,6 +70,7 @@ export async function Update(userId:string | undefined, docId: string = '', upda
 
 
 export async function CheckComplete(userId: string | undefined, docId: string){
+  console.log("stampbook: CheckComplete")
   if (!userId) {
     console.error("DNE");
     return;
