@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingPodium from "@/components/loadingPodium";
 import ScoreDisplay from "@/components/ScoreDisplay";
 import Title from "@/components/Title";
 
 import dynamic from "next/dynamic";
+import { firestore } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const PodiumsDisplay = dynamic(() => import("@/components/PodiumsDisplay"), {
     ssr: false,
@@ -21,6 +23,32 @@ export default function Leaderboard() {
             setShowType("game");
         }
     };
+    const [gameScoreboardData, setGameScoreboardData] = useState<
+        { name: string; score: number }[]
+    >([]);
+
+    const [waterScoreboardData, setWaterScoreboardData] = useState<
+        { name: string; score: number }[]
+    >([]);
+
+    useEffect(() => {
+        getDoc(doc(firestore, "scores", "game")).then((doc) => {
+            if (doc.exists()) {
+                const sortedScore = Object.entries(doc.data())
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([name, score]) => ({ name, score }));
+                setGameScoreboardData(sortedScore);
+            }
+        });
+        getDoc(doc(firestore, "scores", "water")).then((doc) => {
+            if (doc.exists()) {
+                const sortedScore = Object.entries(doc.data())
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([name, score]) => ({ name, score }));
+                setWaterScoreboardData(sortedScore);
+            }
+        });
+    }, []);
 
     return (
         <section
@@ -32,14 +60,26 @@ export default function Leaderboard() {
             {/* Game Leaderboard top-3 podium display */}
             <div className="relative top-0 min-h-[500px] w-full">
                 <LoadingPodium type={showType} />
-                <PodiumsDisplay type={showType} />
+                <PodiumsDisplay
+                    type={showType}
+                    data={
+                        showType == "game"
+                            ? gameScoreboardData
+                            : waterScoreboardData
+                    }
+                />
             </div>
 
             {/* back icon & title */}
             <Title />
 
             {/* other sai score */}
-            <ScoreDisplay start={4} />
+            <ScoreDisplay
+                data={(showType == "game"
+                    ? gameScoreboardData
+                    : waterScoreboardData
+                ).slice(3)}
+            />
 
             {/* Toggle Icon */}
             <div
