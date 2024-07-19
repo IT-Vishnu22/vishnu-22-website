@@ -12,7 +12,7 @@ export function useWord() {
             const updateWord = await fetchWord();
             setWord(updateWord);
         }
-        
+        console.log("wordle")
         updateWord()
     }, []);
 

@@ -42,6 +42,7 @@ export default function StampbookPage() {
                 <MapImageSection />
                 <CompletionBadgeSection />
                 <ScoreSection userId={studentId} />
+
                 <div className="flex w-auto flex-col pb-96 pt-16">
 
                     <StampBookSection userId={studentId} />
@@ -91,6 +92,7 @@ const ScoreSection = ({ userId }: { userId: string | undefined }) => {
                 setScore(s);
             }
         };
+        console.log("Stampbook test");
         getScore();
     },[score]);
 
