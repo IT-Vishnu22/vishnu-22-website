@@ -18,7 +18,7 @@ export async function addClick(studentId: string | undefined, group: string | un
             return;
         }
     
-        const docRef = doc(firestore, "user", studentId);
+        const docRef = doc(firestore, "users", studentId);
         const groupRef = doc(firestore, "popgear", group)
     
         updateDoc(docRef, {
