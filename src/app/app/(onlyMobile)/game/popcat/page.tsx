@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
@@ -77,18 +77,18 @@ export default function PopcatPage() {
         }
     }
 
-    function touchEnd(e: { preventDefault: () => void }) {
-        setPicUrl("/popgear_1.png");
-        e.preventDefault();
-        setImageSize("87%");
+    function touchEnd(e: { preventDefault: () => void; }) {
+        setPicUrl('/popgear_1.png');
+        e.preventDefault()
+        setImageSize('87%');
         setTimeout(() => {
-            setImageSize("84%");
+            setImageSize('84%');
             setTimeout(() => {
-                setImageSize("81%");
+                setImageSize('81%');
                 setTimeout(() => {
-                    setImageSize("78%");
+                    setImageSize('78%');
                     setTimeout(() => {
-                        setImageSize("75%");
+                        setImageSize('75%');
                     }, 25);
                 }, 25);
             }, 25);
@@ -96,58 +96,53 @@ export default function PopcatPage() {
     }
 
     return (
-        <div className="flex h-full flex-col">
-            <div className="relative z-[3] flex h-[91px] flex-none items-center justify-between bg-blue-4">
-                <div className="pl-[35px]">
-                    <Link href="/app/game">
-                        <BackIcon />
-                    </Link>
-                </div>
-                <h1 className="absolute left-16 right-16 text-center font-roboto-condensed text-[32px] font-bold text-white">
-                    Pop Cat
+        <div className="flex flex-col h-full">
+            <div className="flex-none bg-blue-4 relative h-[91px] flex items-center justify-between z-[3]">
+                <div className="pl-[35px]"><Link href="/app/game"><BackIcon/></Link></div>
+                <h1 className="absolute right-16 left-16 text-center font-bold font-roboto-condensed text-[32px] text-white">
+                    Pop Gear
                 </h1>
             </div>
             <div className="relative w-full grow">
-                <h1 className="absolute left-16 right-16 pt-5 text-center font-roboto-condensed text-[60px] font-bold">
+                <h1 className="absolute right-16 left-16 pt-5 text-center font-bold font-roboto-condensed text-[60px]">
                     {count}
                 </h1>
                 <div className="absolute inset-0 flex flex-col items-center">
                     {/* {picUrl} */}
-                    <Image
-                        id="popEle"
-                        width={0}
-                        height={0}
-                        style={{
-                            width: `${imageSize}`,
-                            height: "auto",
-                            margin: "auto",
-                        }}
-                        src={picUrl}
+                    <Image id="popEle" 
+                        width={0} 
+                        height={0} 
+                        style={{ width: `${imageSize}`, height: 'auto', margin: 'auto'}}
+                        src={picUrl} 
                         alt="pop element"
                         quality={100}
-                        unoptimized={true}
-                    />
+                        unoptimized= {true} />
                 </div>
             </div>
-            <ResizablePanelGroup
+            <div className="h-[90px]"></div>
+            <ResizablePanelGroup 
                 className="absolute bottom-[85px]"
-                direction="vertical"
-            >
+                direction="vertical">
                 <ResizablePanel
-                    className="p-[81px]"
-                    onTouchStart={touchStart}
+                    defaultSize={75}
+                    className=" p-[81px]"
+                    onTouchStart={touchStart} 
                     onTouchEnd={touchEnd}
-                    onMouseDown={touchStart}
+                    onMouseDown={touchStart} 
                     onMouseUp={touchEnd}
                 />
-                <ResizableHandle className="z-[3] mb-[-20px] bg-transparent p-[15px]" />
-                <ResizablePanel>
-                    <ScrollArea className="flex h-full w-full items-stretch rounded-t-[50px] bg-white px-[10px] pt-[20px] font-roboto-condensed">
+                <ResizableHandle className="bg-transparent p-[15px] mb-[-20px] z-[3]"/>
+                <ResizablePanel defaultSize={8} minSize={10} maxSize={95}>
+                <div className="flex flex-col items-stretch font-roboto-condensed rounded-t-[50px] bg-white w-full px-[10px] pt-[20px] h-full">
+                <h1 className="text-center font-bold font-roboto-condensed text-[30px] mb-[10px] text-blue-2">Leaderboard</h1>
+                    <ScrollArea>
                         &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Reload to update Scoreboard
                         <ScoreDisplay data={gameScoreboardData} />
                     </ScrollArea>
+                </div>
                 </ResizablePanel>
             </ResizablePanelGroup>
         </div>
-    );
+        
+    )
 }
