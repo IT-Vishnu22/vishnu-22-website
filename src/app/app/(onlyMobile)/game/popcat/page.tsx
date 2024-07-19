@@ -26,6 +26,7 @@ export default function PopcatPage() {
 
     useEffect(() => {
         if (user.data) {
+            console.log("Oh no")
             onLoad(user.data.studentId, user.data.group).then((e) => {
                 setCount(e);
             });
@@ -92,8 +93,7 @@ export default function PopcatPage() {
             </div>
             <ResizablePanelGroup
                 className="absolute bottom-[85px]"
-                direction="vertical"
-            >
+                direction="vertical">
                 <ResizablePanel
                     className="p-[81px]"
                     onTouchStart={touchStart}
