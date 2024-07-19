@@ -22,6 +22,7 @@ export default function ClubPage() {
       const count = await GetProgress(studentId)
       setClubCollect(count);
     }
+    console.log("club")
     getClubCollections()
   }, []);
 

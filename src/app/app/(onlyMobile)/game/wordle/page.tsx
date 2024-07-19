@@ -38,6 +38,7 @@ export default function WordlePage() {
             } else {
                 setIsGuessed(true);
             }
+            console.log("wordle")
             updatePlayed();
         }, [played, answer])
         
