@@ -1,16 +1,32 @@
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
-import Link from "next/link";
+"use client"
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-export default function Home() {
-  return (
-    <div>
-      <h1>Hello :P</h1>
-      <Link href="/leaderboard">
-        <button className="bg-blue-2 py-3 px-5 rounded-md hover:bg-blue-1 text-white">
-          to leaderboard
-        </button>
-      </Link>
-    </div>
-  );
+export default function Base() {
+  const router = useRouter();
+  const pathName = usePathname();
+  const [error, setError] = useState<string>("");
+
+  const validPaths = ["/app/home", "/app/club", "/app/stampbook", "/leaderboard", "/app/game", "/app/intania_news", "/login"];
+
+  useEffect(() => {
+    const handleNavigation = async () => {
+      if (!validPaths.includes(pathName)) {
+        try {
+          await router.push("/app/home");
+        } catch (err) {
+          setError("Navigation failed. Please try again.");
+          console.error("Navigation error:", err);
+        }
+      }
+    };
+
+    handleNavigation();
+  }, [router, pathName]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return null;
 }
