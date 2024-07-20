@@ -208,7 +208,7 @@ const AnnouncementSection = () => {
             <div className="mx-11 mt-20 flex h-auto min-h-[393px] w-auto min-w-[302px] flex-col items-center space-y-3 bg-white p-3 font-athiti">
                 <div className="relative h-[480px] w-[280px]">
                     <Image
-                        className="max-w-[280px]"
+                        className="max-w-[280px] object-cover"
                         src={`/announcement/vishnu/${group}.png`}
                         alt="Chula Engineering Map"
                         fill={true}
