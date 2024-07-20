@@ -28,9 +28,9 @@ export default function ClubPage() {
     getClubCollections()
   }, [studentId]);
 
-  if(!firebaseUser || firebaseUser === undefined){
-    return <h1>Please login</h1>
-  }
+  // if(!firebaseUser || firebaseUser === undefined){
+  //   return <h1>Please login</h1>
+  // }
 
   return (
     <div className={Style.bgPage}>

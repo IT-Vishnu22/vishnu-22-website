@@ -22,7 +22,7 @@ export default function Base() {
     };
 
     handleNavigation();
-  }, [router, pathName]);
+  }, [router, pathName, validPaths]);
 
   if (error) {
     return <div>Error: {error}</div>;
