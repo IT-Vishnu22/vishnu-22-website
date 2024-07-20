@@ -1,19 +1,30 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useContext } from "react";
+import { DisableContext } from "@/lib/contexts/disable";
 
 export default function Base() {
     const router = useRouter();
     const pathName = usePathname();
     const [error, setError] = useState<string>("");
+    const isDisabled = useContext(DisableContext);
 
-    const validPaths = [
+    const validPaths = isDisabled ? [
+        "/announcements/firstdate",
         "/app/home",
         "/app/club",
         "/app/stampbook",
-        "/leaderboard",
+        "/intania_news",
+        "/login",
+    ]: [
+        "/announcements/vishnu",
+        "/app/home",
+        "/app/club",
+        "/app/stampbook",
+        "app/leaderboard",
         "/app/game",
-        "/app/intania_news",
+        "/intania_news",
         "/login",
     ];
 

@@ -1,4 +1,5 @@
 'use client'
+import React, { useContext } from "react";
 import Link from "next/link";
 import style from "./styles.module.css";
 
@@ -9,8 +10,11 @@ import { AccordionHome } from "@/components/HomeComponents/Accordion";
 import MapEng from "@/components/HomeComponents/MapEngineer";
 import { SponsorCarousel } from "@/components/HomeComponents/Sponsor";
 import { IntaniaNewsHeader } from "@/components/HomeComponents/IntaniaNews";
+import { DisableContext } from "@/lib/contexts/disable";
 
 export default function Home() {
+
+    const disableComponent: boolean = useContext(DisableContext);
 
     return (
         <div className={style.bgPage}>
@@ -26,36 +30,59 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="z-10 w-[80vw] px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 lg:grid-cols-2 justify-items-center items-center">
-                <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                        <StampbookIcon />
-                        <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} />
-                    </Link>
-                </div>
+            
+                <div className="z-10 w-[80vw] px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 lg:grid-cols-2 justify-items-center items-center">
+                    <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                        <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                            <StampbookIcon />
+                            <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} isDisable={false}/>
+                        </Link>
+                    </div>
 
-                <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                        <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} />
-                        <ClubCollectIcon />
-                    </Link>
-                </div>
+                    <div className="z-10 col-span-1 flex justify-center items-center py-4 mt-8 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                        <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                            <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} isDisable={false}/>
+                            <ClubCollectIcon />
+                        </Link>
+                    </div>
 
-                <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/game'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                        <GamerIconRight />
-                        <ButtonNext Topic={"มาเล่น"} Topic2={"เกมกัน"} TextBtn={"play now"} />
-                        <GamerIconLeft />
-                    </Link>
-                </div>
 
-                <div className="z-10 mt-12 col-span-1 flex justify-center items-center hover:rotate-6 py-4 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/leaderboard'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                        <LeaderBoardIcon />
-                        <ButtonNext Topic={"Leaderboard"} TextBtn={"check record"} />
-                    </Link>
+                    {
+                        disableComponent ?
+                            <>
+                                <div className="z-10 col-span-1 flex justify-center items-center py-4">
+                                    <div className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                                        <GamerIconRight />
+                                        <ButtonNext Topic={"ล๊อค"} TextBtn={"play now"} isDisable={disableComponent} />
+                                        <GamerIconLeft />
+                                    </div>
+                                </div>
+                                <div className="z-10 col-span-1 flex justify-center items-center py-4 mt-14">
+                                    <div className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                                        <LeaderBoardIcon />
+                                        <ButtonNext Topic={"ล๊อค"} TextBtn={"check record"} isDisable={disableComponent} />
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                                    <Link href={'/app/game'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                                        <GamerIconRight />
+                                        <ButtonNext Topic={"มาเล่น"} Topic2={"เกมกัน"} TextBtn={"play now"} isDisable={false}/>
+                                        <GamerIconLeft />
+                                    </Link>
+                                </div>
+                                <div className="z-10 mt-12 col-span-1 flex justify-center items-center hover:rotate-6 py-4  mt-14 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                                    <Link href={'/leaderboard'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                                        <LeaderBoardIcon />
+                                        <ButtonNext Topic={"Leaderboard"} TextBtn={"check record"} isDisable={false}/>
+                                    </Link>
+                                </div>
+                            </>
+                    }
                 </div>
-            </div>
+            
 
             <AccordionHome />
 
@@ -65,6 +92,6 @@ export default function Home() {
                 <p className="mt-2 mb-8 text-xl sm:text-2xl lg:text-3xl font-medium">Our Supporters!</p>
                 <SponsorCarousel />
             </div>
-        </div>
+        </div >
     );
 }
