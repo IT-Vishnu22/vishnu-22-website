@@ -12,16 +12,15 @@ export default function StampbookPage() {
     //get studentId from login
     const { firebaseUser, data } = useContext(UserContext);
     const studentId = data?.studentId;
-    const [popUpMessage, setPopUpMessage] = useState<string>("rules");
+    const [popUpMessage, setPopUpMessage] = useState<string>("");
 
     const router = useRouter();
     const pathName = usePathname();
-
     useEffect(() => {
-        if (!firebaseUser) {
-            sessionStorage.setItem("redirectAfterLogin", pathName);
-            router.push("/login");
-        }
+        // if (!firebaseUser) {
+        //     sessionStorage.setItem("redirectAfterLogin", pathName);
+        //     router.push("/login");
+        // }
     }, [firebaseUser, router]);
 
     return (
