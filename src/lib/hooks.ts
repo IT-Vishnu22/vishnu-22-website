@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { doc, onSnapshot } from "firebase/firestore";
 import { auth, firestore } from "@/lib/firebase";
@@ -27,13 +27,13 @@ export function useUserData() {
                 doc(firestore, "users", user.uid),
                 (doc) => {
                     if (doc.exists()) {
-                        console.log(doc.data())
+                        // console.log(doc.data())
                         setUserData(validateUserData.parse(doc.data()));
                     }
                 },
             );
         } else {
-            setUserData(undefined)
+            setUserData(undefined);
         }
         return unsubscribe;
     }, [user]);
