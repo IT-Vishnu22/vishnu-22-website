@@ -228,26 +228,31 @@ const AnnouncementSection = () => {
     );
 };
 
-const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({
-    houseName,
-    registeration_place,
-    group,
-}) => {
-    const groupName = houseName;
-    const meetingPoint = registeration_place;
-    const img1 = `/announcement/vishnu/first/${meetingPoint}.svg`;
-    const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
-    return (
-        <>
+const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, registeration_place, group }) => {
+  const groupName = houseName;
+  const meetingPoint = registeration_place;
+  const img1 = `/announcement/vishnu/first/${meetingPoint}.svg`;
+  const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
+  return (
+    <>
+      {
+        group ? 
+          <>
             <div className="my-4 text-center font-athiti text-white">
-                <h1 className="text-[32px] font-bold leading-[52px]">
-                    {groupName}
-                </h1>
-                <p className="text-base font-medium">{meetingPoint}</p>
+              <h1 className="text-[32px] font-bold leading-[52px]">หน่วย{groupName}</h1>
+              <p className="text-base font-medium">{meetingPoint}</p>
             </div>
-            <MapCarousel img1={img1} img2={img2} />
-        </>
-    );
+            <MapCarousel img1={img1} img2={img2}/> 
+          </>
+          :
+          <div className="my-4 text-center font-athiti text-white ">
+            <p className="text-[24px]">404:ไม่พบหน่วยของคุณ.</p><br />
+            <p>หากคุณคือรุ่น 108 กรุณาล็อคอินหรือติดต่อ IT</p>
+          </div>
+      }
+    </>
+    
+  );
 };
 interface AnnouncementDetailProps {
     houseName: string | null;

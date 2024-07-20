@@ -7,6 +7,11 @@ export const validateUserData = z.object({
     username: z.string(),
     studentId: z.string(),
     lineId: z.string(),
+    clicks: z.number().optional()
 });
 
 export type UserData = z.infer<typeof validateUserData>;
+
+export type ScoreboardData = {
+  [group: string]: number
+};

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchGroupInfo } from "./actions";
 
 export default function useGroupInfo (group: string | null) {
-    const [ groupInfo, setGroupInfo ] = useState({houseName: "", registeration_place: "", line:""});
+    const [ groupInfo, setGroupInfo ] = useState({houseName: "", registeration_place: "Loading...", line:""});
 
     useEffect(() => {
         const updateInfo = async () => {
@@ -14,7 +14,7 @@ export default function useGroupInfo (group: string | null) {
             }  
             console.log(Info);
         }
-
+        console.log(groupInfo);
         updateInfo()
     }, [group]);
     

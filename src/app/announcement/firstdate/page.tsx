@@ -205,12 +205,26 @@ const AnnouncementSection = () => {
     }
     return (
         <div className="min-w-[302px]bg-white mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center font-athiti text-pink-3">
-            {/* <Image className="w-full" src={engMap} alt="Chula Engineering Map" /> */}
-            <MapCarousel img1={img1} img2={img2} />
-            <h1 className="text-[32px] font-bold leading-[52px]">
-                {registeration_place}
-            </h1>
-            <p className="text-base font-medium">{table}</p>
+        {
+            firebaseUser ?
+            !group ? 
+            <>
+                <p>No data of you. TT</p><br />
+                <p>หากคุณคือรุ่น 108 โปรดลองล็อคอินอีกครั้งหรือติดต่อฝ่าย IT.</p><br />
+            </>
+            :
+                <>
+                    {/* <Image className="w-full" src={engMap} alt="Chula Engineering Map" /> */}
+                    <MapCarousel img1={img1} img2={img2}/>
+                    <h1 className="text-[32px] font-bold leading-[52px]">
+                        {registeration_place}
+                    </h1>
+                    <p className="text-base font-medium">{table}</p>
+                </>
+            :
+            <p>No user was found. Please login first.</p>
+        }
         </div>
+
     );
-};
+}
