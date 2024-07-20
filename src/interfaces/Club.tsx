@@ -3,6 +3,7 @@ export interface clubItem {
     Type: string,
     Detail: string,
     Contact: string,
+    ImagePath: string,
     Question?: string,
     Answer?: string,
 }

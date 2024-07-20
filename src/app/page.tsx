@@ -29,8 +29,8 @@ export default function Base() {
             }
         };
 
-        handleNavigation();
-    }, [router, pathName]);
+    handleNavigation();
+  }, [router, pathName, validPaths]);
 
     if (error) {
         return <div>Error: {error}</div>;

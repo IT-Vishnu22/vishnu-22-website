@@ -20,7 +20,8 @@ export default function ClubSection() {
 
   const [answer, setAnswer] = useState("");
   const [currentIdex, setCurrentIndex] = useState<number>(0)
-  
+  const clubImage: string[] = [];
+
   const [expanded, setExpanded] = useState<boolean[]>(falseArray);
   const [correctAnswer, setCorrectAnswer] = useState<boolean[]>(falseArray);
   const [canEditAnswer, setCanEditAnswer] = useState<boolean[]>(trueArray);
@@ -140,7 +141,7 @@ export default function ClubSection() {
                 <div className="h-[150px] relative flex justify-center items-center">
 
                   <Image
-                    src={`/club_logo/${detail.Name}.png`}
+                    src={`/club_logo/${detail.ImagePath}.png`}
                     alt={`${detail.Name} logo`}
                     width={140}
                     height={140}
@@ -211,7 +212,8 @@ export default function ClubSection() {
             </div>}
         </>
       )
-    }));
+    })
+  );
 }
 
 
