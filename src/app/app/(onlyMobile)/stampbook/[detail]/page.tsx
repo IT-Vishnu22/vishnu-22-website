@@ -37,7 +37,10 @@ export default async function DetailPage({
             <div className="space-y-4 px-5 py-9 text-base font-medium text-blue-1">
                 {detail?.Fact.map((item: string, index: number) => {
                     return (
-                        <pre key={index} className="text-wrap">
+                        <pre
+                            key={index}
+                            className="whitespace-break-spaces text-wrap"
+                        >
                             {"    "}
                             {item}
                         </pre>

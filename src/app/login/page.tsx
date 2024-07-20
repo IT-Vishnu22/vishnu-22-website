@@ -63,7 +63,6 @@ const LoginSection = () => {
     const router = useRouter();
     const [alreadyLogin, setAlreadyLogin] = useState(false);
     const liff = useLiff();
-    
 
     useEffect(() => {
         setLoading(true);
@@ -122,7 +121,12 @@ const LoginSection = () => {
                 <Button
                     className="w-[190px] rounded-xl py-7 text-center font-roboto-condensed text-2xl font-medium text-white"
                     onClick={() => {
-                        router.replace("/app/home");
+                        const redirectPath =
+                            sessionStorage.getItem("redirectAfterLogin");
+                        router.replace(
+                            redirectPath ? redirectPath : "/app/home",
+                        );
+                        sessionStorage.removeItem("redirectAfterLogin");
                     }}
                 >
                     Continue
