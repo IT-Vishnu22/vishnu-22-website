@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchFirstdateInfo } from "./actions";
 
 export default function useFirstdateInfo (group: string | null) {
-    const [ Info, setInfo ] = useState({registeration_place: "", table: ""});
+    const [ Info, setInfo ] = useState({registeration_place: "", table: "Loading..."});
 
     useEffect(() => {
         const updateInfo = async () => {

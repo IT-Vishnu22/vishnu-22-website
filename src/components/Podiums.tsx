@@ -1,18 +1,22 @@
 // Podiums item, edit data in name or point field
+interface DataInterface {
+  name: string;
+  score: number;
+}
 
-export default function Podiums(props : {type:string}) {
+export default function Podiums(props : {type:string, data: DataInterface[]}) {
   let colorMap = (props.type === "game" ? gameColorMap : waterColorMap);
 
   return (
     <div className="absolute text-blue-1 font-athiti w-full h-full items-center justify-center space-x-3 flex flex-row -bottom-[70px]">
       <div className="pt-[100px]">
-        <Podium color="1" name="สายเสมอ" points={25000} place={["2", "nd"]} colorMap={colorMap}  type={props.type} />
+        <Podium color="1" name={props.data[1]?.name ?? "-"} points={props.data[1]?.score ?? "-"} place={["2", "nd"]} colorMap={colorMap}  type={props.type} />
       </div>
       <div className="pt-0">
-        <Podium color="0" name="สายตลอด" points={40000} place={["1", "st"]} colorMap={colorMap} type={props.type}/>
+        <Podium color="0" name={props.data[0]?.name ?? "-"} points={props.data[0]?.score ?? "-"} place={["1", "st"]} colorMap={colorMap} type={props.type}/>
       </div>
       <div className="pt-[180px]">
-        <Podium color="1" name="สายอีก" points={12300} place={["3", "rd"]} colorMap={colorMap} type={props.type}/>
+        <Podium color="1" name={props.data[2]?.name ?? "-"} points={props.data[2]?.score ?? "-"} place={["3", "rd"]} colorMap={colorMap} type={props.type}/>
       </div>
     </div>
   );
