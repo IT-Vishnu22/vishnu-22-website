@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 
 import StampPath from '@/assets/images/stamp.png';
-import { DisableContext } from '@/app/app/(supportPc)/home/page';
+import { DisableContext } from '@/lib/contexts/disable';
 
 
 export const LeaderBoardIcon = () => {

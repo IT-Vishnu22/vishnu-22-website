@@ -1,7 +1,7 @@
 'use client'
+import React, { useContext } from "react";
 import Link from "next/link";
 import style from "./styles.module.css";
-import React, { createContext } from "react";
 
 import { Logo } from "@/assets/icons/LogoVishnu22";
 import { LeaderBoardIcon, ClubCollectIcon, StampbookIcon, GamerIconLeft, GamerIconRight, ArrowRightIcon } from "@/assets/icons/HomeIcon";
@@ -10,12 +10,11 @@ import { AccordionHome } from "@/components/HomeComponents/Accordion";
 import MapEng from "@/components/HomeComponents/MapEngineer";
 import { SponsorCarousel } from "@/components/HomeComponents/Sponsor";
 import { IntaniaNewsHeader } from "@/components/HomeComponents/IntaniaNews";
-
-export const DisableContext = createContext<boolean>(true);
+import { DisableContext } from "@/lib/contexts/disable";
 
 export default function Home() {
 
-    const disableComponent: boolean = true;
+    const disableComponent: boolean = useContext(DisableContext);
 
     return (
         <div className={style.bgPage}>
@@ -31,18 +30,18 @@ export default function Home() {
                 </div>
             </div>
 
-            <DisableContext.Provider value={disableComponent}>
+            
                 <div className="z-10 w-[80vw] px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 lg:grid-cols-2 justify-items-center items-center">
                     <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                         <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                             <StampbookIcon />
-                            <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} />
+                            <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} isDisable={false}/>
                         </Link>
                     </div>
 
                     <div className="z-10 col-span-1 flex justify-center items-center py-4 mt-8 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                         <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                            <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} />
+                            <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} isDisable={false}/>
                             <ClubCollectIcon />
                         </Link>
                     </div>
@@ -70,20 +69,20 @@ export default function Home() {
                                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                                     <Link href={'/app/game'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                                         <GamerIconRight />
-                                        <ButtonNext Topic={"มาเล่น"} Topic2={"เกมกัน"} TextBtn={"play now"}/>
+                                        <ButtonNext Topic={"มาเล่น"} Topic2={"เกมกัน"} TextBtn={"play now"} isDisable={false}/>
                                         <GamerIconLeft />
                                     </Link>
                                 </div>
                                 <div className="z-10 mt-12 col-span-1 flex justify-center items-center hover:rotate-6 py-4  mt-14 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                                     <Link href={'/leaderboard'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                                         <LeaderBoardIcon />
-                                        <ButtonNext Topic={"Leaderboard"} TextBtn={"check record"}/>
+                                        <ButtonNext Topic={"Leaderboard"} TextBtn={"check record"} isDisable={false}/>
                                     </Link>
                                 </div>
                             </>
                     }
                 </div>
-            </DisableContext.Provider>
+            
 
             <AccordionHome />
 
