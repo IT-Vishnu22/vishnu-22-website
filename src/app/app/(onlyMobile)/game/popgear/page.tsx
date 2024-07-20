@@ -27,6 +27,7 @@ import { UserContext } from "@/lib/contexts/user";
 import { addClick, onLoad } from "@/lib/popgear/actions";
 import { set } from "firebase/database";
 import { Console } from "console";
+import useSound from "use-sound";
 
 export default function PopGearPage() {
     const [picUrl, setPicUrl] = useState("/popgear_1.png");
@@ -38,6 +39,7 @@ export default function PopGearPage() {
         { name: string; score: number }[]
     >([]);
     const [loaded, setLoaded] = useState(false);
+    const [popsound] = useSound("/popgear_pop.mp3");
 
     useEffect(() => {
         if (!loaded) {
@@ -75,6 +77,8 @@ export default function PopGearPage() {
         if (user.data) {
             addClick(user.data.studentId, user.data.group, count, buffer, lol);
         }
+        popsound()
+        
     }
 
     function touchEnd(e: { preventDefault: () => void; }) {

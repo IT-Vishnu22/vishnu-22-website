@@ -36,6 +36,7 @@ export default function WordlePage() {
         updatePlayed();
     }, [played, answer]);
 
+
     // for the physical keyboard e.g. of PC (not usable on mobile)
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
