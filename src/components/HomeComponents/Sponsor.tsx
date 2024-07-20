@@ -15,11 +15,12 @@ import CQK from "@/assets/images/sponsorImages/cqk.png";
 import AutumnScoop from "@/assets/images/sponsorImages/autumnscoop.jpg";
 import IRPC from "@/assets/images/sponsorImages/IRPClogo.png";
 import Gulf from "@/assets/images/sponsorImages/GulfLogo.png";
+import BrightHair from "@/assets/images/sponsorImages/brighthair.png";
 
 
 export function SponsorCarousel() {
 
-    const sponsor: StaticImageData[] = [TOA, Shabu, IRPC, AutumnScoop, CQK, Gulf];
+    const sponsor: StaticImageData[] = [TOA, Shabu, IRPC, AutumnScoop, CQK, Gulf, BrightHair];
         
 
     return (

@@ -30,13 +30,13 @@ export default function Home() {
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                     <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <StampbookIcon />
-                        <ButtonNext Topic="กรอก" Topic2="Stamp Book!" TextBtn="collect" />
+                        <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} />
                     </Link>
                 </div>
 
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                     <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                        <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"Club!"} TextBtn={"collect"} />
+                        <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} />
                         <ClubCollectIcon />
                     </Link>
                 </div>
@@ -44,7 +44,7 @@ export default function Home() {
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                     <Link href={'/app/game'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <GamerIconRight />
-                        <ButtonNext Topic={"มาเล่น"} Topic2={"Game กัน!"} TextBtn={"play now"} />
+                        <ButtonNext Topic={"มาเล่น"} Topic2={"เกมกัน"} TextBtn={"play now"} />
                         <GamerIconLeft />
                     </Link>
                 </div>
@@ -62,7 +62,7 @@ export default function Home() {
             <MapEng />
 
             <div className="w-full mt-20 p-4 bg-white border border-t-1 border-r-0 border-l-0 border-b-0 border-black flex flex-col justify-top items-center">
-                <p className="mt-2 mb-6 text-xl sm:text-2xl lg:text-3xl font-medium">Our Supporters!</p>
+                <p className="mt-2 mb-8 text-xl sm:text-2xl lg:text-3xl font-medium">Our Supporters!</p>
                 <SponsorCarousel />
             </div>
         </div>
