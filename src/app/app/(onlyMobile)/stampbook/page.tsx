@@ -3,21 +3,26 @@ import Image from "next/image";
 import { CountAchieved } from "@/lib/stampbook/progress";
 
 import { UserContext } from "@/lib/contexts/user";
-import { Suspense, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StampBookSection } from "./stampBookSection";
-import { Button } from "@/components/ui/button";
-
+import { usePathname, useRouter } from "next/navigation";
 //const studentId = 'test'
 
 export default function StampbookPage() {
     //get studentId from login
     const { firebaseUser, data } = useContext(UserContext);
     const studentId = data?.studentId;
-
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
-    if (!firebaseUser) {
-        return <h1>Please log in first</h1>;
-    }
+
+    const router = useRouter();
+    const pathName = usePathname();
+
+    useEffect(() => {
+        if (!firebaseUser) {
+            sessionStorage.setItem("redirectAfterLogin", pathName);
+            router.push("/login");
+        }
+    }, [firebaseUser, router]);
 
     return (
         <>
@@ -44,9 +49,7 @@ export default function StampbookPage() {
                 <ScoreSection userId={studentId} />
 
                 <div className="flex w-auto flex-col pb-96 pt-16">
-
                     <StampBookSection userId={studentId} />
-
                 </div>
             </div>
         </>
@@ -94,7 +97,7 @@ const ScoreSection = ({ userId }: { userId: string | undefined }) => {
         };
         console.log("Stampbook test");
         getScore();
-    },[score]);
+    }, [score]);
 
     return (
         <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
@@ -171,7 +174,6 @@ const QuestionMark = () => {
         </svg>
     );
 };
-
 const PopUp = ({
     popUpMessage,
     setPopUpMessage,
@@ -182,10 +184,19 @@ const PopUp = ({
     const handlePopUpClick = () => {
         setPopUpMessage("");
     };
+
+    // Effect to manage body overflow based on popUpMessage
+    useEffect(() => {
+        if (popUpMessage !== "") {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "visible";
+        }
+    }, [popUpMessage]); // This effect depends on popUpMessage
+
     if (popUpMessage !== "") {
-        document.body.style.overflow = "hidden";
         return (
-            <button
+            <div
                 onClick={handlePopUpClick}
                 className="absolute inset-0 z-20 cursor-pointer bg-white/60"
             >
@@ -222,10 +233,9 @@ const PopUp = ({
                         </div>
                     </div>
                 </div>
-            </button>
+            </div>
         );
     } else {
-        document.body.style.overflow = "visible";
         return <></>;
     }
 };

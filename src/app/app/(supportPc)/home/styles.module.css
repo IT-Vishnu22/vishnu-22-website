@@ -9,13 +9,11 @@
     justify-content: flex-start;
     align-items: center;
     
-    background-image: url('/images/backgroundsimple.png');
+    background-image: url('/background/backgroundOnPC.png');
     background-position: center;
     background-repeat: repeat;
-    background-clip: border-box;
     background-size: contain;
-
-    overflow-x: hidden;
+    background-attachment: fixed;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
