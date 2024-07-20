@@ -206,6 +206,8 @@ const AnnouncementSection = () => {
     return (
         <div className="flex flex-col items-center">
             <div className="mx-11 mt-20 flex h-auto min-h-[393px] w-auto min-w-[302px] flex-col items-center space-y-3 bg-white p-3 font-athiti">
+                
+                { !houseName ? 
                 <div className="relative h-[480px] w-[280px]">
                     <Image
                         className="max-w-[280px]"
@@ -214,6 +216,10 @@ const AnnouncementSection = () => {
                         fill={true}
                     />
                 </div>
+                :
+                <p>-</p>
+                }
+
                 <a href={line || "https://line.me/en/"}>
                     <Button className="rounded-[10px] bg-cream px-[67px] py-3 font-roboto-condensed text-lg font-medium text-blue-3">
                         เข้ากลุ่ม Line
@@ -236,8 +242,8 @@ const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({
 }) => {
     const groupName = houseName;
     const meetingPoint = registeration_place;
-    const img1 = `/announcement/vishnu/first/${meetingPoint}.svg`;
-    const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
+    const img1 = `/announcement/vishnu/first/จุดลงทะเบียน${meetingPoint}.svg`;
+    const img2 = `/announcement/vishnu/second/จุดลงทะเบียน${meetingPoint}.png`;
     return (
         <>
             {group ? (
