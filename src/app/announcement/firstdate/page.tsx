@@ -193,8 +193,8 @@ const AnnouncementSection = () => {
     const group = data?.group || null;
     const info = useFirstdateInfo(group);
     const { registeration_place, table } = info;
-    const img1 = `/announcement/firstdate/first/${registeration_place}.svg`;
-    const img2 = `/announcement/firstdate/second/${registeration_place}.svg`;
+    const img1 = `/announcement/firstdate/first/จุดลงทะเบียน${registeration_place}.svg`;
+    const img2 = `/announcement/firstdate/second/จุดลงทะเบียน${registeration_place}.svg`;
 
     const router = useRouter();
     const pathName = usePathname();
@@ -226,7 +226,7 @@ const AnnouncementSection = () => {
                         <h1 className="text-[32px] font-bold leading-[52px]">
                             {registeration_place}
                         </h1>
-                        <p className="text-base font-medium">{table}</p>
+                        <p className="text-base font-medium text-[27px]">{table}</p>
                     </>
                 )
             ) : (
