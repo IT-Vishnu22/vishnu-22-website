@@ -24,7 +24,7 @@ export default function RootLayout({
         <AuthProvider>
             <html lang="en">
                 <body className={`${robotoCondensed.className} ${athiti.className}`}>
-                    <main className="w-[100vw] h-screen">
+                    <main className="w-full h-screen overflow-x-hidden overflow-y-auto">
                         {children}
                     </main>
                 </body>
