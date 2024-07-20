@@ -174,7 +174,6 @@ const QuestionMark = () => {
         </svg>
     );
 };
-
 const PopUp = ({
     popUpMessage,
     setPopUpMessage,
@@ -185,10 +184,19 @@ const PopUp = ({
     const handlePopUpClick = () => {
         setPopUpMessage("");
     };
+
+    // Effect to manage body overflow based on popUpMessage
+    useEffect(() => {
+        if (popUpMessage !== "") {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "visible";
+        }
+    }, [popUpMessage]); // This effect depends on popUpMessage
+
     if (popUpMessage !== "") {
-        document.body.style.overflow = "hidden";
         return (
-            <button
+            <div
                 onClick={handlePopUpClick}
                 className="absolute inset-0 z-20 cursor-pointer bg-white/60"
             >
@@ -225,10 +233,9 @@ const PopUp = ({
                         </div>
                     </div>
                 </div>
-            </button>
+            </div>
         );
     } else {
-        document.body.style.overflow = "visible";
         return <></>;
     }
 };
