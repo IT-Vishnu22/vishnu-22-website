@@ -39,8 +39,8 @@ export default function InputForm({
 }) {
     //get studentId from login
     const { firebaseUser, data } = useContext(UserContext);
-    const studentId = data?.studentId
-    const group = data?.group || null
+    const studentId = data?.studentId;
+    const group = data?.group || null;
 
     const router = useRouter();
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -59,17 +59,12 @@ export default function InputForm({
         );
 
         if (result) {
-            router.refresh();
-            router.push("/app/stampbook/");
-
             toast({
                 className: "bg-green-500",
                 title: "Answer Check",
                 description: "Your answer is correct!",
             });
         } else {
-            console.log("incorrect!!");
-
             toast({
                 variant: "destructive",
                 title: "Answer Check",
