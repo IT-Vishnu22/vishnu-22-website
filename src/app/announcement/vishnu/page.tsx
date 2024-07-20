@@ -7,7 +7,7 @@ import back from "../images/back.svg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import MapCarousel from "@/components/MapCarousel";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "@/lib/contexts/user";
 import useGroupInfo from "@/lib/announcement/useGroupInfo";
 import { usePathname, useRouter } from "next/navigation";
@@ -196,13 +196,12 @@ const AnnouncementSection = () => {
 
     const router = useRouter();
     const pathName = usePathname();
-
-    if (!firebaseUser) {
-        if (typeof window !== "undefined") {
+    useEffect(() => {
+        if (!firebaseUser) {
             sessionStorage.setItem("redirectAfterLogin", pathName);
+            router.push("/login");
         }
-        router.push("/login");
-    }
+    }, [firebaseUser, router]);
 
     return (
         <div className="flex flex-col items-center">
@@ -230,31 +229,36 @@ const AnnouncementSection = () => {
     );
 };
 
-const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({ houseName, registeration_place, group }) => {
-  const groupName = houseName;
-  const meetingPoint = registeration_place;
-  const img1 = `/announcement/vishnu/first/${meetingPoint}.svg`;
-  const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
-  return (
-    <>
-      {
-        group ? 
-          <>
-            <div className="my-4 text-center font-athiti text-white">
-              <h1 className="text-[32px] font-bold leading-[52px]">หน่วย{groupName}</h1>
-              <p className="text-base font-medium">{meetingPoint}</p>
-            </div>
-            <MapCarousel img1={img1} img2={img2}/> 
-          </>
-          :
-          <div className="my-4 text-center font-athiti text-white ">
-            <p className="text-[24px]">404:ไม่พบหน่วยของคุณ.</p><br />
-            <p>หากคุณคือรุ่น 108 กรุณาล็อคอินหรือติดต่อ IT</p>
-          </div>
-      }
-    </>
-    
-  );
+const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({
+    houseName,
+    registeration_place,
+    group,
+}) => {
+    const groupName = houseName;
+    const meetingPoint = registeration_place;
+    const img1 = `/announcement/vishnu/first/${meetingPoint}.svg`;
+    const img2 = `/announcement/vishnu/second/${meetingPoint}.png`;
+    return (
+        <>
+            {group ? (
+                <>
+                    <div className="my-4 text-center font-athiti text-white">
+                        <h1 className="text-[32px] font-bold leading-[52px]">
+                            หน่วย{groupName}
+                        </h1>
+                        <p className="text-base font-medium">{meetingPoint}</p>
+                    </div>
+                    <MapCarousel img1={img1} img2={img2} />
+                </>
+            ) : (
+                <div className="my-4 text-center font-athiti text-white">
+                    <p className="text-[24px]">404:ไม่พบหน่วยของคุณ.</p>
+                    <br />
+                    <p>หากคุณคือรุ่น 108 กรุณาล็อคอินหรือติดต่อ IT</p>
+                </div>
+            )}
+        </>
+    );
 };
 interface AnnouncementDetailProps {
     houseName: string | null;

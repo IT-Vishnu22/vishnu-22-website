@@ -17,12 +17,12 @@ export default function StampbookPage() {
     const router = useRouter();
     const pathName = usePathname();
 
-    if (!firebaseUser) {
-        if (typeof window !== "undefined") {
+    useEffect(() => {
+        if (!firebaseUser) {
             sessionStorage.setItem("redirectAfterLogin", pathName);
+            router.push("/login");
         }
-        router.push("/login");
-    }
+    }, [firebaseUser, router]);
 
     return (
         <>

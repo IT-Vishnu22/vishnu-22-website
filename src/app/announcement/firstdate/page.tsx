@@ -5,7 +5,7 @@ import dotGraphic from "../images/firstdate_dot_graphic.svg";
 import engMap from "../images/engmap.png";
 import back from "../images/back.svg";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "@/lib/contexts/user";
 import useFirstdateInfo from "@/lib/announcement/useFirstdateInfo";
 import MapCarousel from "@/components/MapCarousel";
@@ -199,34 +199,39 @@ const AnnouncementSection = () => {
     const router = useRouter();
     const pathName = usePathname();
 
-    if (!firebaseUser) {
-        if (typeof window !== "undefined") {
+    useEffect(() => {
+        if (!firebaseUser) {
             sessionStorage.setItem("redirectAfterLogin", pathName);
+            router.push("/login");
         }
-        router.push("/login");
-    }
+    }, [firebaseUser, router]);
+
     return (
         <div className="min-w-[302px]bg-white mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center font-athiti text-pink-3">
-        {
-            firebaseUser ?
-            !group ? 
-            <>
-                <p>No data of you. TT</p><br />
-                <p>หากคุณคือรุ่น 108 โปรดลองล็อคอินอีกครั้งหรือติดต่อฝ่าย IT.</p><br />
-            </>
-            :
-                <>
-                    {/* <Image className="w-full" src={engMap} alt="Chula Engineering Map" /> */}
-                    <MapCarousel img1={img1} img2={img2}/>
-                    <h1 className="text-[32px] font-bold leading-[52px]">
-                        {registeration_place}
-                    </h1>
-                    <p className="text-base font-medium">{table}</p>
-                </>
-            :
-            <p>No user was found. Please login first.</p>
-        }
+            {firebaseUser ? (
+                !group ? (
+                    <>
+                        <p>No data of you. TT</p>
+                        <br />
+                        <p>
+                            หากคุณคือรุ่น 108
+                            โปรดลองล็อคอินอีกครั้งหรือติดต่อฝ่าย IT.
+                        </p>
+                        <br />
+                    </>
+                ) : (
+                    <>
+                        {/* <Image className="w-full" src={engMap} alt="Chula Engineering Map" /> */}
+                        <MapCarousel img1={img1} img2={img2} />
+                        <h1 className="text-[32px] font-bold leading-[52px]">
+                            {registeration_place}
+                        </h1>
+                        <p className="text-base font-medium">{table}</p>
+                    </>
+                )
+            ) : (
+                <p>No user was found. Please login first.</p>
+            )}
         </div>
-
     );
-}
+};
