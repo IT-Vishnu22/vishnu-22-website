@@ -19,13 +19,13 @@ export default function IntaniaNews() {
       </div>
 
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
-        <Link href="/intania_news">
+        <Link href="/intania_news/news01">
           <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
               
-              src="/intaniastorypics/comingsoon.png"
               
-              //src="/intaniastorypics/Vishnu20th2.jpg"
+              src="/intaniastorypics/Vishnu20th2.jpg"
+              //src="/intaniastorypics/comingsoon.png"
                
               
               loading="lazy"
