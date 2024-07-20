@@ -21,7 +21,9 @@ export default async function DetailPage({
                         height={25}
                     />
                 </Link>
-                <h1 className="col-span-2 text-center">{detail?.NameTH}</h1>
+                <h1 className="col-span-2 text-center font-athiti">
+                    {detail?.NameTH}
+                </h1>
             </header>
             <div className="relative h-52 w-full">
                 <Image
@@ -34,7 +36,7 @@ export default async function DetailPage({
                     fill={true}
                 />
             </div>
-            <div className="space-y-4 px-5 py-9 text-base font-medium text-blue-1">
+            <div className="space-y-4 px-5 py-9 font-athiti text-base font-medium text-blue-1">
                 {detail?.Fact.map((item: string, index: number) => {
                     return (
                         <pre
@@ -48,7 +50,7 @@ export default async function DetailPage({
                 })}
             </div>
 
-            <section className="absolute bottom-0 w-full rounded-t-[50px] bg-[#FFFBF4] p-10 pb-[100px] md:max-w-[390px]">
+            <section className="absolute bottom-0 w-full rounded-t-[50px] bg-[#FFFBF4] p-10 pb-[100px] font-athiti md:max-w-[390px]">
                 <InputForm question={detail?.Question} docId={params.detail} />
             </section>
             <Toaster />

@@ -24,7 +24,7 @@ export default function ClubPage() {
       }
       else { setClubCollect(0); }
     }
-    console.log("club")
+    //console.log("club")
     getClubCollections()
   }, [studentId]);
 

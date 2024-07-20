@@ -31,7 +31,7 @@ export default function StampbookPage() {
             ></PopUp>
             <div className="flex flex-col items-center justify-evenly overflow-hidden bg-[url('/stampbookImages/bg_1.png')] bg-cover pt-8">
                 <div className="relative flex w-auto items-center">
-                    <h1 className="text-[32px] font-bold text-blue-1">
+                    <h1 className="font-roboto-condensed text-[32px] font-bold text-blue-1">
                         Stamp Book
                     </h1>
                     <button
@@ -94,12 +94,12 @@ const ScoreSection = ({ userId }: { userId: string | undefined }) => {
                 setScore(s);
             }
         };
-        console.log("Stampbook test");
+        //console.log("Stampbook test");
         getScore();
     }, [score]);
 
     return (
-        <div className="mt-8 flex items-center justify-between gap-3 text-2xl font-bold text-blue-1">
+        <div className="mt-8 flex items-center justify-between gap-3 font-roboto-condensed text-2xl font-bold text-blue-1">
             <Image
                 src="/stampbookImages/rewards.svg"
                 alt="reward Image"
