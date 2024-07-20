@@ -8,8 +8,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
-    background-image: url('/images/backgroundOnPC.png');
+
+    background-image: url("/background/backgroundOnPC3.png");
     background-position: center;
     background-repeat: repeat;
     background-size: contain;
@@ -24,4 +24,3 @@
         gap: 150px;
     }
 }
-

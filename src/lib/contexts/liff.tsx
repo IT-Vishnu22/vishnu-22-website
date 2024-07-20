@@ -27,16 +27,16 @@ export default function LiffProvider({
         import("@line/liff")
             .then((liff) => liff.default)
             .then((liff) => {
-                console.log("LIFF init...");
+                // console.log("LIFF init...");
                 liff.init({
                     liffId: process.env.NEXT_PUBLIC_LIFF_ID!,
                     // withLoginOnExternalBrowser: true,
                 })
                     .then(() => {
-                        console.log("LIFF init succeeded.");
+                        // console.log("LIFF init succeeded.");
                         setLiffObject(liff);
                         if (!liff.isLoggedIn()) {
-                            liff.login();
+                            //liff.login();
                         } else {
                             liff.getProfile().then((profile) => {
                                 setProfile(profile);
@@ -44,7 +44,7 @@ export default function LiffProvider({
                         }
                     })
                     .catch((error: Error) => {
-                        console.log("LIFF init failed.", error.toString());
+                        // console.log("LIFF init failed.", error.toString());
                         setLiffError(error.toString());
                     });
             });

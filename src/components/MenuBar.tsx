@@ -86,7 +86,7 @@ export function MenuTopBar() {
     // const token = true;
     // const username = "Vishnu22";
     const userData = useUserData();
-    const username = userData.username?.split(" ")[0];
+    const username = userData.data?.username?.split(" ")[0];
     const [showMenu, setShowMenu] = useState(false);
 
     const handleMenu = () => {
@@ -164,7 +164,7 @@ export function MenuTopBar() {
                     //     </Link>
                     // </div>
                     <Link
-                        href={"/logout"}
+                        href={"/login"}
                         className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1 hidden lg:block"
                     >
                         <p className="text-lg font-medium text-primary">
@@ -249,7 +249,7 @@ export function MenuTopBar() {
                                 {username ? (
                                     <Link
                                         className="group flex inline-flex h-full w-[100%] cursor-pointer flex-row items-center justify-center space-x-1 transition-colors focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                        href="/logout"
+                                        href="/login"
                                         onClick={handleMenu}
                                     >
                                         <p
@@ -280,7 +280,7 @@ export function MenuTopBar() {
             <div className="fixed left-0 right-0 top-0 z-50 flex h-[85px] w-full items-center justify-end px-8 sm:hidden max-w-[100vw]">
                 {username ? (
                     <Link
-                        href={"/logout"}
+                        href={"/login"}
                         className="z-50 rounded-3xl bg-[#ECD8C1] px-5 py-1 shadow-md"
                     >
                         <p className="text-lg font-medium text-primary">
