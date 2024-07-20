@@ -126,6 +126,7 @@ const LoginSection = () => {
                         router.replace(
                             redirectPath ? redirectPath : "/app/home",
                         );
+                        sessionStorage.removeItem("redirectAfterLogin");
                     }}
                 >
                     Continue
