@@ -192,8 +192,8 @@ const AnnouncementSection = () => {
     const group = data?.group || null;
     const info = useFirstdateInfo(group);
     const { registeration_place, table } = info;
-    const img1 = `/announcement/firstdate/first/${registeration_place}.svg`;
-    const img2 = `/announcement/firstdate/second/${registeration_place}.svg`;
+    const img1 = `/announcement/firstdate/first/จุดลงทะเบียน${registeration_place}.svg`;
+    const img2 = `/announcement/firstdate/second/จุดลงทะเบียน${registeration_place}.svg`;
     return (
         <div className="min-w-[302px]bg-white mx-11 mt-20 h-auto min-h-[393px] w-auto bg-white p-3 text-center font-athiti text-pink-3">
         {
@@ -210,7 +210,7 @@ const AnnouncementSection = () => {
                     <h1 className="text-[32px] font-bold leading-[52px]">
                         {registeration_place}
                     </h1>
-                    <p className="text-base font-medium">{table}</p>
+                    <p className="text-base font-medium text-[27px]">{table}</p>
                 </>
             :
             <p>No user was found. Please login first.</p>
