@@ -5,17 +5,21 @@ import { CountAchieved } from "@/lib/stampbook/progress";
 import { UserContext } from "@/lib/contexts/user";
 import { useContext, useEffect, useState } from "react";
 import { StampBookSection } from "./stampBookSection";
-import { redirect } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 //const studentId = 'test'
 
 export default function StampbookPage() {
     //get studentId from login
     const { firebaseUser, data } = useContext(UserContext);
     const studentId = data?.studentId;
-
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
+
+    const router = useRouter();
+    const pathName = usePathname();
+
     if (!firebaseUser) {
-        redirect("/login");
+        sessionStorage.setItem("redirectAfterLogin", pathName);
+        router.push("/login");
     }
 
     return (
