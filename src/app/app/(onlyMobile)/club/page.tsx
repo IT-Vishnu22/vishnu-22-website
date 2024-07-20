@@ -1,18 +1,19 @@
 'use client'
 import { useState, useEffect, useContext } from "react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
-import Style from "./styles.module.css";
-import { PriceIcon } from "@/assets/icons/ClubIcon";
 import { addUser } from "@/lib/club/progress";
 import { GetProgress } from "@/lib/club/getData";
 import { UserContext } from "@/lib/contexts/user";
-import club from "@/data/club.json"
 import Progress from "@/lib/club/progress";
 import { GetCompletedClub } from "@/lib/club/getData";
 import { falseArray, trueArray } from "@/lib/club/array";
-import ApproveImage from "@/assets/images/stamp.png";
 import { clubItem } from "@/interfaces/Club";
+import club from "@/data/club.json"
+import ApproveImage from "@/assets/images/stamp.png";
+import { PriceIcon } from "@/assets/icons/ClubIcon";
+import Style from "./styles.module.css";
 
 
 export default function ClubPage() {
@@ -20,6 +21,8 @@ export default function ClubPage() {
   const { firebaseUser, data } = useContext(UserContext);
   const studentId = data?.studentId;
   const group = data?.group || null;
+  const router = useRouter();
+  const pathName = usePathname();
 
   const [clubCollect, setClubCollect] = useState<number>(0);
   const [openPopUp, setOpenPopUp] = useState<boolean>(true);
@@ -145,10 +148,12 @@ export default function ClubPage() {
     document.body.style.overflowY = 'auto';
   }
 
-
-  // if(!firebaseUser || firebaseUser === undefined){
-  //   return <h1>Please login</h1>
-  // }
+  useEffect(() => {
+    if (!firebaseUser) {
+      sessionStorage.setItem("redirectAfterLogin", pathName);
+      router.push("/login");
+    }
+  }, [firebaseUser, router]);
 
   return (
     <>
