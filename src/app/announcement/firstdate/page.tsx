@@ -223,10 +223,11 @@ const AnnouncementSection = () => {
                     <>
                         {/* <Image className="w-full" src={engMap} alt="Chula Engineering Map" /> */}
                         <MapCarousel img1={img1} img2={img2} />
-                        <h1 className="mt-3 text-xl font-bold">
+                        <h1 className="mt-3 text-xl font-bold text-[34px]">
                             {registeration_place}
                         </h1>
-                        <p className="text-base font-medium text-[27px]">{table}</p>
+                        
+                        <p className="mt-3 text-base font-medium text-[25px]">{table}</p>
                     </>
                 )
             ) : (
