@@ -35,7 +35,6 @@ export function useUserData() {
         } else {
             setUserData(undefined)
         }
-        console.log("test login");
         return unsubscribe;
     }, [user]);
 

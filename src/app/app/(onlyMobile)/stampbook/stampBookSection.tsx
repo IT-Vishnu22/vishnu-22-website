@@ -22,7 +22,6 @@ type ConfigData = {
 };
 
 export const StampBookSection = ({ userId }: {userId:string|undefined}) => {
-  console.log('StampBookSection')
   const [details, setDetails] = useState<QueryDocumentSnapshot<DocumentData, DocumentData>[]>([]);
   const [data, setData] = useState<DocumentData | undefined>(undefined);
 

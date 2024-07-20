@@ -94,7 +94,7 @@ const ScoreSection = ({ userId }: { userId: string | undefined }) => {
                 setScore(s);
             }
         };
-        console.log("Stampbook test");
+        //console.log("Stampbook test");
         getScore();
     }, [score]);
 
