@@ -16,7 +16,8 @@ export function middleware(request: NextRequest) {
 
     if (
         request.nextUrl.pathname.startsWith("/app/game") ||
-        request.nextUrl.pathname.startsWith("/app/leaderboard")
+        request.nextUrl.pathname.startsWith("/app/leaderboard") ||
+        request.nextUrl.pathname.startsWith("/announcement/vishnu")
     ) {
         return NextResponse.rewrite(new URL("/app/home", request.url));
     }
@@ -24,5 +25,10 @@ export function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-    matcher: ["/", "/app/game/:path*", "/app/leaderboard/:path*"],
+    matcher: [
+        "/",
+        "/app/game/:path*",
+        "/app/leaderboard/:path*",
+        "/announcement/vishnu",
+    ],
 };
