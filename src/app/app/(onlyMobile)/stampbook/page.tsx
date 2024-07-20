@@ -18,7 +18,9 @@ export default function StampbookPage() {
     const pathName = usePathname();
 
     if (!firebaseUser) {
-        sessionStorage.setItem("redirectAfterLogin", pathName);
+        if (typeof window !== "undefined") {
+            sessionStorage.setItem("redirectAfterLogin", pathName);
+        }
         router.push("/login");
     }
 
