@@ -99,6 +99,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      dropShadow: {
+        'white': '2px 2px 1px rgba(255, 255, 255, 1)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
