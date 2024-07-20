@@ -1,5 +1,6 @@
 import vectorImage from "./images/vector.svg";
 import backgroundImage from "./images/background.svg";
+import mascotImage from "./images/mascot.png"
 import Image from "next/image";
 import next from "next";
 import { Button } from "@/components/ui/button";
@@ -18,10 +19,15 @@ export default function IntaniaNews() {
       </div>
 
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
-        <Link href="/intania_news/news01">
+        <Link href="/intania_news">
           <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
-              src="/intaniastorypics/Vishnu20th2.jpg"
+              
+              src="/intaniastorypics/comingsoon.png"
+              
+              //src="/intaniastorypics/Vishnu20th2.jpg"
+               
+              
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -38,9 +44,10 @@ export default function IntaniaNews() {
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news/news02">
+          <Link href="/intania_news">
             <img
-              src="/intaniastorypics/3.1.jpg"
+              src="/intaniastorypics/comingsoon2.png"
+               //src="/intaniastorypics/3.1.jpg"
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -54,27 +61,19 @@ export default function IntaniaNews() {
           </Link>
         </div>
 
-        <div>
-          <h2 className="relative mb-3 mt-1 inline-block max-w-full break-words font-roboto-condensed text-[10px] text-black">
-            civil <br />
-            electrical mechanical automotive industrial environmental
-            metallurgical mining/petroleum chemical <br /> nuclear <br />
-            survey
-            <br />
-            georesources
-            <br /> computer cedt
-            <br />
-            robotics/ai ice adme aero
-            <br /> nano chpe
-          </h2>
+        <div className="relative content-end">
+          
+          <Image className=" size-full aspect-square mb-3 object-cover object-bottom" src={mascotImage} alt="mascot graphic" />
+          
         </div>
       </div>
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-4 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news/news03">
-            <img
-              src="/intaniastorypics/4.3.jpg"
+          <Link href="/intania_news">
+            <img             
+              src="/intaniastorypics/comingsoon2.png"
+             //src="/intaniastorypics/4.3.jpg"
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -89,9 +88,11 @@ export default function IntaniaNews() {
         </div>
 
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news/news04">
+          <Link href="/intania_news">
             <img
-              src="/intaniastorypics/page4.2.jpg"
+              
+              src="/intaniastorypics/comingsoon2.png"
+               //src="/intaniastorypics/page4.2.jpg"
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -107,10 +108,11 @@ export default function IntaniaNews() {
       </div>
 
       <div className="mx-auto mt-5 max-w-[80%] gap-6">
-        <Link href="/intania_news/news05">
+        <Link href="/intania_news">
           <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
-              src="/intaniastorypics/page5.1.jpeg"
+              src="/intaniastorypics/comingsoon.png"
+              //src="/intaniastorypics/page5.1.jpeg"
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -130,6 +132,7 @@ export default function IntaniaNews() {
         <img
           className="h-24 w-full rounded-md object-cover"
           src="/intaniastorypics/IMG_3553.png"
+          
           alt="Random image"
         ></img>
 
@@ -163,22 +166,4 @@ export default function IntaniaNews() {
   );
 }
 
-/*
-<div className="relative max-w-[40%] mx-auto mt-10">
-  <img
-    className="h-64 w-full object-cover rounded-md"
-    src="https://images.unsplash.com/photo-1680725779155-456faadefa26"
-    alt="Random image"
-  ></img>
-  <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
-  <div className="absolute inset-0 flex place-content-end">
-    <div className="content-end">
-      <h2 className="text-white text-3xl font-bold">
-        รีวิวชีวิตปี 1 วิศวฯจุฬา
-      </h2>
-      <h2 className="text-white text-3xl font-bold">placeholder2?</h2>
-    </div>
-  </div>
-</div>
-</div>
-*/
+
