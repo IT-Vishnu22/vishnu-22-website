@@ -45,8 +45,12 @@ export function IntaniaNewsHeader() {
                                     <Image
                                         src={item.image}
                                         alt={item.title || "News image"}
+                                        priority
+                                        quality={80}
                                         fill
+                                        blurDataURL=""
                                         className="object-cover object-top"
+                                        placeholder="blur"
                                     />
                                     {item.title === "" ||
                                     item.title === null ? null : (

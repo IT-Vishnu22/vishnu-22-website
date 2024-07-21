@@ -10,6 +10,7 @@ export default function MapEng() {
                 src={MapImage}
                 width={0}
                 height={0}
+                loading="lazy"
                 className="w-full max-w-[800px] h-auto object-center object-contain border border-1 border-primary"
             />
             <p className="font-regular text-xs sm:text-md md:text-lg text-center text-primary">
