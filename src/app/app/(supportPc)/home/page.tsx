@@ -1,7 +1,6 @@
 "use client";
 import React, { useContext } from "react";
 import Link from "next/link";
-import style from "./styles.module.css";
 import Image from "next/image";
 
 import { Logo } from "@/assets/icons/LogoVishnu22";
@@ -19,13 +18,12 @@ import MapEng from "@/components/HomeComponents/MapEngineer";
 import { SponsorCarousel } from "@/components/HomeComponents/Sponsor";
 import { IntaniaNewsHeader } from "@/components/HomeComponents/IntaniaNews";
 import { DisableContext } from "@/lib/contexts/disable";
-import bgImage from "@/assets/images/backgroundHomepageOnPC.png";
 
 export default function Home() {
     const disableComponent: boolean = useContext(DisableContext);
 
     return (
-        <div className={style.bgPage}>
+        <div className="w-full min-h-screen pt-[100px] gap-[130px] md:gap-[150px] flex flex-col justify-center items-center bg-[url('/background/backgroundHomepageOnPC.png')] bg-top bg-repeat bg-contain bg-fixed">
 
             <div className="sm:hidden w-full flex flex-row justify-center items-center">
                 <Logo />
