@@ -1,14 +1,12 @@
 "use client";
 import { useEffect, useState, useMemo } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { useContext } from "react";
-import { DisableContext } from "@/lib/contexts/disable";
 
 export default function Base() {
     const router = useRouter();
     const pathName = usePathname();
     const [error, setError] = useState<string>("");
-    const isDisabled = useContext(DisableContext);
+    const isDisabled = true;
 
     const validPaths = useMemo(() => {
         return isDisabled ? [
