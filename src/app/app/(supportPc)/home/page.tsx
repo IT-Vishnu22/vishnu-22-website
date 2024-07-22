@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import style from "./styles.module.css";
+import Image from "next/image";
 
 import { Logo } from "@/assets/icons/LogoVishnu22";
 import {
@@ -18,13 +19,15 @@ import MapEng from "@/components/HomeComponents/MapEngineer";
 import { SponsorCarousel } from "@/components/HomeComponents/Sponsor";
 import { IntaniaNewsHeader } from "@/components/HomeComponents/IntaniaNews";
 import { DisableContext } from "@/lib/contexts/disable";
+import bgImage from "@/assets/images/backgroundHomepageOnPC.png";
 
 export default function Home() {
     const disableComponent: boolean = useContext(DisableContext);
 
     return (
         <div className={style.bgPage}>
-            <div className="flex w-full flex-row items-center justify-center sm:hidden">
+
+            <div className="sm:hidden w-full flex flex-row justify-center items-center">
                 <Logo />
             </div>
 
@@ -41,33 +44,18 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="z-10 grid w-[80vw] grid-cols-1 items-center justify-items-center gap-y-10 px-4 sm:gap-y-16 lg:grid-cols-2 lg:gap-y-20 xl:gap-y-24">
-                <div className="z-10 col-span-1 flex items-center justify-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link
-                        href={"/app/stampbook"}
-                        className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110"
-                    >
+
+            <div className="z-10 w-[80vw] px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 lg:grid-cols-2 justify-items-center items-center">
+                <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                    <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
                         <StampbookIcon />
-                        <ButtonNext
-                            Topic={"ตามล่า"}
-                            Topic2={"Stamp Book"}
-                            TextBtn={"collect"}
-                            isDisable={false}
-                        />
+                        <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} isDisable={false} />
                     </Link>
                 </div>
 
-                <div className="z-10 col-span-1 mt-8 flex items-center justify-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link
-                        href={"/app/club"}
-                        className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110"
-                    >
-                        <ButtonNext
-                            Topic={"เยี่ยมทุก"}
-                            Topic2={"ชมรม"}
-                            TextBtn={"collect"}
-                            isDisable={false}
-                        />
+                <div className="z-10 col-span-1 flex justify-center items-center py-4 mt-8 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                    <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                        <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} isDisable={false} />
                         <ClubCollectIcon />
                     </Link>
                 </div>
