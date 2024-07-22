@@ -92,29 +92,6 @@ export default function Song01() {
                     ทำนองโดย ท่านผู้หญิงสมโรจน์ สวัสดิกุล และนายสุภร ผลชีวิน
                 </h2>
             </div>
-  return (
-    <div className="relative h-full w-full bg-[linear-gradient(to_top,rgba(163,64,64,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/blank.svg')] px-5 py-5">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[130px] w-full bg-opacity-50 bg-[url('/intaniastorypics/dot_graphic.svg')] bg-contain bg-repeat-x"></div>
-      <div className="relative mt-5 flex items-center justify-center">
-        <Link href="/intania_news/intania_playlist">
-          <Image
-            className="absolute left-6 top-1/2 -translate-y-1/2 transform"
-            src={vectorImage}
-            alt="vector graphic"
-          />
-        </Link>
-        <h1 className="text-center font-athiti text-[26px] font-bold text-blue-1">
-          มหาจุฬาลงกรณ์
-        </h1>
-      </div>
-      <div className="flex place-items-center justify-center space-x-[13%] font-athiti">
-        <h2 className="font-athiti text-[14px] text-blue-1">
-          ประพันธ์คำร้องโดย -
-        </h2>
-      </div>
-      <div className="flex place-items-center justify-center space-x-[13%] font-athiti">
-        <h2 className="font-athiti text-[14px] text-blue-1">ทำนองโดย - </h2>
-      </div>
 
             <div className="mt-10 flex place-items-center justify-center space-x-[13%]">
                 <p className="mx-6 mb-60 font-athiti text-[16px] font-medium text-blue-1">
@@ -138,28 +115,6 @@ export default function Song01() {
                     (*)
                 </p>
             </div>
-      <div className="mt-10 flex place-items-center justify-center space-x-[13%]">
-        <p className="mx-6 mb-60 font-athiti text-[16px] font-medium text-blue-1">
-          น้ำใจน้องพี่สีชมพู ทุกคนไม่รู้ลืมบูชา
-          <br />
-          พระคุณของแหล่งเรียนมา จุฬาลงกรณ์
-          <br />
-          ขอทูนขอเทิดพระนามไท พระคุณแนบไว้นิรันดร
-          <br />
-          ขอองค์พระเอื้ออาทร หลั่งพรคุ้มครอง
-          <br />
-          <br />
-          *นิสิตพร้อมหน้า สัญญาประคอง
-          <br />
-          ความดีทุกอย่างต่างปอง ผยองพระเกียรติเกริกไกร
-          <br />
-          ขอตราพระเกี้ยวยั้งยืนยง นิสิตประสงค์เป็นธงชัย
-          <br />
-          ถาวรยศอยู่คู่ไทย เชิดชัยชโย
-          <br />
-          (*)
-        </p>
-      </div>
 
             <div className="relative z-[10] mt-10 flex flex-col items-center">
                 <input
