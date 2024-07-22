@@ -10,24 +10,11 @@ export default function IntaniaNews() {
   return (
     <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
       <div className="mr-[10%] mt-10 flex place-items-center justify-center space-x-[13%]">
-        <Link href="/intania_news">
-          <Image className="" src={vectorImage} alt="vector graphic" />
-        </Link>
-        <h1 className="font-roboto-condensed text-[30px] font-bold text-blue-1">
-          INTANIA NEWS
-        </h1>
-      </div>
-
-      <div className="mx-auto mt-5 max-w-[80%] gap-6">
         <Link href="/intania_news/news01">
-          <div className="group relative col-span-2 flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-            <img
-              
-              
+          <Image className="" src={vectorImage} alt="vector graphic" />
+                  <img
               src="/intaniastorypics/Vishnu20th2.jpg"
               //src="/intaniastorypics/comingsoon.png"
-               
-              
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -38,16 +25,15 @@ export default function IntaniaNews() {
             <span className="font-athiti relative mb-3 ml-4 ml-5 inline-block text-[16px] font-medium text-white">
               รีวิวชีวิตปี 1 วิศวฯจุฬา
             </span>
-          </div>
         </Link>
       </div>
-
+      
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-3 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news">
+          <Link href="/intania_news/news02">
             <img
-              src="/intaniastorypics/comingsoon2.png"
-               //src="/intaniastorypics/3.1.jpg"
+            src="/intaniastorypics/3.1.jpg"
+              //src="/intaniastorypics/comingsoon2.png"
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
