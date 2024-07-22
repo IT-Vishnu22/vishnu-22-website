@@ -1,0 +1,28 @@
+.bgPage {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    padding: 80px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+
+    background-image: url("../../../../../public/background/backgroundClub.png");
+    background-position: top center;
+    background-repeat: repeat-y;
+    background-size: 390px 390px;
+    background-attachment: fixed;
+}
+
+@media screen and (max-width: 768px) {
+    .bgPage {
+        width: 100%;
+        max-width: none;
+
+        background-size: contain;
+    }
+}
