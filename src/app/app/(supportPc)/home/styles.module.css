@@ -9,7 +9,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    background-image: url("/background/backgroundOnPC3.png");
+    background-image: url("../../../../assets/images/backgroundHomepageOnPC.png");
     background-position: center;
     background-repeat: repeat;
     background-size: contain;
