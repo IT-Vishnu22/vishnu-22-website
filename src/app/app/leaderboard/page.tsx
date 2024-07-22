@@ -71,7 +71,7 @@ export default function Leaderboard() {
             </div>
 
             {/* back icon & title */}
-            <Title />
+            <Title type={showType} />
 
             {/* other sai score */}
             <ScoreDisplay
