@@ -15,7 +15,6 @@
     background-position: top center;
     background-repeat: repeat-y;
     background-size: 390px 390px;
-    background-attachment: fixed;
 }
 
 @media screen and (max-width: 768px) {
