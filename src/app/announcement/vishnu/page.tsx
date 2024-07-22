@@ -243,7 +243,7 @@ const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({
     const groupName = houseName;
     const meetingPoint = registeration_place;
     const img1 = `/announcement/vishnu/first/จุดลงทะเบียน${meetingPoint}.svg`;
-    const img2 = `/announcement/vishnu/second/จุดลงทะเบียน${meetingPoint}.png`;
+    const img2 = `/announcement/vishnu/second/จุดลงทะเบียน${meetingPoint}.svg`;
     return (
         <>
             {group ? (
