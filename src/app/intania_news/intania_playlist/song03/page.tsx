@@ -88,9 +88,8 @@ export default function Song01() {
                 </h2>
             </div>
             <div className="flex place-items-center justify-center space-x-[13%] font-athiti">
-                <h2 className="font-athiti text-[14px] text-blue-1">
-                    ทำนองโดย ท่านผู้หญิงสมโรจน์ สวัสดิกุล ณ อยุธยา และนายสุภร
-                    ผลชีวิน
+                <h2 className="text-center font-athiti text-[14px] text-blue-1">
+                    ทำนองโดย ท่านผู้หญิงสมโรจน์ สวัสดิกุล และนายสุภร ผลชีวิน
                 </h2>
             </div>
 

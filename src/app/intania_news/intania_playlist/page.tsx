@@ -9,7 +9,7 @@ import { FaPlay } from "react-icons/fa";
 export default function IntaniaPlaylist() {
   return (
     <div className="relative h-full w-full bg-[linear-gradient(to_top,rgba(163,64,64,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/blank.svg')] px-5 py-5">
-      <div className="absolute inset-x-0 bottom-0 h-[130px] w-full bg-[url('/intaniastorypics/dot_graphic.svg')] bg-contain bg-repeat-x"></div>
+      <div className="absolute inset-x-0 bottom-0 h-[130px] w-full bg-opacity-50 bg-[url('/intaniastorypics/dot_graphic.svg')] bg-contain bg-repeat-x"></div>
       <div className="relative mt-5 flex items-center justify-center">
         <Link href="/intania_news">
           <Image
