@@ -15,7 +15,7 @@ export function middleware(request: NextRequest) {
     }
 
     if (
-        // request.nextUrl.pathname.startsWith("/app/game") ||
+        request.nextUrl.pathname.startsWith("/app/game/popgear") ||
         request.nextUrl.pathname.startsWith("/app/leaderboard")
         // || request.nextUrl.pathname.startsWith("/announcement/vishnu")
     ) {
@@ -30,5 +30,6 @@ export const config = {
         // "/app/game/:path*",
         "/app/leaderboard/:path*",
         // "/announcement/vishnu",
+        "/app/game/popgear/:path*",
     ],
 };
