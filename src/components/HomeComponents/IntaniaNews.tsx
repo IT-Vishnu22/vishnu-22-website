@@ -47,6 +47,7 @@ export function IntaniaNewsHeader() {
                                             priority
                                             quality={80}
                                             fill
+                                            sizes="100%"
                                             className="object-cover object-top"
                                             {...(index > 0 ? { loading: "lazy" } : { loading: "eager" })}
                                         />

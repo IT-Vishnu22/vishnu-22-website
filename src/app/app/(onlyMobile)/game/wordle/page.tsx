@@ -23,14 +23,16 @@ export default function WordlePage() {
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
 
     // Added
-    const [played, setPlayed] = useState<boolean>(false);
+    const [played, setPlayed] = useState<boolean>(true);
 
     useEffect(() => {
         const updatePlayed = async () => {
             const isPlayed = await didPlay(studentId, group);
             setPlayed(isPlayed);
         };
-        if (played || !answer) {
+        if (!played && answer) {
+            setIsGuessed(false);
+        } else {
             setIsGuessed(true);
         }
         updatePlayed();

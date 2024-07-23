@@ -68,7 +68,7 @@ export const StampbookIcon = () => {
 }
 
 export const GamerIconLeft = () => {
-    const isDisabled = true;
+    const isDisabled = false;
     const color = isDisabled ? "#9E9E9E" : "#EC808A";
     return (
         <svg className='ml-[-36px] mt-[20px] scale-90 md:scale-100' width="125" height="120" viewBox="0 0 135 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +85,7 @@ export const GamerIconLeft = () => {
 }
 
 export const GamerIconRight = () => {
-    const isDisabled = true;
+    const isDisabled = false;
     const color = isDisabled ? "#9E9E9E" : "#EC808A";
     return (
         <svg className='mr-[-55px] mb-[-80px] scale-90 md:scale-100' width="180" height="189" viewBox="0 0 189 198" fill="none" xmlns="http://www.w3.org/2000/svg">

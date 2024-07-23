@@ -56,20 +56,25 @@ export default function Home() {
                         <ClubCollectIcon />
                     </Link>
                 </div>
+                
+                <div className="z-10 col-span-1 flex items-center justify-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                    <Link
+                        href={"/app/game"}
+                        className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110"
+                    >
+                        <GamerIconRight />
+                        <ButtonNext
+                            Topic={"มาเล่น"}
+                            Topic2={"เกมกัน"}
+                            TextBtn={"play now"}
+                            isDisable={false}
+                        />
+                        <GamerIconLeft />
+                    </Link>
+                </div>
 
                 {disableComponent ? (
                     <>
-                        <div className="z-10 col-span-1 flex items-center justify-center py-4">
-                            <div className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110">
-                                <GamerIconRight />
-                                <ButtonNext
-                                    Topic={"Locked"}
-                                    TextBtn={"play now"}
-                                    isDisable={disableComponent}
-                                />
-                                <GamerIconLeft />
-                            </div>
-                        </div>
                         <div className="z-10 col-span-1 mt-14 flex items-center justify-center py-4">
                             <div className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110">
                                 <LeaderBoardIcon />
@@ -83,21 +88,6 @@ export default function Home() {
                     </>
                 ) : (
                     <>
-                        <div className="z-10 col-span-1 flex items-center justify-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                            <Link
-                                href={"/app/game"}
-                                className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110"
-                            >
-                                <GamerIconRight />
-                                <ButtonNext
-                                    Topic={"มาเล่น"}
-                                    Topic2={"เกมกัน"}
-                                    TextBtn={"play now"}
-                                    isDisable={false}
-                                />
-                                <GamerIconLeft />
-                            </Link>
-                        </div>
                         <div className="z-10 col-span-1 mt-12 mt-14 flex items-center justify-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                             <Link
                                 href={"/leaderboard"}
