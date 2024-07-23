@@ -122,28 +122,38 @@ const CompletionBadgeSection = () => {
                 <span className="font-bold">ค่ายวิษณุกรรมบุตร!</span>
             </p>
             <div className="relative mt-4 flex justify-between gap-10">
-                {["first", "second", "third"].map((item, index) => (
-                    <div key={item} className="relative">
-                        <TempImageDay />
-                        {/* <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#404040]">
-                            <Image
-                                className="z-10 brightness-0 grayscale filter"
-                                src={`/stampbookImages/${item}.PNG`}
-                                width={[70, 50, 50][index]}
-                                height={[70, 50, 50][index]}
-                                alt="spoiler for vishnu22nd camp"
-                            />
-                        </div> */}
-                        <Image
-                            className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
-                            src="/stampbookImages/lock.svg"
-                            alt="badge is locked"
-                            width={30}
-                            height={30}
-                        />
-                    </div>
-                ))}
-                <div className="pointer-events-none absolute top-1/2 z-0 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+                {["first", "second", "third"].map((item, index) => {
+                    const openBadge = 1; // 1 meaning badge 1, 2 meaning badge 1-2 , 3 meaning badge 1,2,3
+                    return (
+                        <div key={item} className="relative z-20">
+                            {index < openBadge ? (
+                                <div className="z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white">
+                                    <Image
+                                        className="z-30"
+                                        src={`/stampbookImages/${item}.PNG`}
+                                        width={[70, 50, 50][index]}
+                                        height={[70, 50, 50][index]}
+                                        alt="spoiler for vishnu22nd camp"
+                                    />
+                                </div>
+                            ) : (
+                                <TempImageDay />
+                            )}
+                            {index < openBadge ? (
+                                <></>
+                            ) : (
+                                <Image
+                                    className="absolute left-1/2 top-1/2 z-[11] aspect-square -translate-x-1/2 -translate-y-1/2"
+                                    src="/stampbookImages/lock.svg"
+                                    alt="badge is locked"
+                                    width={30}
+                                    height={30}
+                                />
+                            )}
+                        </div>
+                    );
+                })}
+                <div className="absolute top-1/2 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
             </div>
         </div>
     );
