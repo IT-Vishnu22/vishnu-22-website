@@ -89,41 +89,34 @@ export default function News01() {
                 />
             </div>
 
-            <div className="paragraph-container">
-                <h2 className="relative mb-3 mt-5 inline-block max-w-full break-words font-athiti text-xs font-medium text-black">
-                    &emsp; &emsp;ยังจำวันแรกที่เข้าค่ายวิษณุได้อยู่เลยด้วยซ้ำ
-                    ขนาดเรามาเล่น
-                    มาทำกิจกรรมทุกอย่างยังอดเสียดายไม่ได้เลยว่าทำไมไม่ไปทักทาย
-                    ทำไมไม่ไปคุยกับเพื่อน ๆ พี่ ๆ ให้ได้มากกว่านี้
-                    เคยมีคนบอกเอาไว้ว่า “ปี 1 คือปีของการรับ ส่วนปี 2
-                    คือปีของการให้” ถ้ายังอยู่ปี 1 ก็รับเสียให้เต็มที่
-                    เก็บเกี่ยวความทรงจำแสนล้ำค่าพวกนี้ไว้
-                    เพราะช่วงชีวิตการได้เป็น freshy มันมีครั้งเดียวจริง ๆ
-                </h2>
-            </div>
-            <div>
-                <h2 className="relative mb-3 mt-1 inline-block max-w-full break-words text-center font-athiti text-xs italic text-black">
-                    “เข้ามาเรียนมหาวิทยาลัยได้สักพักปิดเทอม
-                    ตอนนั้นมันมีความรู้สึกว่ามันอบอุ่น ก็มีความเคารพในเรื่อง
-                    Seniority ที่ว่าลูกน้องต้องเคารพผู้ใหญ่เป็นธรรมเนียมไทย
-                    แม้แต่ภารโรง กวาดพื้น ถูห้อง แม่ค้าขายกล้วยแขก เราเรียกลุง
-                    เรียกป้า เหมือนเป็นญาติกันหมด ไม่ได้ดูถูกผู้ใหญ่ เป็นลุง
-                    จะมีแต่ป้าทำไมกล้วยแขกมันบางลง”
-                </h2>
-            </div>
-            <div>
-                <h2
-                    className="relative inline-block max-w-full break-words font-athiti text-xs text-black"
-                    style={{
-                        marginLeft: "auto",
-                        display: "block",
-                        textAlign: "right",
-                    }}
-                >
-                    - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ (วันที่
-                    20 กันยายน 2555)
-                </h2>
-            </div>
+      <div className="paragraph-container">
+        <h2 className="font-athiti relative mb-3 mt-5 inline-block max-w-full break-words text-xs font-medium text-black">
+          &emsp; &emsp;ยังจำวันแรกที่เข้าค่ายวิษณุได้อยู่เลยด้วยซ้ำ
+          ขนาดเรามาเล่น
+          มาทำกิจกรรมทุกอย่างยังอดเสียดายไม่ได้เลยว่าทำไมไม่ไปทักทาย
+          ทำไมไม่ไปคุยกับเพื่อนๆ พี่ๆ ให้ได้มากกว่านี้ เคยมีคนบอกเอาไว้ว่า “ปี 1
+          คือปีของการรับ ส่วนปี 2 คือปีของการให้” ถ้ายังอยู่ปี 1
+          ก็รับเสียให้เต็มที่ เก็บเกี่ยวความทรงจำแสนล้ำค่าพวกนี้ไว้
+          เพราะช่วงชีวิตการได้เป็น freshy มันมีครั้งเดียวจริงๆ
+        </h2>
+      </div>
+      <div>
+        <h2 className="font-athiti relative mb-3 mt-1 inline-block max-w-full break-words text-center text-xs italic text-black">
+          “เข้ามาเรียนมหาวิทยาลัยได้สักพักปิดเทอม
+          ตอนนั้นมันมีความรู้สึกว่ามันอบอุ่น ก็มีความเคารพในเรื่อง Seniority
+          ที่ว่าลูกน้องต้องเคารพผู้ใหญ่เป็นธรรมเนียมไทย แม้แต่ภารโรง กวาดพื้น
+          ถูห้อง แม่ค้าขายกล้วยแขก เราเรียกลุง เรียกป้า เหมือนเป็นญาติกันหมด
+          ไม่ได้ดูถูกผู้ใหญ่ เป็นลุง จะมีแต่ป้าทำไมกล้วยแขกมันบางลง”
+        </h2>
+      </div>
+      <div>
+        <h2
+          className="font-athiti relative inline-block max-w-full break-words text-xs text-black"
+          style={{ marginLeft: "auto", display: "block", textAlign: "right" }}
+        >
+          - ถอดเทปตำนานวิศวจุฬา ท่านองคมนตรี กำธน สินธวานนท์ <p>(วันที่ 20 กันยายน 2555)</p>
+        </h2>
+      </div>
 
             <div className="ml-3 mr-3 mt-5 flex items-center justify-center space-x-4">
                 <div className="relative h-32 w-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg">
