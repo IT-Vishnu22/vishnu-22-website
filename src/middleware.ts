@@ -16,7 +16,7 @@ export function middleware(request: NextRequest) {
 
     if (
         request.nextUrl.pathname.startsWith("/app/game/popgear") ||
-        request.nextUrl.pathname.startsWith("/app/leaderboard") ||
+        request.nextUrl.pathname.startsWith("/app/leaderboard")
         //request.nextUrl.pathname.startsWith("/app/game")
     ) {
         return NextResponse.rewrite(new URL("/app/home", request.url));
