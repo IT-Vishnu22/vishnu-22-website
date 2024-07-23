@@ -1,3 +1,5 @@
+// wordle/pages.tsx ให้ตายก้อย่าหาย
+
 "use client";
 
 import wordList from "./wordList.json";
@@ -23,21 +25,21 @@ export default function WordlePage() {
     const [popUpMessage, setPopUpMessage] = useState<string>("rules");
 
     // Added
-    const [played, setPlayed] = useState<boolean>(false);
+    const [played, setPlayed] = useState<boolean>(true);
 
     useEffect(() => {
         const updatePlayed = async () => {
             const isPlayed = await didPlay(studentId, group);
             setPlayed(isPlayed);
         };
-        if (played || !answer) {
+        if (!played || answer) {
+            setIsGuessed(false);
+        } else {
             setIsGuessed(true);
         }
         updatePlayed();
     }, [played, answer]);
 
-
-    // for the physical keyboard e.g. of PC (not usable on mobile)
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             // Regular expression to check for alphanumeric characters
@@ -52,8 +54,23 @@ export default function WordlePage() {
         };
     }, [guess, isGuessed, handleKeyClick]);
 
+    // for the physical keyboard e.g. of PC (not usable on mobile)
+    // function handleKeyUp(e: { key: string }) {
+    //     let key = e.key;
+    //     if (isGuessed === true) {
+    //         return 0;
+    //     } else if (key.length === 1 && key.match(/[A-z]/) && guess.length < 5) {
+    //         setGuess(guess + key);
+    //     } else if (key === "Backspace") {
+    //         setGuess(guess.slice(0, guess.length - 1));
+    //     } else if (key === "Enter") {
+    //         handleSubmitClick();
+    //     }
+    // }
+
     //for the in-web keyboard
     // Function to handle the keydown event
+
     function handleKeyClick(key: string) {
         // Regular expression to check for alphanumeric characters
         const isAlphanumeric = /^[a-z0-9]+$/i;
@@ -145,7 +162,7 @@ export default function WordlePage() {
                         ) : (
                             <>
                                 <Button
-                                    className="h-16 w-32 rounded-xl border-2 border-gray-700 bg-gray-200 font-athiti text-[20px] font-bold text-black shadow-[3px_4px_0px_#374151] hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white" //shadow gray-700
+                                    className="h-16 w-32 rounded-xl border-2 border-gray-700 bg-gray-300 font-athiti text-[20px] font-bold text-black shadow-[3px_4px_0px_#374151] hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white" //shadow gray-700
                                     type="submit"
                                     onClick={handleClearClick}
                                 >
@@ -182,20 +199,20 @@ function PopUp({
             : message === "กรุณากรอกคำที่มี 5 ตัวอักษร" ||
                 message === "กรุณากรอกคำที่มีอยู่จริง"
               ? "bg-yellow-300"
-              : "bg-gray-200";
+              : "bg-gray-300";
 
     if (message === "rules") {
         return (
             <div className="w-1/2">
-                <div className="fixed left-1/2 top-1/2 flex h-3/4 min-h-[310px] w-3/4 max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
+                <div className="fixed left-1/2 top-1/2 flex h-3/4 min-h-[310px] max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
                     <div className="relative flex min-h-[310px] flex-col items-center justify-center">
                         <div className="absolute inset-0 mx-auto h-full w-full -rotate-6 bg-green-2 drop-shadow-md"></div>
                         <div className="relative inset-0 flex w-full flex-col items-center justify-center gap-6 bg-secondary p-8 drop-shadow-md">
                             <div className="flex flex-col gap-2">
-                                <p className="text-center font-athiti font-bold text-green-2 max-[330px]:text-base min-[330px]:text-3xl">
+                                <p className="text-center font-athiti font-bold text-green-2 min-[270px]:text-base min-[330px]:text-3xl">
                                     เล่นยังไงนะ?
                                 </p>
-                                <ul className="list-outside list-disc px-2 font-athiti max-[330px]:text-sm min-[330px]:text-base">
+                                <ul className="list-outside list-disc px-2 font-athiti min-[270px]:text-sm min-[330px]:text-base">
                                     <li>
                                         ตัวอักษรที่ถูกต้องแล้วอยู่ในตำแหน่งที่ถูกต้องจะแสดงเป็น
                                         <b className="text-green-600">
@@ -212,12 +229,17 @@ function PopUp({
                                         ตัวอักษรที่ไม่อยู่ในคำปริศนาจะแสดงเป็น
                                         <b className="text-gray-400">สีเทา</b>
                                     </li>
+                                    <li>
+                                        Agent 1 คนจะสามารถทายคำได้เพียง 1
+                                        ครั้งเท่านั้น
+                                        เพราะฉะนั้นอย่าลืมช่วยกันในหน่วยด้วยนะ
+                                    </li>
                                 </ul>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row items-center justify-center gap-10">
                                     <button
-                                        className="border-1 rounded-full border border-green-2 bg-green-1 px-6 py-1 font-athiti font-bold text-green-2 transition hover:bg-green-2 hover:text-white max-[330px]:text-xs min-[330px]:text-base"
+                                        className="border-1 rounded-full border border-green-2 bg-green-1 px-6 py-1 font-athiti font-bold text-green-2 transition hover:bg-green-2 hover:text-white min-[270px]:text-xs min-[330px]:text-base"
                                         onClick={handleClick}
                                     >
                                         เดาคำปริศนาเลย!!!
@@ -264,25 +286,13 @@ function Guess({
         <div className="mx-2 flex w-screen max-w-[390px] justify-center">
             <div className="mx-4 grid w-full max-w-[390px] grid-cols-5 gap-2">
                 {new Array(5).fill(0).map((_, i) => {
-                    let bgColor = !isGuessed
+                    const bgColor = !isGuessed
                         ? "bg-white"
                         : guess[i] === answer[i]
                           ? "bg-green-300"
                           : answer.includes(guess[i])
                             ? "bg-cream"
                             : "bg-white";
-
-                    if (bgColor == "bg-cream") {
-                        let countAns = 0;
-                        for (let c of answer) {
-                            if (c == guess[i]) {
-                                countAns++;
-                            }
-                        }
-                        if (countAns <= 1) {
-                            bgColor = "bg-white";
-                        }
-                    }
 
                     if (isGuessed) {
                         return (
@@ -319,7 +329,7 @@ function Keyboard({ handleClick }: { handleClick: (key: string) => void }) {
                     {row.split("").map((key: string) => (
                         <Button
                             id={key}
-                            className={`m-px flex h-10 w-1 items-center justify-center rounded-lg border-2 border-gray-700 bg-gray-200 px-[17%] text-center font-bold uppercase text-black hover:text-white md:rounded-xl`}
+                            className={`m-px flex h-10 w-1 items-center justify-center rounded-lg border-2 border-gray-700 bg-gray-300 px-[17%] text-center font-bold uppercase text-black hover:text-white md:rounded-xl`}
                             onClick={() => handleClick(key)}
                             key={key}
                         >
