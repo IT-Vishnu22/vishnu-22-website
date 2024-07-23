@@ -15,9 +15,9 @@ export function middleware(request: NextRequest) {
     }
 
     if (
-        // request.nextUrl.pathname.startsWith("/app/game") ||
-        request.nextUrl.pathname.startsWith("/app/leaderboard")
-        // || request.nextUrl.pathname.startsWith("/announcement/vishnu")
+        request.nextUrl.pathname.startsWith("/app/game/popgear") ||
+        request.nextUrl.pathname.startsWith("/app/leaderboard") ||
+        //request.nextUrl.pathname.startsWith("/app/game")
     ) {
         return NextResponse.rewrite(new URL("/app/home", request.url));
     }
@@ -27,8 +27,9 @@ export function middleware(request: NextRequest) {
 export const config = {
     matcher: [
         "/",
-        // "/app/game/:path*",
+        "/app/game/:path*",
         "/app/leaderboard/:path*",
         // "/announcement/vishnu",
+        //"/app/game/popgear/:path*",
     ],
 };
