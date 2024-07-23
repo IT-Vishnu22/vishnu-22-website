@@ -42,7 +42,7 @@ export function SponsorCarousel() {
                             return (
                                 <CarouselItem className={`basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6`} key={index}>
                                     <div className={`w-full h-full bg-white flex justify-center items-center px-2`}>
-                                        <Image alt="sponser image" src={item} width={0} height={0} className="w-[80%] sm:w-[70%] md:w-[60%] max-w-[250px] h-auto object-contain" />
+                                        <Image alt="sponser image" src={item} width={0} height={0} quality={80} loading="lazy" className="w-[80%] sm:w-[70%] md:w-[60%] max-w-[250px] h-auto object-contain" />
                                     </div>
                                 </CarouselItem>
                             );
