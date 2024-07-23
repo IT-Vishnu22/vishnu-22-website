@@ -18,7 +18,7 @@ export default function Base() {
         "/app/game",
         "/app/game/popgear",
         "/app/game/wordle",
-        // "/app/leaderboard",
+        "/app/leaderboard",
     ], []);
 
     useEffect(() => {
