@@ -12,7 +12,7 @@ export default function StampbookPage() {
     //get studentId from login
     const { firebaseUser, data } = useContext(UserContext);
     const studentId = data?.studentId;
-    const [popUpMessage, setPopUpMessage] = useState<string>("");
+    const [popUpMessage, setPopUpMessage] = useState<string>("rules");
 
     const router = useRouter();
     const pathName = usePathname();
@@ -123,7 +123,7 @@ const CompletionBadgeSection = () => {
             </p>
             <div className="relative mt-4 flex justify-between gap-10">
                 {["first", "second", "third"].map((item, index) => {
-                    const openBadge = 1; // 1 meaning badge 1, 2 meaning badge 1-2 , 3 meaning badge 1,2,3
+                    const openBadge = 2; // 1 meaning badge 1, 2 meaning badge 1-2 , 3 meaning badge 1,2,3
                     return (
                         <div key={item} className="relative z-20">
                             {index < openBadge ? (
@@ -153,7 +153,7 @@ const CompletionBadgeSection = () => {
                         </div>
                     );
                 })}
-                <div className="absolute top-1/2 h-[10px] w-full -translate-y-1/2 bg-[#404040]"></div>
+                <div className="absolute top-1/2 h-[10px] w-full -translate-y-1/2 bg-white"></div>
             </div>
         </div>
     );
@@ -207,7 +207,7 @@ const PopUp = ({
         return (
             <div
                 onClick={handlePopUpClick}
-                className="absolute inset-0 z-20 cursor-pointer bg-white/60"
+                className="absolute inset-0 z-50 cursor-pointer bg-white/60"
             >
                 <div className="fixed left-1/2 top-1/2 z-50 flex h-3/4 min-h-[310px] w-[310px] max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
                     <div className="relative flex min-h-[310px] flex-col items-center justify-center">
