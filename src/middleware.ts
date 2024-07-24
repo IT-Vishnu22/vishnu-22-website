@@ -4,19 +4,18 @@ import type { NextRequest } from "next/server";
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
     // Extract the query parameters from the request URL
-    if (request.nextUrl.pathname.startsWith("/")) {
-        const queryParams = request.nextUrl.search;
+    if (request.nextUrl.pathname == "/") {
+      const queryParams = request.nextUrl.search;
+      // Construct the new URL with the query parameters
+      const newUrl = new URL(`/app/home${queryParams}`, request.nextUrl.origin);
 
-        // Construct the new URL with the query parameters
-        const newUrl = new URL(`/app/home${queryParams}`, request.url);
-
-        // Redirect to the new URL
-        return NextResponse.redirect(newUrl);
-    }
+      // Redirect to the new URL
+      return NextResponse.redirect(newUrl);
+  }
 
     if (
-        request.nextUrl.pathname.startsWith("/app/game/popgear") ||
-        request.nextUrl.pathname.startsWith("/app/leaderboard") ||
+        request.nextUrl.pathname.startsWith("/app/game/popgear")
+        // request.nextUrl.pathname.startsWith("/app/leaderboard")
         //request.nextUrl.pathname.startsWith("/app/game")
     ) {
         return NextResponse.rewrite(new URL("/app/home", request.url));

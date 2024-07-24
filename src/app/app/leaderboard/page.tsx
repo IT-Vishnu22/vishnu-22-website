@@ -7,7 +7,7 @@ import Title from "@/components/Title";
 
 import dynamic from "next/dynamic";
 import { firestore } from "@/lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
 const PodiumsDisplay = dynamic(() => import("@/components/PodiumsDisplay"), {
     ssr: false,
@@ -32,21 +32,37 @@ export default function Leaderboard() {
     >([]);
 
     useEffect(() => {
-        getDoc(doc(firestore, "scores", "game")).then((doc) => {
-            if (doc.exists()) {
-                const sortedScore = Object.entries(doc.data())
-                    .sort((a, b) => b[1] - a[1])
-                    .map(([name, score]) => ({ name, score }));
-                setGameScoreboardData(sortedScore);
-            }
+        getDocs(collection(firestore, "score")).then((all) => {
+            const sortedScore = all.docs
+                .sort(
+                    (a, b) =>
+                        b.data().auto_added +
+                        b.data().manual_added -
+                        (a.data().auto_added + a.data().manual_added),
+                )
+                .map((a) => {
+                    return {
+                        score: (a.data().auto_added +
+                            a.data().manual_added) as number,
+                        name: a.data().houseName as string,
+                    };
+                });
+            setGameScoreboardData(sortedScore);
         });
-        getDoc(doc(firestore, "scores", "water")).then((doc) => {
-            if (doc.exists()) {
-                const sortedScore = Object.entries(doc.data())
-                    .sort((a, b) => b[1] - a[1])
-                    .map(([name, score]) => ({ name, score }));
-                setWaterScoreboardData(sortedScore);
-            }
+        getDocs(collection(firestore, "water-score")).then((all) => {
+            const sortedScore = all.docs
+                .sort(
+                    (a, b) =>
+                        b.data().percentage -
+                        (a.data().percentage),
+                )
+                .map((a) => {
+                    return {
+                        score: (a.data().percentage) as number,
+                        name: a.data().houseName as string,
+                    };
+                });
+            setWaterScoreboardData(sortedScore);
         });
     }, []);
 
