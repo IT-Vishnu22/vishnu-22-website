@@ -70,10 +70,11 @@ export default function IntaniaNews() {
 
       <div className="mx-auto mt-5 grid max-w-[80%] grid-cols-4 gap-4 gap-6">
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news">
-            <img             
-              src="/intaniastorypics/comingsoon2.png"
-             //src="/intaniastorypics/4.3.jpg"
+          <Link href="/intania_news/news03">
+            <img
+            src="/intaniastorypics/4.3.jpg"             
+             // src="/intaniastorypics/comingsoon2.png"
+             //
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
