@@ -63,7 +63,7 @@ export default function Song01() {
 
   return (
     <div className="relative h-full w-full bg-[linear-gradient(to_top,rgba(163,64,64,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/blank.svg')] px-5 py-5">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[130px] w-full bg-[url('/intaniastorypics/dot_graphic.svg')] bg-contain bg-repeat-x"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[130px] w-full bg-opacity-50 bg-[url('/intaniastorypics/dot_graphic.svg')] bg-contain bg-repeat-x"></div>
       <div className="relative mt-5 flex items-center justify-center">
         <Link href="/intania_news/intania_playlist">
           <Image
@@ -72,19 +72,19 @@ export default function Song01() {
             alt="vector graphic"
           />
         </Link>
-        <h1 className="font-athiti text-center text-[26px] font-bold text-blue-1">
+        <h1 className="text-center font-athiti text-[26px] font-bold text-blue-1">
           แรงเลือดหมู
         </h1>
       </div>
-      <div className="font-athiti flex place-items-center justify-center space-x-[13%]">
+      <div className="flex place-items-center justify-center space-x-[13%] font-athiti">
         <h2 className="text-[14px] text-blue-1">ประพันธ์คำร้องโดย - </h2>
       </div>
-      <div className="font-athiti flex place-items-center justify-center space-x-[13%]">
+      <div className="flex place-items-center justify-center space-x-[13%] font-athiti">
         <h2 className="text-[14px] text-blue-1">ทำนองโดย - </h2>
       </div>
 
       <div className="mt-10 flex place-items-center justify-center space-x-[13%]">
-        <p className="font-athiti mx-6 text-[16px] font-medium text-blue-1">
+        <p className="mx-6 font-athiti text-[16px] font-medium text-blue-1">
           พวกเราน้องพี่
           <br />
           ภาคภูมิฤดีรักกันที่สีเดียว

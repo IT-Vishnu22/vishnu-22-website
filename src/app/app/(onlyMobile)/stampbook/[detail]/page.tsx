@@ -36,12 +36,12 @@ export default async function DetailPage({
                     fill={true}
                 />
             </div>
-            <div className="space-y-4 px-5 py-9 font-athiti text-base font-medium text-blue-1">
+            <div className="space-y-4 px-5 py-9 text-base font-medium text-blue-1">
                 {detail?.Fact.map((item: string, index: number) => {
                     return (
                         <pre
                             key={index}
-                            className="whitespace-break-spaces text-wrap"
+                            className="whitespace-break-spaces text-wrap font-athiti"
                         >
                             {"    "}
                             {item}

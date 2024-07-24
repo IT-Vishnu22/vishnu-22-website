@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Base() {
@@ -7,19 +7,29 @@ export default function Base() {
     const pathName = usePathname();
     const [error, setError] = useState<string>("");
 
-    const validPaths = [
+    const validPaths = useMemo(() => [
+        "/announcement/firstdate",
+        "/announcement/vishnu",
+        "/intania_news",
+        "/login",
         "/app/home",
         "/app/club",
         "/app/stampbook",
-        "/leaderboard",
         "/app/game",
-        "/app/intania_news",
-        "/login",
-    ];
+        "/app/game/popgear",
+        "/app/game/wordle",
+        "/app/leaderboard",
+    ], []);
 
     useEffect(() => {
         const handleNavigation = async () => {
-            if (!validPaths.includes(pathName)) {
+            const isValidPath = validPaths.some(path =>
+                pathName.startsWith(path) ||
+                (pathName.startsWith("/app/stampbook/")) ||
+                (pathName.startsWith("/intania_news"))
+            );
+
+            if (!isValidPath) {
                 try {
                     await router.push("/app/home");
                 } catch (err) {
@@ -30,7 +40,7 @@ export default function Base() {
         };
 
         handleNavigation();
-    }, [router, pathName]);
+    }, [router, pathName, validPaths]);
 
     if (error) {
         return <div>Error: {error}</div>;

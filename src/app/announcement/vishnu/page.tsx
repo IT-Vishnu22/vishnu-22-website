@@ -220,11 +220,11 @@ const AnnouncementSection = () => {
                 <p>-</p>
                 }
 
-                <a href={line || "https://line.me/en/"}>
+                <Link href={line || "https://line.me/en/"}>
                     <Button className="rounded-[10px] bg-cream px-[67px] py-3 font-roboto-condensed text-lg font-medium text-blue-3">
                         เข้ากลุ่ม Line
                     </Button>
-                </a>
+                </Link>
             </div>
             <AnnouncementDetail
                 houseName={houseName}
@@ -243,7 +243,7 @@ const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({
     const groupName = houseName;
     const meetingPoint = registeration_place;
     const img1 = `/announcement/vishnu/first/จุดลงทะเบียน${meetingPoint}.svg`;
-    const img2 = `/announcement/vishnu/second/จุดลงทะเบียน${meetingPoint}.png`;
+    const img2 = `/announcement/vishnu/second/จุดลงทะเบียน${meetingPoint}.svg`;
     return (
         <>
             {group ? (
