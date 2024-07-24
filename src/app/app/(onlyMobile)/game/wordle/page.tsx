@@ -204,7 +204,7 @@ function PopUp({
     if (message === "rules") {
         return (
             <div className="w-1/2">
-                <div className="fixed left-1/2 top-1/2 flex h-3/4 min-h-[310px] max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
+                <div className="fixed left-1/2 top-1/2 flex h-3/4 w-3/4 min-h-[310px] max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
                     <div className="relative flex min-h-[310px] flex-col items-center justify-center">
                         <div className="absolute inset-0 mx-auto h-full w-full -rotate-6 bg-green-2 drop-shadow-md"></div>
                         <div className="relative inset-0 flex w-full flex-col items-center justify-center gap-6 bg-secondary p-8 drop-shadow-md">
@@ -286,13 +286,24 @@ function Guess({
         <div className="mx-2 flex w-screen max-w-[390px] justify-center">
             <div className="mx-4 grid w-full max-w-[390px] grid-cols-5 gap-2">
                 {new Array(5).fill(0).map((_, i) => {
-                    const bgColor = !isGuessed
+                    let bgColor = !isGuessed
                         ? "bg-white"
                         : guess[i] === answer[i]
                           ? "bg-green-300"
                           : answer.includes(guess[i])
                             ? "bg-cream"
                             : "bg-white";
+                    if (bgColor == "bg-cream") {
+                        let countAns = 0;
+                        for (let c of answer) {
+                            if (c == guess[i]) {
+                                countAns++;
+                            }
+                        }
+                        if (countAns <= 1) {
+                            bgColor = "bg-white";
+                        }
+                    }
 
                     if (isGuessed) {
                         return (
