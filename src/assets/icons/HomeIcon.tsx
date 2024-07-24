@@ -5,7 +5,7 @@ import StampPath from '@/assets/images/stamp.png';
 
 
 export const LeaderBoardIcon = () => {
-    const isDisabled = true;
+    const isDisabled = false;
     const color = isDisabled ? "#9E9E9E" : "#EC808A";
     return (
         <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">

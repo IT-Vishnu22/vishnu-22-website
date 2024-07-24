@@ -19,7 +19,6 @@ import { SponsorCarousel } from "@/components/HomeComponents/Sponsor";
 import { IntaniaNewsHeader } from "@/components/HomeComponents/IntaniaNews";
 
 export default function Home() {
-    const disableComponent: boolean = true;
 
     return (
         <div className="w-full min-h-screen pt-[100px] gap-[130px] md:gap-[150px] flex flex-col justify-center items-center">
@@ -44,19 +43,33 @@ export default function Home() {
 
             <div className="z-10 w-[80vw] px-4 grid grid-cols-1 gap-y-10 sm:gap-y-16 lg:gap-y-20 xl:gap-y-24 lg:grid-cols-2 justify-items-center items-center">
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/stampbook'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
+                    <Link
+                        href={'/app/stampbook'}
+                        className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115"
+                    >
                         <StampbookIcon />
-                        <ButtonNext Topic={"ตามล่า"} Topic2={"Stamp Book"} TextBtn={"collect"} isDisable={false} />
+                        <ButtonNext
+                            Topic={"ตามล่า"}
+                            Topic2={"Stamp Book"}
+                            TextBtn={"collect"}
+                        />
                     </Link>
                 </div>
 
                 <div className="z-10 col-span-1 flex justify-center items-center py-4 mt-8 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                    <Link href={'/app/club'} className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115">
-                        <ButtonNext Topic={"เยี่ยมทุก"} Topic2={"ชมรม"} TextBtn={"collect"} isDisable={false} />
+                    <Link
+                        href={'/app/club'}
+                        className="flex flex-row justify-center items-center transform transition-transform duration-300 sm:scale-110 lg:scale-115"
+                    >
+                        <ButtonNext
+                            Topic={"เยี่ยมทุก"}
+                            Topic2={"ชมรม"}
+                            TextBtn={"collect"}
+                        />
                         <ClubCollectIcon />
                     </Link>
                 </div>
-                
+
                 <div className="z-10 col-span-1 flex items-center justify-center py-4 hover:-rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
                     <Link
                         href={"/app/game"}
@@ -67,42 +80,23 @@ export default function Home() {
                             Topic={"มาเล่น"}
                             Topic2={"เกมกัน"}
                             TextBtn={"play now"}
-                            isDisable={false}
                         />
                         <GamerIconLeft />
                     </Link>
                 </div>
 
-                {disableComponent ? (
-                    <>
-                        <div className="z-10 col-span-1 mt-14 flex items-center justify-center py-4">
-                            <div className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110">
-                                <LeaderBoardIcon />
-                                <ButtonNext
-                                    Topic={"Locked"}
-                                    TextBtn={"check record"}
-                                    isDisable={disableComponent}
-                                />
-                            </div>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <div className="z-10 col-span-1 mt-12 mt-14 flex items-center justify-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
-                            <Link
-                                href={"/leaderboard"}
-                                className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110"
-                            >
-                                <LeaderBoardIcon />
-                                <ButtonNext
-                                    Topic={"Leaderboard"}
-                                    TextBtn={"check record"}
-                                    isDisable={false}
-                                />
-                            </Link>
-                        </div>
-                    </>
-                )}
+                <div className="z-10 col-span-1 mt-12 mt-14 flex items-center justify-center py-4 hover:rotate-6 hover:scale-110 hover:transform hover:transition-transform hover:duration-300">
+                    <Link
+                        href={"/app/leaderboard"}
+                        className="lg:scale-115 flex transform flex-row items-center justify-center transition-transform duration-300 sm:scale-110"
+                    >
+                        <LeaderBoardIcon />
+                        <ButtonNext
+                            Topic={"Leaderboard"}
+                            TextBtn={"check record"}
+                        />
+                    </Link>
+                </div>
             </div>
 
             <AccordionHome />

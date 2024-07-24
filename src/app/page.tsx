@@ -18,14 +18,15 @@ export default function Base() {
         "/app/game",
         "/app/game/popgear",
         "/app/game/wordle",
-        // "/app/leaderboard",
+        "/app/leaderboard",
     ], []);
 
     useEffect(() => {
         const handleNavigation = async () => {
             const isValidPath = validPaths.some(path =>
                 pathName.startsWith(path) ||
-                (path === "/app/stampbook" && pathName.startsWith("/app/stampbook/"))
+                (pathName.startsWith("/app/stampbook/")) ||
+                (pathName.startsWith("/intania_news"))
             );
 
             if (!isValidPath) {
