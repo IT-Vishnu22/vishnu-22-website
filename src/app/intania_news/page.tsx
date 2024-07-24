@@ -89,10 +89,10 @@ export default function IntaniaNews() {
         </div>
 
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news">
+          <Link href="/intania_news/news05">
             <img
-              
-              src="/intaniastorypics/comingsoon2.png"
+              src="/intaniastorypics/page5.1.jpeg"
+              //src="/intaniastorypics/comingsoon2.png"
                //src="/intaniastorypics/page4.2.jpg"
               loading="lazy"
               alt="Photo by Magicle"
@@ -102,7 +102,9 @@ export default function IntaniaNews() {
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
             <span className="font-athiti relative mb-3 ml-3 inline-block text-[16px] font-medium text-white">
-              ไอเทมวิศวฯ
+              
+              บิดาแห่งคณะวิศวกรรมศาสตร์ <br />
+              จุฬาลงกรณ์มหาวิทยาลัย
             </span>
           </Link>
         </div>
@@ -112,8 +114,10 @@ export default function IntaniaNews() {
         <Link href="/intania_news">
           <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
             <img
-              src="/intaniastorypics/comingsoon.png"
-              //src="/intaniastorypics/page5.1.jpeg"
+            src="/intaniastorypics/comingsoon.png"
+            //src="/intaniastorypics/page4.2.jpg"
+             
+              
               loading="lazy"
               alt="Photo by Magicle"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -122,8 +126,7 @@ export default function IntaniaNews() {
             <div className="bg-gradient-to-t pointer-events-none absolute inset-0 from-gray-800 via-transparent to-transparent opacity-50"></div>
 
             <span className="font-athiti relative mb-3 ml-4 ml-5 inline-block text-[16px] font-medium text-white">
-              บิดาแห่งคณะวิศวกรรมศาสตร์ <br />
-              จุฬาลงกรณ์มหาวิทยาลัย
+            ไอเทมวิศวฯ
             </span>
           </div>
         </Link>
