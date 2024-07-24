@@ -12,6 +12,9 @@ import { NewsHomepage } from "@/interfaces/Homepage";
 import Vishnu from "@/assets/images/intaniaNews/Vishnu3rd.jpg";
 import EngAndStudy from "@/assets/images/intaniaNews/EngineerAndStudy.jpg";
 import Football from "@/assets/images/intaniaNews/Football2.jpg"
+import payan from "@/assets/images/intaniaNews/PaYan.jpg";
+import teacher from "@/assets/images/intaniaNews/Teacher.jpeg"
+
 
 export function IntaniaNewsHeader() {
     const news: NewsHomepage[] = [
@@ -32,6 +35,18 @@ export function IntaniaNewsHeader() {
             description:
                 "ฟุตบอลประเพณีจุฬา-ธรรมศาสตร์จริงๆ แล้วมีต้นกำเนิดมาจากการแข่งขันเรือประเพณีระหว่างมหาวิทยาลัยออกซฟอร์ดและมหาวิทยาลัยเคมบริดจ์",
             image: Football,
+        },
+        {
+            title: "ไอเทมวิศวฯ",
+            description:
+                "ผ้ายันต์สำหรับชาววิศวฯ เปรียบเสมือนเครื่องรางให้น้องๆ สอบผ่าน ใช้ชีวิตภายในคณะวิศวฯ โดยสวัสดิภาพราบรื่น",
+            image: payan,
+        },
+        {
+            title: "บิดาแห่งคณะวิศวกรรมศาสตร์",
+            description:
+                "ก่อนจะมาเป็นวิศวฯ จุฬาอย่างทุกวันนี้ คณะวิศวฯ เคยเป็นแค่โรงเรียนช่างที่ไม่ได้มีหลักสูตรปริญญา และไม่ได้รับการยอมรับจากต่างชาติในฐานะมหาวิทยาลัยสากล",
+            image: teacher,
         },
     ];
 
