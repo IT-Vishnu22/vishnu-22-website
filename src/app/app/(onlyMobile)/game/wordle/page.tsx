@@ -178,7 +178,7 @@ export default function WordlePage() {
                             </>
                         )
                     ) : (
-                        <p>Closed. Game open: 13.00 - 20.00</p>
+                        <p>Closed. Game open: 9.00 - 20.00</p>
                     )}
                 </div>
             </div>
