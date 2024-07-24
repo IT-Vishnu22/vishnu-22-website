@@ -25,7 +25,8 @@ export default function Base() {
         const handleNavigation = async () => {
             const isValidPath = validPaths.some(path =>
                 pathName.startsWith(path) ||
-                (path === "/app/stampbook" && pathName.startsWith("/app/stampbook/"))
+                (pathName.startsWith("/app/stampbook/")) ||
+                (pathName.startsWith("/intania_news"))
             );
 
             if (!isValidPath) {
