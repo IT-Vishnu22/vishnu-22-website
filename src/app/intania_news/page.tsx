@@ -89,7 +89,7 @@ export default function IntaniaNews() {
         </div>
 
         <div className="group relative col-span-2 flex h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          <Link href="/intania_news">
+          <Link href="/intania_news/news05">
             <img
               src="/intaniastorypics/page5.1.jpeg"
               //src="/intaniastorypics/comingsoon2.png"
