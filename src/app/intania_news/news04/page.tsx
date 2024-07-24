@@ -4,7 +4,7 @@ import next from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function News05() {
+export default function News04() {
     return (
         <div className="h-full w-full bg-[linear-gradient(to_top,rgba(196,125,118,0.5),rgba(240,225,219,0.5)),url('/intaniastorypics/background.svg')] px-5 py-5">
             {/*<img 
