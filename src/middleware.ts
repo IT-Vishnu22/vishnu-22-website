@@ -4,11 +4,13 @@ import type { NextRequest } from "next/server";
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
     // Extract the query parameters from the request URL
-    if (request.nextUrl.pathname.startsWith("/")) {
+    if (request.nextUrl.pathname == "/") {
         const queryParams = request.nextUrl.search;
-
         // Construct the new URL with the query parameters
-        const newUrl = new URL(`/app/home${queryParams}`, request.url);
+        const newUrl = new URL(
+            `/app/home${queryParams}`,
+            request.nextUrl.origin,
+        );
 
         // Redirect to the new URL
         return NextResponse.redirect(newUrl);
@@ -16,8 +18,8 @@ export function middleware(request: NextRequest) {
 
     if (
         request.nextUrl.pathname.startsWith("/app/game") ||
-        request.nextUrl.pathname.startsWith("/app/leaderboard") ||
-        request.nextUrl.pathname.startsWith("/announcement/vishnu")
+        // || request.nextUrl.pathname.startsWith("/app/leaderboard")
+        request.nextUrl.pathname.startsWith("/app/stampbook")
     ) {
         return NextResponse.rewrite(new URL("/app/home", request.url));
     }
@@ -28,7 +30,8 @@ export const config = {
     matcher: [
         "/",
         "/app/game/:path*",
-        "/app/leaderboard/:path*",
-        "/announcement/vishnu",
+        // "/app/leaderboard/:path*",
+        // "/announcement/vishnu",
+        "/app/stampbook:path*",
     ],
 };
