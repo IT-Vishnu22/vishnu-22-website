@@ -130,7 +130,7 @@ const CompletionBadgeSection = () => {
                                 <div className="z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white">
                                     <Image
                                         className="z-30"
-                                        src={`/stampbookImages/${item}.PNG`}
+                                        src={`/stampbookImages/${item}.png`}
                                         width={[70, 50, 50][index]}
                                         height={[70, 50, 50][index]}
                                         alt="spoiler for vishnu22nd camp"
