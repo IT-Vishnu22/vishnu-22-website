@@ -169,5 +169,6 @@ export default function IntaniaNews() {
                 </div>
             </div>
         </div>
+
     );
 }
