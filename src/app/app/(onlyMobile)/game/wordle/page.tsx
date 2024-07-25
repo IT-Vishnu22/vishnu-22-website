@@ -300,7 +300,13 @@ function Guess({
                                 countAns++;
                             }
                         }
-                        if (countAns <= 1) {
+                        let countCorr = 0;
+                        for (let k=0; k<5; k++) {
+                            if (guess[k]==answer[k]&&answer[k]==guess[i]){
+                                countCorr++;
+                            }
+                        }
+                        if (countAns-countCorr <= 0) {
                             bgColor = "bg-white";
                         }
                     }
