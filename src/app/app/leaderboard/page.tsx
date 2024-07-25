@@ -91,10 +91,12 @@ export default function Leaderboard() {
 
             {/* other sai score */}
             <ScoreDisplay
+            startAt={4}
                 data={(showType == "game"
                     ? gameScoreboardData
                     : waterScoreboardData
                 ).slice(3)}
+                suffix={showType == "game" ? "pts" : "%"}
             />
 
             {/* Toggle Icon */}
