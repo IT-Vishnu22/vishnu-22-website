@@ -152,14 +152,15 @@ export default function WordlePage() {
                     {answer ? (
                         !firebaseUser ? (
                             <p>No user: Please login first.</p>
-                        ) : !group ? (
-                            <p>
-                                This is only for 108: If you are 108, please
-                                contact IT.
-                            </p>
-                        ) : played ? (
-                            <p>คุณได้เล่นไปแล้ว</p>
                         ) : (
+                            // !group ? (
+                            //     <p>
+                            //         This is only for 108: If you are 108, please
+                            //         contact IT.
+                            //     </p>
+                            // ) : played ? (
+                            //     <p>คุณได้เล่นไปแล้ว</p>
+                            // ) :
                             <>
                                 <Button
                                     className="h-16 w-32 rounded-xl border-2 border-gray-700 bg-gray-300 font-athiti text-[20px] font-bold text-black shadow-[3px_4px_0px_#374151] hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white" //shadow gray-700
@@ -204,7 +205,7 @@ function PopUp({
     if (message === "rules") {
         return (
             <div className="w-1/2">
-                <div className="fixed left-1/2 top-1/2 flex h-3/4 w-3/4 min-h-[310px] max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
+                <div className="fixed left-1/2 top-1/2 flex h-3/4 min-h-[310px] w-3/4 max-w-[310px] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center">
                     <div className="relative flex min-h-[310px] flex-col items-center justify-center">
                         <div className="absolute inset-0 mx-auto h-full w-full -rotate-6 bg-green-2 drop-shadow-md"></div>
                         <div className="relative inset-0 flex w-full flex-col items-center justify-center gap-6 bg-secondary p-8 drop-shadow-md">
@@ -301,12 +302,15 @@ function Guess({
                             }
                         }
                         let countCorr = 0;
-                        for (let k=0; k<5; k++) {
-                            if (guess[k]==answer[k]&&answer[k]==guess[i]){
+                        for (let k = 0; k < 5; k++) {
+                            if (
+                                guess[k] == answer[k] &&
+                                answer[k] == guess[i]
+                            ) {
                                 countCorr++;
                             }
                         }
-                        if (countAns-countCorr <= 0) {
+                        if (countAns - countCorr <= 0) {
                             bgColor = "bg-white";
                         }
                     }
