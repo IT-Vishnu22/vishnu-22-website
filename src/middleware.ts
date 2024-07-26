@@ -17,8 +17,8 @@ export function middleware(request: NextRequest) {
     }
 
     if (
-        request.nextUrl.pathname.startsWith("/app/game/") ||
-        request.nextUrl.pathname.startsWith("/app/stampbook") ||
+        //request.nextUrl.pathname.startsWith("/app/game/") ||
+        //request.nextUrl.pathname.startsWith("/app/stampbook") ||
         request.nextUrl.pathname.startsWith("/app/leaderboard")
     ) {
         return NextResponse.rewrite(new URL("/app/home", request.url));
@@ -29,8 +29,8 @@ export function middleware(request: NextRequest) {
 export const config = {
     matcher: [
         "/",
-        "/app/game/:path*",
-        "/app/stampbook/:path*",
+        //"/app/game/:path*",
+        //"/app/stampbook/:path*",
         "/app/leaderboard/:path*",
         // "/announcement/vishnu",
     ],
