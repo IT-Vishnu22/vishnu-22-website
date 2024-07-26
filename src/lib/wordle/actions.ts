@@ -8,53 +8,45 @@ export async function addPlayed(
     group: string | null,
     win: boolean,
 ) {
-    // console.log("played: ", studentId, group);
-
-    if (!studentId || !group) {
-        console.error("DNE");
-        return;
-    }
-
-    const docRef = doc(firestore, "wordle", group);
-    const docSnap = await getDoc(docRef);
-
-    if (!docSnap.exists()) {
-        console.error("DNE");
-        return;
-    }
-
-    // Check if they have played or not
-    const played = docSnap.data().played;
-    if (played.includes(studentId)) {
-        // console.log("already played");
-        return;
-    }
-
-    // played
-    played.push(studentId);
-
-    if (win) {
-        const count = docSnap.data().winners_count;
-        const winners = docSnap.data().winners;
-
-        const newCount = count + 1;
-        winners.push(studentId);
-
-        // console.log("winners", winners);
-        const batch = writeBatch(firestore);
-        batch.update(docRef, {
-            winners_count: newCount,
-            winners: winners,
-            played: played,
-        });
-        batch.commit();
-        // console.log("done", newCount, winners);
-    } else {
-        // console.log("lose", studentId);
-        await updateDoc(docRef, {
-            played: played,
-        });
-    }
+    // // console.log("played: ", studentId, group);
+    // if (!studentId || !group) {
+    //     console.error("DNE");
+    //     return;
+    // }
+    // const docRef = doc(firestore, "wordle", group);
+    // const docSnap = await getDoc(docRef);
+    // if (!docSnap.exists()) {
+    //     console.error("DNE");
+    //     return;
+    // }
+    // // Check if they have played or not
+    // const played = docSnap.data().played;
+    // // if (played.includes(studentId)) {
+    // //     // console.log("already played");
+    // //     return;
+    // // }
+    // // played
+    // played.push(studentId);
+    // if (win) {
+    //     const count = docSnap.data().winners_count;
+    //     const winners = docSnap.data().winners;
+    //     const newCount = count + 1;
+    //     winners.push(studentId);
+    //     // console.log("winners", winners);
+    //     const batch = writeBatch(firestore);
+    //     batch.update(docRef, {
+    //         winners_count: newCount,
+    //         winners: winners,
+    //         //played: played,
+    //     });
+    //     batch.commit();
+    //     // console.log("done", newCount, winners);
+    // } else {
+    //     // console.log("lose", studentId);
+    //     await updateDoc(docRef, {
+    //         //played: played,
+    //     });
+    // }
 }
 
 export async function fetchWord() {
@@ -73,25 +65,26 @@ export async function didPlay(
     studentId: string | undefined,
     group: string | null,
 ) {
-    // console.log("played: ", studentId, group);
+    // // console.log("played: ", studentId, group);
 
-    if (!group || !studentId) {
-        return true;
-    }
+    // if (!group || !studentId) {
+    //     return true;
+    // }
 
-    const docRef = doc(firestore, "wordle", group);
-    const docSnap = await getDoc(docRef);
+    // const docRef = doc(firestore, "wordle", group);
+    // const docSnap = await getDoc(docRef);
 
-    if (!docSnap.exists()) {
-        console.error("DNE");
-        return true;
-    }
+    // if (!docSnap.exists()) {
+    //     console.error("DNE");
+    //     return true;
+    // }
 
-    // Check if they have played or not
-    const played = docSnap.data().played;
-    if (played.includes(studentId)) {
-        return true;
-    } else {
-        return false;
-    }
+    // // Check if they have played or not
+    // const played = docSnap.data().played;
+    // if (played.includes(studentId)) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+    return false;
 }
