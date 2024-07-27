@@ -123,7 +123,7 @@ const CompletionBadgeSection = () => {
             </p>
             <div className="relative mt-4 flex justify-between gap-10">
                 {["first", "second", "third"].map((item, index) => {
-                    const openBadge = 2; // 1 meaning badge 1, 2 meaning badge 1-2 , 3 meaning badge 1,2,3
+                    const openBadge = 3; // 1 meaning badge 1, 2 meaning badge 1-2 , 3 meaning badge 1,2,3
                     return (
                         <div key={item} className="relative z-20">
                             {index < openBadge ? (
