@@ -250,11 +250,11 @@ const AnnouncementDetail: React.FC<AnnouncementDetailProps> = ({
                 <>
                     <div className="my-4 text-center font-athiti text-white">
                         <h1 className="text-[32px] font-bold leading-[52px]">
-                            หน่วย{groupName}
+                            {groupName}
                         </h1>
-                        <p className="text-base font-medium">{meetingPoint}</p>
+{/*                         <p className="text-base font-medium">{meetingPoint}</p> */}
                     </div>
-                    <MapCarousel img1={img1} img2={img2} />
+{/*                     <MapCarousel img1={img1} img2={img2} /> */}
                 </>
             ) : (
                 <div className="my-4 text-center font-athiti text-white">
